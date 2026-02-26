@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "last_full_scan": "2026-02-26T13:59:51",
+  "last_full_scan": "2026-02-26T14:58:41",
   "projects": [
     {
       "name": "nexus",
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:59:40"
+      "last_scanned": "2026-02-26T14:58:31"
     },
     {
       "name": "Dragon Heir",
@@ -43,7 +43,7 @@
       "last_activity": "2026-02-26",
       "git": null,
       "filesystem": {
-        "last_modified_file": "docs/MEMORY.md",
+        "last_modified_file": "nexus.yaml",
         "last_modified_date": "2026-02-26"
       },
       "health": {
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-02-26T13:59:40"
+      "last_scanned": "2026-02-26T14:58:32"
     },
     {
       "name": "CRCMG",
@@ -71,7 +71,7 @@
       "last_activity": "2026-02-26",
       "git": null,
       "filesystem": {
-        "last_modified_file": "98-Base-Conhecimento/desenvolvimento/padroes.md",
+        "last_modified_file": "Incidentes-Getin/nexus.yaml",
         "last_modified_date": "2026-02-26"
       },
       "health": {
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:59:47"
+      "last_scanned": "2026-02-26T14:58:38"
     },
     {
       "name": "IASD",
@@ -93,11 +93,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-02-25",
+      "last_activity": "2026-02-26",
       "git": null,
       "filesystem": {
-        "last_modified_file": "Tesouraria/_Pendentes/Copasa 232.42.jpeg",
-        "last_modified_date": "2026-02-25"
+        "last_modified_file": "nexus.yaml",
+        "last_modified_date": "2026-02-26"
       },
       "health": {
         "path_exists": true,
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:59:48"
+      "last_scanned": "2026-02-26T14:58:39"
     },
     {
       "name": "IA Builder",
@@ -118,7 +118,7 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2025-12-24",
+      "last_activity": "2026-02-26",
       "git": {
         "branch": "master",
         "last_commit_date": "2025-12-23",
@@ -132,7 +132,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:59:49"
+      "last_scanned": "2026-02-26T14:58:39"
     },
     {
       "name": "Mnemo",
@@ -145,12 +145,12 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-02-20",
+      "last_activity": "2026-02-26",
       "git": {
         "branch": "main",
         "last_commit_date": "2026-02-20",
         "last_commit_message": "Add memory summary for 2026-02-21",
-        "dirty": false
+        "dirty": true
       },
       "filesystem": null,
       "health": {
@@ -159,7 +159,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:59:49"
+      "last_scanned": "2026-02-26T14:58:39"
     },
     {
       "name": "WSL Config",
@@ -172,11 +172,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-02-13",
+      "last_activity": "2026-02-26",
       "git": null,
       "filesystem": {
-        "last_modified_file": "setup.sh",
-        "last_modified_date": "2026-02-13"
+        "last_modified_file": "nexus.yaml",
+        "last_modified_date": "2026-02-26"
       },
       "health": {
         "path_exists": true,
@@ -184,7 +184,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:59:49"
+      "last_scanned": "2026-02-26T14:58:39"
     },
     {
       "name": "Livros",
@@ -197,12 +197,12 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-02-18",
+      "last_activity": "2026-02-26",
       "git": {
         "branch": "main",
         "last_commit_date": "2026-02-18",
         "last_commit_message": "fix: resolve cross-file inconsistencies found in review",
-        "dirty": false
+        "dirty": true
       },
       "filesystem": null,
       "health": {
@@ -211,7 +211,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:59:50"
+      "last_scanned": "2026-02-26T14:58:41"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -224,7 +224,7 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-02-06",
+      "last_activity": "2026-02-26",
       "git": {
         "branch": "master",
         "last_commit_date": "2026-02-06",
@@ -238,7 +238,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:59:51"
+      "last_scanned": "2026-02-26T14:58:41"
     },
     {
       "name": "RAID Legends",
@@ -251,11 +251,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-02-13",
+      "last_activity": "2026-02-26",
       "git": null,
       "filesystem": {
-        "last_modified_file": "sellfiles/SellALL.hsf",
-        "last_modified_date": "2026-02-13"
+        "last_modified_file": "nexus.yaml",
+        "last_modified_date": "2026-02-26"
       },
       "health": {
         "path_exists": true,
@@ -263,7 +263,32 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:59:51"
+      "last_scanned": "2026-02-26T14:58:41"
+    },
+    {
+      "name": "Incidentes-Getin",
+      "path": "/mnt/e/OneDrive/CRCMG/Incidentes-Getin",
+      "description": "Pitlo do gestor de incidentes da Getin (ser\u001bá migrado para projeto CRCMG)",
+      "icon": "🐞",
+      "category": "trabalho",
+      "url": null,
+      "repo": null,
+      "status": "active",
+      "note": null,
+      "class": "filesystem",
+      "last_activity": "2026-02-26",
+      "git": null,
+      "filesystem": {
+        "last_modified_file": "nexus.yaml",
+        "last_modified_date": "2026-02-26"
+      },
+      "health": {
+        "path_exists": true,
+        "claude_memory_portable": null,
+        "web_compliant": null
+      },
+      "web": null,
+      "last_scanned": "2026-02-26T14:58:41"
     }
   ]
 }
