@@ -70,10 +70,19 @@ const Calendar = {
       ]);
     }
 
-    const cards = items.map(item => this._renderEvent(item, detailsMap));
+    const active = items.filter(item => this._isActiveOrUpcoming(item));
+
+    if (active.length === 0) {
+      return R.card('mb-4', [
+        R.el('h2', { className: 'text-lg font-semibold text-white mb-2', textContent: title }),
+        R.el('div', { className: 'text-sm text-gray-500', textContent: 'Nenhum evento ativo.' })
+      ]);
+    }
+
+    const cards = active.map(item => this._renderEvent(item, detailsMap));
 
     return R.card('mb-4', [
-      R.el('h2', { className: 'text-lg font-semibold text-white mb-3', textContent: title }),
+      R.el('h2', { className: 'text-lg font-semibold text-white mb-3', textContent: `${title} (${active.length})` }),
       R.el('div', { className: 'grid grid-cols-1 gap-3' }, cards)
     ]);
   },
@@ -84,10 +93,23 @@ const Calendar = {
       ? `${this._formatDate(item.start)} → ${this._formatDate(item.end)}`
       : item.tip || 'Sem datas';
 
+    const daysLeft = this._daysRemaining(item.end);
+    const daysLabel = daysLeft === 0 ? 'Ultimo dia!'
+      : daysLeft === 1 ? 'Amanha termina'
+      : daysLeft !== null && daysLeft <= 3 ? `${daysLeft} dias restantes`
+      : null;
+    const isStartingSoon = item.start && new Date(item.start + 'T00:00:00') > new Date(new Date().toDateString());
+
+    const badges = [
+      R.el('span', { className: 'text-xs text-gray-500', textContent: item.category || 'Evento' })
+    ];
+    if (daysLabel) badges.unshift(R.badge(daysLabel, 'progress'));
+    if (isStartingSoon) badges.unshift(R.badge('Em breve', 'pending'));
+
     const blocks = [
-      R.el('div', { className: 'flex items-center justify-between' }, [
+      R.el('div', { className: 'flex items-center justify-between flex-wrap gap-1' }, [
         R.el('div', { className: 'text-base font-semibold text-white', textContent: item.title }),
-        R.el('span', { className: 'text-xs text-gray-500', textContent: item.category || 'Evento' })
+        R.el('div', { className: 'flex items-center gap-2' }, badges)
       ]),
       R.el('div', { className: 'text-sm text-gray-300', textContent: dateText })
     ];
@@ -145,6 +167,22 @@ const Calendar = {
     ]);
   },
 
+  _isActiveOrUpcoming(item) {
+    if (!item.end) return true;
+    const end = new Date(item.end + 'T23:59:59');
+    const today = new Date();
+    return end >= today;
+  },
+
+  _daysRemaining(endDate) {
+    if (!endDate) return null;
+    const end = new Date(endDate + 'T00:00:00');
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const diff = Math.floor((end - today) / 86400000);
+    return diff >= 0 ? diff : null;
+  },
+
   _calendarStatus(endDate) {
     if (!endDate) return null;
     const end = new Date(endDate + 'T00:00:00');
@@ -158,16 +196,17 @@ const Calendar = {
   },
 
   _nextEvent(cal) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
     const list = [...(cal.events || []), ...(cal.limited_time || []), ...(cal.summon_pools || [])]
-      .filter(item => item.start)
+      .filter(item => item.start && this._isActiveOrUpcoming(item))
       .map(item => ({
         ...item,
         startDate: new Date(item.start + 'T00:00:00')
       }))
       .sort((a, b) => a.startDate - b.startDate);
 
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
     return list.find(item => item.startDate >= today) || list[0] || null;
   },
 
