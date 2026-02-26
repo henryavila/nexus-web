@@ -1,0 +1,43 @@
+/* custom.css — only for things Tailwind can't do */
+@keyframes slide-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes slide-out { from { transform: translateX(0); } to { transform: translateX(100%); } }
+.slide-panel-open { transform: translateX(0) !important; }
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0f1117; }
+::-webkit-scrollbar-thumb { background: #3a3d4a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #5a5d6a; }
+
+/* Element color dots */
+.element-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+
+/* Bottom navigation — safe area for notched phones */
+#bottom-nav {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Horizontal scrollable chips on mobile */
+.filter-scroll {
+  overflow-x: auto;
+  flex-wrap: nowrap !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.filter-scroll::-webkit-scrollbar { display: none; }
+
+/* More menu popup above bottom nav */
+.more-menu {
+  position: absolute;
+  bottom: 100%;
+  right: 8px;
+  margin-bottom: 8px;
+  min-width: 180px;
+  z-index: 35;
+}
+
+/* Tap highlight removal for mobile */
+@media (max-width: 767px) {
+  button, a { -webkit-tap-highlight-color: transparent; }
+}

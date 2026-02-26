@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dragon Heir Companion</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          surface: { DEFAULT: '#0f1117', card: '#1a1d28', hover: '#242836', panel: '#1e2130' },
+          gold: { DEFAULT: '#d4a853', dim: '#a68638', hover: '#e8c06a' },
+          fire: '#e85d3a', ice: '#4fa8d4', lightning: '#a87fd4',
+          poison: '#5db85d', necrosis: '#8a6db5', radiance: '#e8d44d',
+          'tier-ss': '#ff6b35', 'tier-s': '#e8a835', 'tier-a': '#4fa8d4',
+          'tier-b': '#5db85d', 'tier-c': '#9a97a0',
+          mythic: '#ff6b35', legendary: '#d4a853', epic: '#a87fd4',
+          done: '#5db85d', progress: '#d4a853', pending: '#5a576d',
+          'role-burst': '#f59e0b', 'role-aoe': '#a855f7', 'role-st': '#06b6d4',
+          'role-tank': '#3b82f6', 'role-healer': '#10b981', 'role-amp': '#eab308', 'role-debuff': '#f43f5e'
+        }
+      }
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="h-full bg-surface text-gray-200 font-sans">
+  <div id="app" class="flex flex-col md:flex-row h-full">
+    <nav id="sidebar" class="hidden md:flex w-56 bg-surface-card border-r border-surface-hover flex-col shrink-0"></nav>
+    <main id="content" class="flex-1 overflow-auto px-3 pt-3 pb-20 md:p-6"></main>
+    <nav id="bottom-nav" class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-card border-t border-surface-hover z-30"></nav>
+    <aside id="slide-panel" class="fixed right-0 top-0 h-full w-full md:w-96 bg-surface-panel shadow-2xl transform translate-x-full transition-transform duration-200 ease-in-out z-50 overflow-auto"></aside>
+    <div id="backdrop" class="fixed inset-0 bg-black/50 hidden z-40"></div>
+  </div>
+
+  <!-- Core data files (rest loaded on demand) -->
+  <script src="data/mechanics.js"></script>
+  <script src="data/profile.js"></script>
+  <script src="data/plan.js"></script>
+
+  <!-- Utils -->
+  <script src="js/utils/data.js"></script>
+  <script src="js/utils/render.js"></script>
+  <script src="js/utils/filters.js"></script>
+
+  <!-- Components -->
+  <script src="js/components/slidePanel.js"></script>
+  <script src="js/components/sidebar.js"></script>
+  <script src="js/components/dashboard.js"></script>
+  <script src="js/components/calendar.js"></script>
+  <script src="js/components/heroes.js"></script>
+  <script src="js/components/teams.js"></script>
+  <script src="js/components/builds.js"></script>
+  <script src="js/components/artifacts.js"></script>
+  <script src="js/components/gear.js"></script>
+  <script src="js/components/tierlist.js"></script>
+  <script src="js/components/plan.js"></script>
+  <script src="js/components/decisions.js"></script>
+
+  <!-- App -->
+  <script src="js/app.js"></script>
+</body>
+</html>
