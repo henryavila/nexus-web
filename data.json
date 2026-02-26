@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "last_full_scan": "2026-02-26T13:16:15",
+  "last_full_scan": "2026-02-26T13:21:15",
   "projects": [
     {
       "name": "nexus",
@@ -17,7 +17,7 @@
       "git": {
         "branch": "main",
         "last_commit_date": "2026-02-26",
-        "last_commit_message": "fix: wrap init in DOMContentLoaded for Cloudflare Rocket Loader",
+        "last_commit_message": "fix: exclude .claude/ from filesystem scanner to prevent false activity",
         "dirty": true
       },
       "filesystem": null,
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:16:04"
+      "last_scanned": "2026-02-26T13:21:05"
     },
     {
       "name": "Dragon Heir",
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-02-26T13:16:04"
+      "last_scanned": "2026-02-26T13:21:05"
     },
     {
       "name": "CRCMG",
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:16:11"
+      "last_scanned": "2026-02-26T13:21:12"
     },
     {
       "name": "IASD",
@@ -93,11 +93,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-02-26",
+      "last_activity": "2026-02-25",
       "git": null,
       "filesystem": {
-        "last_modified_file": ".claude/settings.local.json",
-        "last_modified_date": "2026-02-26"
+        "last_modified_file": "Tesouraria/_Pendentes/Copasa 232.42.jpeg",
+        "last_modified_date": "2026-02-25"
       },
       "health": {
         "path_exists": true,
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:16:12"
+      "last_scanned": "2026-02-26T13:21:13"
     },
     {
       "name": "IA Builder",
@@ -118,7 +118,7 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-02-26",
+      "last_activity": "2025-12-24",
       "git": {
         "branch": "master",
         "last_commit_date": "2025-12-23",
@@ -132,7 +132,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:16:13"
+      "last_scanned": "2026-02-26T13:21:13"
     },
     {
       "name": "Mnemo",
@@ -145,7 +145,7 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-02-26",
+      "last_activity": "2026-02-20",
       "git": {
         "branch": "main",
         "last_commit_date": "2026-02-20",
@@ -159,7 +159,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:16:13"
+      "last_scanned": "2026-02-26T13:21:13"
     },
     {
       "name": "WSL Config",
@@ -172,11 +172,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-02-26",
+      "last_activity": "2024-01-02",
       "git": null,
       "filesystem": {
-        "last_modified_file": ".claude/settings.local.json",
-        "last_modified_date": "2026-02-26"
+        "last_modified_file": "OFL.txt",
+        "last_modified_date": "2024-01-02"
       },
       "health": {
         "path_exists": true,
@@ -184,7 +184,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:16:13"
+      "last_scanned": "2026-02-26T13:21:13"
     },
     {
       "name": "Livros",
@@ -197,7 +197,7 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-02-26",
+      "last_activity": "2026-02-18",
       "git": {
         "branch": "main",
         "last_commit_date": "2026-02-18",
@@ -211,7 +211,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:16:14"
+      "last_scanned": "2026-02-26T13:21:14"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -224,7 +224,7 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-02-26",
+      "last_activity": "2026-02-06",
       "git": {
         "branch": "master",
         "last_commit_date": "2026-02-06",
@@ -238,7 +238,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:16:14"
+      "last_scanned": "2026-02-26T13:21:15"
     },
     {
       "name": "RAID Legends",
@@ -251,11 +251,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-02-26",
+      "last_activity": "2026-02-13",
       "git": null,
       "filesystem": {
-        "last_modified_file": ".claude/settings.local.json",
-        "last_modified_date": "2026-02-26"
+        "last_modified_file": "sellfiles/SellALL.hsf",
+        "last_modified_date": "2026-02-13"
       },
       "health": {
         "path_exists": true,
@@ -263,7 +263,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:16:15"
+      "last_scanned": "2026-02-26T13:21:15"
     }
   ]
 }
