@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "last_full_scan": "2026-02-26T13:21:15",
+  "last_full_scan": "2026-02-26T13:24:43",
   "projects": [
     {
       "name": "nexus",
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:21:05"
+      "last_scanned": "2026-02-26T13:24:32"
     },
     {
       "name": "Dragon Heir",
@@ -36,7 +36,7 @@
       "icon": "🐉",
       "category": "games",
       "url": null,
-      "repo": "henryavila/dragonheir-companion",
+      "repo": null,
       "status": "active",
       "note": null,
       "class": "filesystem",
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-02-26T13:21:05"
+      "last_scanned": "2026-02-26T13:24:33"
     },
     {
       "name": "CRCMG",
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:21:12"
+      "last_scanned": "2026-02-26T13:24:39"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:21:13"
+      "last_scanned": "2026-02-26T13:24:40"
     },
     {
       "name": "IA Builder",
@@ -132,7 +132,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:21:13"
+      "last_scanned": "2026-02-26T13:24:40"
     },
     {
       "name": "Mnemo",
@@ -159,7 +159,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:21:13"
+      "last_scanned": "2026-02-26T13:24:40"
     },
     {
       "name": "WSL Config",
@@ -184,7 +184,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:21:13"
+      "last_scanned": "2026-02-26T13:24:41"
     },
     {
       "name": "Livros",
@@ -211,7 +211,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:21:14"
+      "last_scanned": "2026-02-26T13:24:42"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -238,7 +238,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:21:15"
+      "last_scanned": "2026-02-26T13:24:42"
     },
     {
       "name": "RAID Legends",
@@ -263,7 +263,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:21:15"
+      "last_scanned": "2026-02-26T13:24:43"
     }
   ]
 }
