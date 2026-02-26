@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "last_full_scan": "2026-02-26T13:09:05",
+  "last_full_scan": "2026-02-26T13:16:15",
   "projects": [
     {
       "name": "nexus",
@@ -17,7 +17,7 @@
       "git": {
         "branch": "main",
         "last_commit_date": "2026-02-26",
-        "last_commit_message": "feat: redesign dashboard as temporal feed with temperature bar",
+        "last_commit_message": "fix: wrap init in DOMContentLoaded for Cloudflare Rocket Loader",
         "dirty": true
       },
       "filesystem": null,
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:08:54"
+      "last_scanned": "2026-02-26T13:16:04"
     },
     {
       "name": "Dragon Heir",
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-02-26T13:08:54"
+      "last_scanned": "2026-02-26T13:16:04"
     },
     {
       "name": "CRCMG",
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:09:01"
+      "last_scanned": "2026-02-26T13:16:11"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:09:02"
+      "last_scanned": "2026-02-26T13:16:12"
     },
     {
       "name": "IA Builder",
@@ -132,7 +132,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:09:03"
+      "last_scanned": "2026-02-26T13:16:13"
     },
     {
       "name": "Mnemo",
@@ -159,7 +159,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:09:03"
+      "last_scanned": "2026-02-26T13:16:13"
     },
     {
       "name": "WSL Config",
@@ -184,7 +184,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:09:03"
+      "last_scanned": "2026-02-26T13:16:13"
     },
     {
       "name": "Livros",
@@ -211,7 +211,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:09:05"
+      "last_scanned": "2026-02-26T13:16:14"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -238,7 +238,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:09:05"
+      "last_scanned": "2026-02-26T13:16:14"
     },
     {
       "name": "RAID Legends",
@@ -263,7 +263,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T13:09:05"
+      "last_scanned": "2026-02-26T13:16:15"
     }
   ]
 }

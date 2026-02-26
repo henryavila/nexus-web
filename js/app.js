@@ -113,7 +113,7 @@ function renderFeed(projects, lastScan, filter) {
     feed.insertAdjacentHTML('beforeend', html);
 }
 
-(async () => {
+async function init() {
     const data = await loadData();
     const projects = data.projects || [];
     const lastScan = data.last_full_scan;
@@ -156,4 +156,10 @@ function renderFeed(projects, lastScan, filter) {
             renderFeed(projects, lastScan);
         }
     });
-})();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
