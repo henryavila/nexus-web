@@ -7,7 +7,7 @@ window.DATA_PROFILE = {
   server: "139-Darkfire",
   status: "Veterano retornando",
   style: "Casual (30-40 min/dia), F2P",
-  last_updated: "2026-02-24",
+  last_updated: "2026-02-26",
   server_day: 16,
 
   guild: {
@@ -20,8 +20,8 @@ window.DATA_PROFILE = {
   resonance_cap_note: "MAX (todos heróis no nível máximo). Próximo power spike: talentos (cristais)",
 
   resources: {
-    heroes_total: 157,
-    legendaries: 36,
+    heroes_total: 159,
+    legendaries: 38,
     inspirations: 16,
     wyrmarrow: 7,
     dragon_crystal: 0,
@@ -45,6 +45,7 @@ window.DATA_PROFILE = {
 
   banner_progress: {
     lothair: { pulls: 300, pity: 300, status: "obtido", essence_before: 35144, essence_after: 38014, essence_gained: 2870 },
+    flora: { pulls: 300, pity: 300, status: "obtido", date: "2026-02-26", new_legendaries: ["Flora", "Huberg"], inspirations: ["Errich +1 (→2)", "Felicity +1 (→1)", "Caspar +1 (→1)", "Talwer +1 (→3)"] },
     target_summons_3: { status: "completo", date: "2026-02-24", legendaries: ["Oggok", "Huldork", "Ghul'ende", "Ergander"], epics: ["Zhar'loth"], inspirations: ["Talwer x2", "Journ x2"] }
   },
 

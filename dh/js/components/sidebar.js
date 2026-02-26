@@ -23,11 +23,13 @@ const Sidebar = {
     const nav = document.getElementById('sidebar');
     nav.innerHTML = '';
 
+    // --- Branding header ---
     nav.appendChild(R.el('div', { className: 'p-4 border-b border-surface-hover' }, [
-      R.el('h1', { className: 'text-lg font-bold text-gold', textContent: 'Dragon Heir' }),
-      R.el('div', { className: 'text-xs text-gray-500 mt-1', textContent: 'Companion App' })
+      R.el('h1', { className: 'brand-title text-xl leading-tight', textContent: 'Dragon Heir' }),
+      R.el('div', { className: 'text-[11px] text-gray-500 mt-1 tracking-wide uppercase', textContent: 'Companion App' })
     ]));
 
+    // --- Navigation items ---
     const list = R.el('div', { className: 'flex-1 py-2' });
     for (const item of this.items) {
       const btn = R.el('button', {
@@ -42,10 +44,31 @@ const Sidebar = {
     }
     nav.appendChild(list);
 
-    nav.appendChild(R.el('div', {
-      className: 'p-4 border-t border-surface-hover text-xs text-gray-500',
-      textContent: `${(typeof DATA_PROFILE !== 'undefined' && DATA_PROFILE?.name) || 'Player'} \u2014 ${(typeof DATA_PROFILE !== 'undefined' && DATA_PROFILE?.server) || ''}`
-    }));
+    // --- External links ---
+    const links = R.el('div', { className: 'sidebar-links border-t border-surface-hover py-2' });
+    const extLinks = [
+      { label: 'AllClash', url: 'https://www.allclash.com/dragonheir/' },
+      { label: 'HellHades', url: 'https://hellhades.com/dragonheir/' },
+      { label: 'DragonHeir.info', url: 'https://dragonheir.info/' },
+      { label: 'GitHub', url: 'https://github.com/henryavila/dragonheir-companion' }
+    ];
+    for (const link of extLinks) {
+      links.appendChild(R.el('a', {
+        href: link.url,
+        target: '_blank',
+        rel: 'noreferrer'
+      }, [
+        R.el('span', { className: 'text-gray-600', textContent: '\u2192' }),
+        R.el('span', { textContent: link.label })
+      ]));
+    }
+    nav.appendChild(links);
+
+    // --- Footer ---
+    nav.appendChild(R.el('div', { className: 'app-footer' }, [
+      R.el('div', { textContent: `${(typeof DATA_PROFILE !== 'undefined' && DATA_PROFILE?.name) || 'Player'} \u2014 ${(typeof DATA_PROFILE !== 'undefined' && DATA_PROFILE?.server) || ''}` }),
+      R.el('div', { className: 'mt-1 text-[10px]', textContent: 'Dragonheir: Silent Gods' })
+    ]));
   },
 
   // ---- Mobile bottom tab bar (visible only on mobile via CSS) ----

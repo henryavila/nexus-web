@@ -227,6 +227,32 @@ window.DATA_ARTIFACTS = {
       soul_imprint_used: "Sagomir (Radiance)"
     },
 
+    // ── MYTHIC COMPRADOS 26/Fev (2) ──
+    {
+      name: "Dawn Pipe Organ",
+      id: "dawn-pipe-organ",
+      rarity: "Mythic",
+      stats: "ATK + ATK%",
+      skill_name: "Ranged Amplifier",
+      skill_description: "Ranged allies ganham 5% do ATK do wearer.",
+      equippedOn: 20410,
+      teams: 0,
+      reason: "Flora (DI #1) tem ATK alto. 5% compartilhado com TODOS ranged allies (Errich, Felicity, Caspar, Tonalnan = time inteiro). Buff permanente passivo.",
+      upgrade_priority: null
+    },
+    {
+      name: "Ring of the Scarlet Sorcerer",
+      id: "ring-of-the-scarlet-sorcerer",
+      rarity: "Mythic",
+      stats: "ATK + Crit Dmg",
+      skill_name: "Scarlet Wild",
+      skill_description: "Wild dice >=5 -> +10% skill damage.",
+      equippedOn: 20810,
+      teams: 0,
+      reason: "Felicity multi-beam Ult (5→8 beams com dice >=5). +10% skill damage em CADA beam = multiplicador massivo. Com Errich +2 dice max, dice >=5 e quase garantido.",
+      upgrade_priority: null
+    },
+
     // ── LEGENDARY DPS/TANK CORE (9) ──
     {
       name: "Pocket of Seduction",

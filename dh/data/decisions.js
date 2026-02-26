@@ -2,6 +2,44 @@
 // Generated: 2026-02-13
 
 window.DATA_DECISIONS = [
+  // ── 2026-02-26 ──────────────────────────────────────────────────────────
+
+  {
+    date: "2026-02-26",
+    title: "Banner Flora 300 pulls — Flora obtida (DI #1) + Huberg + 4 Inspirations + 2 Mythics comprados",
+    tags: ["banner", "flora", "huberg", "fire", "wild", "radiance", "rally", "artefato", "mythic", "afinidade"],
+    summary: "Banner exclusivo Flora 300 pulls. Novos: Flora (Fire/Wild DI #1), Huberg (Radiance/Rally DI #34). Inspirations: Errich 1→2, Felicity 0→1, Caspar 0→1, Talwer 2→3. Comprou Dawn Pipe Organ (Flora) e Ring of the Scarlet Sorcerer (Felicity). Errich/Felicity/Caspar com Afinidade Lv1.",
+    impact: "Flora DI #1 transforma o time Fire/Wild num powerhouse. Sinergia Wild completa: Errich +2 dice max → Flora familiar triggers → Felicity multi-beam → Caspar throwing knives. Dawn Pipe Organ em Flora buffa ATK de TODOS ranged. Ring of Scarlet Sorcerer em Felicity amplifica beams com dice >=5. Time Fire/Wild agora e potencialmente o time mais forte do roster.",
+    details: `BANNER FLORA (300 pulls exclusivo)
+Novos Legendarios:
+- Flora (20410, Fire/Wild, DI #1): Melhor heroi S1. Captain +24% ATK all. Vortex 16 stacks = 900% explosion. Familiar ataca em ally dice >=5.
+- Huberg (20320, Radiance/Rally, DI #34, AC S): Rally DPS. Captain +30% ATK Fae/Pillar. 5.0 Goblin/Fae/Pillar/bosses.
+
+Inspirations (duplicatas):
+- Errich 1→2, Felicity 0→1, Caspar 0→1, Talwer 2→3
+
+Artefatos comprados:
+- Dawn Pipe Organ (Mythic, ATK+ATK%): Ranged allies ganham 5% ATK do wearer. Equipado em Flora.
+- Ring of the Scarlet Sorcerer (Mythic Fire, ATK+CritDmg): Wild dice >=5 → +10% skill damage. Equipado em Felicity.
+
+Afinidade:
+- Errich, Felicity, Caspar: Afinidade Lv1
+
+WILD FIRE SYNERGY CHAIN (novo aprendizado):
+1. Errich Passiva: +2 dice max (base 6→8) para TODOS Wild aliados — permanente
+2. Flora Passiva: ally Wild dice >=5 → familiar ataca target (+25%ATK) + Flora ganha Insight
+3. Flora Battle: Insight max → dice SEMPRE max → mais triggers
+4. Felicity Battle: recast em dice >=4 (ate 3x). Ult: 3 beams extras em dice >=5 (5→8)
+5. Caspar Passiva: dice par → Absurd Charade → ignora DEF crescente
+6. Caspar Ult: marca → ally dice >=4 → throwing knives automaticas
+7. Tonalnan: +5% Crit DMG por ally dice >=5 + 5 hits = +20% ATK Up burst
+
+FEEDBACK LOOP: Mais Wild heroes → mais dice rolls → mais triggers → mais DPS exponencial.
+5 Wild (Flora+Errich+Felicity+Caspar+Tonalnan) = sinergias no maximo.
+
+DECISAO PENDENTE: Refazer todos os times (atividade + por elemento) na proxima sessao.`
+  },
+
   // ── 2026-02-25 ──────────────────────────────────────────────────────────
 
   {

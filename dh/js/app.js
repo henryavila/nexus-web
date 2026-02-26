@@ -2,18 +2,18 @@
 
 const DataLoader = {
   registry: {
-    mechanics: { src: 'data/mechanics.js', global: 'DATA_MECHANICS' },
-    profile: { src: 'data/profile.js', global: 'DATA_PROFILE' },
-    plan: { src: 'data/plan.js', global: 'DATA_PLAN' },
-    heroes: { src: 'data/heroes.js', global: 'DATA_HEROES' },
-    myRoster: { src: 'data/my-roster.js', global: 'DATA_MY_ROSTER' },
-    artifacts: { src: 'data/artifacts.js', global: 'DATA_ARTIFACTS' },
-    teams: { src: 'data/teams.js', global: 'DATA_TEAMS' },
-    tiers: { src: 'data/tiers.js', global: 'DATA_TIERS' },
-    decisions: { src: 'data/decisions.js', global: 'DATA_DECISIONS' },
-    builds: { src: 'data/builds.js', global: 'DATA_BUILDS' },
-    gear: { src: 'data/gear.js', global: 'DATA_GEAR' },
-    calendar: { src: 'data/calendar.js', global: 'DATA_CALENDAR' }
+    mechanics: { src: './data/mechanics.js', global: 'DATA_MECHANICS' },
+    profile: { src: './data/profile.js', global: 'DATA_PROFILE' },
+    plan: { src: './data/plan.js', global: 'DATA_PLAN' },
+    heroes: { src: './data/heroes.js', global: 'DATA_HEROES' },
+    myRoster: { src: './data/my-roster.js', global: 'DATA_MY_ROSTER' },
+    artifacts: { src: './data/artifacts.js', global: 'DATA_ARTIFACTS' },
+    teams: { src: './data/teams.js', global: 'DATA_TEAMS' },
+    tiers: { src: './data/tiers.js', global: 'DATA_TIERS' },
+    decisions: { src: './data/decisions.js', global: 'DATA_DECISIONS' },
+    builds: { src: './data/builds.js', global: 'DATA_BUILDS' },
+    gear: { src: './data/gear.js', global: 'DATA_GEAR' },
+    calendar: { src: './data/calendar.js', global: 'DATA_CALENDAR' }
   },
 
   sectionDeps: {

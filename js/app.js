@@ -68,6 +68,7 @@ function renderProjects(projects, filter) {
             const links = [];
             if (p.url) links.push(`<a href="${escapeHtml(p.url)}" target="_blank">Site</a>`);
             if (p.repo) links.push(`<a href="https://github.com/${escapeHtml(p.repo)}" target="_blank">GitHub</a>`);
+            if (p.web?.route) links.push(`<a href="${escapeHtml(p.web.route)}" target="_blank">Página</a>`);
 
             html += `<div class="project-card">
                 <div class="card-header">
@@ -79,7 +80,8 @@ function renderProjects(projects, filter) {
                 ${p.description ? `<div class="description">${escapeHtml(p.description)}</div>` : ''}
                 ${p.note ? `<div class="note">"${escapeHtml(p.note)}"</div>` : ''}
                 ${links.length ? `<div class="links">${links.join(' · ')}</div>` : ''}
-                ${p.health?.web_compliant === true ? '<span class="badge web">web ✓</span>' : ''}
+                ${p.health?.claude_memory_portable === true ? '<span class="badge memory-ok" title="Memória portável">🧠</span>' : ''}
+                ${p.health?.claude_memory_portable === false ? '<span class="badge memory-warn" title="Memória só local">⚠</span>' : ''}
             </div>`;
         });
         html += `</div></section>`;
