@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "last_full_scan": "2026-02-26T11:26:42",
+  "last_full_scan": "2026-02-26T13:09:05",
   "projects": [
     {
       "name": "nexus",
@@ -17,7 +17,7 @@
       "git": {
         "branch": "main",
         "last_commit_date": "2026-02-26",
-        "last_commit_message": "feat: move nexus memory into project for portability",
+        "last_commit_message": "feat: redesign dashboard as temporal feed with temperature bar",
         "dirty": true
       },
       "filesystem": null,
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T11:26:28"
+      "last_scanned": "2026-02-26T13:08:54"
     },
     {
       "name": "Dragon Heir",
@@ -43,19 +43,19 @@
       "last_activity": "2026-02-26",
       "git": null,
       "filesystem": {
-        "last_modified_file": "CLAUDE.md",
+        "last_modified_file": "docs/MEMORY.md",
         "last_modified_date": "2026-02-26"
       },
       "health": {
         "path_exists": true,
-        "claude_memory_portable": false,
+        "claude_memory_portable": true,
         "web_compliant": true
       },
       "web": {
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-02-26T11:26:29"
+      "last_scanned": "2026-02-26T13:08:54"
     },
     {
       "name": "CRCMG",
@@ -71,7 +71,7 @@
       "last_activity": "2026-02-26",
       "git": null,
       "filesystem": {
-        "last_modified_file": "01-Desenvolvimento/scripts/docx_helpers.py",
+        "last_modified_file": "98-Base-Conhecimento/desenvolvimento/padroes.md",
         "last_modified_date": "2026-02-26"
       },
       "health": {
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T11:26:35"
+      "last_scanned": "2026-02-26T13:09:01"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T11:26:36"
+      "last_scanned": "2026-02-26T13:09:02"
     },
     {
       "name": "IA Builder",
@@ -132,7 +132,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T11:26:36"
+      "last_scanned": "2026-02-26T13:09:03"
     },
     {
       "name": "Mnemo",
@@ -159,7 +159,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T11:26:36"
+      "last_scanned": "2026-02-26T13:09:03"
     },
     {
       "name": "WSL Config",
@@ -184,7 +184,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T11:26:39"
+      "last_scanned": "2026-02-26T13:09:03"
     },
     {
       "name": "Livros",
@@ -211,7 +211,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T11:26:41"
+      "last_scanned": "2026-02-26T13:09:05"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -238,7 +238,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T11:26:41"
+      "last_scanned": "2026-02-26T13:09:05"
     },
     {
       "name": "RAID Legends",
@@ -263,7 +263,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-26T11:26:42"
+      "last_scanned": "2026-02-26T13:09:05"
     }
   ]
 }

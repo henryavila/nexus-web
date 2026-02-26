@@ -7,30 +7,17 @@ function relativeDate(isoDate) {
     if (!isoDate) return 'n/a';
     const days = Math.floor((Date.now() - new Date(isoDate)) / 86400000);
     if (days <= 0) return 'hoje';
-    if (days === 1) return '1d atrás';
-    return `${days}d atrás`;
+    if (days === 1) return '1d';
+    return days + 'd';
 }
 
-function renderAlerts(projects) {
-    const el = document.getElementById('alerts');
-    const alerts = [];
-    projects.forEach(p => {
-        const h = p.health || {};
-        if (h.claude_memory_portable === false)
-            alerts.push(`⚠ ${p.name}: memória Claude local (não portável)`);
-        if (h.path_exists === false)
-            alerts.push(`⚠ ${p.name}: path não existe`);
-    });
-    el.innerHTML = alerts.length
-        ? alerts.map(a => `<div class="alert">${a}</div>`).join('')
-        : '';
-    el.style.display = alerts.length ? 'block' : 'none';
-}
-
-function statusSymbol(project) {
-    if (project.status === 'archived') return '◇';
-    if (project.git?.dirty) return '◐';
-    return '●';
+function tempClass(isoDate) {
+    if (!isoDate) return 'cold';
+    const days = Math.floor((Date.now() - new Date(isoDate)) / 86400000);
+    if (days <= 1) return 'hot';
+    if (days <= 7) return 'warm';
+    if (days <= 30) return 'cool';
+    return 'cold';
 }
 
 function escapeHtml(str) {
@@ -39,64 +26,134 @@ function escapeHtml(str) {
     return div.innerHTML;
 }
 
-function renderProjects(projects, filter) {
-    const main = document.getElementById('projects');
-    let filtered = projects.filter(p => p.status !== 'archived');
+function renderAlerts(projects) {
+    const bar = document.getElementById('alerts-bar');
+    const countEl = document.getElementById('alerts-count');
+    const detailsEl = document.getElementById('alerts-details');
+    const alerts = [];
 
-    if (filter) {
-        const q = filter.toLowerCase();
-        filtered = filtered.filter(p =>
-            (p.name || '').toLowerCase().includes(q) ||
-            (p.description || '').toLowerCase().includes(q) ||
-            (p.note || '').toLowerCase().includes(q) ||
-            (p.category || '').toLowerCase().includes(q)
-        );
-    }
-
-    const groups = {};
-    filtered.forEach(p => {
-        const cat = p.category || 'sem categoria';
-        (groups[cat] = groups[cat] || []).push(p);
+    projects.forEach(p => {
+        if (p.health?.claude_memory_portable === false)
+            alerts.push(`<strong>${escapeHtml(p.name)}</strong>: memória Claude local (não portável)`);
+        if (p.health?.path_exists === false)
+            alerts.push(`<strong>${escapeHtml(p.name)}</strong>: caminho não existe`);
     });
+
+    if (alerts.length === 0) return;
+
+    bar.classList.add('visible');
+    const plural = alerts.length === 1 ? 'alerta' : 'alertas';
+    countEl.textContent = `${alerts.length} ${plural} — toque para ver`;
+    detailsEl.innerHTML = alerts.map(a => `<div class="alert-item">${a}</div>`).join('');
+}
+
+function relativeScanTime(isoDatetime) {
+    if (!isoDatetime) return '';
+    const mins = Math.floor((Date.now() - new Date(isoDatetime)) / 60000);
+    if (mins < 1) return 'agora';
+    if (mins < 60) return `há ${mins}min`;
+    const hours = Math.floor(mins / 60);
+    if (hours < 24) return `há ${hours}h`;
+    const days = Math.floor(hours / 24);
+    return `há ${days}d`;
+}
+
+function renderFeed(projects, lastScan, filter) {
+    const feed = document.getElementById('feed');
+    const header = document.getElementById('feed-header');
+    const sorted = projects
+        .filter(p => p.status !== 'archived')
+        .sort((a, b) => new Date(b.last_activity || 0) - new Date(a.last_activity || 0));
+
+    const q = (filter || '').toLowerCase();
 
     let html = '';
-    Object.keys(groups).sort().forEach(cat => {
-        html += `<section class="category-group">
-            <h2>${escapeHtml(cat)}</h2>
-            <div class="cards">`;
-        groups[cat].forEach(p => {
-            const links = [];
-            if (p.url) links.push(`<a href="${escapeHtml(p.url)}" target="_blank">Site</a>`);
-            if (p.repo) links.push(`<a href="https://github.com/${escapeHtml(p.repo)}" target="_blank">GitHub</a>`);
-            if (p.web?.route) links.push(`<a href="${escapeHtml(p.web.route)}" target="_blank">Página</a>`);
+    sorted.forEach(p => {
+        const matches = !q ||
+            p.name.toLowerCase().includes(q) ||
+            (p.description || '').toLowerCase().includes(q) ||
+            (p.note || '').toLowerCase().includes(q) ||
+            (p.category || '').toLowerCase().includes(q);
 
-            html += `<div class="project-card">
-                <div class="card-header">
-                    <span class="icon">${p.icon || '📁'}</span>
-                    <span class="name">${escapeHtml(p.name)}</span>
-                    <span class="status">${statusSymbol(p)}</span>
-                    <span class="date">${relativeDate(p.last_activity)}</span>
-                </div>
-                ${p.description ? `<div class="description">${escapeHtml(p.description)}</div>` : ''}
-                ${p.note ? `<div class="note">"${escapeHtml(p.note)}"</div>` : ''}
-                ${links.length ? `<div class="links">${links.join(' · ')}</div>` : ''}
-                ${p.health?.claude_memory_portable === true ? '<span class="badge memory-ok" title="Memória portável">🧠</span>' : ''}
-                ${p.health?.claude_memory_portable === false ? '<span class="badge memory-warn" title="Memória só local">⚠</span>' : ''}
-            </div>`;
-        });
-        html += `</div></section>`;
+        const filteredClass = q && !matches ? ' filtered-out' : '';
+        const tc = tempClass(p.last_activity);
+
+        const links = [];
+        if (p.url) links.push(`<a href="${escapeHtml(p.url)}" target="_blank">Site</a>`);
+        if (p.repo) links.push(`<a href="https://github.com/${escapeHtml(p.repo)}" target="_blank">GitHub</a>`);
+        if (p.web?.route) links.push(`<a href="${escapeHtml(p.web.route)}" target="_blank">Página</a>`);
+
+        let memBadge = '';
+        if (p.health?.claude_memory_portable === true) memBadge = '<span class="badge-memory portable">🧠</span>';
+        else if (p.health?.claude_memory_portable === false) memBadge = '<span class="badge-memory local-only">⚠ memória local</span>';
+        else memBadge = '<span class="badge-memory"></span>';
+
+        html += `
+        <div class="project-row${filteredClass}">
+            <div class="temp-bar ${tc}"></div>
+            <span class="project-icon">${p.icon || '📁'}</span>
+            <div class="project-name-wrap">
+                <span class="project-name">${escapeHtml(p.name)}</span>
+                ${p.git?.dirty ? '<span class="project-dirty">◐</span>' : ''}
+            </div>
+            <div class="project-desc">${escapeHtml(p.description || '')}</div>
+            ${memBadge}
+            <span class="project-links">${links.length ? links.join(' · ') : ''}</span>
+            <span class="project-date">${relativeDate(p.last_activity)}</span>
+            ${p.note ? `<div class="project-note">"${escapeHtml(p.note)}"</div>` : ''}
+        </div>`;
     });
 
-    main.innerHTML = html || '<p class="empty">Nenhum projeto encontrado.</p>';
+    const scanText = relativeScanTime(lastScan);
+    html += `<div class="feed-footer">${scanText ? `último scan: ${scanText} · ` : ''}${sorted.length} projetos</div>`;
+
+    // Keep header, replace rest
+    const existing = feed.querySelectorAll('.project-row, .feed-footer');
+    existing.forEach(el => el.remove());
+    feed.insertAdjacentHTML('beforeend', html);
 }
 
 (async () => {
     const data = await loadData();
     const projects = data.projects || [];
-    renderAlerts(projects);
-    renderProjects(projects);
+    const lastScan = data.last_full_scan;
 
-    document.getElementById('search').addEventListener('input', e => {
-        renderProjects(projects, e.target.value);
+    renderAlerts(projects);
+    renderFeed(projects, lastScan);
+
+    // Search (mobile)
+    const searchBtn = document.getElementById('search-btn');
+    const searchOverlay = document.getElementById('search-overlay');
+    const searchMobile = document.getElementById('search-mobile');
+    const searchClose = document.getElementById('search-close');
+
+    searchBtn.addEventListener('click', () => {
+        searchOverlay.classList.add('active');
+        searchMobile.focus();
+    });
+
+    searchClose.addEventListener('click', () => {
+        searchOverlay.classList.remove('active');
+        searchMobile.value = '';
+        renderFeed(projects, lastScan);
+    });
+
+    searchMobile.addEventListener('input', e => renderFeed(projects, lastScan, e.target.value));
+
+    // Search (desktop)
+    document.getElementById('search-desk').addEventListener('input', e => renderFeed(projects, lastScan, e.target.value));
+
+    // Alerts toggle
+    document.getElementById('alerts-toggle').addEventListener('click', () => {
+        document.getElementById('alerts-bar').classList.toggle('expanded');
+    });
+
+    // ESC to close search
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            searchOverlay.classList.remove('active');
+            searchMobile.value = '';
+            renderFeed(projects, lastScan);
+        }
     });
 })();

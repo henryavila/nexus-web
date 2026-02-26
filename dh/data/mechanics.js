@@ -99,10 +99,10 @@ window.DATA_MECHANICS = {
       "Resplendence": { elements: ["Lightning", "Radiance"] }
     },
     bonuses: {
-      all_affinities_3: { hp: 2000, def: 200, atk: 200, type: "flat", note: "Todas afinidades dao esse bonus base com 3+ herois (igual para qualquer elemento)" },
-      permafrost_3:    { atk_percent: 20, hp_percent: 20, acc: 20, type: "percent", note: "Permafrost 3+: +20% ATK, +20% HP, +20 ACC" },
-      ulceration_3:    { atk_percent: 20, type: "percent", note: "Wildfire (Ulceration) 3+: +20% ATK" },
-      resplendence_3:  { atk_percent: 20, type: "percent", note: "Resplendence 3+: +20% ATK" }
+      // Cada afinidade tem flat + percent PROPRIOS (confirmado in-game 26/Fev/2026)
+      permafrost_3:    { atk_percent: 20, hp_percent: 20, acc: 50, res: 50, def: 200, hp: 2000, atk: 200, note: "Permafrost 3+: +20% ATK, +20% HP, ACC 50, RES 50, DEF 200, HP 2000, ATK 200 (MAIS FORTE)" },
+      ulceration_3:    { atk_percent: 20, hp_percent: 2, acc: 50, res: 20, hp: 2000, atk: 200, note: "Wildfire (Ulceration) 3+: +20% ATK, +2% HP, ACC 50, RES 20, HP 2000, ATK 200" },
+      resplendence_3:  { atk_percent: 20, acc: 50, hp: 2000, atk: 200, note: "Resplendence 3+: +20% ATK, ACC 50, HP 2000, ATK 200" }
     },
 
     // --- AFFINITY EVOLUTION (sistema de upgrade por caminho) ---
@@ -159,12 +159,11 @@ window.DATA_MECHANICS = {
     },
 
     notes: [
-      "TRES camadas: (1) bonus flat base, (2) bonus percentual por afinidade, (3) affinity evolution.",
-      "Camada 1: Todas afinidades com 3+ herois: HP 2000, DEF 200, ATK 200 (flat, igual para qualquer elemento).",
-      "Camada 2: TODAS afinidades agora tem bonus % (confirmado in-game 19/Fev):",
-      "  - Permafrost (Ice+Necrosis) 3+: +20% ATK, +20% HP, +20 ACC (MAIS FORTE)",
-      "  - Wildfire/Ulceration (Poison+Fire) 3+: +20% ATK",
-      "  - Resplendence (Lightning+Radiance) 3+: +20% ATK",
+      "DUAS camadas: (1) bonus por afinidade (flat+percent combinados, DIFERENTES por afinidade), (2) affinity evolution.",
+      "Camada 1 (confirmado in-game 26/Fev/2026) — cada afinidade tem bonus PROPRIO:",
+      "  - Permafrost (Ice+Necrosis) 3+: +20% ATK, +20% HP, ACC 50, RES 50, DEF 200, HP 2000, ATK 200 (MAIS FORTE — unica com DEF e RES alto)",
+      "  - Wildfire/Ulceration (Poison+Fire) 3+: +20% ATK, +2% HP, ACC 50, RES 20, HP 2000, ATK 200",
+      "  - Resplendence (Lightning+Radiance) 3+: +20% ATK, ACC 50, HP 2000, ATK 200 (mais simples)",
       "Camada 3: Affinity Evolution — 6 caminhos (3 ATK + 3 HP), escolher 4. Lv 10 max = +20% cada.",
       "3 herois = suficiente pra ativar. 5 herois = mesmo bonus (sem incentivo extra).",
       "Valores escalam com progressao da conta — atualizar quando mudar."

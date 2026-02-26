@@ -1,5 +1,5 @@
-// teams.js — Canonical teams by activity
-// Updated: 2026-02-25 — AllClash S1 guide integrated + adaptações do jogador
+// teams.js — Canonical teams by activity + element-specific teams
+// Updated: 2026-02-26 — AllClash S1 guide + Flora obtained + element teams
 // Fonte: https://www.allclash.com/best-teams-in-dragonheir-silent-gods-dungeons-vortex-etc/
 window.DATA_TEAMS = [
   // ============================================================
@@ -291,35 +291,35 @@ window.DATA_TEAMS = [
   // ─── TEMPORAL VORTEX (AllClash rewrite — Fire/Wild é o meta) ───
   {
     id: "temporal-vortex",
-    name: "Fire/Wild AllClash (sem Flora)",
+    name: "Wild Fire AllClash (Flora obtida!)",
     activity: "Temporal Vortex",
     affinity: "Ulceration",
     status: "active",
     dps_result: null,
     score: null,
     members: [
-      { id: 21970, role: "DPS carry", notes: "Caspar. Wild core, alto DPS. Confirmado no ranking top 4." },
-      { id: 20400, role: "DPS AoE", notes: "Errich. Meteorite Rain. Passiva +2 dice max para Wild" },
-      { id: 23250, role: "Healer/Support", notes: "Adolphus. Shield + sustain. Passiva: shield em alvo com shield = heal 75%" },
-      { id: 20810, role: "DPS burst", notes: "Felicity. Recast auto dice >=4, Ult ignora escudos. Aura +24% Crit DMG" },
-      { id: 21170, role: "DPS Wild", notes: "Rhash (substitui Flora — não possui). Ambos Fire Wild, Rhash melhor opção disponível" }
+      { id: 21970, role: "DPS carry", notes: "Caspar. Wild core. Passiva: dice par → Absurd Charade → ignora DEF crescente. Ult marca alvo → dice >=4 aliado = throwing knives" },
+      { id: 20400, role: "DPS AoE + Enabler", notes: "Errich. Meteorite Rain. Passiva +2 dice max (6→8) para TODOS Wild aliados. Insp.2" },
+      { id: 23250, role: "Healer/Support", notes: "Adolphus. Shield + sustain. Passiva: shield em alvo com shield = heal 75%. DI #28" },
+      { id: 20410, role: "DPS carry + Amplifier", notes: "Flora (DI #1 S1!). Passiva: Wild dice >=5 → familiar ataca (+25%ATK) + ganha Insight. Insight max → dice SEMPRE max. Captain +24% ATK. Dawn Pipe Organ buffa todos ranged" },
+      { id: 20810, role: "DPS burst", notes: "Felicity. Recast auto dice >=4 (ate 3x). Ult: +3 beams em dice >=5 (5→8 beams). Ring of Scarlet Sorcerer (+10% skill dmg). Insp.1" }
     ],
-    bonds: "5 Ulceration | 4 Wild (dados max em Burst!) | 1 Support",
-    captain: null,
+    bonds: "5 Ulceration | 5 Wild (dados max em TODA Burst!) | 1 Support",
+    captain: { id: 20410, skill: "+24% ATK em todas as batalhas" },
     mechanics: {
       boss: "Boss rotativo (PvE ranked)",
       ciclo: "20s (skill a cada 5s)",
       perigo: "Luta de ENDURANCE (20 min). Boss escala ao longo do tempo. Time que morre cedo = score baixo.",
-      como_vencer: "4 Wild = dados GARANTIDOS max durante Burst = DPS previsivel e massivo. Caspar+Rhash core Wild. Errich +2 dice max pra todos. Felicity ignora escudos. Adolphus segura o time.",
-      food: "Flaming Chili Meatball (Fire +5%, ATK +10%) — 4/5 Fire"
+      como_vencer: "5 Wild = SYNERGY CHAIN: Errich +2 dice → Flora familiar triggers em dice >=5 → Felicity multi-beam (8 beams!) → Caspar throwing knives. Dawn Pipe Organ em Flora buffa ATK de todos ranged. AllClash confirma: Wild e o META para Temporal Vortex.",
+      food: "Flaming Chili Meatball (Fire +5%, ATK +10%) — 5/5 Fire"
     },
-    notes: "Baseado em AllClash Endgame S1 (Caspar+Errich+Adolphus+Flora+Felicity). Substituição: Rhash no lugar de Flora (não possui). Meta Fire/Wild domina ranking. Quando obtiver Flora, trocar Rhash → Flora.",
+    notes: "TIME EXATO DO ALLCLASH! Flora obtida 26/Fev completa o time. AllClash diz: 'Wild does so well here and this is the only mode where building wild archetype is really worth it.' Rank #1 observado: 198.9M DPS.",
     variants: [
       {
-        name: "AllClash Endgame S1",
-        change: "Caspar + Errich + Adolphus + Flora + Felicity",
-        status: "reference",
-        notes: "Time ideal do AllClash. Requer Flora (não possui). Rank #1 observado: 198.9M DPS."
+        name: "Com Tonalnan (6o Wild, se slot flex)",
+        change: "Adolphus -> Tonalnan",
+        status: "untested",
+        notes: "Tonalnan: +5% Crit DMG por dice >=5 aliado + 5 hits = +20% ATK Up burst. Mais DPS, menos sustain. Testar se survival sobra."
       },
       {
         name: "Dauntless + Survival (antigo — testado)",
@@ -327,28 +327,20 @@ window.DATA_TEAMS = [
         status: "tested",
         dps_result: "1.86M",
         bonds: "3 Resplendence | 3 Dauntless | 2 Support (10% shield)",
-        notes: "Torrin+Eurion imortalidade + 3 Dauntless burst. Superado pelo meta Fire/Wild mas funciona em semanas que favorecem Lightning."
+        notes: "Torrin+Eurion imortalidade + 3 Dauntless burst. Superado pelo meta Fire/Wild."
       },
       {
         name: "Anti-debuff premium",
-        change: "Rhash -> Acilia",
+        change: "Flora -> Acilia",
         status: "untested",
         notes: "Acilia aumenta sobrevivencia em semanas com debuffs/DoT pesados. DPS cai, mas time morre menos."
-      },
-      {
-        name: "Boss team Summon (alternativa antiga)",
-        change: "Time inteiro -> Ladehlia+Rowena+Sintrellia+Torrin+Eurion",
-        status: "tested",
-        dps_result: "1.54M",
-        notes: "DPS Summon mais lenta que burst. Superada por Dauntless+Survival e Fire/Wild."
       }
     ],
     tests: [
-      { desc: "Fire/Wild (Caspar+Errich+Felicity+Rhash+Adolphus)", result: "Pendente", notes: "Time AllClash novo — testar" },
+      { desc: "Wild Fire COMPLETO (Caspar+Errich+Felicity+Flora+Adolphus)", result: "Pendente", notes: "Time AllClash completo com Flora! Testar ASAP" },
+      { desc: "Wild Fire sem Flora (Rhash no lugar)", result: "Pendente", notes: "Time anterior sem Flora" },
       { desc: "Dauntless + Survival (Nastjenka+Sutha+Garett+Torrin+Eurion)", result: "1.86M", notes: "Campea anterior" },
-      { desc: "Boss Summon (Ladehlia+Rowena+Sintrellia+Torrin+Eurion)", result: "1.54M", notes: "Superado" },
-      { desc: "Dauntless puro (5 DPS, sem tank)", result: "480k", notes: "Morreram rapido" },
-      { desc: "Dauntless + Eurion (sem healer)", result: "639k", notes: "Tank sem heal insuficiente" }
+      { desc: "Boss Summon (Ladehlia+Rowena+Sintrellia+Torrin+Eurion)", result: "1.54M", notes: "Superado" }
     ]
   },
 
@@ -869,23 +861,23 @@ window.DATA_TEAMS = [
     ]
   },
 
-  // ─── TIME POISON (update — Ergander variant) ───
+  // ─── TIME POISON / TOXIN (elemento — Ergander tank, 26/Fev) ───
   {
     id: "time-poison",
-    name: "Time Poison (Lothair Core — Prioridade)",
-    activity: "Multi (G.Venom, A.Battlefield)",
+    name: "Time Poison (Lothair + Ergander)",
+    activity: "Multi — Poison element (G.Venom, bosses com debuff vulnerability)",
     affinity: "Ulceration",
     status: "active",
     dps_result: null,
     score: null,
     members: [
-      { id: 21670, role: "Tank/Healer", notes: "AoE heal, cleanse debuffs. Base de sobrevivencia" },
-      { id: 20670, role: "DPS SS", notes: "Multi-hit + AoE Poison no inicio (passiva), crit ignora 30% DEF. Captain: +40 Accuracy" },
-      { id: 20200, role: "DPS carry SS", notes: "Core do time. Derivative escala por stack de Poison. Captain: +48 Enlightenment" },
-      { id: 20630, role: "DPS Poison", notes: "Marca alvo pra explosao, acelera Poison ticks" },
-      { id: 20290, role: "DPS Poison AoE", notes: "Ult 700% AoE + 3 Thorny Poison + Enlightenment Penalty 20%. Passiva: Thorny Poison dispelado = 6% Max HP dano" }
+      { id: 21010, role: "Tank", notes: "Ergander (DI #23, AC S, HH 4.5, 5.0 em 12/13!). Taunt 5s + Immortality 10s + Poison DMG. Drugo's Blast Jar: dano recebido → AoE + -15% enemy DMG" },
+      { id: 20670, role: "DPS/Applicator", notes: "Durango (DI #17, AC S). Multi-hit + AoE Poison passiva. Crit ignora 30% DEF. Captain +40 Accuracy. Ri'kir Boomerang" },
+      { id: 20200, role: "DPS carry", notes: "Lothair (AC A+, HH 4.6 13/13). Derivative escala por Poison stacks. Statue of the Serpent Deity. Captain +48 Enlightenment" },
+      { id: 20630, role: "DPS/Detonator", notes: "Vicana (AC A+). Marca alvo pra explosao, acelera Poison ticks. Insp.1" },
+      { id: 20290, role: "DPS AoE", notes: "Jathalea (DI #44, AC B+). Ult 700% AoE + 3 Thorny Poison. Passiva: dispel = 6% Max HP dano. Whisper of the Consumer" }
     ],
-    bonds: "5 Ulceration | 4 Poison (80% Poison Pool) | 1 Support",
+    bonds: "5 Ulceration (+20% ATK, +2% HP) | 4 Toxin/Poison (80% Poison Pool!) | 1 Support",
     captain: { id: 20200, skill: "+48 Enlightenment em todas as batalhas" },
     mechanics: {
       boss: "Multi-uso (G.Venom Poison variant, A.Battlefield, bosses com debuff vulnerability)",
@@ -893,160 +885,245 @@ window.DATA_TEAMS = [
       como_vencer: "Durango abre com Poison AoE, Lothair converte stacks em Derivative massivo e Jathalea pune dispel com Thorny Poison.",
       food: "Corrupted Meat Pie (Poison +5%, ATK +10%) — 5/5 Poison"
     },
-    notes: "Lothair integrado ao core (23/Fev). Versao principal para progresso geral e dano consistente.",
+    notes: "Ergander UPGRADE sobre Frurbath (26/Fev): DI #23, 5.0 em 12/13, Taunt 5s + Immortality 10s >>> Frurbath (DI #82, healer fraco). Com Drugo's Blast Jar = leva hits, nao morre, dispara AoE + -15% enemy DMG. AllClash confirma Ergander como A+.",
     variants: [
       {
-        name: "Tank pesado (Ergander)",
-        change: "Frurbath -> Ergander",
-        status: "untested",
-        benefit: "Ergander Taunt 5s + Immortality 10s = tank MUITO mais seguro. DI #23, 5.0 em 12/13",
-        notes: "Ergander com Drugo's Blast Jar = leva hits, nao morre, dispara Blast (AoE + -15% enemy DMG). Upgrade massivo sobre Frurbath."
-      },
-      {
-        name: "Seguro (Vicuc)",
-        change: "Vicana -> Vicuc",
+        name: "Frurbath (healer, antigo)",
+        change: "Ergander -> Frurbath",
         status: "tested",
-        benefit: "Mais estabilidade: cleanse + cura forte + Attack Penalty",
-        notes: "Era o core anterior. Usar quando o time sofre com debuffs/controle."
+        notes: "Versao anterior. Frurbath AoE heal + cleanse. Mais sustain, menos tank. DI #82 — inferior."
       },
       {
-        name: "DPS puro (Twitch)",
+        name: "Twitch feedback loop",
         change: "Vicana -> Twitch",
         status: "untested",
-        benefit: "Pico de DPS single-target com feedback loop de Derivative junto do Lothair",
-        notes: "Mais dano bruto, menos seguranca. Melhor em lutas curtas."
+        notes: "Twitch (AC A+) + Lothair = feedback loop MULTIPLICATIVO (confirmado no Wager). Mais DPS single-target, menos controle. Queen's Fan (+15% Derivative)."
       },
       {
-        name: "Anti-heal (Sigrid)",
+        name: "Oggok immortality healer",
+        change: "Ergander -> Oggok",
+        status: "untested",
+        notes: "Oggok (DI #11, AC B+, HH 4.0): Immortality AoE 5s + Heal + Dispel passivo. Solar King's Horn = heal vira amplificador (+6% DMG). Alternativa se precisar heal em vez de tank."
+      },
+      {
+        name: "Sigrid anti-heal (G.Curse specialist)",
         change: "Vicana -> Sigrid",
         status: "untested",
-        benefit: "Healing Prohibition para cortar cura de boss",
-        notes: "Use contra bosses que se curam."
+        notes: "Sigrid (AC A+): dream hero para G.Curse. Healing Prohibition corta cura do boss."
       },
       {
-        name: "Tank pesado (Eurion)",
-        change: "Frurbath -> Eurion",
+        name: "Eurion tank (survival max)",
+        change: "Ergander -> Eurion",
         status: "untested",
-        benefit: "Sobrevivencia maxima contra burst alto",
-        notes: "Quando o time morre rapido. Perde sustain continuo, ganha tank absurdo."
+        notes: "Eurion Ally Protection + anti-morte. Para conteudo com burst extremo. Perde Poison synergy."
       }
     ]
   },
 
-  // ─── TIME ICE (keep) ───
+  // ─── TIME ICE / FROST CHAIN (elemento — puro Ice) ───
   {
     id: "time-ice",
-    name: "Time Ice",
-    activity: "Multi (Fae, Pillar)",
+    name: "Frost Chain + Imortalidade",
+    activity: "Multi — Ice element (Bosses, Frey, A.Battlefield, farm geral)",
     affinity: "Permafrost",
     status: "tested",
     dps_result: null,
     score: null,
     members: [
-      { id: 22290, role: "Healer/Debuffer", notes: "Cura ao atacar, strip buffs, Buff Prohibition AoE" },
-      { id: 22230, role: "DPS nuker AoE", notes: "Buffa Frost aliado, detona Frost AoE, estende Frost +5s" },
-      { id: 20770, role: "Tank/Debuffer", notes: "Shield aliado, Ult dispela + Frozen + drena Ult. Aura +40 Accuracy" },
-      { id: 20060, role: "Tank puro", notes: "Ally Protection todos, shield, anti-morte" },
-      { id: 20740, role: "DPS carry", notes: "Ult AoE + feather procs. Aura +24% ATK" }
+      { id: 21030, role: "DPS carry", notes: "Auster (DI #26, AC S). Tracking arrows em TODOS com Frost. 50% ignora DEF. Ring of Winter. Skills 8/8" },
+      { id: 20920, role: "Frost enabler", notes: "Lossenia (DI #3, AC A+). Frost AoE constante. Mark of Ice Calamity (Frost undispellable). Captain +24% ATK" },
+      { id: 22230, role: "DPS nuker", notes: "Hochadir (AC A+). Detona Frost AoE + estende Frost +5s. Completa 3 Frost school" },
+      { id: 20690, role: "Healer", notes: "Torrin. Heal + Dispel + Invisibilidade 10s + Debuff Immunity. Skills 8/8" },
+      { id: 20060, role: "Tank", notes: "Eurion. Ally Protection + anti-morte (invencivel 5s). Skills 8/8" }
     ],
-    bonds: "4 Permafrost | 3 Support (15% shield) | 1 Frost | 1 Dauntless",
-    captain: null,
+    bonds: "5 Permafrost (+20% ATK, +20% HP, ACC 50, RES 50, DEF 200) | 3 Frost (Frozen 5s + auto-Frozen!) | 2 Support (10% shield)",
+    captain: { id: 20920, skill: "+24% ATK em todas as batalhas" },
     mechanics: {
-      boss: "Multi-uso (Fae, Pillar, farm geral, conteudo Ice)",
-      perigo: "Hochadir precisa de Frost aplicado pra detonar. Sem Lossenia, Frost chain incompleta.",
-      como_vencer: "Nastjenka compensa DPS. Voresh strip buffs. Hochadir detona Frost AoE. Vinyara+Eurion tanque inquebravel.",
-      food: "Arctic Soothing Soup (Cold +5%, ATK +10%) — 4/5 Ice"
+      boss: "Multi-uso (bosses, Frey Corridor, A.Battlefield, farm geral Ice)",
+      perigo: "DPS depende de Frost estar aplicado nos inimigos. Bosses que cleansam debuffs reduzem DPS.",
+      como_vencer: "FROST CHAIN: Lossenia aplica Frost massivo (undispellable com Mark of Ice Calamity) → Auster tracking arrows em TODOS com Frost → Hochadir detona Frost AoE. 3 Frost school = Frozen 5s + auto-Frozen! Torrin+Eurion = imortalidade. Permafrost = melhor afinidade do jogo (+20% ATK/HP + ACC 50 + RES 50 + DEF 200).",
+      food: "Arctic Soothing Soup (Cold +5%, ATK +10%) — 4/5 Ice + 1 Necrosis (Torrin)"
     },
-    notes: "Bonus flat 3=5 permite misto com Nastjenka.",
+    notes: "4 Ice + 1 Necrosis (Torrin) = 5 Permafrost = afinidade MAIS FORTE do jogo. Frost chain completa. Testado em Bosses/Frey/A.Battlefield. AllClash usa Hvitar (S tier) no lugar — Henry nao possui.",
     variants: [
       {
-        name: "Frost Chain ELITE (Auster + Lossenia + Hochadir)",
-        change: "Nastjenka -> Auster",
-        status: "untested",
-        bonds: "5 Permafrost puro | 3 Frost (Frozen 5s + auto-Frozen!) | 3 Support",
-        notes: "Auster + Lossenia + Hochadir = 3 Frost! Auster tracking arrows em todos com Frost = DPS massivo."
+        name: "Anti-buff (Vinyara no lugar de Hochadir)",
+        change: "Hochadir -> Vinyara",
+        status: "tested",
+        notes: "Vinyara dispel + shield + auto-resist Stun. Perde 3o Frost school, ganha utility. Use em bosses com buff stacking."
       },
       {
-        name: "Anti-debuff (Acilia)",
-        change: "Nastjenka -> Acilia",
+        name: "Voresh debuffer",
+        change: "Hochadir -> Voresh",
         status: "untested",
-        notes: "Para andares com Poison/CC pesado."
+        notes: "Voresh Buff Prohibition AoE. Use contra bosses que self-buffam (ex: A.Battlefield)."
+      },
+      {
+        name: "Nastjenka DPS (misto Resplendence)",
+        change: "Hochadir -> Nastjenka",
+        status: "tested",
+        notes: "Nastjenka compensa DPS mas perde Frost school. Misto 4 Permafrost + 1 Resplendence."
+      },
+      {
+        name: "AllClash ideal (com Hvitar)",
+        change: "Hochadir -> Hvitar",
+        status: "reference",
+        notes: "Hvitar (AC S, DI Queen of Ice): core Frost DPS. Nao possui — prioridade S2/S3."
       }
     ]
   },
 
-  // ─── TIME FIRE (AllClash-aligned — already correct) ───
+  // ─── TIME FIRE / WILD FIRE (elemento — Flora obtida 26/Fev) ───
   {
     id: "time-fire",
-    name: "Time Fire (AllClash-aligned)",
-    activity: "Multi (quando Poison nao funciona)",
+    name: "Wild Fire Core (Flora DI #1!)",
+    activity: "Multi — Fire element (T.Vortex, Frost Domain alt, bosses que resistem Poison)",
     affinity: "Ulceration",
     status: "active",
     dps_result: null,
     score: null,
     members: [
-      { id: 21970, role: "DPS carry", notes: "Caspar. Wild core, alto DPS" },
-      { id: 20810, role: "DPS burst", notes: "Felicity. Recast auto dice >=4, Ult ignora escudos. Aura +24% Crit DMG" },
-      { id: 20400, role: "DPS AoE", notes: "Errich. Meteorite Rain. Passiva aumenta dice max +2 pra todos Wild" },
-      { id: 21170, role: "DPS Wild", notes: "Rhash. Completa 4 Wild com alto DPS" },
-      { id: 23250, role: "Healer/Support", notes: "Adolphus. Shield + sustain. Mais seguro que Isolde" }
+      { id: 20410, role: "DPS carry + Amplifier", notes: "Flora (DI #1 S1!). Wild dice >=5 → familiar ataca. Insight max → dice SEMPRE max. Captain +24% ATK. Dawn Pipe Organ buffa todos ranged" },
+      { id: 21970, role: "DPS carry", notes: "Caspar. Dice par → Absurd Charade → ignora DEF crescente. Ult marca → dice >=4 = knives. AC A+. Insp.1" },
+      { id: 20400, role: "DPS AoE + Enabler", notes: "Errich. Meteorite Rain. Passiva +2 dice max (6→8) TODOS Wild. Insp.2" },
+      { id: 20810, role: "DPS burst", notes: "Felicity. Recast ate 3x dice >=4. Ult 8 beams dice >=5. Ring of Scarlet Sorcerer (+10% skill dmg). Insp.1" },
+      { id: 21800, role: "DPS burst + Amplifier", notes: "Tonalnan. +5% Crit DMG por dice >=5 aliado. 5 hits = +20% ATK Up burst. Combo Felicity" }
     ],
-    bonds: "5 Ulceration | 4 Wild (dados garantidos max em Burst!) | 1 Support",
-    captain: null,
+    bonds: "5 Ulceration (+20% ATK, +2% HP) | 5 Wild (dados max!) | School bond Wild",
+    captain: { id: 20410, skill: "+24% ATK em todas as batalhas" },
     mechanics: {
-      boss: "Multi-uso (bosses que resistem Poison, Frost Domain variant, conteudo Fire)",
-      perigo: "Sem Eurion/Torrin, sobrevivencia depende de Adolphus. 4 Wild sem 2o Support = mais risco.",
-      como_vencer: "4 Wild = dados GARANTIDOS max durante Burst. Caspar+Rhash core. Errich +2 dice max pra todos. Felicity ignora escudos. Adolphus segura o time.",
-      food: "Flaming Chili Meatball (Fire +5%, ATK +10%) — 4/5 Fire"
+      boss: "Multi-uso (bosses que resistem Poison, conteudo Fire, Temporal Vortex)",
+      perigo: "Sem healer! 5 DPS puro. Se boss tem burst alto, time morre.",
+      como_vencer: "WILD FIRE SYNERGY CHAIN: (1) Errich +2 dice max pra todos → (2) Flora familiar ataca em dice >=5 + ganha Insight → (3) Insight max = dice SEMPRE max → (4) Felicity recast 3x + 8 beams → (5) Caspar knives automaticas → (6) Tonalnan +5% Crit DMG + ATK Up burst. FEEDBACK LOOP EXPONENCIAL.",
+      food: "Flaming Chili Meatball (Fire +5%, ATK +10%) — 5/5 Fire"
     },
-    notes: "AllClash-aligned (Caspar+Errich+Adolphus+Felicity). Rhash substitui Flora (nao possui). Quando obtiver Flora, trocar Rhash → Flora.",
+    notes: "Wild Fire Synergy Chain completa (26/Fev). AllClash confirma Wild como META para Temporal Vortex. Flora DI #1 + Dawn Pipe Organ + Ring of Scarlet Sorcerer = artefatos ideais. Mais Wild heroes = mais dice rolls = mais triggers = DPS EXPONENCIAL.",
     variants: [
       {
-        name: "Com Flora (AllClash ideal)",
-        change: "Rhash -> Flora",
-        status: "reference",
-        notes: "Time ideal quando obtiver Flora."
+        name: "Sustain (Adolphus no lugar de Tonalnan)",
+        change: "Tonalnan -> Adolphus",
+        status: "untested",
+        notes: "Adolphus (DI #28): Shield + heal passivo. Troca DPS por sobrevivencia. AllClash usa esta versao."
+      },
+      {
+        name: "Rhash (6o Fire Wild DPS)",
+        change: "Tonalnan -> Rhash",
+        status: "untested",
+        notes: "Rhash (AC S): +30% DMG com Heartfire de Wild allies. Mais DPS puro, sem sustain."
       },
       {
         name: "Tank Fire (Isolde)",
-        change: "Adolphus -> Isolde",
+        change: "Tonalnan -> Isolde",
         status: "untested",
-        notes: "Mais tank direto, menos sustain."
+        notes: "Isolde (AC A): Tank Fire. Para conteudo que exige tank."
+      },
+      {
+        name: "Alfie (boss specialist)",
+        change: "Tonalnan -> Alfie",
+        status: "untested",
+        notes: "Alfie (5.0 nos 3 bosses, Wild school). Para bosses especificos."
       }
     ]
   },
 
-  // ─── TIME SUMMON (keep) ───
+  // ─── TIME NECROSIS / SUMMON (elemento — Ghul'ende upgrade, 26/Fev) ───
   {
     id: "time-summon",
-    name: "Time Summon",
-    activity: "Multi (Bosses, Goblin)",
+    name: "Time Necrosis/Summon (Ghul'ende!)",
+    activity: "Multi — Necrosis element (Flame Domain, Tempest Domain, Bosses, Goblin)",
     affinity: "Permafrost",
-    status: "tested",
+    status: "active",
     dps_result: null,
     score: null,
     members: [
-      { id: 23080, role: "DPS carry", notes: "Shadow Demon (Insp.1 = 10 stacks iniciais)" },
-      { id: 24780, role: "Amplifier", notes: "Clona Shadow Demon + buffa ATK undead (+10%)" },
-      { id: 21690, role: "DPS Summon", notes: "Dragon remnant. 1 ataque extra por undead summoned (ate 3)" },
-      { id: 20690, role: "Healer", notes: "Dispel + Invisibilidade 10s + marca aliado +20% HP/DEF" },
-      { id: 20060, role: "Tank puro", notes: "Ally Protection + anti-morte" }
+      { id: 23080, role: "DPS carry", notes: "Ladehlia (AC S). Shadow Demon AoE. Insp.1 = 10 stacks iniciais. Great Demon's Skull. Skills 8/8" },
+      { id: 24780, role: "Amplifier", notes: "Sintrellia (AC S). Clona Shadow Demon + buffa ATK undead (+10%). Captain +24% ATK" },
+      { id: 22310, role: "DPS/Healer", notes: "Ghul'ende (AC S, HH 4.6, DI #72, 5.0 em 13/13!). 720% AoE + AoE Cleanse + AoE Heal. Witch's Remains (DEF Penalty II). UPGRADE sobre Isitarian" },
+      { id: 20690, role: "Healer", notes: "Torrin. Heal + Dispel + Invisibilidade 10s. Gatekeeper's Staff (overheal→shield). Skills 8/8" },
+      { id: 20060, role: "Tank", notes: "Eurion. Ally Protection + anti-morte. Pocket of Seduction. Skills 8/8" }
     ],
-    bonds: "5 Permafrost (4 Necro + 1 Ice) | 3 Summon (Phoenix Forte) | 2 Support (10% shield)",
+    bonds: "5 Permafrost (+20% ATK/HP, ACC 50, RES 50, DEF 200) | 2 Summon | 2 Support (10% shield)",
     captain: { id: 24780, skill: "+24% ATK em todas as batalhas" },
     mechanics: {
-      boss: "Multi-uso (Bosses single-target, Goblin Lair, Frey Corridor)",
-      perigo: "DPS Summon mais lento que Dauntless burst. Sem Premtsa, falta explosion AoE.",
-      como_vencer: "LOOP: Ladehlia invoca Shadow Demon → Sintrellia clona → 2 demons → Isitarian ganha 2 ataques extras. Torrin+Eurion = imortalidade.",
-      food: "Abyssal Crock (Necrotic +5%, ATK +10%) — 3/5 Necrosis"
+      boss: "Multi-uso (Flame Domain, Tempest Domain, Bosses single-target, Frey Corridor)",
+      perigo: "DPS Summon mais lento que burst. Sem Premtsa, falta explosion AoE.",
+      como_vencer: "LOOP: Ladehlia invoca Shadow Demon → Sintrellia clona → 2 demons AoE. Ghul'ende traz 720% AoE + Cleanse + Heal = DPS + utility. Witch's Remains aplica DEF Penalty II = time inteiro faz mais dano. Torrin+Eurion = imortalidade.",
+      food: "Abyssal Crock (Necrotic +5%, ATK +10%) — 4/5 Necrosis"
     },
-    notes: "Versao atual (sem Premtsa). Loop de summons.",
+    notes: "Ghul'ende UPGRADE massivo sobre Isitarian (26/Fev): 5.0 em 13/13 atividades, 720% AoE + Cleanse + Heal em UM heroi. AllClash S tier. Core Universal de Summon continua Ladehlia+Sintrellia+Eurion — 2 slots flex adaptam por boss.",
     variants: [
       {
-        name: "Versao completa (futura - com Premtsa)",
-        change: "Isitarian+Torrin -> Premtsa+Voresh",
-        status: "theoretical",
-        notes: "Premtsa Specters + explode todos undead AoE. Loop completo."
+        name: "Isitarian (mais DPS summon, menos heal)",
+        change: "Ghul'ende -> Isitarian",
+        status: "tested",
+        notes: "Isitarian Dragon Remnant: 1 ataque extra por undead summoned. Mais DPS de summons, menos utility."
+      },
+      {
+        name: "Acilia (anti-debuff, Flame Domain)",
+        change: "Ghul'ende -> Acilia",
+        status: "tested",
+        dps_result: "Lv18 CLEAR (Flame Domain)",
+        notes: "Acilia Debuff Immunity + Cleanse. Core do time de Flame Domain."
+      },
+      {
+        name: "Eches (anti-heal, Tempest Domain)",
+        change: "Ghul'ende -> Eches",
+        status: "tested",
+        dps_result: "Lv17 CLEAR (Tempest Domain)",
+        notes: "Eches Healing Reduction contra regen do boss. Core do time de Tempest Domain."
+      },
+      {
+        name: "Premtsa (futuro, loop completo)",
+        change: "Ghul'ende -> Premtsa",
+        status: "reference",
+        notes: "AllClash: Premtsa (A+) = core of any successful summoner team. Specters + explode undead AoE."
+      }
+    ]
+  },
+
+  // ─── TIME RADIANCE / RALLY (elemento — NOVO 26/Fev) ───
+  {
+    id: "time-radiance",
+    name: "Time Radiance/Rally (Lorentheel Insp.3!)",
+    activity: "Multi — Radiance element (Fae, Pillar, H.Ruins, bosses Necrosis)",
+    affinity: "Resplendence",
+    status: "active",
+    dps_result: null,
+    score: null,
+    members: [
+      { id: 20300, role: "DPS carry", notes: "Lorentheel (DI #10, AC A, Insp.3!). Rally buff amplifica DPS massivamente. 3 Inspirations = muito forte. Gatekeeper's Staff" },
+      { id: 20320, role: "DPS/Amplifier", notes: "Huberg (DI #34, AC S). Rally stacks amplificam Ult. Captain +30% ATK em Fae/Pillar. 5.0 em Goblin/Fae/Pillar/bosses" },
+      { id: 20420, role: "Support/Cleanse", notes: "Acilia (AC A). Jack of all trades: Debuff purge + Immunity + Heal. Usada em TODOS game modes" },
+      { id: 23210, role: "Healer/Immunity", notes: "Catherine. Debuff Immunity AoE 10s (Ult) + overheal→shield. Anti-Burn, anti-Poison" },
+      { id: 20210, role: "Tank/Support", notes: "Garius (AC B+). Knockup, heal AoE %DEF, DEF Up passiva 30x. Aura +18% DEF. Best healer (AllClash)" }
+    ],
+    bonds: "5 Resplendence (+20% ATK) | 2-3 Rally | 2-3 Support",
+    captain: { id: 20320, skill: "+30% ATK em Fae Meander e Pillar of Trials" },
+    mechanics: {
+      boss: "Multi-uso (Fae, Pillar, H.Ruins, bosses Necrosis/Poison onde Radiance tem vantagem)",
+      perigo: "Sem Eurion/Torrin, sobrevivencia depende de Garius + Catherine + Acilia (3 layers de protecao).",
+      como_vencer: "Rally chain: Lorentheel + Huberg geram Rally stacks → Rally amplifica DPS de ambos. Acilia Debuff Immunity + Catherine overheal→shield = double layer protecao. Garius tank DEF-based + heal AoE. Huberg captain +30% ATK em Fae/Pillar = ENORME.",
+      food: "Holy Light Infusion (Radiant +5%, ATK +10%) — 5/5 Radiance"
+    },
+    notes: "Time Radiance NOVO (26/Fev). Lorentheel (Insp.3!) e o DPS carry — 3 Inspirations dao buff massivo de stats. Huberg (AC S, DI #34) complementa com Rally synergy. AllClash: Thelendor (S tier, exclusive) seria ideal mas Henry nao possui. Donella (AC S, utility) disponivel como variante. Time forte para Fae/Pillar onde Huberg tem +30% ATK captain.",
+    variants: [
+      {
+        name: "Donella debuffer",
+        change: "Catherine -> Donella",
+        status: "untested",
+        notes: "Donella (AC S): best heal reduction. ATK Penalty II + utility. Perde Debuff Immunity, ganha debuff power."
+      },
+      {
+        name: "Eurion + Torrin (survival max)",
+        change: "Garius+Catherine -> Eurion+Torrin",
+        status: "untested",
+        notes: "Imortalidade classica. 3 Radiance + 2 Permafrost = misto. Use em conteudo dificil."
+      },
+      {
+        name: "AllClash ideal (com Thelendor)",
+        change: "Lorentheel -> Thelendor",
+        status: "reference",
+        notes: "Thelendor (AC S, exclusive S1): insane Radiant damage + ignora 20% DEF com Rally. Nao possui."
       }
     ]
   }
@@ -1054,43 +1131,46 @@ window.DATA_TEAMS = [
 
 // ============================================================
 // HERO FREQUENCY TABLE — how often each hero appears in teams
-// Updated: 2026-02-25 (recalculated after AllClash integration)
+// Updated: 2026-02-26 (recalculated — Flora, element teams, Ghul'ende, Ergander)
 // ============================================================
 window.DATA_HERO_FREQUENCY = [
-  { id: 20060, teams: 13, activities: "Bosses/Frey, G.Venom, G.Curse, H.Ruins, Talent Resplendence, A.Battlefield, Arena, Fae, Pillar, Tempest Domain, Flame Domain, Time Ice, Time Summon" },
-  { id: 20690, teams: 9, activities: "Bosses/Frey, G.Venom, G.Curse, G.Rot, Talent Resplendence, A.Battlefield, Tempest Domain, Flame Domain, Time Summon" },
-  { id: 20770, teams: 9, activities: "Bosses/Frey, G.Venom, G.Curse, Talent Resplendence, A.Battlefield, Arena, Fae, Pillar, Time Ice" },
-  { id: 20740, teams: 9, activities: "G.Venom, G.Curse, G.Rot, Arena, Frost Domain, Fae, Pillar, Time Dauntless, Time Ice" },
-  { id: 22290, teams: 5, activities: "A.Battlefield, Arena, Fae, Pillar, Time Ice" },
+  { id: 20060, teams: 14, activities: "Bosses/Frey, G.Venom, G.Curse, H.Ruins, Talent Resplendence, A.Battlefield, Arena, Fae, Pillar, Tempest Domain, Flame Domain, Time Ice, Time Summon, Time Poison(var)" },
+  { id: 20690, teams: 10, activities: "Bosses/Frey, G.Venom, G.Curse, G.Rot, Talent Resplendence, A.Battlefield, Tempest Domain, Flame Domain, Time Ice, Time Summon" },
+  { id: 20770, teams: 8, activities: "Bosses/Frey, G.Venom, G.Curse, Talent Resplendence, A.Battlefield, Arena, Fae, Pillar" },
+  { id: 20740, teams: 8, activities: "G.Venom, G.Curse, G.Rot, Arena, Frost Domain, Fae, Pillar, Time Dauntless" },
+  { id: 20420, teams: 5, activities: "G.Rot, Frost Domain, Flame Domain, Time Radiance, Time Summon(var)" },
+  { id: 22290, teams: 4, activities: "A.Battlefield, Arena, Fae, Pillar" },
   { id: 20920, teams: 4, activities: "Bosses/Frey, G.Venom, H.Ruins, Goblin" },
-  { id: 22230, teams: 4, activities: "Goblin, Fae, Pillar, Time Ice" },
-  { id: 20210, teams: 3, activities: "H.Ruins, Talent Wildfire, Talent Permafrost" },
-  { id: 23210, teams: 3, activities: "H.Ruins, Talent Wildfire, Talent Resplendence" },
-  { id: 20250, teams: 3, activities: "H.Ruins, Talent Wildfire, Talent Resplendence" },
   { id: 23020, teams: 4, activities: "G.Curse, G.Rot, Frost Domain, Time Dauntless" },
-  { id: 20660, teams: 3, activities: "Arena, Frost Domain, Time Dauntless" },
   { id: 23080, teams: 4, activities: "Goblin, Tempest Domain, Flame Domain, Time Summon" },
-  { id: 21030, teams: 3, activities: "Bosses/Frey, A.Battlefield, Goblin" },
-  { id: 20420, teams: 3, activities: "G.Rot, Frost Domain, Flame Domain" },
-  { id: 21560, teams: 2, activities: "Frost Domain, Time Dauntless" },
-  { id: 20650, teams: 2, activities: "Talent Wildfire, Goblin" },
+  { id: 20410, teams: 2, activities: "T.Vortex, Time Fire" },
   { id: 21970, teams: 2, activities: "T.Vortex, Time Fire" },
   { id: 20400, teams: 2, activities: "T.Vortex, Time Fire" },
   { id: 20810, teams: 2, activities: "T.Vortex, Time Fire" },
-  { id: 23250, teams: 2, activities: "T.Vortex, Time Fire" },
-  { id: 21170, teams: 2, activities: "T.Vortex, Time Fire" },
+  { id: 22230, teams: 3, activities: "Goblin, Fae(var), Time Ice" },
+  { id: 21030, teams: 3, activities: "Bosses/Frey, A.Battlefield, Time Ice" },
   { id: 24780, teams: 3, activities: "Tempest Domain, Flame Domain, Time Summon" },
+  { id: 20210, teams: 4, activities: "H.Ruins, Talent Wildfire, Talent Permafrost, Time Radiance" },
+  { id: 23210, teams: 4, activities: "H.Ruins, Talent Wildfire, Talent Resplendence, Time Radiance" },
+  { id: 20250, teams: 3, activities: "H.Ruins, Talent Wildfire, Talent Resplendence" },
+  { id: 20660, teams: 3, activities: "Arena, Frost Domain, Time Dauntless" },
+  { id: 21560, teams: 2, activities: "Frost Domain, Time Dauntless" },
+  { id: 20650, teams: 2, activities: "Talent Wildfire, Goblin" },
+  { id: 23250, teams: 1, activities: "T.Vortex(var)" },
+  { id: 21800, teams: 1, activities: "Time Fire" },
+  { id: 22310, teams: 1, activities: "Time Summon" },
+  { id: 21010, teams: 1, activities: "Time Poison" },
+  { id: 20200, teams: 1, activities: "Time Poison" },
+  { id: 20670, teams: 1, activities: "Time Poison" },
+  { id: 20630, teams: 1, activities: "Time Poison" },
+  { id: 20290, teams: 1, activities: "Time Poison" },
+  { id: 20300, teams: 1, activities: "Time Radiance" },
+  { id: 20320, teams: 1, activities: "Time Radiance" },
   { id: 20040, teams: 2, activities: "Talent Permafrost, Time Dauntless" },
   { id: 23370, teams: 1, activities: "G.Rot" },
   { id: 20790, teams: 1, activities: "Talent Wildfire" },
   { id: 20080, teams: 1, activities: "Talent Permafrost" },
   { id: 20640, teams: 1, activities: "Talent Permafrost" },
   { id: 22350, teams: 1, activities: "Talent Permafrost" },
-  { id: 20750, teams: 1, activities: "Tempest Domain" },
-  { id: 21690, teams: 1, activities: "Time Summon" },
-  { id: 21670, teams: 1, activities: "Time Poison" },
-  { id: 20200, teams: 1, activities: "Time Poison" },
-  { id: 20670, teams: 1, activities: "Time Poison" },
-  { id: 20630, teams: 1, activities: "Time Poison" },
-  { id: 20290, teams: 1, activities: "Time Poison" }
+  { id: 20750, teams: 1, activities: "Tempest Domain" }
 ];
