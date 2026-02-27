@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "last_full_scan": "2026-02-27T10:27:59",
+  "last_full_scan": "2026-02-27T13:19:49",
   "projects": [
     {
       "name": "nexus",
@@ -17,7 +17,7 @@
       "git": {
         "branch": "main",
         "last_commit_date": "2026-02-27",
-        "last_commit_message": "feat: first-run scan before TUI opens",
+        "last_commit_message": "docs: add path auto-healing design plan",
         "dirty": true
       },
       "filesystem": null,
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:16"
+      "last_scanned": "2026-02-27T13:18:41"
     },
     {
       "name": "Dragon Heir",
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-02-27T10:27:17"
+      "last_scanned": "2026-02-27T13:18:42"
     },
     {
       "name": "CRCMG",
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:20"
+      "last_scanned": "2026-02-27T13:18:47"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:21"
+      "last_scanned": "2026-02-27T13:18:48"
     },
     {
       "name": "IA Builder",
@@ -127,7 +127,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:21"
+      "last_scanned": "2026-02-27T13:18:48"
     },
     {
       "name": "Mnemo",
@@ -149,7 +149,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:21"
+      "last_scanned": "2026-02-27T13:18:48"
     },
     {
       "name": "WSL Config",
@@ -174,7 +174,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:21"
+      "last_scanned": "2026-02-27T13:18:48"
     },
     {
       "name": "Livros",
@@ -201,11 +201,11 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:22"
+      "last_scanned": "2026-02-27T13:18:49"
     },
     {
       "name": "Lucio Monteiro Kids",
-      "path": "/mnt/e/OneDrive/Empreendimentos/Lucio Monteiro Kids",
+      "path": "/mnt/e/OneDrive/Empreendimentos/ATIVOS/Lucio Monteiro Kids",
       "description": "Geração de video de msucia infantil apra canal do youtube monetizado",
       "icon": "🎵",
       "category": "Empreendimentos",
@@ -213,17 +213,22 @@
       "repo": "henryavila/lucio-monteiro-kids",
       "status": "active",
       "note": null,
-      "class": "unknown",
-      "last_activity": null,
-      "git": null,
+      "class": "git",
+      "last_activity": "2026-02-26",
+      "git": {
+        "branch": "master",
+        "last_commit_date": "2026-02-06",
+        "last_commit_message": "Estratégia de canal e guia de prompts Flux Klein",
+        "dirty": true
+      },
       "filesystem": null,
       "health": {
-        "path_exists": false,
-        "claude_memory_portable": null,
+        "path_exists": true,
+        "claude_memory_portable": true,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:22"
+      "last_scanned": "2026-02-27T13:18:50"
     },
     {
       "name": "RAID Legends",
@@ -248,7 +253,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:22"
+      "last_scanned": "2026-02-27T13:18:50"
     },
     {
       "name": "Incidentes-Getin",
@@ -273,7 +278,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:22"
+      "last_scanned": "2026-02-27T13:18:50"
     },
     {
       "name": "Development",
@@ -298,7 +303,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:58"
+      "last_scanned": "2026-02-27T13:19:48"
     },
     {
       "name": "Empreendimentos",
@@ -323,7 +328,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:27:59"
+      "last_scanned": "2026-02-27T13:19:49"
     }
   ]
 }
