@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "last_full_scan": "2026-02-27T13:19:49",
+  "last_full_scan": "2026-02-27T13:50:20",
   "projects": [
     {
       "name": "nexus",
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:18:41"
+      "last_scanned": "2026-02-27T13:49:33"
     },
     {
       "name": "Dragon Heir",
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-02-27T13:18:42"
+      "last_scanned": "2026-02-27T13:49:33"
     },
     {
       "name": "CRCMG",
@@ -68,11 +68,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-02-26",
+      "last_activity": "2026-02-27",
       "git": null,
       "filesystem": {
-        "last_modified_file": "01-Desenvolvimento/scripts/docx_helpers.py",
-        "last_modified_date": "2026-02-26"
+        "last_modified_file": "98-Base-Conhecimento/contratacoes/licoes-aprendidas.md",
+        "last_modified_date": "2026-02-27"
       },
       "health": {
         "path_exists": true,
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:18:47"
+      "last_scanned": "2026-02-27T13:49:37"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:18:48"
+      "last_scanned": "2026-02-27T13:49:38"
     },
     {
       "name": "IA Builder",
@@ -127,7 +127,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:18:48"
+      "last_scanned": "2026-02-27T13:49:38"
     },
     {
       "name": "Mnemo",
@@ -149,7 +149,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:18:48"
+      "last_scanned": "2026-02-27T13:49:38"
     },
     {
       "name": "WSL Config",
@@ -174,7 +174,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:18:48"
+      "last_scanned": "2026-02-27T13:49:38"
     },
     {
       "name": "Livros",
@@ -201,7 +201,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:18:49"
+      "last_scanned": "2026-02-27T13:49:39"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -228,7 +228,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:18:50"
+      "last_scanned": "2026-02-27T13:49:39"
     },
     {
       "name": "RAID Legends",
@@ -253,7 +253,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:18:50"
+      "last_scanned": "2026-02-27T13:49:39"
     },
     {
       "name": "Incidentes-Getin",
@@ -278,7 +278,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:18:50"
+      "last_scanned": "2026-02-27T13:49:39"
     },
     {
       "name": "Development",
@@ -303,7 +303,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:19:48"
+      "last_scanned": "2026-02-27T13:50:19"
     },
     {
       "name": "Empreendimentos",
@@ -328,7 +328,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:19:49"
+      "last_scanned": "2026-02-27T13:50:20"
     }
   ]
 }
