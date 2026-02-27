@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "last_full_scan": "2026-02-27T10:04:47",
+  "last_full_scan": "2026-02-27T10:27:59",
   "projects": [
     {
       "name": "nexus",
@@ -17,8 +17,8 @@
       "git": {
         "branch": "main",
         "last_commit_date": "2026-02-27",
-        "last_commit_message": "Icon and config",
-        "dirty": false
+        "last_commit_message": "feat: first-run scan before TUI opens",
+        "dirty": true
       },
       "filesystem": null,
       "health": {
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:04:29"
+      "last_scanned": "2026-02-27T10:27:16"
     },
     {
       "name": "Dragon Heir",
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-02-27T10:04:31"
+      "last_scanned": "2026-02-27T10:27:17"
     },
     {
       "name": "CRCMG",
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:04:38"
+      "last_scanned": "2026-02-27T10:27:20"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:04:39"
+      "last_scanned": "2026-02-27T10:27:21"
     },
     {
       "name": "IA Builder",
@@ -117,22 +117,17 @@
       "repo": null,
       "status": "active",
       "note": null,
-      "class": "git",
-      "last_activity": "2026-02-26",
-      "git": {
-        "branch": "master",
-        "last_commit_date": "2025-12-23",
-        "last_commit_message": "feat: create Workflow resource with fields and dimension presets management",
-        "dirty": true
-      },
+      "class": "unknown",
+      "last_activity": null,
+      "git": null,
       "filesystem": null,
       "health": {
-        "path_exists": true,
+        "path_exists": false,
         "claude_memory_portable": null,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:04:41"
+      "last_scanned": "2026-02-27T10:27:21"
     },
     {
       "name": "Mnemo",
@@ -144,22 +139,17 @@
       "repo": "henryavila/mnemo",
       "status": "active",
       "note": null,
-      "class": "git",
+      "class": "unknown",
       "last_activity": null,
-      "git": {
-        "branch": null,
-        "last_commit_date": null,
-        "last_commit_message": null,
-        "dirty": false
-      },
+      "git": null,
       "filesystem": null,
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": false,
+        "path_exists": false,
+        "claude_memory_portable": null,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:04:41"
+      "last_scanned": "2026-02-27T10:27:21"
     },
     {
       "name": "WSL Config",
@@ -180,11 +170,11 @@
       },
       "health": {
         "path_exists": true,
-        "claude_memory_portable": false,
+        "claude_memory_portable": null,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:04:41"
+      "last_scanned": "2026-02-27T10:27:21"
     },
     {
       "name": "Livros",
@@ -207,11 +197,11 @@
       "filesystem": null,
       "health": {
         "path_exists": true,
-        "claude_memory_portable": false,
+        "claude_memory_portable": null,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:04:42"
+      "last_scanned": "2026-02-27T10:27:22"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -223,22 +213,17 @@
       "repo": "henryavila/lucio-monteiro-kids",
       "status": "active",
       "note": null,
-      "class": "git",
-      "last_activity": "2026-02-26",
-      "git": {
-        "branch": "master",
-        "last_commit_date": "2026-02-06",
-        "last_commit_message": "Estratégia de canal e guia de prompts Flux Klein",
-        "dirty": true
-      },
+      "class": "unknown",
+      "last_activity": null,
+      "git": null,
       "filesystem": null,
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
+        "path_exists": false,
+        "claude_memory_portable": null,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:04:43"
+      "last_scanned": "2026-02-27T10:27:22"
     },
     {
       "name": "RAID Legends",
@@ -263,7 +248,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:04:47"
+      "last_scanned": "2026-02-27T10:27:22"
     },
     {
       "name": "Incidentes-Getin",
@@ -288,7 +273,57 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T10:04:47"
+      "last_scanned": "2026-02-27T10:27:22"
+    },
+    {
+      "name": "Development",
+      "path": "/mnt/e/OneDrive/DEV",
+      "description": "Tudo que me torna um desenvolvedor melhor e mais produtivo",
+      "icon": "💻",
+      "category": "Development",
+      "url": null,
+      "repo": null,
+      "status": "active",
+      "note": null,
+      "class": "filesystem",
+      "last_activity": "2026-02-27",
+      "git": null,
+      "filesystem": {
+        "last_modified_file": "nexus.yaml",
+        "last_modified_date": "2026-02-27"
+      },
+      "health": {
+        "path_exists": true,
+        "claude_memory_portable": null,
+        "web_compliant": null
+      },
+      "web": null,
+      "last_scanned": "2026-02-27T10:27:58"
+    },
+    {
+      "name": "Empreendimentos",
+      "path": "/mnt/e/OneDrive/Empreendimentos",
+      "description": "Projetos com objetivo de gerar valor, renda ou impacto",
+      "icon": "💵",
+      "category": "Empreendimentos",
+      "url": null,
+      "repo": null,
+      "status": "active",
+      "note": null,
+      "class": "filesystem",
+      "last_activity": "2026-02-27",
+      "git": null,
+      "filesystem": {
+        "last_modified_file": "nexus.yaml",
+        "last_modified_date": "2026-02-27"
+      },
+      "health": {
+        "path_exists": true,
+        "claude_memory_portable": true,
+        "web_compliant": null
+      },
+      "web": null,
+      "last_scanned": "2026-02-27T10:27:59"
     }
   ]
 }
