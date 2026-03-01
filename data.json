@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "last_full_scan": "2026-02-27T13:50:20",
+  "last_full_scan": "2026-02-28T23:03:11",
   "projects": [
     {
       "name": "nexus",
@@ -13,12 +13,12 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-02-27",
+      "last_activity": "2026-02-28",
       "git": {
         "branch": "main",
         "last_commit_date": "2026-02-27",
         "last_commit_message": "docs: add path auto-healing design plan",
-        "dirty": true
+        "dirty": false
       },
       "filesystem": null,
       "health": {
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:49:33"
+      "last_scanned": "2026-02-28T23:02:57"
     },
     {
       "name": "Dragon Heir",
@@ -40,11 +40,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-02-27",
+      "last_activity": "2026-02-28",
       "git": null,
       "filesystem": {
         "last_modified_file": "app/index.html",
-        "last_modified_date": "2026-02-27"
+        "last_modified_date": "2026-02-28"
       },
       "health": {
         "path_exists": true,
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-02-27T13:49:33"
+      "last_scanned": "2026-02-28T23:02:57"
     },
     {
       "name": "CRCMG",
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:49:37"
+      "last_scanned": "2026-02-28T23:03:05"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:49:38"
+      "last_scanned": "2026-02-28T23:03:06"
     },
     {
       "name": "IA Builder",
@@ -117,17 +117,22 @@
       "repo": null,
       "status": "active",
       "note": null,
-      "class": "unknown",
-      "last_activity": null,
-      "git": null,
+      "class": "git",
+      "last_activity": "2026-02-26",
+      "git": {
+        "branch": "master",
+        "last_commit_date": "2025-12-23",
+        "last_commit_message": "feat: create Workflow resource with fields and dimension presets management",
+        "dirty": true
+      },
       "filesystem": null,
       "health": {
-        "path_exists": false,
+        "path_exists": true,
         "claude_memory_portable": null,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:49:38"
+      "last_scanned": "2026-02-28T23:03:08"
     },
     {
       "name": "Mnemo",
@@ -139,17 +144,22 @@
       "repo": "henryavila/mnemo",
       "status": "active",
       "note": null,
-      "class": "unknown",
-      "last_activity": null,
-      "git": null,
+      "class": "git",
+      "last_activity": "2026-02-27",
+      "git": {
+        "branch": "main",
+        "last_commit_date": "2026-02-27",
+        "last_commit_message": "chore: initial project setup with BMAD framework and execution plan",
+        "dirty": false
+      },
       "filesystem": null,
       "health": {
-        "path_exists": false,
-        "claude_memory_portable": null,
+        "path_exists": true,
+        "claude_memory_portable": true,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:49:38"
+      "last_scanned": "2026-02-28T23:03:08"
     },
     {
       "name": "WSL Config",
@@ -170,11 +180,11 @@
       },
       "health": {
         "path_exists": true,
-        "claude_memory_portable": null,
+        "claude_memory_portable": false,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:49:38"
+      "last_scanned": "2026-02-28T23:03:08"
     },
     {
       "name": "Livros",
@@ -197,15 +207,15 @@
       "filesystem": null,
       "health": {
         "path_exists": true,
-        "claude_memory_portable": null,
+        "claude_memory_portable": false,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:49:39"
+      "last_scanned": "2026-02-28T23:03:10"
     },
     {
       "name": "Lucio Monteiro Kids",
-      "path": "/mnt/e/OneDrive/Empreendimentos/ATIVOS/Lucio Monteiro Kids",
+      "path": "/mnt/e/OneDrive/Empreendimentos/Lucio Monteiro Kids",
       "description": "Geração de video de msucia infantil apra canal do youtube monetizado",
       "icon": "🎵",
       "category": "Empreendimentos",
@@ -213,22 +223,17 @@
       "repo": "henryavila/lucio-monteiro-kids",
       "status": "active",
       "note": null,
-      "class": "git",
-      "last_activity": "2026-02-26",
-      "git": {
-        "branch": "master",
-        "last_commit_date": "2026-02-06",
-        "last_commit_message": "Estratégia de canal e guia de prompts Flux Klein",
-        "dirty": true
-      },
+      "class": "unknown",
+      "last_activity": null,
+      "git": null,
       "filesystem": null,
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
+        "path_exists": false,
+        "claude_memory_portable": null,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:49:39"
+      "last_scanned": "2026-02-28T23:03:10"
     },
     {
       "name": "RAID Legends",
@@ -253,7 +258,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:49:39"
+      "last_scanned": "2026-02-28T23:03:11"
     },
     {
       "name": "Incidentes-Getin",
@@ -278,57 +283,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-02-27T13:49:39"
-    },
-    {
-      "name": "Development",
-      "path": "/mnt/e/OneDrive/DEV",
-      "description": "Tudo que me torna um desenvolvedor melhor e mais produtivo",
-      "icon": "💻",
-      "category": "Development",
-      "url": null,
-      "repo": null,
-      "status": "active",
-      "note": null,
-      "class": "filesystem",
-      "last_activity": "2026-02-27",
-      "git": null,
-      "filesystem": {
-        "last_modified_file": "nexus.yaml",
-        "last_modified_date": "2026-02-27"
-      },
-      "health": {
-        "path_exists": true,
-        "claude_memory_portable": null,
-        "web_compliant": null
-      },
-      "web": null,
-      "last_scanned": "2026-02-27T13:50:19"
-    },
-    {
-      "name": "Empreendimentos",
-      "path": "/mnt/e/OneDrive/Empreendimentos",
-      "description": "Projetos com objetivo de gerar valor, renda ou impacto",
-      "icon": "💵",
-      "category": "Empreendimentos",
-      "url": null,
-      "repo": null,
-      "status": "active",
-      "note": null,
-      "class": "filesystem",
-      "last_activity": "2026-02-27",
-      "git": null,
-      "filesystem": {
-        "last_modified_file": "nexus.yaml",
-        "last_modified_date": "2026-02-27"
-      },
-      "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
-        "web_compliant": null
-      },
-      "web": null,
-      "last_scanned": "2026-02-27T13:50:20"
+      "last_scanned": "2026-02-28T23:03:11"
     }
   ]
 }

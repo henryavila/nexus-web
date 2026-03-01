@@ -18,9 +18,9 @@ window.DATA_PLAN = {
           text: "SHADOW DUNGEON — Usar Double Concentrates nas 3 dungeons ativas (5 min)",
           done: false,
           subitems: [
-            { text: "Verificar progresso dos 3 Shadow Challenges — se quase completando, PARAR farm nessa dungeon", done: false },
+            { text: "10 Double Concentrates por dia — usar TODOS (resetam diario, use ou perca)", done: false },
             { text: "Prioridade de dungeon: Gear (Brotherhood/Puppeteer/Witches) > Talentos > Recursos", done: false },
-            { text: "NUNCA completar challenges cedo — manter ativos ate final da semana pra aproveitar mais Double Concentrates", done: false }
+            { text: "NAO completar challenges cedo — manter ativos ate final da semana pra maximizar dias de Double Concentrates", done: false }
           ]
         },
         {
@@ -65,109 +65,79 @@ window.DATA_PLAN = {
     },
 
     // ============================================================
-    // FASE 3 — SEMANA 1
+    // FASE 3 — CONTINENTAL BOSSES (SEMANAL)
     // ============================================================
     {
       id: 3,
-      name: "Semana 1 — 2 Bosses",
+      name: "Continental Bosses — Estrategia Semanal",
       groups: [
         {
-          name: "Bosses Disponiveis",
-          description: "2 bosses abrem. Voce tem a semana inteira pra lutar. Retry gratis e ilimitado. Heroi usado = travado ate reset semanal.",
+          name: "Mecanica (CONFIRMADO IN-GAME 28/Fev)",
+          description: "6 bosses disponiveis desde o inicio. Evento dura 3 semanas. Tickets: Sem1=2, Sem2=4, Sem3=6. 1 ticket = 1 boss. Heroi usado = travado a semana toda. Retry gratis e ilimitado.",
           items: [
-            { text: "Identificar quais 2 bosses abriram", done: false },
-            { text: "Alocar os 2 times MAIS FORTES nos bosses disponiveis (ver Fase 6)", done: false },
-            { text: "Lutar contra Boss 1 — retry ate score satisfatorio", done: false },
-            { text: "Lutar contra Boss 2 — retry ate score satisfatorio", done: false },
-            { text: "Anotar scores e composicoes que funcionaram", done: false }
+            { text: "Semana 1 (2 tickets): TESTAR todos os 6 bosses antes de commitar! So 10 herois travam → pode experimentar a vontade", done: false },
+            { text: "Semana 2 (4 tickets): 20 herois travados — planejar alocacao com cuidado", done: false },
+            { text: "Semana 3 (6 tickets): Todos os 6 bosses — 30 herois sem repetir", done: false },
+            { text: "Time mais forte no boss mais facil (maximizar leaderboard)", done: false },
+            { text: "Salvar composicao vencedora pra reusar", done: false }
           ]
         },
         {
-          name: "Shadow Dungeon — Semana 1",
+          name: "Semana 1 — 2 Tickets",
+          description: "Testar TODOS os bosses (retry gratis). Commitar nos 2 mais faceis: Thelandor + Vasska.",
           items: [
-            { text: "Ativar 3 Shadow Challenges no inicio da semana", done: false },
-            { text: "Usar Double Concentrates DIARIAMENTE em cada dungeon", done: false },
-            { text: "Completar os 3 challenges so no ULTIMO DIA da semana", done: false }
+            { text: "THELANDOR (facil) — Time Necro/Summon: Ladehlia+Sintrellia+Ghul'ende+Zhar'loth+Torrin", done: false },
+            { text: "VASSKA (facil-medio) — Time Ice/Frost: Lossenia+Auster+Hochadir+Vinyara+Eurion", done: false }
           ]
         },
         {
-          name: "Leaderboard",
-          description: "Semana 1 com so 2 bosses = TODOS os jogadores competindo nos mesmos 2 bosses. Oportunidade de rankear alto.",
+          name: "Semana 2 — 4 Tickets",
+          description: "Adicionar Vinyara + Tamar. Reavaliar composicoes com base nos testes da Semana 1.",
           items: [
-            { text: "Focar retries no boss mais facil pra subir no leaderboard", done: false }
+            { text: "THELANDOR — Time Necro/Summon", done: false },
+            { text: "VASSKA — Time Ice/Frost", done: false },
+            { text: "VINYARA — Time Fire/Wild: Flora+Brody+Errich+Caspar+Felicity", done: false },
+            { text: "TAMAR — Time Poison: Durango+Lothair+Vicana+Jathalea+Ergander", done: false }
+          ]
+        },
+        {
+          name: "Semana 3 — 6 Tickets (TODOS)",
+          description: "Todos os 6 bosses. 30 herois sem repetir. Aceitar score baixo nos dificeis (Khrysos, Twitch).",
+          items: [
+            { text: "THELANDOR — Time Necro/Summon", done: false },
+            { text: "VASSKA — Time Ice/Frost", done: false },
+            { text: "VINYARA — Time Fire/Wild", done: false },
+            { text: "TAMAR — Time Poison", done: false },
+            { text: "KHRYSOS (medio-dificil) — Time Dauntless: Nastjenka+Sutha+Garett+Divine Ascetic+Tamar", done: false },
+            { text: "TWITCH (dificil) — Time Radiance: Huberg+Lorentheel+Acilia+Tonalnan+Catherine", done: false }
           ]
         }
       ]
     },
 
     // ============================================================
-    // FASE 4 — SEMANA 2
+    // FASE 4 — SHADOW DUNGEON (SEMANAL)
     // ============================================================
     {
       id: 4,
-      name: "Semana 2 — 4 Bosses",
+      name: "Shadow Dungeon — Estrategia Semanal",
       groups: [
         {
-          name: "Bosses Disponiveis",
-          description: "4 bosses abrem. Reset total de herois. Montar 4 times do zero. ALOCACAO FLEXIVEL: se boss dificil (ex: Twitch) apareceu, coloque time forte nele agora — na Semana 3 voce ajusta.",
+          name: "Mecanica",
           items: [
-            { text: "Identificar quais 4 bosses abriram", done: false },
-            { text: "Alocar times conforme dificuldade dos bosses (time forte → boss dificil, pois so tem 4)", done: false },
-            { text: "Lutar contra todos os 4 bosses — retry ate score satisfatorio", done: false },
-            { text: "Anotar o que funcionou e o que precisa ajustar", done: false }
+            { text: "Ativar 3 Shadow Challenges em dungeons uteis (gear/talentos/recursos)", done: false },
+            { text: "10 Double Concentrates por dia — usar TODOS (resetam diario, use ou perca)", done: false },
+            { text: "NAO completar challenges cedo — manter ativos ate final da semana (mais dias = mais drops duplos)", done: false },
+            { text: "Prioridade: Gear (Brotherhood/Puppeteer/Witches) > Talentos > Recursos", done: false }
           ]
         },
         {
-          name: "Shadow Dungeon — Semana 2",
+          name: "Checkpoints de Amethysts",
           items: [
-            { text: "Escolher 3 novos Shadow Challenges", done: false },
-            { text: "Usar Double Concentrates DIARIAMENTE", done: false },
-            { text: "Completar challenges so no ULTIMO DIA", done: false }
-          ]
-        },
-        {
-          name: "Checkpoint de Amethysts",
-          description: "Meta: ~230 acumulados ate aqui. Se abaixo de 180, aumentar foco em Shadow Dungeon.",
-          items: [
-            { text: "Verificar total de Shadow Amethysts acumulados", done: false }
-          ]
-        }
-      ]
-    },
-
-    // ============================================================
-    // FASE 5 — SEMANA 3
-    // ============================================================
-    {
-      id: 5,
-      name: "Semana 3 — 6 Bosses (TODOS)",
-      groups: [
-        {
-          name: "Bosses Disponiveis",
-          description: "Todos os 6 bosses abrem. Precisa de 30 herois sem repetir. AGORA sim: time mais forte no boss mais facil (maximizar leaderboard). Time mais fraco no boss mais dificil (aceitar score baixo).",
-          items: [
-            { text: "Montar 6 times conforme Fase 6 (sem heroi repetido!)", done: false },
-            { text: "THELANDOR (facil) — Time Necro/Summon: Ladehlia+Sintrellia+Ghul'ende+Zhar'loth+Torrin", done: false },
-            { text: "VASSKA (facil-medio) — Time Ice/Frost: Lossenia+Auster+Hochadir+Vinyara+Eurion", done: false },
-            { text: "TAMAR (medio) — Time Poison: Durango+Lothair+Vicana+Jathalea+Ergander", done: false },
-            { text: "VINYARA (medio) — Time Fire/Wild: Flora+Brody+Errich+Caspar+Felicity", done: false },
-            { text: "KHRYSOS (medio-dificil) — Time Dauntless: Nastjenka+Sutha+Garett+Divine Ascetic+Tamar", done: false },
-            { text: "TWITCH (dificil) — Time Radiance: Huberg+Lorentheel+Acilia+Tonalnan+Catherine. Aceitar score baixo", done: false }
-          ]
-        },
-        {
-          name: "Shadow Dungeon — Semana 3",
-          items: [
-            { text: "Escolher 3 novos Shadow Challenges", done: false },
-            { text: "Usar Double Concentrates DIARIAMENTE", done: false },
-            { text: "Completar challenges so no ULTIMO DIA", done: false }
-          ]
-        },
-        {
-          name: "Checkpoint de Amethysts",
-          description: "Meta: ~375 acumulados. Utior (450) deve ser alcancado na Semana 4.",
-          items: [
-            { text: "Verificar total de Shadow Amethysts acumulados", done: false }
+            { text: "Semana 1: ~105 acumulados (Shadow Dungeon 60 + Bosses + Login)", done: false },
+            { text: "Semana 2: ~230 acumulados", done: false },
+            { text: "Semana 3: ~375 acumulados", done: false },
+            { text: "Semana 4: ~500 acumulados — UTIOR GARANTIDO", done: false }
           ]
         }
       ]
@@ -177,8 +147,8 @@ window.DATA_PLAN = {
     // FASE 6 — TIMES POR BOSS (REFERENCIA)
     // ============================================================
     {
-      id: 6,
-      name: "Times por Boss (Referencia)",
+      id: 5,
+      name: "Times por Boss — Builds Detalhados (Referencia)",
       groups: [
         {
           name: "THELANDOR — Necro/Summon (Facil)",
@@ -259,7 +229,7 @@ window.DATA_PLAN = {
     // FASE 7 — META FINAL
     // ============================================================
     {
-      id: 7,
+      id: 6,
       name: "Meta: 450 Amethysts → Utior",
       items: [
         {
