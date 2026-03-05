@@ -2,6 +2,71 @@
 // Generated: 2026-02-13
 
 window.DATA_DECISIONS = [
+  // ── 2026-03-05 ──────────────────────────────────────────────────────────
+
+  {
+    date: "2026-03-05",
+    title: "Banner atual: Felosia selecionada + 7 lendarios (2 novos, 5 inspirations)",
+    tags: ["banner", "summon", "felosia", "lucien", "vinyara", "tamar", "ergander", "donella", "alphanarsy", "inspiration"],
+    summary: "No banner atual vieram Vinyara, Tamar, Lucien, Alphanarsy, Ergander e Donella; heroi selecionado: Felosia. Novos no roster: Lucien e Felosia.",
+    impact: "Roster sobe para 161 herois e 40 lendarios. Ganho de 5 inspirations lendarias: Vinyara 0→1, Tamar 0→1, Alphanarsy 0→1, Ergander 0→1, Donella 1→2. Felosia adiciona camada forte de sobrevivencia para Vortex/Graves.",
+    details: `Resultado do banner atual
+- Novos lendarios: Lucien (Ice/Support), Felosia (Ice/Support - selecionada)
+- Duplicatas (inspiration):
+  - Vinyara 0->1
+  - Tamar 0->1
+  - Alphanarsy 0->1
+  - Ergander 0->1
+  - Donella 1->2
+
+Observacao de uso:
+- Felosia: foco em sobrevivencia (shield AoE + Damage Reduction + Control Immunity)
+- Lucien: opcao defensiva de Ice para lutas com controle pesado.`
+  },
+
+  {
+    date: "2026-03-05",
+    title: "Grave of Rot: novo setup com Eches limpa Lv15, mas Lv16 ainda trava no Devour",
+    tags: ["times", "grave-rot", "eches", "acilia", "torrin", "nastjenka", "artefato", "teste"],
+    summary: "Com Eches no lugar da Donella, o time passou o Grave of Rot Lv15. No Lv16, o boss ainda vence no endgame com devour sequencial (Acilia e depois Eches).",
+    impact: "Upgrade real de consistencia no Lv15. Gargalo atual mudou de 'morrer cedo' para 'controle de devour/janela final' no Lv16.",
+    details: `SETUP TESTADO (Grave of Rot)
+- Time: Nastjenka + Divine Ascetic + Acilia + Torrin + Eches
+- Resultado: Lv15 CLEAR
+- Lv16: falha no endgame (Acilia e depois Eches devorados)
+
+Artefatos usados no teste:
+- Eches -> Rift Hourglass
+- Nastjenka -> The Great River Lamp
+- Acilia -> Mirror of the Living
+
+Leitura do teste:
+- Debuff/control de campo melhorou com Eches
+- Sobrevivencia geral subiu em relacao ao setup anterior
+- Proximo gargalo e timing/posicionamento para segurar a fase de Devour no Lv16.`
+  },
+
+  {
+    date: "2026-03-05",
+    title: "Grave of Rot Lv18 CLEAR: threshold de status/atributos decide a run",
+    tags: ["times", "grave-rot", "summon", "gear", "artefato", "accuracy", "crit", "aprendizado"],
+    summary: "Clear do Lv18 veio ao focar status/atributos (gear+artefatos): summons em crit altissimo e debuffer com ~400 Accuracy para manter uptime de debuffs.",
+    impact: "Aprendizado chave de progressao alta: em Rot Lv18, a composicao so funciona com thresholds de stats. Sem esses thresholds, o boss entra no endgame e devora em sequencia.",
+    details: `RESULTADO
+- Grave of Rot Lv18 CLEAR
+
+TIME REPORTADO
+- Torrin + Ladehlia + Isitarian + Sintrellia/Zadok
+- Debuffer com ~400 Accuracy
+- Summons com crit muito alto (proximo de 100%)
+
+LEARNING (PRATICO)
+- O segredo nao foi trocar apenas heroi: foi bater o threshold de status/atributos
+- Accuracy alto no debuffer = debuff consistente no boss
+- Crit alto nos summons = dano suficiente para fechar antes do endgame de Devour
+- Gear + artefato certos mudam mais o resultado que trocar 1 heroi sem ajustar stats.`
+  },
+
   // ── 2026-02-26 ──────────────────────────────────────────────────────────
 
   {

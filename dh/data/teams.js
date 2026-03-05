@@ -1,5 +1,5 @@
 // teams.js — Canonical teams by activity + element-specific teams
-// Updated: 2026-02-26 — AllClash S1 guide + Flora obtained + element teams
+// Updated: 2026-03-05 — revisão geral com Lucien + Felosia
 // Fonte: https://www.allclash.com/best-teams-in-dragonheir-silent-gods-dungeons-vortex-etc/
 window.DATA_TEAMS = [
   // ============================================================
@@ -47,6 +47,18 @@ window.DATA_TEAMS = [
         dps_result: "3.12M",
         bonds: "5 Permafrost (3 Necro + 2 Ice) | 2 Summon | 1 Frost | 2 Support",
         notes: "Rowena foca menor HP, 800% em Frost. Superada por Lossenia (14/Fev)"
+      },
+      {
+        name: "Lucien anti-CC (novo)",
+        change: "Vinyara -> Lucien",
+        status: "untested",
+        notes: "Use quando controle e drain de ult estao quebrando a run. Lucien abre com shield + Control Immunity global."
+      },
+      {
+        name: "Felosia anti-burst (novo)",
+        change: "Vinyara -> Felosia",
+        status: "untested",
+        notes: "Mais tankiness bruta: shield AoE + Damage Reduction. Melhor quando o problema e morrer cedo, nao buff do boss."
       }
     ]
   },
@@ -76,13 +88,13 @@ window.DATA_TEAMS = [
       como_vencer: "Vinyara ult DISPELA shields dos adds (cada shield quebrado = 3% Max HP no boss). Manter 2+ debuffs no boss = Breath mira Eurion (tank). Frost chain (Lossenia) + Nastjenka feathers = DPS sustentado.",
       food: "Corrupted Meat Pie (Poison +5%, ATK +10%)"
     },
-    notes: "Baseado em AllClash Mid-Range com Nastjenka no lugar de Rowena (DPS upgrade). Substituições: Nastjenka+Lossenia+Vinyara+Torrin no lugar de Tharivol+Felosia (não possui). Quando obtiver Tharivol+Felosia, montar time Endgame AllClash.",
+    notes: "Baseado em AllClash Mid-Range com Nastjenka no lugar de Rowena (DPS upgrade). Substituições: Nastjenka+Lossenia+Vinyara+Torrin no lugar de Tharivol+Felosia (não possui Tharivol). Com Felosia ja obtida, falta apenas Tharivol para testar o Endgame AllClash.",
     variants: [
       {
         name: "AllClash Endgame S1",
         change: "Eurion + Ivellios + Tharivol + Nastjenka + Felosia",
         status: "reference",
-        notes: "Time ideal do AllClash. Requer Tharivol e Felosia (não possui)."
+        notes: "Time ideal do AllClash. Requer Tharivol (Felosia ja possui)."
       },
       {
         name: "AllClash Mid-Range",
@@ -102,6 +114,12 @@ window.DATA_TEAMS = [
         change: "Lossenia -> Voresh",
         status: "untested",
         notes: "Voresh Buff Prohibition AoE 10s = adds NAO PODEM receber shields. Voresh+Vinyara = combo anti-shield total."
+      },
+      {
+        name: "Sustain hard (Felosia)",
+        change: "Nastjenka -> Felosia",
+        status: "untested",
+        notes: "Fallback para Lv alto quando o time morre antes de estabilizar. Perde burst da Nastjenka, ganha consistencia defensiva."
       },
       {
         name: "Poison core (Lothair+Durango)",
@@ -173,6 +191,18 @@ window.DATA_TEAMS = [
         notes: "Voresh Buff Prohibition RESISTIDO pelo boss. Pior resultado. Vinyara dispel > Voresh prohibition neste boss."
       },
       {
+        name: "Felosia anti-wipe (novo)",
+        change: "DA -> Felosia",
+        status: "untested",
+        notes: "Para push de nivel quando o time cai antes do fim. Mantem Vinyara+Torrin+Eurion e troca burst por sustain."
+      },
+      {
+        name: "Lucien anti-ult-drain (novo)",
+        change: "DA -> Lucien",
+        status: "untested",
+        notes: "Lucien protege contra controle e Ultimate Energy Reduction no inicio da luta. Variante defensiva de consistencia."
+      },
+      {
         name: "Full debuffer (sem survival core)",
         change: "Time inteiro -> Ladehlia+Voresh+Horrus+Shook+Nathaniel",
         status: "tested",
@@ -185,18 +215,18 @@ window.DATA_TEAMS = [
   // ─── GRAVE OF ROT (AllClash rewrite) ───
   {
     id: "grave-rot",
-    name: "Anti-debuff + Torrin Invisibility",
+    name: "Anti-debuff + Eches anti-heal",
     activity: "Grave of Rot",
     affinity: "Resplendence",
     status: "active",
-    dps_result: "Lv14 clear full HP. Lv15 trava (~10% HP antes do devour)",
+    dps_result: "Lv18 CLEAR (variante Summon por threshold de stats).",
     score: null,
     members: [
       { id: 20740, role: "DPS carry", notes: "Ult AoE + feather procs 10s. Captain +24% ATK" },
       { id: 23020, role: "DPS burst", notes: "Kui Crown: 10 Obsession start + 15% damage. Battle 5 attacks → feathers Nastjenka" },
       { id: 20420, role: "Cleanse/Immunity", notes: "ESSENCIAL: Debuff Immunity + Cleanse continuo. Counter Healing Prohibition + Corrosion stacks" },
       { id: 20690, role: "Healer/Invisibility", notes: "OBRIGATORIO: Invisibilidade 10s counters Devour. Dispel + Debuff Immunity. Aura +40 Resistance" },
-      { id: 23370, role: "Debuff", notes: "Attack Penalty II + Accuracy Penalty II. Aura +40 ACC" }
+      { id: 20750, role: "Debuff", notes: "Eches. Healing Reduction no Battle + Recharge Penalty no Ult. Passiva reduz dano inimigo em 10% ao aplicar debuff" }
     ],
     bonds: "3 Resplendence | 2 Dauntless | 3 Support (15% shield)",
     captain: { id: 20740, skill: "+24% ATK em todas as batalhas" },
@@ -204,11 +234,18 @@ window.DATA_TEAMS = [
       boss: "Colossal Scavenger (Poison)",
       ciclo: "18s",
       perigo: "Skill 1 aplica Healing Prohibition AoE = seus healers nao curam. Skill 2 Stun AoE. Passiva aplica Corrosion stacks = morte instantanea se acumula. Skill 3 = big hit.",
-      como_vencer: "Torrin Battle dispela Healing Prohibition + Debuff Immunity previne Corrosion. Torrin Invisibilidade counters Devour (boss não pode engolir). Acilia reforça imunidade + limpa stacks. Donella aplica ATK Penalty II.",
+      como_vencer: "Torrin Battle dispela Healing Prohibition + Debuff Immunity previne Corrosion. Torrin Invisibilidade counters Devour (boss nao pode engolir). Acilia reforca imunidade + limpa stacks. Eches aplica Healing Reduction para reduzir sustain do boss.",
       food: "Feast of Thunder (Lightning +5%, ATK +10%) — 3/5 Lightning"
     },
-    notes: "Baseado em AllClash Endgame (Nastjenka+Sutha+Acilia) + Mid-Range (Torrin+Catherine). Torrin é OBRIGATÓRIO (Invisibilidade counters Devour — mais importante aqui que no AllClash). Substituições: Torrin+DA+Donella no lugar de Tharivol+Ivellios (não possui). Quando obtiver Tharivol, trocar DA → Tharivol.",
+    notes: "Baseado em AllClash Endgame (Nastjenka+Sutha+Acilia) + Mid-Range (Torrin+Catherine). Torrin e OBRIGATORIO (Invisibilidade counters Devour). Aprendizado novo: no Lv18 o fator decisivo foi threshold de status (summons com crit muito alto e debuffer com ~400 Accuracy), nao apenas troca de heroi.",
     variants: [
+      {
+        name: "Summon Crit+ACC threshold (Lv18 CLEAR)",
+        change: "Nastjenka+DA+Acilia+Eches -> Torrin+Ladehlia+Isitarian+Sintrellia/Zadok (+ debuffer ~400 ACC)",
+        status: "tested",
+        dps_result: "Lv18 CLEAR",
+        notes: "Clear veio ao bater thresholds de build: summons com crit proximo de 100% + debuffer com ~400 Accuracy para uptime de debuffs."
+      },
       {
         name: "AllClash Endgame S1",
         change: "Tharivol + Ivellios + Nastjenka + Sutha + Acilia",
@@ -226,6 +263,25 @@ window.DATA_TEAMS = [
         change: "DA -> Garius",
         status: "untested",
         notes: "Ganha tank + aura +18% DEF. Perde burst do DA."
+      },
+      {
+        name: "Donella anti-ATK (antigo)",
+        change: "Eches -> Donella",
+        status: "tested",
+        dps_result: "Lv15 travava (~10% HP antes do devour)",
+        notes: "Donella tinha baixa consistencia percebida de debuff no boss para este setup."
+      },
+      {
+        name: "Lucien anti-CC (novo)",
+        change: "Eches -> Lucien",
+        status: "untested",
+        notes: "Lucien reduz risco de stun chain e dreno de ult no inicio. Perde Healing Reduction do Eches."
+      },
+      {
+        name: "Felosia anti-burst (novo)",
+        change: "Eches -> Felosia",
+        status: "untested",
+        notes: "Mais sustain bruto para Lv alto: shield AoE + Damage Reduction. Perde Healing Reduction do Eches."
       },
       {
         name: "5 Dauntless puro (superado no lv8)",
@@ -313,8 +369,20 @@ window.DATA_TEAMS = [
       como_vencer: "5 Wild = SYNERGY CHAIN: Errich +2 dice → Flora familiar triggers em dice >=5 → Felicity multi-beam (8 beams!) → Caspar throwing knives. Dawn Pipe Organ em Flora buffa ATK de todos ranged. AllClash confirma: Wild e o META para Temporal Vortex.",
       food: "Flaming Chili Meatball (Fire +5%, ATK +10%) — 5/5 Fire"
     },
-    notes: "TIME EXATO DO ALLCLASH! Flora obtida 26/Fev completa o time. AllClash diz: 'Wild does so well here and this is the only mode where building wild archetype is really worth it.' Rank #1 observado: 198.9M DPS.",
+    notes: "TIME EXATO DO ALLCLASH! Flora obtida 26/Fev completa o time. AllClash diz: 'Wild does so well here and this is the only mode where building wild archetype is really worth it.' Rank #1 observado: 198.9M DPS. Para semanas em que o time morre cedo, usar variantes sustain com Felosia/Lucien sem quebrar o core Wild.",
     variants: [
+      {
+        name: "Sustain hard (Felosia)",
+        change: "Caspar -> Felosia",
+        status: "untested",
+        notes: "Mantem o core Wild (Flora+Errich+Felicity) e adiciona camada defensiva forte para lutas longas."
+      },
+      {
+        name: "Anti-control (Lucien)",
+        change: "Caspar -> Lucien",
+        status: "untested",
+        notes: "Lucien protege contra controle e dreno de ult no inicio. Boa opcao quando a run quebra por stun/energia."
+      },
       {
         name: "Com Tonalnan (6o Wild, se slot flex)",
         change: "Adolphus -> Tonalnan",
@@ -338,6 +406,8 @@ window.DATA_TEAMS = [
     ],
     tests: [
       { desc: "Wild Fire COMPLETO (Caspar+Errich+Felicity+Flora+Adolphus)", result: "Pendente", notes: "Time AllClash completo com Flora! Testar ASAP" },
+      { desc: "Wild Sustain (Felosia no lugar de Caspar)", result: "Pendente", notes: "Meta: aumentar uptime e dano total em lutas longas" },
+      { desc: "Wild Anti-control (Lucien no lugar de Caspar)", result: "Pendente", notes: "Meta: reduzir mortes por controle/ult-drain no inicio" },
       { desc: "Wild Fire sem Flora (Rhash no lugar)", result: "Pendente", notes: "Time anterior sem Flora" },
       { desc: "Dauntless + Survival (Nastjenka+Sutha+Garett+Torrin+Eurion)", result: "1.86M", notes: "Campea anterior" },
       { desc: "Boss Summon (Ladehlia+Rowena+Sintrellia+Torrin+Eurion)", result: "1.54M", notes: "Superado" }
@@ -369,13 +439,13 @@ window.DATA_TEAMS = [
       como_vencer: "Torrin+Eurion = time nao morre. Voresh Buff Prohibition bloqueia ramp do boss. Vinyara no fundo auto-resiste Stun → Backfire garantido todo ciclo. Auster chipa boss com Frost tracking. Tempo ilimitado = vitoria.",
       food: "Arctic Soothing Soup (Cold +5%, ATK +10%) — 4/5 Ice"
     },
-    notes: "Baseado em AllClash Endgame (Tharivol+Nastjenka+Vinyara+Acilia+Felosia) mas com estratégia Immortal testada. Substituições: Auster+Eurion+Torrin+Voresh no lugar de Tharivol+Nastjenka+Acilia+Felosia (não possui Tharivol+Felosia). Voresh Buff Prohibition é ESSENCIAL neste boss. Lv8 CLEAR confirmado.",
+    notes: "Baseado em AllClash Endgame (Tharivol+Nastjenka+Vinyara+Acilia+Felosia) mas com estratégia Immortal testada. Substituições: Auster+Eurion+Torrin+Voresh no lugar de Tharivol+Nastjenka+Acilia+Felosia (falta apenas Tharivol). Voresh Buff Prohibition é ESSENCIAL neste boss. Lv8 CLEAR confirmado.",
     variants: [
       {
         name: "AllClash Endgame S1",
         change: "Tharivol + Nastjenka + Vinyara + Acilia + Felosia",
         status: "reference",
-        notes: "Time ideal do AllClash. Requer Tharivol e Felosia (não possui)."
+        notes: "Time ideal do AllClash. Requer Tharivol (Felosia ja possui)."
       },
       {
         name: "Resplendence Burst + Vinyara (segundo melhor)",
@@ -432,7 +502,7 @@ window.DATA_TEAMS = [
       como_vencer: "AllClash recomenda este core. Garius tank + Catherine immunity + Meggan sustain = sobrevivência. Vidimir+Sigrid = DPS.",
       food: null
     },
-    notes: "Baseado em AllClash. Substituição: Sigrid no lugar de Rava (não possui). Alternativas: Thia ou Rowena no lugar de Sigrid. Quando obtiver Rava, trocar Sigrid → Rava.",
+    notes: "Baseado em AllClash. Substituição: Sigrid no lugar de Rava (não possui). Alternativas: Thia ou Rowena no lugar de Sigrid. Quando obtiver Rava, trocar Sigrid → Rava. Para runs instáveis, testar Felosia no lugar da Sigrid.",
     variants: [
       {
         name: "AllClash Original",
@@ -451,6 +521,12 @@ window.DATA_TEAMS = [
         change: "Sigrid -> Rowena",
         status: "untested",
         notes: "Rowena traz Frost execution 800%. Cross-element."
+      },
+      {
+        name: "Sustain (Felosia)",
+        change: "Sigrid -> Felosia",
+        status: "untested",
+        notes: "Felosia troca parte do dano por estabilidade defensiva em runs longas."
       }
     ]
   },
@@ -479,13 +555,25 @@ window.DATA_TEAMS = [
       como_vencer: "Torrin+Eurion imortalidade. Vinyara dispel + accuracy. Vidimir DPS. Catherine heal + immunity.",
       food: null
     },
-    notes: "Baseado em AllClash. Substituição: Catherine no lugar de Rava (não possui). Catherine adiciona heal + Debuff Immunity. Quando obtiver Rava, trocar Catherine → Rava.",
+    notes: "Baseado em AllClash. Substituição: Catherine no lugar de Rava (não possui). Catherine adiciona heal + Debuff Immunity. Quando obtiver Rava, trocar Catherine → Rava. Lucien/Felosia entram como fallback defensivo.",
     variants: [
       {
         name: "AllClash Original",
         change: "Torrin + Eurion + Vidimir + Rava + Vinyara",
         status: "reference",
         notes: "Time ideal do AllClash. Requer Rava (não possui)."
+      },
+      {
+        name: "Anti-control (Lucien)",
+        change: "Catherine -> Lucien",
+        status: "untested",
+        notes: "Lucien protege contra controle e dreno de energia no inicio da luta."
+      },
+      {
+        name: "Sustain hard (Felosia)",
+        change: "Catherine -> Felosia",
+        status: "untested",
+        notes: "Felosia oferece Damage Reduction + shield em area para runs mais seguras."
       }
     ]
   },
@@ -514,13 +602,19 @@ window.DATA_TEAMS = [
       como_vencer: "AllClash recomenda este core. Garius tank + Schaltar buffer + Dauntless chain (Vani+Nimbus+Schaltar).",
       food: null
     },
-    notes: "Henry possui TODOS os heróis do AllClash! Time exato do guia.",
+    notes: "Henry possui TODOS os heróis do AllClash! Time exato do guia. Se faltar sustain, Lucien pode entrar no lugar da Iola.",
     variants: [
       {
         name: "AllClash Original",
         change: "Garius + Vani + Iola + Nimbus + Schaltar",
         status: "reference",
         notes: "Henry usa exatamente este time."
+      },
+      {
+        name: "Anti-control (Lucien)",
+        change: "Iola -> Lucien",
+        status: "untested",
+        notes: "Lucien melhora consistencia quando o time perde rotacao por controle."
       }
     ]
   },
@@ -557,6 +651,20 @@ window.DATA_TEAMS = [
         status: "untested",
         score: 23.5,
         notes: "Acilia traz cleanse total + Debuff Immunity. Perde Buff Prohibition, mas melhora vs comps de CC pesado."
+      },
+      {
+        name: "Anti-control (Lucien)",
+        change: "Garett -> Lucien",
+        status: "untested",
+        score: 23,
+        notes: "Lucien abre com shield + Control Immunity no time. Menos burst, mais estabilidade no opener."
+      },
+      {
+        name: "Ultra sustain (Felosia)",
+        change: "Garett -> Felosia",
+        status: "untested",
+        score: 22.5,
+        notes: "Felosia adiciona Damage Reduction + shield em area. Variante para segurar burst inicial."
       },
       {
         name: "Dauntless puro (mid/late game)",
@@ -734,6 +842,20 @@ window.DATA_TEAMS = [
         status: "untested",
         score: 24,
         notes: "Para andares com Poison/CC pesado."
+      },
+      {
+        name: "Anti-control (Lucien)",
+        change: "Nastjenka -> Lucien",
+        status: "untested",
+        score: 24,
+        notes: "Lucien protege contra controle e drain de ult em andares longos."
+      },
+      {
+        name: "Survival extremo (Felosia)",
+        change: "Nastjenka -> Felosia",
+        status: "untested",
+        score: 23.5,
+        notes: "Felosia aumenta muito a margem defensiva para auto-climb longo."
       }
     ]
   },
@@ -770,6 +892,20 @@ window.DATA_TEAMS = [
         status: "untested",
         score: 24,
         notes: "Para andares com Poison/CC pesado."
+      },
+      {
+        name: "Anti-control (Lucien)",
+        change: "Nastjenka -> Lucien",
+        status: "untested",
+        score: 24,
+        notes: "Lucien e bom em andares com stun/controle e drain de energia."
+      },
+      {
+        name: "Survival extremo (Felosia)",
+        change: "Nastjenka -> Felosia",
+        status: "untested",
+        score: 23.5,
+        notes: "Shield + Damage Reduction para push seguro de andares altos."
       }
     ]
   },
@@ -845,6 +981,12 @@ window.DATA_TEAMS = [
         change: "Divine Ascetic -> Acilia",
         status: "untested",
         notes: "Acilia troca burst por estabilidade. Util em conteudo com CC/debuff pesado."
+      },
+      {
+        name: "Sustain hard (Felosia)",
+        change: "Divine Ascetic -> Felosia",
+        status: "untested",
+        notes: "Felosia adiciona shield + Damage Reduction em area. Boa para push quando 5 DPS morrem cedo."
       },
       {
         name: "Sustain (com Garius)",
@@ -965,6 +1107,18 @@ window.DATA_TEAMS = [
         notes: "Nastjenka compensa DPS mas perde Frost school. Misto 4 Permafrost + 1 Resplendence."
       },
       {
+        name: "Lucien anti-control",
+        change: "Hochadir -> Lucien",
+        status: "untested",
+        notes: "Para bosses com controle e drain de energia agressivo. Ganha Control Immunity e escudo inicial."
+      },
+      {
+        name: "Felosia ultra sustain",
+        change: "Hochadir -> Felosia",
+        status: "untested",
+        notes: "Perde burst Frost, ganha sustain extremo (shield AoE + Damage Reduction)."
+      },
+      {
         name: "AllClash ideal (com Hvitar)",
         change: "Hochadir -> Hvitar",
         status: "reference",
@@ -997,13 +1151,25 @@ window.DATA_TEAMS = [
       como_vencer: "WILD FIRE SYNERGY CHAIN: (1) Errich +2 dice max pra todos → (2) Flora familiar ataca em dice >=5 + ganha Insight → (3) Insight max = dice SEMPRE max → (4) Felicity recast 3x + 8 beams → (5) Caspar knives automaticas → (6) Tonalnan +5% Crit DMG + ATK Up burst. FEEDBACK LOOP EXPONENCIAL.",
       food: "Flaming Chili Meatball (Fire +5%, ATK +10%) — 5/5 Fire"
     },
-    notes: "Wild Fire Synergy Chain completa (26/Fev). AllClash confirma Wild como META para Temporal Vortex. Flora DI #1 + Dawn Pipe Organ + Ring of Scarlet Sorcerer = artefatos ideais. Mais Wild heroes = mais dice rolls = mais triggers = DPS EXPONENCIAL.",
+    notes: "Wild Fire Synergy Chain completa (26/Fev). AllClash confirma Wild como META para Temporal Vortex. Flora DI #1 + Dawn Pipe Organ + Ring of Scarlet Sorcerer = artefatos ideais. Mais Wild heroes = mais dice rolls = mais triggers = DPS EXPONENCIAL. Para conteudo longo onde 5 DPS derretem cedo, usar variantes com Felosia/Lucien.",
     variants: [
       {
         name: "Sustain (Adolphus no lugar de Tonalnan)",
         change: "Tonalnan -> Adolphus",
         status: "untested",
         notes: "Adolphus (DI #28): Shield + heal passivo. Troca DPS por sobrevivencia. AllClash usa esta versao."
+      },
+      {
+        name: "Sustain hard (Felosia no lugar de Tonalnan)",
+        change: "Tonalnan -> Felosia",
+        status: "untested",
+        notes: "Felosia adiciona Damage Reduction + shield em area. Melhor para Vortex/endurance quando o time derrete cedo."
+      },
+      {
+        name: "Anti-control (Lucien no lugar de Tonalnan)",
+        change: "Tonalnan -> Lucien",
+        status: "untested",
+        notes: "Lucien ajuda contra controle e drain de energia no inicio. Mantem 4 Fire + 1 Ice."
       },
       {
         name: "Rhash (6o Fire Wild DPS)",
@@ -1131,7 +1297,7 @@ window.DATA_TEAMS = [
 
 // ============================================================
 // HERO FREQUENCY TABLE — how often each hero appears in teams
-// Updated: 2026-02-26 (recalculated — Flora, element teams, Ghul'ende, Ergander)
+// Updated: 2026-03-05 (Lucien/Felosia review + Donella id fix)
 // ============================================================
 window.DATA_HERO_FREQUENCY = [
   { id: 20060, teams: 14, activities: "Bosses/Frey, G.Venom, G.Curse, H.Ruins, Talent Resplendence, A.Battlefield, Arena, Fae, Pillar, Tempest Domain, Flame Domain, Time Ice, Time Summon, Time Poison(var)" },
@@ -1167,10 +1333,9 @@ window.DATA_HERO_FREQUENCY = [
   { id: 20300, teams: 1, activities: "Time Radiance" },
   { id: 20320, teams: 1, activities: "Time Radiance" },
   { id: 20040, teams: 2, activities: "Talent Permafrost, Time Dauntless" },
-  { id: 23370, teams: 1, activities: "G.Rot" },
   { id: 20790, teams: 1, activities: "Talent Wildfire" },
   { id: 20080, teams: 1, activities: "Talent Permafrost" },
   { id: 20640, teams: 1, activities: "Talent Permafrost" },
   { id: 22350, teams: 1, activities: "Talent Permafrost" },
-  { id: 20750, teams: 1, activities: "Tempest Domain" }
+  { id: 20750, teams: 2, activities: "Tempest Domain, G.Rot" }
 ];

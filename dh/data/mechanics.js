@@ -394,7 +394,9 @@ window.DATA_MECHANICS = {
       ],
       como_vencer: "Cleanse Healing Prohibition imediatamente (Torrin Battle dispela debuffs aliados). Espalhe herois pra minimizar Stun. AoE healing constante limpa Corrosion stacks. DMG Reduction antes do Skill 3.",
       counters: ["Debuff Dispel/Immunity (Torrin dispel + Invisibilidade, Catherine Debuff Immunity AoE)", "AoE Healing constante (limpa Corrosion stacks)", "Espalhar herois (reduz alvos do Stun AoE)", "Shield (Nathaniel AoE Shield) contra Corrosion burst damage"],
-      timing_dica: "DMG Reduction ults ANTES do Skill 3 do boss. Isso cobre tambem o Skill 1 do proximo ciclo."
+      timing_dica: "DMG Reduction ults ANTES do Skill 3 do boss. Isso cobre tambem o Skill 1 do proximo ciclo.",
+      insight_2026_03_05: "No Lv18, o limitante principal e threshold de build: summons com crit muito alto (proximo de 100%) + debuffer em ~400 Accuracy para uptime de debuffs. Com stats abaixo disso, o boss chega no endgame e inicia Devour sequencial.",
+      composicao_referencia_lv18: "Torrin + Ladehlia + Isitarian + Sintrellia/Zadok + debuffer com ~400 Accuracy"
     },
 
     heretical_ruins: {
@@ -763,7 +765,7 @@ window.DATA_MECHANICS = {
         { name: "Journ", element: "Fire", ac_tier: "B", hh: "2.6", has: true },
         { name: "Eurion", element: "Ice", ac_tier: "A", hh: "4.1", has: true },
         { name: "Vinyara", element: "Ice", ac_tier: "A", hh: "4.0", has: true },
-        { name: "Lucien", element: "Ice", ac_tier: "A", hh: "3.9", has: false },
+        { name: "Lucien", element: "Ice", ac_tier: "A", hh: "3.9", has: true, source: "banner atual" },
         { name: "Alphanarsy", element: "Ice", ac_tier: "S", hh: "0", has: true },
         { name: "Torrin", element: "Necrosis", ac_tier: "A", hh: "4.1", has: true },
         { name: "Ripekas", element: "Necrosis", ac_tier: "A", hh: "4.3", has: false },

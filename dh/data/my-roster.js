@@ -1,4 +1,4 @@
-// my-roster.js — Henry's complete roster (157 heroes)
+// my-roster.js — Henry's complete roster (161 heroes)
 // Normalized: id + player-specific data only. Use D.heroFull(id) for complete info.
 
 window.DATA_MY_ROSTER = [
@@ -8,7 +8,7 @@ window.DATA_MY_ROSTER = [
   { id: 20160, insp: 0, skill_level: 0, notes: "Follow-up 20% Dauntless. Ult ignora 100% DEF. Removido dos times (fraco na pratica, 14/Fev). Harpy's Nail liberada apos Kui Crown da Divine Ascetic" },
   { id: 23020, insp: 0, skill_level: 0, notes: "Dauntless allies basic attack -> ganha Obsession + Breakage + Ult Energy. Battle ate 5 ataques (conta como basic attack -> ativa feathers Nastjenka). Ult 700% + Breakage bonus. Captain +24% ATK (redundante com Nastjenka, nao stacka). Kui Crown (Exclusive Mythic): 10 Obsession no inicio + 15% damage em max stacks. Obtida via evento" },
   { id: 22230, insp: 0, skill_level: 0, notes: "DPS principal Ice. Detona Frost AoE, estende Frost +5s" },
-  { id: 20770, insp: 0, skill_level: 0, notes: "5.0 em Arena/Fae/Pillar/bosses. Shield + dispel + drena Ult. +40 Accuracy aura" },
+  { id: 20770, insp: 1, skill_level: 0, notes: "5.0 em Arena/Fae/Pillar/bosses. Shield + dispel + drena Ult. +40 Accuracy aura. Insp.1 (banner atual 05/Mar)" },
   { id: 20060, insp: 0, skill_level: 8, notes: "Ally Protection todos + shield + anti-morte (invencivel 5s). 5.0 em 10 atividades. Skills 8/8 MAX" },
   { id: 20920, insp: 0, skill_level: 0, notes: "DI #3! Frost chain com Hochadir. Captain +24% ATK. Mythic: Frost undispellable + Cold Damage stacking" },
   { id: 21030, insp: 0, skill_level: 8, notes: "DI #26. SS-tier! 5.0 em 10/13 atividades (HH). Ult 520% AoE Cold + Frost 10s + tracking arrows. Battle 3 flechas 120% cada, 50% ignora 100% DEF. Passiva: tracking arrows em inimigos com Frost (+55% Cold + recarrega Ult). Frost chain elite com Hochadir+Lossenia. Skills 8/8 MAX. Obtido Bau Dia 10 (17/Fev)" },
@@ -19,7 +19,9 @@ window.DATA_MY_ROSTER = [
   { id: 23080, insp: 1, skill_level: 8, notes: "SS-tier Reborn-exclusive. Asc.1 (Insp.1 = 10 stacks iniciais). Shadow Demon + execucao. Skill Ult 5 + Battle 2" },
   { id: 20690, insp: 1, skill_level: 8, notes: "Core Frost Domain. Heal + Dispel + Debuff Immunity + Invisibilidade 10s. +40 Resistance aura. Skills 8/8 MAX. Insp.1 (duplicata banner)" },
   { id: 24780, insp: 0, skill_level: 0, notes: "DI #24. Clona Shadow Demon da Ladehlia. +10% ATK undead summons. Captain +24% ATK" },
-  { id: 21460, insp: 1, skill_level: 0, notes: "DI #82. Insp.1 (x2 drops). Sem time canonico ainda" },
+  { id: 21460, insp: 2, skill_level: 0, notes: "DI #82. Insp.2 (x3 drops). Sem time canonico ainda" },
+  { id: 20990, insp: 0, skill_level: 0, notes: "Lucien (Ice Support). Banner atual (05/Mar). Opcao defensiva: shield + Control Immunity" },
+  { id: 21390, insp: 0, skill_level: 0, notes: "Felosia (Ice Support). Heroi selecionado no banner atual (05/Mar). Forte para sobrevivencia: shield AoE + 30% Damage Reduction + Control Immunity" },
   { id: 20300, insp: 3, skill_level: 0, notes: "DI #10. Insp.3! (x4 drops). Ja forte por Inspiration. Sem time Rally montado" },
   { id: 20110, insp: 0, skill_level: 0, notes: "DI #37. Sem time Rally montado" },
   { id: 22060, insp: 1, skill_level: 0, notes: "DI #48. Baixo tier. Tank backup Radiance. Insp.1 (duplicata banner)" },
@@ -146,7 +148,7 @@ window.DATA_MY_ROSTER = [
   { id: 20420, insp: 0, skill_level: 0, notes: "Acilia (Radiance Support). Banner Acilia (21/Fev). Anti-debuff + sustain AoE" },
   { id: 21450, insp: 2, skill_level: 0, notes: "Journ (Fire Support). Banner Acilia (21/Fev). Insp.2 (Target Summons 3, 24/Fev)" },
   { id: 21320, insp: 3, skill_level: 0, notes: "Talwer (Poison Support). Insp.3 (Banner Flora 26/Fev). Taunt mushroom + Stun 3s + Healing Reduction. Passiva: 2% DMG Reduction por debuff em enemies (cap 20%)" },
-  { id: 24770, insp: 0, skill_level: 0, notes: "Alphanarsy (Ice Support). Banner Acilia (21/Fev)" },
+  { id: 24770, insp: 1, skill_level: 0, notes: "Alphanarsy (Ice Support). Banner Acilia (21/Fev). Insp.1 (banner atual 05/Mar)" },
   { id: 20190, insp: 0, skill_level: 0, notes: "Garrika (Fire Support). Banner Acilia (21/Fev)" },
   { id: 21080, insp: 0, skill_level: 0, notes: "Lethander (Ice Support). Banner Acilia (21/Fev)" },
   { id: 20360, insp: 0, skill_level: 0, notes: "Brody (Fire Support). Banner Acilia (21/Fev)" },
@@ -159,8 +161,8 @@ window.DATA_MY_ROSTER = [
   { id: 21700, insp: 0, skill_level: 0, notes: "Oggok (Poison Legendary). Target Summons 3 (24/Fev). DI #11! Immortality AoE 5s + Heal + Dispel passivo. AC A, HH 4.0" },
   { id: 21150, insp: 0, skill_level: 0, notes: "Huldork (Fire Legendary). Target Summons 3 (24/Fev). Dispel 2 buffs + Stun 5s (close range) + Blind. AC S, HH 4.2, DI #68" },
   { id: 22310, insp: 0, skill_level: 0, notes: "Ghul'ende (Necrosis Legendary). Target Summons 3 (24/Fev). 720% AoE + AoE Cleanse + AoE Heal. 5.0 em 13/13! AC S, HH 4.6, DI #72" },
-  { id: 21010, insp: 0, skill_level: 0, notes: "Ergander (Poison Legendary). Target Summons 3 (24/Fev). Taunt 5s + Immortality 10s + Poison DMG. 5.0 em 12/13! AC S, HH 4.5, DI #23" },
-  { id: 20830, insp: 0, skill_level: 0, notes: "Tamar (Lightning Legendary). Bau Legendary Option Chest II (24/Fev). 700% AoE + Buff Prohibition + Stun. Passiva anti-buff. AC SS, HH 4.0, DI #27" }
+  { id: 21010, insp: 1, skill_level: 0, notes: "Ergander (Poison Legendary). Target Summons 3 (24/Fev). Taunt 5s + Immortality 10s + Poison DMG. 5.0 em 12/13! AC S, HH 4.5, DI #23. Insp.1 (banner atual 05/Mar)" },
+  { id: 20830, insp: 1, skill_level: 0, notes: "Tamar (Lightning Legendary). Bau Legendary Option Chest II (24/Fev). 700% AoE + Buff Prohibition + Stun. Passiva anti-buff. AC SS, HH 4.0, DI #27. Insp.1 (banner atual 05/Mar)" }
 ];
 
 // ============================================================
@@ -185,6 +187,8 @@ window.DATA_ROLE_GROUPS = {
   20690: ["Healer"],
   24780: ["Amplifier"],
   21460: ["Debuffer"],
+  20990: ["Tank","Debuffer"],
+  21390: ["Tank","Healer"],
   20300: ["Burst"],
   20110: ["Burst"],
   22060: ["Tank"],

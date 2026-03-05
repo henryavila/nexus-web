@@ -1,9 +1,9 @@
 // plan.js — Imperial Shadow Recast Event Plan
-// Updated: 2026-02-26
+// Updated: 2026-03-05
 
 window.DATA_PLAN = {
   player: "Henry (SuperYennefer, Server 139-Darkfire)",
-  updated: "26/Fev/2026",
+  updated: "05/Mar/2026",
   priority: "Imperial Shadow Recast — Meta: 450 Amethysts (Utior)",
 
   phases: [
@@ -20,7 +20,7 @@ window.DATA_PLAN = {
           subitems: [
             { text: "10 Double Concentrates por dia — usar TODOS (resetam diario, use ou perca)", done: false },
             { text: "Prioridade de dungeon: Gear (Brotherhood/Puppeteer/Witches) > Talentos > Recursos", done: false },
-            { text: "NAO completar challenges cedo — manter ativos ate final da semana pra maximizar dias de Double Concentrates", done: false }
+            { text: "Coletar amethysts = dungeon fixa a semana. Nao coletar = pode trocar dungeon amanha", done: false }
           ]
         },
         {
@@ -56,6 +56,9 @@ window.DATA_PLAN = {
       name: "Preparacao Pre-Evento",
       items: [
         { text: "Equipar gear no Brody — priorizar Resistance e HP (ele MORRE = run da Vinyara falha)", done: false },
+        { text: "Testar Felosia (21390) no Temporal Vortex e nos Graves para reduzir mortes precoces", done: true },
+        { text: "Testar Lucien (20990) como alternativa defensiva no time Ice/Frost contra controle pesado", done: false },
+        { text: "Grave of Rot Lv18: validar threshold de build (summons crit alto + debuffer ~400 Accuracy)", done: true },
         { text: "Equipar Witches Remains no Zhar'loth (Def Down pro Thelandor)", done: false },
         { text: "Verificar Accuracy do time Poison — meta >290 (Durango aura +40 ajuda)", done: false },
         { text: "Equipar Brotherhood (1 por time) e Puppeteer (1 por time) onde possivel", done: false },
@@ -125,9 +128,10 @@ window.DATA_PLAN = {
         {
           name: "Mecanica",
           items: [
-            { text: "Ativar 3 Shadow Challenges em dungeons uteis (gear/talentos/recursos)", done: false },
-            { text: "10 Double Concentrates por dia — usar TODOS (resetam diario, use ou perca)", done: false },
-            { text: "NAO completar challenges cedo — manter ativos ate final da semana (mais dias = mais drops duplos)", done: false },
+            { text: "Selecionar 3 dungeons para drops duplos. 10 Double Concentrates/dia (cada drop duplo consome 1, reseta diario)", done: false },
+            { text: "Coletar amethysts de uma dungeon = dungeon FIXA a semana toda (bom se quer focar nela)", done: false },
+            { text: "NAO coletar = pode TROCAR a dungeon no dia seguinte (bom se quer variar farm)", done: false },
+            { text: "Total de drops duplos = 10/dia IGUAL nos dois casos. A diferenca e QUAIS dungeons recebem o bonus", done: false },
             { text: "Prioridade: Gear (Brotherhood/Puppeteer/Witches) > Talentos > Recursos", done: false }
           ]
         },
