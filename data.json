@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "last_full_scan": "2026-03-08T11:01:59",
+  "last_full_scan": "2026-03-08T12:31:03",
   "projects": [
     {
       "name": "nexus",
@@ -17,7 +17,7 @@
       "git": {
         "branch": "main",
         "last_commit_date": "2026-03-08",
-        "last_commit_message": "chore: add BMAD Method framework (v6.0.4)",
+        "last_commit_message": "feat: redesign dashboard v3 — glassmorphism cards, ideas-first layout",
         "dirty": true
       },
       "filesystem": null,
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T11:01:48"
+      "last_scanned": "2026-03-08T12:30:51"
     },
     {
       "name": "Dragon Heir",
@@ -43,7 +43,7 @@
       "last_activity": "2026-03-08",
       "git": null,
       "filesystem": {
-        "last_modified_file": "docs/game-mechanics/mentoria-aprendizados.md",
+        "last_modified_file": "app/index.html",
         "last_modified_date": "2026-03-08"
       },
       "health": {
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-08T11:01:48"
+      "last_scanned": "2026-03-08T12:30:52"
     },
     {
       "name": "CRCMG",
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T11:01:55"
+      "last_scanned": "2026-03-08T12:30:59"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T11:01:56"
+      "last_scanned": "2026-03-08T12:30:59"
     },
     {
       "name": "IA Builder",
@@ -132,7 +132,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T11:01:58"
+      "last_scanned": "2026-03-08T12:31:01"
     },
     {
       "name": "Mnemo",
@@ -159,7 +159,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T11:01:58"
+      "last_scanned": "2026-03-08T12:31:01"
     },
     {
       "name": "WSL Config",
@@ -184,7 +184,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T11:01:58"
+      "last_scanned": "2026-03-08T12:31:01"
     },
     {
       "name": "Livros",
@@ -211,7 +211,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T11:01:59"
+      "last_scanned": "2026-03-08T12:31:03"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -233,7 +233,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T11:01:59"
+      "last_scanned": "2026-03-08T12:31:03"
     },
     {
       "name": "Incidentes-Getin",
@@ -258,7 +258,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T11:01:59"
+      "last_scanned": "2026-03-08T12:31:03"
     }
   ],
   "ideas": [

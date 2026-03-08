@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Dashboard</title>
+    <title>Nexus</title>
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,46 +15,54 @@
 
     <header>
         <div class="logo"><span>N</span>EXUS</div>
-        <div class="tab-bar">
+        <nav class="tab-bar">
             <button class="tab-btn active" data-tab="ideas">Ideias</button>
             <button class="tab-btn" data-tab="projects">Projetos</button>
-        </div>
+        </nav>
         <div class="search-desktop">
-            <span class="search-icon">&#x1F50D;</span>
-            <input type="text" id="search-desk" placeholder="Filtrar...">
+            <svg class="search-svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.45 4.38l4.09 4.08a.75.75 0 11-1.06 1.06l-4.08-4.09A7 7 0 012 9z" clip-rule="evenodd"/></svg>
+            <input type="text" id="search-desk" placeholder="Filtrar..." aria-label="Filtrar ideias e projetos">
         </div>
-        <button class="search-toggle" id="search-btn">&#x1F50D;</button>
+        <button class="search-toggle" id="search-btn" aria-label="Abrir busca">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.45 4.38l4.09 4.08a.75.75 0 11-1.06 1.06l-4.08-4.09A7 7 0 012 9z" clip-rule="evenodd"/></svg>
+        </button>
     </header>
 
     <div class="search-overlay" id="search-overlay">
-        <input type="text" id="search-mobile" placeholder="Filtrar..." autofocus>
+        <input type="text" id="search-mobile" placeholder="Filtrar..." autofocus aria-label="Filtrar ideias e projetos">
         <button class="search-close" id="search-close">ESC</button>
     </div>
 
     <div class="alerts-bar" id="alerts-bar">
         <div class="alerts-summary" id="alerts-toggle">
-            <span class="alert-icon">&#x26A0;</span>
+            <svg class="alert-svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
             <span id="alerts-count"></span>
         </div>
         <div class="alerts-details" id="alerts-details"></div>
     </div>
 
-    <main class="feed" id="ideas-feed">
-        <div class="feed-header ideas-feed-header" id="ideas-feed-header">
-            <span>Prioridade</span>
-            <span>Ideia</span>
-            <span>Categoria</span>
+    <main class="section" id="ideas-section">
+        <div class="section-header">
+            <h2 class="section-title">Ideias</h2>
+            <span class="section-count" id="ideas-count"></span>
         </div>
+        <div class="ideas-grid" id="ideas-grid"></div>
     </main>
 
-    <main class="feed" id="feed" style="display:none">
+    <main class="section" id="projects-section" style="display:none">
+        <div class="section-header">
+            <h2 class="section-title">Projetos</h2>
+            <span class="section-count" id="projects-count"></span>
+        </div>
         <div class="feed-header" id="feed-header">
+            <span></span>
+            <span></span>
             <span>Projeto</span>
-            <span>Descrição</span>
+            <span>Descricao</span>
             <span>Mem</span>
-            <span>Links</span>
             <span>Ativ.</span>
         </div>
+        <div class="projects-feed" id="projects-feed"></div>
     </main>
 
     <script data-cfasync="false" src="js/app.js"></script>

@@ -1,12 +1,20 @@
+/* ═══════════════════════════════════════════════════
+   Nexus Dashboard v3 — App Logic
+   ═══════════════════════════════════════════════════ */
+
 let activeTab = 'ideas';
 let cachedProjects = [];
 let cachedIdeas = [];
 let cachedLastScan = null;
 
+// ─── Data ───
+
 async function loadData() {
     const resp = await fetch('data.json');
     return resp.json();
 }
+
+// ─── Formatting ───
 
 function relativeDate(isoDate) {
     if (!isoDate) return 'n/a';
@@ -31,36 +39,15 @@ function escapeHtml(str) {
     return div.innerHTML;
 }
 
-function renderAlerts(projects) {
-    const bar = document.getElementById('alerts-bar');
-    const countEl = document.getElementById('alerts-count');
-    const detailsEl = document.getElementById('alerts-details');
-    const alerts = [];
-
-    projects.forEach(p => {
-        if (p.health?.claude_memory_portable === false)
-            alerts.push(`<strong>${escapeHtml(p.name)}</strong>: memória Claude local (não portável)`);
-        if (p.health?.path_exists === false)
-            alerts.push(`<strong>${escapeHtml(p.name)}</strong>: caminho não existe`);
-    });
-
-    if (alerts.length === 0) return;
-
-    bar.classList.add('visible');
-    const plural = alerts.length === 1 ? 'alerta' : 'alertas';
-    countEl.textContent = `${alerts.length} ${plural} — toque para ver`;
-    detailsEl.innerHTML = alerts.map(a => `<div class="alert-item">${a}</div>`).join('');
-}
-
 function relativeScanTime(isoDatetime) {
     if (!isoDatetime) return '';
     const mins = Math.floor((Date.now() - new Date(isoDatetime)) / 60000);
     if (mins < 1) return 'agora';
-    if (mins < 60) return `há ${mins}min`;
+    if (mins < 60) return `h\u00e1 ${mins}min`;
     const hours = Math.floor(mins / 60);
-    if (hours < 24) return `há ${hours}h`;
+    if (hours < 24) return `h\u00e1 ${hours}h`;
     const days = Math.floor(hours / 24);
-    return `há ${days}d`;
+    return `h\u00e1 ${days}d`;
 }
 
 function priorityClass(priority) {
@@ -72,15 +59,43 @@ function priorityClass(priority) {
 function priorityLabel(priority) {
     if (priority === 'high') return 'Alta';
     if (priority === 'low') return 'Baixa';
-    return 'Média';
+    return 'M\u00e9dia';
 }
 
+// ─── Alerts ───
+
+function renderAlerts(projects) {
+    const bar = document.getElementById('alerts-bar');
+    const countEl = document.getElementById('alerts-count');
+    const detailsEl = document.getElementById('alerts-details');
+    const alerts = [];
+
+    projects.forEach(p => {
+        if (p.health?.claude_memory_portable === false)
+            alerts.push(`<strong>${escapeHtml(p.name)}</strong>: mem\u00f3ria Claude local (n\u00e3o port\u00e1vel)`);
+        if (p.health?.path_exists === false)
+            alerts.push(`<strong>${escapeHtml(p.name)}</strong>: caminho n\u00e3o existe`);
+    });
+
+    if (alerts.length === 0) return;
+
+    bar.classList.add('visible');
+    const plural = alerts.length === 1 ? 'alerta' : 'alertas';
+    countEl.textContent = `${alerts.length} ${plural} \u2014 toque para ver`;
+    detailsEl.innerHTML = alerts.map(a => `<div class="alert-item">${a}</div>`).join('');
+}
+
+// ─── Ideas Rendering ───
+
 function renderIdeas(ideas, filter) {
-    const feed = document.getElementById('ideas-feed');
+    const grid = document.getElementById('ideas-grid');
+    const countEl = document.getElementById('ideas-count');
     const q = (filter || '').toLowerCase();
 
     let html = '';
-    ideas.forEach(idea => {
+    let visibleCount = 0;
+
+    ideas.forEach((idea, index) => {
         const matches = !q ||
             (idea.title || '').toLowerCase().includes(q) ||
             (idea.description || '').toLowerCase().includes(q) ||
@@ -88,36 +103,53 @@ function renderIdeas(ideas, filter) {
             (idea.tags || []).some(t => t.toLowerCase().includes(q));
 
         const filteredClass = q && !matches ? ' filtered-out' : '';
+        if (!q || matches) visibleCount++;
+
         const pc = priorityClass(idea.priority);
-        const tags = (idea.tags || []).map(t => `<span class="tag-pill">${escapeHtml(t)}</span>`).join('');
+        const tags = (idea.tags || []).map(t =>
+            `<span class="tag-pill">${escapeHtml(t)}</span>`
+        ).join('');
+
+        const refs = (idea.references || []).map(r =>
+            `<span class="tag-pill">${escapeHtml(r)}</span>`
+        ).join('');
 
         html += `
-        <div class="idea-row${filteredClass}">
-            <span class="idea-priority ${pc}">${priorityLabel(idea.priority)}</span>
-            <div class="idea-title-wrap">
-                <span class="idea-title">${escapeHtml(idea.title)}</span>
-                <span class="idea-category-pill">${escapeHtml(idea.category)}</span>
+        <div class="idea-card has-priority-${idea.priority || 'medium'}${filteredClass}"
+             style="animation-delay: ${index * 0.06}s">
+            <div class="idea-card-header">
+                <span class="idea-priority ${pc}">${priorityLabel(idea.priority)}</span>
+                ${idea.category ? `<span class="idea-category-pill">${escapeHtml(idea.category)}</span>` : ''}
             </div>
-            <div class="idea-desc">${escapeHtml(idea.description || '')}</div>
-            ${tags ? `<div class="idea-tags">${tags}</div>` : ''}
-            ${idea.notes ? `<div class="idea-notes">"${escapeHtml(idea.notes)}"</div>` : ''}
+            <div class="idea-card-title">${escapeHtml(idea.title)}</div>
+            ${idea.description ? `<div class="idea-card-desc">${escapeHtml(idea.description)}</div>` : ''}
+            ${tags || refs ? `<div class="idea-card-tags">${tags}${refs}</div>` : ''}
+            ${idea.notes ? `<div class="idea-card-notes">\u201c${escapeHtml(idea.notes)}\u201d</div>` : ''}
+            <div class="idea-card-footer">
+                <span class="idea-card-date">${relativeDate(idea.created)}</span>
+            </div>
         </div>`;
     });
 
-    html += `<div class="feed-footer">${ideas.length} ideia(s)</div>`;
+    if (ideas.length === 0) {
+        html = '<div class="empty-state">Nenhuma ideia registrada</div>';
+    }
 
-    const existing = feed.querySelectorAll('.idea-row, .feed-footer');
-    existing.forEach(el => el.remove());
-    feed.insertAdjacentHTML('beforeend', html);
+    grid.innerHTML = html;
+    countEl.textContent = q ? `${visibleCount}/${ideas.length}` : `${ideas.length}`;
 }
 
+// ─── Projects Rendering ───
+
 function renderFeed(projects, lastScan, filter) {
-    const feed = document.getElementById('feed');
+    const feed = document.getElementById('projects-feed');
+    const countEl = document.getElementById('projects-count');
     const sorted = projects
         .filter(p => p.status !== 'archived')
         .sort((a, b) => new Date(b.last_activity || 0) - new Date(a.last_activity || 0));
 
     const q = (filter || '').toLowerCase();
+    let visibleCount = 0;
 
     let html = '';
     sorted.forEach(p => {
@@ -128,51 +160,67 @@ function renderFeed(projects, lastScan, filter) {
             (p.category || '').toLowerCase().includes(q);
 
         const filteredClass = q && !matches ? ' filtered-out' : '';
+        if (!q || matches) visibleCount++;
         const tc = tempClass(p.last_activity);
 
-        const links = [];
-        if (p.url) links.push(`<a href="${escapeHtml(p.url)}" target="_blank">Site</a>`);
-        if (p.repo) links.push(`<a href="https://github.com/${escapeHtml(p.repo)}" target="_blank">GitHub</a>`);
-        if (p.web?.route) links.push(`<a href="${escapeHtml(p.web.route)}" target="_blank">Página</a>`);
+        // Primary link: url > web.route > repo
+        let primaryHref = '';
+        if (p.url) {
+            primaryHref = escapeHtml(p.url);
+        } else if (p.web?.route) {
+            primaryHref = escapeHtml(p.web.route);
+        } else if (p.repo) {
+            primaryHref = `https://github.com/${escapeHtml(p.repo)}`;
+        }
+
+        const nameHtml = primaryHref
+            ? `<a class="project-name" href="${primaryHref}" target="_blank" rel="noopener">${escapeHtml(p.name)}</a>`
+            : `<span class="project-name">${escapeHtml(p.name)}</span>`;
 
         let memBadge = '';
-        if (p.health?.claude_memory_portable === true) memBadge = '<span class="badge-memory portable">🧠</span>';
-        else if (p.health?.claude_memory_portable === false) memBadge = '<span class="badge-memory local-only">⚠ memória local</span>';
-        else memBadge = '<span class="badge-memory"></span>';
+        if (p.health?.claude_memory_portable === true)
+            memBadge = '<span class="badge-memory portable">\ud83e\udde0</span>';
+        else if (p.health?.claude_memory_portable === false)
+            memBadge = '<span class="badge-memory local-only">\u26a0<span class="badge-text"> mem\u00f3ria local</span></span>';
+        else
+            memBadge = '<span class="badge-memory"></span>';
 
         html += `
         <div class="project-row${filteredClass}">
             <div class="temp-bar ${tc}"></div>
-            <span class="project-icon">${p.icon || '📁'}</span>
+            <span class="project-icon">${p.icon || '\ud83d\udcc1'}</span>
             <div class="project-name-wrap">
-                <span class="project-name">${escapeHtml(p.name)}</span>
-                ${p.git?.dirty ? '<span class="project-dirty">◐</span>' : ''}
+                ${nameHtml}
+                ${p.git?.dirty ? '<span class="project-dirty">\u25d0</span>' : ''}
             </div>
             <div class="project-desc">${escapeHtml(p.description || '')}</div>
             ${memBadge}
-            <span class="project-links">${links.length ? links.join(' · ') : ''}</span>
             <span class="project-date">${relativeDate(p.last_activity)}</span>
-            ${p.note ? `<div class="project-note">"${escapeHtml(p.note)}"</div>` : ''}
+            ${p.note ? `<div class="project-note">\u201c${escapeHtml(p.note)}\u201d</div>` : ''}
         </div>`;
     });
 
     const scanText = relativeScanTime(lastScan);
-    html += `<div class="feed-footer">${scanText ? `último scan: ${scanText} · ` : ''}${sorted.length} projetos</div>`;
+    html += `<div class="feed-footer">${scanText ? `\u00faltimo scan: ${scanText} \u00b7 ` : ''}${sorted.length} projetos</div>`;
 
-    const existing = feed.querySelectorAll('.project-row, .feed-footer');
-    existing.forEach(el => el.remove());
-    feed.insertAdjacentHTML('beforeend', html);
+    feed.innerHTML = html;
+    countEl.textContent = q ? `${visibleCount}/${sorted.length}` : `${sorted.length}`;
 }
+
+// ─── Tab & Filter ───
 
 function switchTab(tab) {
     activeTab = tab;
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.tab === tab);
     });
-    document.getElementById('ideas-feed').style.display = tab === 'ideas' ? '' : 'none';
-    document.getElementById('feed').style.display = tab === 'projects' ? '' : 'none';
 
-    // Re-apply current filter to the active tab
+    const ideasSection = document.getElementById('ideas-section');
+    const projectsSection = document.getElementById('projects-section');
+
+    ideasSection.style.display = tab === 'ideas' ? '' : 'none';
+    projectsSection.style.display = tab === 'projects' ? '' : 'none';
+
     const filter = document.getElementById('search-desk').value ||
                    document.getElementById('search-mobile').value;
     if (tab === 'ideas') {
@@ -190,6 +238,8 @@ function applyFilter(value) {
     }
 }
 
+// ─── Init ───
+
 async function init() {
     const data = await loadData();
     cachedProjects = data.projects || [];
@@ -200,12 +250,12 @@ async function init() {
     renderIdeas(cachedIdeas);
     renderFeed(cachedProjects, cachedLastScan);
 
-    // Tab switching
+    // Tabs
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => switchTab(btn.dataset.tab));
     });
 
-    // Search (mobile)
+    // Search — mobile
     const searchBtn = document.getElementById('search-btn');
     const searchOverlay = document.getElementById('search-overlay');
     const searchMobile = document.getElementById('search-mobile');
@@ -224,7 +274,7 @@ async function init() {
 
     searchMobile.addEventListener('input', e => applyFilter(e.target.value));
 
-    // Search (desktop)
+    // Search — desktop
     document.getElementById('search-desk').addEventListener('input', e => applyFilter(e.target.value));
 
     // Alerts toggle
