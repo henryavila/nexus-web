@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "last_full_scan": "2026-03-08T12:31:03",
+  "last_full_scan": "2026-03-08T12:57:44",
   "projects": [
     {
       "name": "nexus",
@@ -17,7 +17,7 @@
       "git": {
         "branch": "main",
         "last_commit_date": "2026-03-08",
-        "last_commit_message": "feat: redesign dashboard v3 — glassmorphism cards, ideas-first layout",
+        "last_commit_message": "chore: clean up leaked loop variables in TAB_ORDER binding generation",
         "dirty": true
       },
       "filesystem": null,
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:30:51"
+      "last_scanned": "2026-03-08T12:57:36"
     },
     {
       "name": "Dragon Heir",
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-08T12:30:52"
+      "last_scanned": "2026-03-08T12:57:36"
     },
     {
       "name": "CRCMG",
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:30:59"
+      "last_scanned": "2026-03-08T12:57:42"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:30:59"
+      "last_scanned": "2026-03-08T12:57:42"
     },
     {
       "name": "IA Builder",
@@ -132,7 +132,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:31:01"
+      "last_scanned": "2026-03-08T12:57:43"
     },
     {
       "name": "Mnemo",
@@ -159,7 +159,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:31:01"
+      "last_scanned": "2026-03-08T12:57:43"
     },
     {
       "name": "WSL Config",
@@ -184,7 +184,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:31:01"
+      "last_scanned": "2026-03-08T12:57:43"
     },
     {
       "name": "Livros",
@@ -211,7 +211,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:31:03"
+      "last_scanned": "2026-03-08T12:57:44"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -233,7 +233,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:31:03"
+      "last_scanned": "2026-03-08T12:57:44"
     },
     {
       "name": "Incidentes-Getin",
@@ -258,7 +258,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:31:03"
+      "last_scanned": "2026-03-08T12:57:44"
     }
   ],
   "ideas": [

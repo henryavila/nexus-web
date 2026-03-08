@@ -163,6 +163,24 @@ header {
     background: var(--accent-dim);
 }
 
+.tab-btn kbd {
+    display: inline-block;
+    min-width: 1.2em;
+    padding: 0 4px;
+    margin-right: 4px;
+    border: 1px solid var(--glass-border);
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 0.75em;
+    line-height: 1.4;
+    text-align: center;
+    opacity: 0.5;
+}
+.tab-btn.active kbd {
+    opacity: 0.8;
+    border-color: var(--accent);
+}
+
 /* Search — desktop */
 .search-desktop {
     display: none;

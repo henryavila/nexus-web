@@ -282,12 +282,29 @@ async function init() {
         document.getElementById('alerts-bar').classList.toggle('expanded');
     });
 
-    // ESC to close search
+    // Keyboard shortcuts
     document.addEventListener('keydown', e => {
+        // Don't intercept when typing in an input
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+            if (e.key === 'Escape') {
+                searchOverlay.classList.remove('active');
+                searchMobile.value = '';
+                applyFilter('');
+            }
+            return;
+        }
+
         if (e.key === 'Escape') {
             searchOverlay.classList.remove('active');
             searchMobile.value = '';
             applyFilter('');
+            return;
+        }
+
+        // Number keys switch tabs (1-based, matches data-index)
+        const btn = document.querySelector(`.tab-btn[data-index="${e.key}"]`);
+        if (btn) {
+            switchTab(btn.dataset.tab);
         }
     });
 }
