@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "last_full_scan": "2026-03-08T12:57:44",
+  "last_full_scan": "2026-03-08T13:11:24",
   "projects": [
     {
       "name": "nexus",
@@ -27,7 +27,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:57:36"
+      "last_scanned": "2026-03-08T13:11:14"
     },
     {
       "name": "Dragon Heir",
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-08T12:57:36"
+      "last_scanned": "2026-03-08T13:11:14"
     },
     {
       "name": "CRCMG",
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:57:42"
+      "last_scanned": "2026-03-08T13:11:20"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:57:42"
+      "last_scanned": "2026-03-08T13:11:21"
     },
     {
       "name": "IA Builder",
@@ -132,7 +132,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:57:43"
+      "last_scanned": "2026-03-08T13:11:22"
     },
     {
       "name": "Mnemo",
@@ -159,7 +159,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:57:43"
+      "last_scanned": "2026-03-08T13:11:22"
     },
     {
       "name": "WSL Config",
@@ -184,7 +184,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:57:43"
+      "last_scanned": "2026-03-08T13:11:23"
     },
     {
       "name": "Livros",
@@ -211,7 +211,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:57:44"
+      "last_scanned": "2026-03-08T13:11:24"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -233,7 +233,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:57:44"
+      "last_scanned": "2026-03-08T13:11:24"
     },
     {
       "name": "Incidentes-Getin",
@@ -258,7 +258,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T12:57:44"
+      "last_scanned": "2026-03-08T13:11:24"
     }
   ],
   "ideas": [
