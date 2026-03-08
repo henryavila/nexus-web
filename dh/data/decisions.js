@@ -2,6 +2,278 @@
 // Generated: 2026-02-13
 
 window.DATA_DECISIONS = [
+  {
+    date: "2026-03-06",
+    title: "Temporal Vortex: Dauntless Aggro 31.3M (Nastjenka+Garett+DA+Sutha+Acilia)",
+    tags: ["temporal-vortex", "team", "dauntless", "acilia", "optimization", "31M"],
+    summary: "Otimizou time de Vortex em 4 etapas: Wild Fire puro (~5M) → +Felosia (19M) → Dauntless+Torrin+Eurion (23-24M) → Dauntless Aggro+Acilia (31.3M). Garett > Sutha confirmado (43% vs 27% DPS). Acilia como sustain solo + 5 Resplendence superou modulo Torrin+Eurion.",
+    impact: "Score Vortex: 31.3M (recorde pessoal). +30% vs time anterior (24M). APRENDIZADO: aura captain NAO stacka — so 1 ativa.",
+    details: `EVOLUCAO COMPLETA:
+- Wild Fire puro (Caspar+Errich+Adolphus+Flora+Felicity): ~5M — morre rapido
+- Wild Fire + Felosia (no lugar de Caspar): 19M — sustain resolve morte
+- Dauntless + Sutha + Torrin+Eurion: 23M — imortalidade + burst
+- Dauntless + Garett + Torrin+Eurion: 24M — Garett > Sutha
+- Dauntless Aggro (Nastjenka+Garett+DA+Sutha+Acilia): 31.3M — CAMPEAO!
+INSIGHT: 5 Resplendence (+20% Elemental DMG) + Acilia (5.0/5.0 Vortex, DI #14) como sustain solo > modulo Torrin+Eurion (2 slots).
+AURA: Captain aura NAO stacka. So 1 ativa. +24% ATK (Nastjenka) > +24% Crit DMG (Garett) quando <3/5 tem crit alto.
+DAUNTLESS BOND: 2=40%, 3+=50% Thundercloud. Jump de 2→3 e pequeno (+10%).`
+  },
+
+  {
+    date: "2026-03-06",
+    title: "Piece of Treasure: Weapon Fearless Challenge para Nastjenka (forge + smelt)",
+    tags: ["gear", "forge", "piece-of-treasure", "weapon", "nastjenka", "fearless-challenge"],
+    summary: "Forjou Mythic Weapon com set Fearless Challenge (+16% damage vs inimigos com >50% mais HP). Substats: Crit Damage 36.8% (4 upgrades), ATK% 5.5%, Crit Rate 3.6%, Accuracy 7. Smeltou 18 cristais em ATK% e outros subs.",
+    impact: "Weapon transferivel para qualquer DPS. +16% damage incondicional em PvE. Carry para S2 via Boundless Chest.",
+    details: `ANALISE COMPLETA:
+- 14 sets miticos analisados (6 Weapon/Helmet, 8 Armor/Gloves)
+- Fearless Challenge escolhido por: 16% incondicional > 25% Imposing Presence com uptime baixo (Nastjenka Melee)
+- Weapon escolhido por: ATK main stat (melhor para DPS) vs Armor (DEF/HP main)
+- 4x upgrades em Crit Damage (7%/upgrade = maior valor bruto)
+- Primeiro craft teve CD 35.7% mas ATK% 2.3% (pessimo). Resetou pois selecionou set errado.
+- Segundo craft: CD 36.8%, ATK% 5.5%, CR 3.6%, ACC 7 — base rolls excelentes.
+- 4o sub: Accuracy (transferivel para Vinyara/Lothair) em vez de HP% original.
+- Smeltou ~18 cristais em ATK% (prioridade). Sobraram 2.
+- APRENDIZADO: ATK Speed e Skill Haste NAO existem como gear substats (somente Runas).
+- APRENDIZADO: Gear substats salvos em mechanics.js com base/upgrade ranges completos.`
+  },
+
+  {
+    date: "2026-03-06",
+    title: "PvP Arena refatorado: Triple Control Immunity (rank 108 → 19!)",
+    tags: ["pvp", "arena", "team", "lucien", "felosia", "control-immunity"],
+    summary: "Substituiu Garett+Voresh por Lucien(Captain)+Felosia. Triple Control Immunity + Lucien captain +30% Max HP resolveu o problema de morrer facil. Artefatos PvP reassignados. Resultado: rank 108 → 19.",
+    impact: "Rank 108 → 19 no PvP Arena. Salto de 89 posicoes. Time nao morre mais. Nastjenka como unico DPS e suficiente quando time sobrevive.",
+    details: `TIME ANTERIOR (rank 80): Nastjenka+Vinyara+Eurion+Voresh+Garett
+PROBLEMA: sem Control Immunity, sem healer, Garett Melee morria primeiro
+NOVO TIME: Lucien(Captain)+Nastjenka+Vinyara+Felosia+Eurion
+TRIPLE CONTROL IMMUNITY:
+- Layer 1 (segundo 0): Lucien passiva → Shield + Control Immunity + Ult Energy protection
+- Layer 2 (cada 6s): Vinyara auto-resist CC → counter-Freeze atacante
+- Layer 3 (ult ready): Felosia ult → Shield AoE + 30% DR + Control Immunity 10s
+ARTEFATOS PVP:
+- Nastjenka: The Great River Lamp (melhor que Thunder Deity em PvP — +10% stacking)
+- Eurion: Giant Turtle Shell (AoE shield > Drugo taunt em PvP)
+- Vinyara: Rift Hourglass (ACC + Skill Haste para ciclar ult)
+- Felosia: Aurelium Vest (shield → -10% DMG)
+- Lucien: Gatekeeper's Staff (overheal → shield)
+LUCIEN TALENT: Bottom (Defensiva) — HP% > DEF% > RES > ACC`
+  },
+
+  {
+    date: "2026-03-06",
+    title: "Frey Lv231->240: formacao do time Immortals e novo wall de DPS",
+    tags: ["frey-corridor", "progress", "lv231", "lv239", "lv240", "immortals", "felosia", "torrin", "rowena", "acilia"],
+    summary: "Com food Ice e pivot para Felosia, a progressao subiu ate Lv239; no Lv240, os testes mostraram trade-off claro entre sustain total e dano para fechar no tempo.",
+    impact: "Time Immortals virou baseline de consistencia no Frey alto. Proximo passo e versao hibrida (Torrin + Rowena) para manter sobrevivencia sem estourar o timer.",
+    details: `CHECKPOINTS REPORTADOS (FREY)
+- Lv231: clear com tank morto no fim da luta, Torrin segurando a run. Food usado: bonus Ice.
+- Gargalo da fase: Lothair pulando no backline e matando DPS/support.
+
+SWAPS TESTADOS
+- Tamar -> Felosia: passou o Lv231 (novo core "Immortals").
+- Com Immortals: avancou ate Lv239.
+- Lv240 teste 1: Felosia -> Acilia (mantendo Torrin) = timeout; ninguem morreu.
+- Lv240 teste 2: Torrin -> Rowena (com Acilia) = mais dano bruto, mas DPS morreram e run terminou com boss ~40% HP e <1 min restante.
+
+LEARNING
+- Torrin e ancora de estabilidade no Frey alto.
+- Felosia e resposta forte contra dive no backline (ex: Lothair).
+- Acilia + Torrin ao mesmo tempo pode alongar demais a luta em andares de timeout.
+- Comp hibrida passa a ser prioridade: manter Torrin e adicionar DPS extra sem abrir mao da sobrevivencia.`
+  },
+
+  {
+    date: "2026-03-06",
+    title: "Affinity bonuses atualizados por screenshot in-game (conta atual)",
+    tags: ["mechanics", "elemental-affinity", "permafrost", "ulceration", "resplendence", "logs"],
+    summary: "Screenshots em logs confirmaram o estado atual dos bonus de afinidade e corrigiram premissas antigas (3x vs 5x herois).",
+    impact: "Build/teambuild passa a considerar bonus extra real com 5 herois da mesma afinidade: +20% Elemental Damage Bonus e +2% Damage Resistance.",
+    details: `FONTE
+- logs/Captura de tela 2026-03-06 112608.png (Permafrost)
+- logs/Captura de tela 2026-03-06 112612.png (Wildfire)
+- logs/Captura de tela 2026-03-06 112616.png (Resplendence)
+
+BONUS 3 HEROIS (estado atual da conta)
+- Permafrost: +20% ATK, +20% HP, ACC 50, RES 50, DEF 200, HP 2000, ATK 200
+- Wildfire/Ulceration: +20% ATK, +20% HP, ACC 50, RES 20, DEF 200, HP 2000, ATK 200
+- Resplendence: +20% ATK, +20% HP, ACC 50, DEF 200, HP 2000, ATK 200
+
+BONUS 5 HEROIS
+- Elemental Damage Bonus +20%
+- Damage Resistance +2%
+
+CORRECOES
+- Ulceration nao esta mais em +2% HP neste snapshot (agora +20% HP)
+- 5 herois nao e igual a 3 herois no estado atual da conta`
+  },
+
+  {
+    date: "2026-03-06",
+    title: "Frey Lv220->229: sequencia de swaps consolidada e novo wall mapeado",
+    tags: ["frey-corridor", "progress", "lv220", "lv222", "lv226", "lv229", "rowena", "felosia", "torrin", "acilia", "fire-wild"],
+    summary: "Apos passar o Lv219, a progressao no Frey subiu ate o Lv229 com iteracoes de burst/sustain; o novo bloqueio e uma comp Fire/Wild de alta pressao.",
+    impact: "Registro completo de benchmark por troca: ficou claro quando priorizar burst (Rowena) vs estabilidade (Felosia), e que Torrin com Horn como amplificador rendeu mais progresso que Acilia nesse trecho.",
+    details: `CHECKPOINTS REPORTADOS (FREY)
+- Lv219: clear facil com time recomendado
+
+- Lv220->222
+  * Trocas: Torrin -> Acilia e Tamar -> Rowena (Ice Epic DPS)
+  * Resultado: avancou ate Lv222
+
+- Lv223->226
+  * Troca: Acilia -> Torrin (com Solar King's Horn para amplificar dano)
+  * Resultado: avancou ate Lv226
+  * Observacao: Rowena virou TOP2 DPS, mas morreu rapido em alguns andares
+
+- Lv227->229
+  * Troca: Rowena -> Felosia (mais tempo de luta)
+  * Resultado: avancou ate Lv229
+
+WALL ATUAL (LV229)
+- Inimigos: Felicity x2 (back corners), Caspar (back center), Horrus + Garrika (front)
+- Diagnostico: comp Fire/Wild de burst prolongado; luta longa acaba derretendo Eurion e depois o resto do time
+
+LEARNING
+- Rowena aumenta teto de burst, mas exige protecao extra para uptime.
+- Felosia reduz risco e aumenta consistencia em andares longos.
+- No trecho Lv220->229, Torrin com Horn como amplificador teve impacto maior de progressao que Acilia.`
+  },
+
+  {
+    date: "2026-03-06",
+    title: "Frey: progresso consolidado por nivel e clear da fase Lv219 com anti-buff",
+    tags: ["frey-corridor", "progress", "lv170", "lv172", "lv204", "lv219", "tamar", "bionphray", "deverick", "manual"],
+    summary: "Progresso do Frey foi consolidado com registro por checkpoint; a fase travada no Lv219 caiu com setup anti-buff (Tamar) e controle manual de janela.",
+    impact: "Agora existe roteiro replicavel por nivel. Em andares de sustain pesado, anti-buff com Accuracy alto entrega mais resultado que insistir no mesmo core sem ajuste.",
+    details: `CHECKPOINTS SALVOS (FREY)
+- Lv170: Lossenia + Auster + Hochadir + Vinyara + Felosia (posicionamento em canto para proteger DPS)
+- Lv172: Lossenia + Auster + Eurion + Vinyara + Felosia (troca Hochadir -> Eurion para segurar frontline)
+- Fase de Mithrasea/Donella: clear ao jogar Manual e focar ultis na Mithrasea
+- Lv204 (inimigos: Fihrah/Alvis atras; Garrika+Acilia+Martina na frente): progresso mantido
+- Lv219 (inimigos: 2x Bionphray frente, Vinyara centro, 2x Deverick cantos): fase superada
+
+TIME DO CLEAR DA FASE LV219
+- Eurion + Torrin + Tamar + Lossenia + Auster
+
+SETUP CHAVE (TAMAR)
+- Artefato: Rift Hourglass
+- Talentos S1: linha do meio completa (I->VI)
+- Thresholds: Accuracy 300+ e Skill Haste 45+
+
+LEARNING
+- Contra comp de tank+sustain, Tamar (Buff Prohibition + dispel + Attack Penalty II) muda a luta.
+- Manual continua decisivo para priorizar janela de ult e alvo certo.`
+  },
+
+  {
+    date: "2026-03-06",
+    title: "Frey: clear do bloqueio com Manual focando Mithrasea",
+    tags: ["frey-corridor", "manual", "mithrasea", "targeting", "donella", "progress"],
+    summary: "No Auto a luta estendia e resetava por ressurreicao da Mithrasea; no Manual com foco de ult no alvo certo, o clear saiu.",
+    impact: "Aprendizado pratico para Frey alto: controle de alvo no Manual decide mais que trocar 1 heroi quando o gargalo e ressurreicao.",
+    details: `CENARIO
+- Time Ice com posicionamento em canto ja sobrevivia, mas sem finalizar por causa de ressurreicao.
+- Problema principal: Mithrasea + Donella estendendo a luta; Sagomir mergulhando no backline.
+
+DECISAO VENCEDORA
+- Jogar em Manual
+- Direcionar ultis para prioridade de alvo (Mithrasea primeiro)
+
+LEARNING
+- Auto tende a gastar burst em alvo errado nesse tipo de comp.
+- No cliente S1, na pratica, nao ha "lock" persistente de alvo para manter foco o tempo todo; o ajuste e manual por janela de skill/ult.`
+  },
+
+  {
+    date: "2026-03-06",
+    title: "Vasska Sem1: score final fechado em 35M com posicionamento no canto",
+    tags: ["imperial-shadow-recast", "continental-challenge", "semana-1", "vasska", "ice", "positioning", "score"],
+    summary: "Resultado final da Semana 1 no Vasska subiu para 35M com stack no canto e protecao dos DPS atras das supports.",
+    impact: "Novo benchmark da semana salvo. Mostra que ajuste de posicionamento entregou ganho maior que troca simples de heroi.",
+    details: `RESULTADO FINAL SALVO
+- Boss: Vasska (Continental, Semana 1)
+- Score final: 35M
+
+TIME USADO
+- Lossenia + Auster + Hochadir + Vinyara + Felosia
+
+POSICIONAMENTO CHAVE
+- 4 herois no canto do fundo
+- DPS protegidos atras de Felosia e Vinyara
+
+LEARNING
+- Posicionamento foi o maior multiplicador de score nesta luta.`
+  },
+
+  {
+    date: "2026-03-06",
+    title: "Frey Corridor: progresso ate Lv172 com variante anti-morte do time Ice",
+    tags: ["frey-corridor", "time-ice", "positioning", "progress", "mithrasea", "donella"],
+    summary: "Com o time Ice usado no Continental, houve progresso ate o Lv170; ao trocar Hochadir por Eurion, avancou ate o Lv172.",
+    impact: "Sobrevivencia estabilizada, mas surgiu gargalo de finalizacao: Mithrasea ressuscita alvos e prolonga a luta.",
+    details: `PROGRESSO REPORTADO
+- Time base (Continental): Lossenia + Auster + Hochadir + Vinyara + Felosia
+- Avanco inicial: ate Lv170
+- Ajuste: Hochadir -> Eurion
+- Novo avanco: ate Lv172
+
+GARGALO ATUAL
+- Dive no backline mata DPS se posicionamento nao estiver fechado
+- Mithrasea fica intocavel em janela critica e ressuscita os alvos
+- Donella adiciona controle/debuff e aumenta pressao de tempo`
+  },
+
+  {
+    date: "2026-03-06",
+    title: "Vasska Sem1: teste de posicionamento em canto eleva score para 34M",
+    tags: ["imperial-shadow-recast", "continental-challenge", "semana-1", "vasska", "ice", "positioning", "score"],
+    summary: "Ajuste de posicionamento no time Ice (stack no canto do fundo com DPS protegidos por Felosia e Vinyara) elevou o score para 34M.",
+    impact: "Salto expressivo de score no mesmo core de herois. Reforca que posicionamento impacta tanto quanto build em fights com burst nos backliners.",
+    details: `TESTE REPORTADO
+- Time: Lossenia + Auster + Hochadir + Vinyara + Felosia
+- Posicionamento: 4 herois no canto do fundo; DPS atras de Felosia e Vinyara
+- Resultado: 34M
+
+LEARNING
+- Proteger DPS com dupla de suporte na linha da frente/imediata reduz mortes precoces de Auster/Lossenia.
+- Ajuste de posicionamento pode gerar ganho grande de score sem trocar herois.`
+  },
+
+  // ── 2026-03-06 ──────────────────────────────────────────────────────────
+
+  {
+    date: "2026-03-06",
+    title: "Continental Challenge Sem1: 2o ticket salvo com Dauntless + Acilia (15.866.656)",
+    tags: ["imperial-shadow-recast", "continental-challenge", "semana-1", "vasska", "dauntless", "acilia", "stats", "score"],
+    summary: "Com o Thelandor ja salvo e os herois travados, o 2o ticket da semana foi fechado com Nastjenka+Sutha+Garett+Divine Ascetic+Acilia.",
+    impact: "Baseline de referencia salvo para Sem2/Sem3. Aprendizado reforcado: no Continental, threshold de atributos decide mais que trocar 1 heroi sem recalibrar build.",
+    details: `CONTEXTO
+- Semana 1: ticket 1 ja salvo no Thelandor
+- Ticket 2 salvo no Vasska com time Dauntless + Acilia
+
+TIME USADO
+- Nastjenka (20740)
+- Sutha (21560)
+- Garett (20660)
+- Divine Ascetic (23020)
+- Acilia (20420)
+
+RESULTADO
+- Score salvo: 15.866.656
+
+STATS REGISTRADOS (prints em logs/)
+- Nastjenka: ATK 4114 | Crit Rate 94.0% | Crit Damage 156.1% | Skill Haste 20
+- Divine Ascetic: ATK 3528 | Crit Rate 105.1% | Crit Damage 145.4% | Accuracy 132
+- Sutha: ATK 4458 | Crit Rate 17.5% | Crit Damage 137.5% | Accuracy 159
+- Garett: ATK 2542 | Crit Rate 22.0% | Crit Damage 129.4% | Skill Haste 20
+- Acilia: HP 126944 | DEF 3136 | Enlightenment 195 | Skill Haste 12
+
+LEARNING
+- Build/atributos pesam mais que trocar 1 heroi sem ajustar set.
+- Proximo passo: subir crit real de Sutha/Garett e converter overcap de crit do DA em dano.`
+  },
+
   // ── 2026-03-05 ──────────────────────────────────────────────────────────
 
   {

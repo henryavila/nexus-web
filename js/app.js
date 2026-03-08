@@ -1,3 +1,8 @@
+let activeTab = 'ideas';
+let cachedProjects = [];
+let cachedIdeas = [];
+let cachedLastScan = null;
+
 async function loadData() {
     const resp = await fetch('data.json');
     return resp.json();
@@ -58,9 +63,56 @@ function relativeScanTime(isoDatetime) {
     return `há ${days}d`;
 }
 
+function priorityClass(priority) {
+    if (priority === 'high') return 'priority-high';
+    if (priority === 'low') return 'priority-low';
+    return 'priority-medium';
+}
+
+function priorityLabel(priority) {
+    if (priority === 'high') return 'Alta';
+    if (priority === 'low') return 'Baixa';
+    return 'Média';
+}
+
+function renderIdeas(ideas, filter) {
+    const feed = document.getElementById('ideas-feed');
+    const q = (filter || '').toLowerCase();
+
+    let html = '';
+    ideas.forEach(idea => {
+        const matches = !q ||
+            (idea.title || '').toLowerCase().includes(q) ||
+            (idea.description || '').toLowerCase().includes(q) ||
+            (idea.category || '').toLowerCase().includes(q) ||
+            (idea.tags || []).some(t => t.toLowerCase().includes(q));
+
+        const filteredClass = q && !matches ? ' filtered-out' : '';
+        const pc = priorityClass(idea.priority);
+        const tags = (idea.tags || []).map(t => `<span class="tag-pill">${escapeHtml(t)}</span>`).join('');
+
+        html += `
+        <div class="idea-row${filteredClass}">
+            <span class="idea-priority ${pc}">${priorityLabel(idea.priority)}</span>
+            <div class="idea-title-wrap">
+                <span class="idea-title">${escapeHtml(idea.title)}</span>
+                <span class="idea-category-pill">${escapeHtml(idea.category)}</span>
+            </div>
+            <div class="idea-desc">${escapeHtml(idea.description || '')}</div>
+            ${tags ? `<div class="idea-tags">${tags}</div>` : ''}
+            ${idea.notes ? `<div class="idea-notes">"${escapeHtml(idea.notes)}"</div>` : ''}
+        </div>`;
+    });
+
+    html += `<div class="feed-footer">${ideas.length} ideia(s)</div>`;
+
+    const existing = feed.querySelectorAll('.idea-row, .feed-footer');
+    existing.forEach(el => el.remove());
+    feed.insertAdjacentHTML('beforeend', html);
+}
+
 function renderFeed(projects, lastScan, filter) {
     const feed = document.getElementById('feed');
-    const header = document.getElementById('feed-header');
     const sorted = projects
         .filter(p => p.status !== 'archived')
         .sort((a, b) => new Date(b.last_activity || 0) - new Date(a.last_activity || 0));
@@ -107,19 +159,51 @@ function renderFeed(projects, lastScan, filter) {
     const scanText = relativeScanTime(lastScan);
     html += `<div class="feed-footer">${scanText ? `último scan: ${scanText} · ` : ''}${sorted.length} projetos</div>`;
 
-    // Keep header, replace rest
     const existing = feed.querySelectorAll('.project-row, .feed-footer');
     existing.forEach(el => el.remove());
     feed.insertAdjacentHTML('beforeend', html);
 }
 
+function switchTab(tab) {
+    activeTab = tab;
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tab);
+    });
+    document.getElementById('ideas-feed').style.display = tab === 'ideas' ? '' : 'none';
+    document.getElementById('feed').style.display = tab === 'projects' ? '' : 'none';
+
+    // Re-apply current filter to the active tab
+    const filter = document.getElementById('search-desk').value ||
+                   document.getElementById('search-mobile').value;
+    if (tab === 'ideas') {
+        renderIdeas(cachedIdeas, filter);
+    } else {
+        renderFeed(cachedProjects, cachedLastScan, filter);
+    }
+}
+
+function applyFilter(value) {
+    if (activeTab === 'ideas') {
+        renderIdeas(cachedIdeas, value);
+    } else {
+        renderFeed(cachedProjects, cachedLastScan, value);
+    }
+}
+
 async function init() {
     const data = await loadData();
-    const projects = data.projects || [];
-    const lastScan = data.last_full_scan;
+    cachedProjects = data.projects || [];
+    cachedIdeas = data.ideas || [];
+    cachedLastScan = data.last_full_scan;
 
-    renderAlerts(projects);
-    renderFeed(projects, lastScan);
+    renderAlerts(cachedProjects);
+    renderIdeas(cachedIdeas);
+    renderFeed(cachedProjects, cachedLastScan);
+
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
 
     // Search (mobile)
     const searchBtn = document.getElementById('search-btn');
@@ -135,13 +219,13 @@ async function init() {
     searchClose.addEventListener('click', () => {
         searchOverlay.classList.remove('active');
         searchMobile.value = '';
-        renderFeed(projects, lastScan);
+        applyFilter('');
     });
 
-    searchMobile.addEventListener('input', e => renderFeed(projects, lastScan, e.target.value));
+    searchMobile.addEventListener('input', e => applyFilter(e.target.value));
 
     // Search (desktop)
-    document.getElementById('search-desk').addEventListener('input', e => renderFeed(projects, lastScan, e.target.value));
+    document.getElementById('search-desk').addEventListener('input', e => applyFilter(e.target.value));
 
     // Alerts toggle
     document.getElementById('alerts-toggle').addEventListener('click', () => {
@@ -153,7 +237,7 @@ async function init() {
         if (e.key === 'Escape') {
             searchOverlay.classList.remove('active');
             searchMobile.value = '';
-            renderFeed(projects, lastScan);
+            applyFilter('');
         }
     });
 }

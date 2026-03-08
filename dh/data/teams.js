@@ -1,5 +1,5 @@
 // teams.js — Canonical teams by activity + element-specific teams
-// Updated: 2026-03-05 — revisão geral com Lucien + Felosia
+// Updated: 2026-03-06 — Frey Lv240 (Immortals + testes de timeout)
 // Fonte: https://www.allclash.com/best-teams-in-dragonheir-silent-gods-dungeons-vortex-etc/
 window.DATA_TEAMS = [
   // ============================================================
@@ -30,7 +30,7 @@ window.DATA_TEAMS = [
       como_vencer: "Imortalidade (Torrin+Eurion) + Frost chain (Auster+Lossenia). Vinyara fornece dispel/accuracy para estabilidade.",
       food: "Arctic Soothing Soup (Cold +5%, ATK +10%) — 4/5 Ice"
     },
-    notes: "Time atual para Frey. Foco em DPS sustentado com sobrevivencia infinita.",
+    notes: "Time atual para Frey. Foco em DPS sustentado com sobrevivencia infinita. Progressao registrada: Lv170 (core Ice), Lv172 (Hochadir->Eurion), Lv219 superado com anti-buff, wall Lv229 (Fire/Wild) vencido e progresso ate Lv239 com variante Immortals (Felosia).",
     variants: [
       {
         name: "Sintrellia Amplifier (antigo)",
@@ -57,8 +57,56 @@ window.DATA_TEAMS = [
       {
         name: "Felosia anti-burst (novo)",
         change: "Vinyara -> Felosia",
+        status: "tested",
+        notes: "Variante que virou baseline no Frey alto (time Immortals). Resolveu dive no backline (Lothair no Lv231) e sustentou progressao ate Lv239."
+      },
+      {
+        name: "Frey Lv219 anti-buff (clear)",
+        change: "Vinyara -> Tamar (mantendo Auster+Lossenia+Torrin+Eurion)",
+        status: "tested",
+        notes: "Checkpoint Lv219 superado contra 2x Bionphray + Vinyara + 2x Deverick. Tamar quebra sustain com Buff Prohibition/dispel; build chave: ACC 300+ e Skill Haste 45+ (Rift Hourglass)."
+      },
+      {
+        name: "Lv220-222 burst swap",
+        change: "Torrin -> Acilia e Tamar -> Rowena",
+        status: "tested",
+        notes: "Depois do Lv219, setup de burst avancou ate Lv222. Rowena entregou dano alto, mas mostrou fragilidade em andares longos."
+      },
+      {
+        name: "Lv223-226 Horn amplifier",
+        change: "Acilia -> Torrin (Solar King's Horn) mantendo Rowena",
+        status: "tested",
+        notes: "Retorno do Torrin com Horn rendeu mais progressao (ate Lv226). Rowena ficou TOP2 DPS, mas com risco de morte precoce."
+      },
+      {
+        name: "Lv227-229 sustain pivot",
+        change: "Rowena -> Felosia",
+        status: "tested",
+        notes: "Troca para sustain aumentou consistencia e levou ao Lv229. Wall atual: comp Fire/Wild (2x Felicity + Caspar + Horrus + Garrika)."
+      },
+      {
+        name: "Lv229 counter planejado",
+        change: "Felosia -> Tamar (Eurion+Torrin+Auster+Lossenia fixos)",
+        status: "tested",
+        notes: "Funcionou para destravar o wall Fire/Wild no Lv229, mas no Lv231 (Lothair dive) o ajuste vencedor foi pivotar de volta para Felosia."
+      },
+      {
+        name: "Lv240 timeout (sustain max)",
+        change: "Felosia -> Acilia (mantendo Torrin)",
+        status: "tested",
+        notes: "Ninguem morreu, mas o tempo esgotou. Indicativo de falta de dano para fechar a luta no timer."
+      },
+      {
+        name: "Lv240 burst all-in",
+        change: "Torrin -> Rowena (com Acilia)",
+        status: "tested",
+        notes: "Aumentou DPS, mas backline caiu antes do fim; run terminou com boss em ~40% HP e menos de 1 min."
+      },
+      {
+        name: "Lv240 hibrido recomendado",
+        change: "Acilia -> Torrin e manter Rowena (Eurion+Auster+Lossenia)",
         status: "untested",
-        notes: "Mais tankiness bruta: shield AoE + Damage Reduction. Melhor quando o problema e morrer cedo, nao buff do boss."
+        notes: "Busca equilibrar estabilidade (Torrin) e dano para timer (Rowena), sem voltar ao timeout puro de Acilia+Torrin."
       }
     ]
   },
@@ -130,84 +178,79 @@ window.DATA_TEAMS = [
     ]
   },
 
-  // ─── GRAVE OF CURSE (AllClash rewrite) ───
+  // ─── GRAVE OF CURSE (refatorado 08/Mar/2026) ───
   {
     id: "grave-curse",
-    name: "Dauntless + Vinyara Dispel + Survival",
+    name: "Tamar Anti-buff + Felosia Shields + Nastjenka Solo DPS",
     activity: "Grave of Curse",
-    affinity: "Misto (3 Permafrost + 2 Resplendence)",
-    status: "tested",
-    dps_result: "Lv14 CLEAR (19/Fev). Lv15 pendente — DPS morrem por Max HP drain",
+    affinity: "3 Permafrost (Eurion+Felosia+Torrin) → +20% ATK/HP, ACC 50, RES 50",
+    status: "active",
+    dps_result: "Lv17 CLEAR (08/Mar). Lv18 faltou pouco DPS (time vivo, boss sobreviveu com pouco HP). Proximo passo: stats/gear.",
     score: null,
     members: [
-      { id: 20740, role: "DPS carry", notes: "Ult AoE + feather procs. Captain +24% ATK" },
-      { id: 23020, role: "DPS burst", notes: "Kui Crown (Mythic): 10 Obsession start + 15% damage. Battle 5 basic attacks → feathers Nastjenka" },
-      { id: 20770, role: "Dispel/Tank", notes: "CHAVE: Ult dispela TODOS os buffs do boss (Rage of Blood ATK Up). Shield absorve Blood Gush → protege Max HP. Passiva auto-resiste Stun. +40 Accuracy aura" },
-      { id: 20690, role: "Healer", notes: "Heal + Dispel + Invisibilidade 10s + Debuff Immunity. +40 Resistance aura" },
-      { id: 20060, role: "Tank", notes: "Ally Protection todos + anti-morte (invencivel 5s). Core imortalidade" }
+      { id: 20740, role: "DPS carry", notes: "Solo DPS. Captain +24% ATK. Skills 8/8. Precisa Crit Rate 80%+ para fechar Lv18" },
+      { id: 20830, role: "Anti-buff", notes: "CHAVE: Buff Prohibition FUNCIONA com ACC 300+ (testado 08/Mar — boss nunca ficou com buff). Previne Rage of Blood ATK Up. 700% AoE DPS adicional. Rift Hourglass" },
+      { id: 21390, role: "Shield/DR", notes: "INEGOCIAVEL: Shields bloqueiam Blood Gush Max HP drain. 30% DR + Control Immunity (previne Stun 5s). Passiva 15% dano→shield. Aurelium Vest (shield→-10% DMG AoE)" },
+      { id: 20690, role: "Healer", notes: "Heal + Invisibilidade 10s + Debuff Immunity. Gatekeeper's Staff overheal→shield. Sem Torrin o time nao sobrevive (testado)" },
+      { id: 20060, role: "Tank", notes: "Ally Protection + Undying Glory. Giant Turtle Shell (AoE 10% Max HP shield)" }
     ],
-    bonds: "3 Permafrost (Vinyara+Torrin+Eurion → +20% ATK/HP/ACC) | 2 Resplendence | 2 Dauntless | 3 Support (15% shield)",
+    bonds: "3 Permafrost (Felosia+Eurion Ice + Torrin Necrosis → +20% ATK/HP, ACC 50, RES 50) | 2 Resplendence (Nastjenka+Tamar Lightning)",
     captain: { id: 20740, skill: "+24% ATK em todas as batalhas" },
     mechanics: {
       boss: "Blood Prince Xenos (Necrosis)",
       ciclo: "18s",
-      perigo: "Blood Gush REDUZ Max HP permanentemente a cada hit. Rage of Blood buffa ATK do boss (×2 por ciclo). Herois com <2 buffs levam Stun 5s da Ult. Luta fica impossivel se Max HP drena demais.",
-      como_vencer: "Vinyara Ult DISPELA buffs do boss apos Rage of Blood. Vinyara Shield absorve Blood Gush → previne Max HP drain. Torrin+Eurion = imortalidade. Nastjenka+DA = DPS suficiente com tempo ilimitado. Boss RESISTE Voresh Buff Prohibition — Vinyara dispel e a unica opcao.",
-      food: "Feast of Thunder (Lightning +5%, ATK +10%) — 2/5 Lightning"
+      perigo: "Blood Gush REDUZ Max HP permanentemente a cada hit. Rage of Blood buffa ATK do boss. Herois com <2 buffs levam Stun 5s da Ult.",
+      como_vencer: "Tamar Buff Prohibition PREVINE Rage of Blood (funciona com ACC 300+). Felosia shields bloqueiam Blood Gush Max HP drain. Felosia Control Immunity impede Stun 5s. Torrin+Eurion = sustain core. Nastjenka solo DPS com +24% ATK.",
+      food: "Feast of Thunder (Lightning +5%, ATK +10%) — 2/5 Lightning (Nastjenka+Tamar)"
     },
-    notes: "Baseado em AllClash Mid-Range (Vinyara+Voresh+Garius+Torrin) mas com Nastjenka+DA como DPS (superior). Vinyara é SUPERIOR ao Zeffi neste boss (dispel + shield + auto-resist Stun). Substituições: Vinyara+Torrin+DA no lugar de Tharivol+Zeffi (não possui). Quando obtiver Tharivol, considerar trocar DA → Tharivol.",
+    notes: "Evolucao: Vinyara (dispel reativo) → Tamar (prevencao proativa). Buff Prohibition NAO e resistido pelo boss — era problema de ACC do Voresh (Epic). Tamar (Legendary, ACC 300+) landa consistente. Felosia e INEGOCIAVEL (sem ela time morre — testado). Torrin tambem INEGOCIAVEL (sem heal time nao sobrevive — hipotese forte, nao testado sem Torrin+Felosia juntos). Para Lv18: precisa melhorar stats (Crit Rate, ATK, artefatos).",
     variants: [
       {
         name: "AllClash Endgame S1",
         change: "Eurion + Ivellios + Tharivol + Nastjenka + Zeffi",
         status: "reference",
-        notes: "Time ideal do AllClash. Requer Tharivol e Zeffi (não possui). Vinyara é superior ao Zeffi neste boss."
+        notes: "Time ideal do AllClash. Requer Tharivol e Zeffi (nao possui)."
       },
       {
-        name: "AllClash Mid-Range",
-        change: "Sigrid + Vinyara + Voresh + Garius + Torrin",
-        status: "reference",
-        notes: "Versão acessível do AllClash. Voresh não funciona neste boss (Buff Prohibition resistido)."
+        name: "Vinyara Dispel (composicao anterior)",
+        change: "Tamar -> Vinyara, Felosia -> DA",
+        status: "tested",
+        dps_result: "Lv14 CLEAR (19/Fev), Lv15+ DPS morrem por Max HP drain",
+        notes: "Funciona ate Lv14. Sem Felosia shields, DPS morrem em niveis altos."
+      },
+      {
+        name: "Tamar + Vinyara (sem Felosia)",
+        change: "Felosia -> Tamar (mantendo Vinyara)",
+        status: "tested",
+        dps_result: "Nastjenka morreu, timeout (08/Mar)",
+        notes: "Sem shields/DR da Felosia, Nastjenka morre por Blood Gush. Vinyara dispel e redundante com Tamar Buff Prohibition."
+      },
+      {
+        name: "DA + Tamar (sem Felosia, sem Torrin nao testado)",
+        change: "Felosia -> DA (mantendo Tamar+Torrin+Eurion)",
+        status: "tested",
+        dps_result: "Time todo morreu rapidamente. Boss com muito HP (08/Mar)",
+        notes: "Sem Felosia shields/DR = wipe total mesmo com Tamar impedindo buffs. Felosia >> Torrin para survival neste boss."
+      },
+      {
+        name: "Lucien anti-ult-drain",
+        change: "Tamar -> Lucien",
+        status: "untested",
+        notes: "Lucien protege contra controle + Ultimate Energy Reduction. Perde Buff Prohibition."
       },
       {
         name: "3 DPS Brute Force (Lv12 only)",
-        change: "Vinyara -> Sutha",
+        change: "Vinyara -> Sutha (comp antiga)",
         status: "tested",
         dps_result: "Lv12 CLEAR, Lv13 MORREU (19/Fev)",
-        notes: "3 Resplendence (+20% ATK) | 3 Dauntless (30% Thundercloud). Burst mata antes do drain no Lv12 mas nao aguenta Lv13."
+        notes: "Burst nao escala para niveis altos."
       },
       {
-        name: "Donella debuffer + Survival",
-        change: "Vinyara -> Donella",
-        status: "tested",
-        dps_result: "Lv12 boss 38-55% HP",
-        notes: "Inconsistente. Donella ATK Penalty II ajuda mas perde DPS."
-      },
-      {
-        name: "Voresh + Survival (boss resiste)",
-        change: "Vinyara -> Voresh, DA -> Sutha",
+        name: "Voresh (ACC baixa falha)",
+        change: "Vinyara -> Voresh (comp antiga)",
         status: "tested",
         dps_result: "Lv12 boss 65% HP",
-        notes: "Voresh Buff Prohibition RESISTIDO pelo boss. Pior resultado. Vinyara dispel > Voresh prohibition neste boss."
-      },
-      {
-        name: "Felosia anti-wipe (novo)",
-        change: "DA -> Felosia",
-        status: "untested",
-        notes: "Para push de nivel quando o time cai antes do fim. Mantem Vinyara+Torrin+Eurion e troca burst por sustain."
-      },
-      {
-        name: "Lucien anti-ult-drain (novo)",
-        change: "DA -> Lucien",
-        status: "untested",
-        notes: "Lucien protege contra controle e Ultimate Energy Reduction no inicio da luta. Variante defensiva de consistencia."
-      },
-      {
-        name: "Full debuffer (sem survival core)",
-        change: "Time inteiro -> Ladehlia+Voresh+Horrus+Shook+Nathaniel",
-        status: "tested",
-        dps_result: "Lv12 boss 45% HP",
-        notes: "Debuffs nao sincronizam no auto-battle. Sem Torrin+Eurion = morre rapido."
+        notes: "Voresh Buff Prohibition FALHAVA por ACC baixa (Epic). NAO e resistencia inata do boss — Tamar (Legendary, ACC 300+) prova que funciona."
       }
     ]
   },
@@ -344,73 +387,79 @@ window.DATA_TEAMS = [
     ]
   },
 
-  // ─── TEMPORAL VORTEX (AllClash rewrite — Fire/Wild é o meta) ───
+  // ─── TEMPORAL VORTEX (Dauntless Aggro — CAMPEAO 31.3M) ───
   {
     id: "temporal-vortex",
-    name: "Wild Fire AllClash (Flora obtida!)",
+    name: "Dauntless Aggro + Acilia (31.3M!)",
     activity: "Temporal Vortex",
-    affinity: "Ulceration",
+    affinity: "Resplendence",
     status: "active",
-    dps_result: null,
-    score: null,
+    dps_result: "31.3M",
+    score: "31.3M (06/Mar/2026)",
     members: [
-      { id: 21970, role: "DPS carry", notes: "Caspar. Wild core. Passiva: dice par → Absurd Charade → ignora DEF crescente. Ult marca alvo → dice >=4 aliado = throwing knives" },
-      { id: 20400, role: "DPS AoE + Enabler", notes: "Errich. Meteorite Rain. Passiva +2 dice max (6→8) para TODOS Wild aliados. Insp.2" },
-      { id: 23250, role: "Healer/Support", notes: "Adolphus. Shield + sustain. Passiva: shield em alvo com shield = heal 75%. DI #28" },
-      { id: 20410, role: "DPS carry + Amplifier", notes: "Flora (DI #1 S1!). Passiva: Wild dice >=5 → familiar ataca (+25%ATK) + ganha Insight. Insight max → dice SEMPRE max. Captain +24% ATK. Dawn Pipe Organ buffa todos ranged" },
-      { id: 20810, role: "DPS burst", notes: "Felicity. Recast auto dice >=4 (ate 3x). Ult: +3 beams em dice >=5 (5→8 beams). Ring of Scarlet Sorcerer (+10% skill dmg). Insp.1" }
+      { id: 20740, role: "DPS carry (Captain)", notes: "Nastjenka. Captain +24% ATK. Feathers + AoE. Skills 8/8. HH Vortex 5.0" },
+      { id: 20660, role: "DPS burst", notes: "Garett. Crit garantido Ult + ATK +200% passiva. Aura +24% Crit DMG. Insp.1. HH Vortex 4.5. Testado: 43% DPS (>Sutha 27%)" },
+      { id: 23020, role: "DPS burst/Amplifier", notes: "DA. Battle 5 basic attacks → proca feathers Nastjenka. Kui Crown: 10 Obsession start + 15% damage. DI #41" },
+      { id: 21560, role: "DPS burst", notes: "Sutha. Burst forte. Aura +30% ATK Speed. Insp.1. HH Vortex 4.5" },
+      { id: 20420, role: "Sustain solo", notes: "Acilia. Anti-debuff + sustain AoE. Radiance = fecha 5 Resplendence! HH Vortex 5.0, DI Vortex 5.0, DI #14" }
     ],
-    bonds: "5 Ulceration | 5 Wild (dados max em TODA Burst!) | 1 Support",
-    captain: { id: 20410, skill: "+24% ATK em todas as batalhas" },
+    bonds: "5 Resplendence (+20% ATK/HP base + 20% Elemental DMG + 2% DMG Resistance) | 3+ Dauntless (50% Thundercloud) | Aura captain: +24% ATK",
+    captain: { id: 20740, skill: "+24% ATK em todas as batalhas" },
     mechanics: {
       boss: "Boss rotativo (PvE ranked)",
       ciclo: "20s (skill a cada 5s)",
       perigo: "Luta de ENDURANCE (20 min). Boss escala ao longo do tempo. Time que morre cedo = score baixo.",
-      como_vencer: "5 Wild = SYNERGY CHAIN: Errich +2 dice → Flora familiar triggers em dice >=5 → Felicity multi-beam (8 beams!) → Caspar throwing knives. Dawn Pipe Organ em Flora buffa ATK de todos ranged. AllClash confirma: Wild e o META para Temporal Vortex.",
-      food: "Flaming Chili Meatball (Fire +5%, ATK +10%) — 5/5 Fire"
+      como_vencer: "4 Dauntless DPS + Acilia sustain solo. 5 Resplendence = bonus massivo de stats (+20% Elemental DMG). 50% Thundercloud proca em basics — DA Battle (5 hits) + Nastjenka feathers = procs constantes. Acilia (5.0/5.0 Vortex) aguenta sozinha como unico sustain. Captain Nastjenka +24% ATK > +24% Crit DMG (so 2/5 tem crit alto).",
+      food: "Feast of Thunder (Lightning +5%, ATK +10%) — 4/5 Lightning + 1 Radiance"
     },
-    notes: "TIME EXATO DO ALLCLASH! Flora obtida 26/Fev completa o time. AllClash diz: 'Wild does so well here and this is the only mode where building wild archetype is really worth it.' Rank #1 observado: 198.9M DPS. Para semanas em que o time morre cedo, usar variantes sustain com Felosia/Lucien sem quebrar o core Wild.",
+    notes: "CAMPEAO ATUAL (06/Mar). Evolucao: Fire puro (5M) → Fire+Felosia (19M) → Dauntless+Torrin+Eurion com Sutha (23M) → Garett no lugar de Sutha (24M) → Acilia no lugar de Torrin+Eurion, adicionando Sutha de volta (31.3M). APRENDIZADO: Aura captain NAO stacka — so 1 aura ativa (do capitao). +24% ATK e melhor que +24% Crit DMG quando <3/5 herois tem crit alto. 5 Resplendence (+20% Elemental DMG) compensou a perda do modulo Torrin+Eurion.",
     variants: [
       {
-        name: "Sustain hard (Felosia)",
-        change: "Caspar -> Felosia",
-        status: "untested",
-        notes: "Mantem o core Wild (Flora+Errich+Felicity) e adiciona camada defensiva forte para lutas longas."
+        name: "Dauntless + Survival (Torrin+Eurion, sem Sutha)",
+        change: "Sutha+Acilia -> Torrin+Eurion",
+        status: "tested",
+        dps_result: "24M",
+        bonds: "3 Resplendence | 3 Dauntless (50% Thundercloud) | 2 Support (10% shield)",
+        notes: "Time seguro com imortalidade. 24M com Garett, 23M com Sutha. Superado pela versao Aggro."
       },
       {
-        name: "Anti-control (Lucien)",
-        change: "Caspar -> Lucien",
+        name: "Full 5 Dauntless (glass cannon)",
+        change: "Acilia -> Schaltar",
         status: "untested",
-        notes: "Lucien protege contra controle e dreno de ult no inicio. Boa opcao quando a run quebra por stun/energia."
+        bonds: "5 Resplendence | 5 Dauntless (50% Thundercloud)",
+        notes: "Schaltar: Lightning Shield + Ult buffa todos + 100% Derivative. Zero sustain. Testar se sobrevive."
       },
       {
-        name: "Com Tonalnan (6o Wild, se slot flex)",
-        change: "Adolphus -> Tonalnan",
-        status: "untested",
-        notes: "Tonalnan: +5% Crit DMG por dice >=5 aliado + 5 hits = +20% ATK Up burst. Mais DPS, menos sustain. Testar se survival sobra."
+        name: "Wild Fire AllClash (referencia)",
+        change: "Time inteiro -> Caspar+Errich+Adolphus+Flora+Felicity",
+        status: "tested",
+        dps_result: "~5M (sem sustain), ~19M (com Felosia no lugar de Caspar)",
+        bonds: "5 Ulceration | 5 Wild",
+        notes: "AllClash meta mas morre rapido sem sustain pesado. Fire+Felosia = 19M (bom mas superado por Dauntless Aggro)."
       },
       {
-        name: "Dauntless + Survival (antigo — testado)",
+        name: "Dauntless + Survival antigo (Sutha, sem Garett)",
+        change: "Garett -> Sutha no time com Torrin+Eurion",
+        status: "tested",
+        dps_result: "23M",
+        notes: "Sutha 27% DPS vs Garett 43%. Garett e upgrade direto."
+      },
+      {
+        name: "Dauntless original (Torrin+Eurion, 2022)",
         change: "Time inteiro -> Nastjenka+Sutha+Garett+Torrin+Eurion",
         status: "tested",
         dps_result: "1.86M",
-        bonds: "3 Resplendence | 3 Dauntless | 2 Support (10% shield)",
-        notes: "Torrin+Eurion imortalidade + 3 Dauntless burst. Superado pelo meta Fire/Wild."
-      },
-      {
-        name: "Anti-debuff premium",
-        change: "Flora -> Acilia",
-        status: "untested",
-        notes: "Acilia aumenta sobrevivencia em semanas com debuffs/DoT pesados. DPS cai, mas time morre menos."
+        notes: "Primeiro time Dauntless. Superado por otimizacoes de composicao e artefatos."
       }
     ],
     tests: [
-      { desc: "Wild Fire COMPLETO (Caspar+Errich+Felicity+Flora+Adolphus)", result: "Pendente", notes: "Time AllClash completo com Flora! Testar ASAP" },
-      { desc: "Wild Sustain (Felosia no lugar de Caspar)", result: "Pendente", notes: "Meta: aumentar uptime e dano total em lutas longas" },
-      { desc: "Wild Anti-control (Lucien no lugar de Caspar)", result: "Pendente", notes: "Meta: reduzir mortes por controle/ult-drain no inicio" },
-      { desc: "Wild Fire sem Flora (Rhash no lugar)", result: "Pendente", notes: "Time anterior sem Flora" },
-      { desc: "Dauntless + Survival (Nastjenka+Sutha+Garett+Torrin+Eurion)", result: "1.86M", notes: "Campea anterior" },
-      { desc: "Boss Summon (Ladehlia+Rowena+Sintrellia+Torrin+Eurion)", result: "1.54M", notes: "Superado" }
+      { desc: "Dauntless Aggro (Nastjenka+Garett+DA+Sutha+Acilia)", result: "31.3M", notes: "CAMPEAO! 5 Resplendence + 4 Dauntless + Acilia sustain solo" },
+      { desc: "Dauntless + Garett (Nastjenka+Garett+DA+Torrin+Eurion)", result: "24M", notes: "Garett > Sutha confirmado" },
+      { desc: "Dauntless + Sutha (Nastjenka+Sutha+DA+Torrin+Eurion)", result: "23M", notes: "Time base funcional" },
+      { desc: "Wild Fire + Felosia (Flora+Errich+Felicity+Adolphus+Felosia)", result: "19M", notes: "Sustain resolve morte mas DPS inferior a Dauntless" },
+      { desc: "Wild Fire puro (Caspar+Errich+Adolphus+Flora+Felicity)", result: "~5M", notes: "Morre rapido, score baixissimo" },
+      { desc: "Dauntless original (Nastjenka+Sutha+Garett+Torrin+Eurion)", result: "1.86M", notes: "Historico — superado" },
+      { desc: "Boss Summon (Ladehlia+Rowena+Sintrellia+Torrin+Eurion)", result: "1.54M", notes: "Historico — superado" }
     ]
   },
 
@@ -619,59 +668,68 @@ window.DATA_TEAMS = [
     ]
   },
 
-  // ─── ARENA (keep — not covered by AllClash) ───
+  // ─── ARENA (PvP — refatorado 2026-03-06) ───
   {
     id: "arena",
-    name: "Misto - Melhor Rating",
+    name: "Triple Control Immunity (Lucien Captain)",
     activity: "Arena (PvP)",
-    affinity: "Misto",
+    affinity: "4 Permafrost (4 Ice: Lucien+Vinyara+Felosia+Eurion + 1 Lightning: Nastjenka)",
     status: "tested",
-    dps_result: null,
-    score: 24,
+    dps_result: "Rank 108 → 19! (+89 posicoes)",
+    score: null,
     members: [
-      { id: 20740, role: "DPS carry", notes: "Ult AoE + feather procs 10s, flash 3 golpes. Aura +24% ATK" },
-      { id: 20770, role: "Tank/Debuffer", notes: "Shield, Ult dispela tudo + Frozen 3s + drena Ult Energy. Imune a controle. Aura +40 Accuracy" },
-      { id: 20060, role: "Tank puro", notes: "Ally Protection pra todos, shield 600%DEF, 30% DMG Reduction, passiva anti-morte (invencivel 5s)" },
-      { id: 22290, role: "Healer/Debuffer", notes: "Cura ao atacar, strip buffs, Buff Prohibition AoE 10s" },
-      { id: 20660, role: "DPS burst/crit", notes: "Crit garantido, ATK +200% passiva. Aura +24% Crit DMG" }
+      { id: 20990, role: "Captain/Tank/Anti-CC", notes: "CAPTAIN +30% Max HP (PvP-exclusivo!). Passiva: Shield 8%MaxHP + Control Immunity + imunidade a dreno de ult em TODOS no inicio. Ult: Recharging Speed Penalty 10s (75%). Battle: Frozen 3s no maior ult energy." },
+      { id: 20740, role: "DPS carry (unico)", notes: "Ult AoE + feather procs 10s. Artefato: The Great River Lamp (+10% damage stacking pos-ult). Weapon: Fearless Challenge (+16% vs bosses/players com mais HP)" },
+      { id: 20770, role: "Controle/Ult Drain", notes: "Ult: dispel ALL buffs + drena 100 Ult Energy + Frozen 3s + Attack Penalty II 10s. Passiva auto-resiste CC a cada 6s + congela atacante. Artefato: Rift Hourglass (+50 Skill Haste)" },
+      { id: 21390, role: "Shield/DR/Anti-CC", notes: "Ult: Shield AoE 12%MaxHP + 30% DR + Control Immunity 10s. Passiva: 15% de dano nos aliados → vira shield. Artefato: Aurelium Vest (shield → -10% DMG)" },
+      { id: 20060, role: "Tank ancora", notes: "Ally Protection todos + anti-morte (invencivel 5s). Artefato: Giant Turtle Shell (AoE 10%MaxHP shield)" }
     ],
-    bonds: "3 Permafrost (Vinyara+Eurion+Voresh) | 3 Support (15% HP shield) | 2 Dauntless",
-    captain: null,
+    bonds: "4 Permafrost (4 Ice: Lucien+Eurion+Vinyara+Felosia) | 1 Lightning (Nastjenka) | +20% ATK, +20% HP, ACC 50, RES 50",
+    positioning: {
+      front_melee: ["Lucien (lateral)", "Eurion (centro)", "Nastjenka (lateral)"],
+      back_range: ["Vinyara (lateral, espaçada)", "Felosia (lateral oposta, espaçada)"],
+      note: "Vinyara e Felosia sao RANGE — ficam atras. Nastjenka e MELEE — fica na frente com os tanks."
+    },
+    captain: { id: 20990, skill: "+30% Max HP em Grand Gladiator Arena" },
     mechanics: {
       boss: "PvP Assincrono (AI vs AI)",
       perigo: "Burst + CC do oponente mata antes dos seus supports agirem. Frost meta domina high rank.",
-      como_vencer: "5x herois 5.0 = stats maximos. Vinyara drena ult inimigo + Frozen 3s. Voresh strip buffs + Buff Prohibition AoE. Eurion Ally Protection + anti-morte. Nastjenka burst AoE.",
+      como_vencer: "TRIPLE Control Immunity: (1) Lucien passiva no segundo 0, (2) Vinyara auto-resist a cada 6s + counter-freeze, (3) Felosia ult 30%DR + Control Immunity 10s. Nastjenka so precisa sobreviver para ultar e feathers matam. Eurion ancora tudo com Ally Protection.",
       food: "Northland Assorted Jelly (Cold +5%, DEF +10%) — PvP defensiva"
     },
-    notes: "5x herois 5.0! Rating > mecanica em early game.",
+    pvp_stats: {
+      lucien:    "HP% > DEF% > Resistance > Accuracy. HP% multiplicativo com captain +30% Max HP. Bottom talent tree.",
+      nastjenka: "ATK% > Crit Damage > HP% > DEF%. Mais HP que PvE (Melee, precisa sobreviver pra ultar). Crit Rate ja 100%+.",
+      vinyara:   "Accuracy (250+!) > HP% > DEF% > Resistance. Se ult miss = derrota.",
+      felosia:   "HP% > Enlightenment > DEF% > Resistance. Shield escala com HP (12%) + Enlightenment (2900%).",
+      eurion:    "DEF% > HP% > Resistance > DEF flat. Resistance mais importante que PvE (CC inimigo)."
+    },
+    pvp_artifacts: {
+      lucien: "Gatekeeper's Staff (50% overheal → shield)",
+      nastjenka: "The Great River Lamp (+10% damage stacking pos-ult) — melhor que Thunder Deity Spear em PvP",
+      vinyara: "Rift Hourglass (HP + Accuracy + Skill Haste 50)",
+      felosia: "Aurelium Vest (Shield → ally -10% DMG taken)",
+      eurion: "Giant Turtle Shell (AoE 10%MaxHP shield) — novo, melhor que Drugo em PvP"
+    },
+    notes: "Refatorado 2026-03-06. Time anterior (Nastjenka+Vinyara+Eurion+Voresh+Garett) morria muito facil — rank 108. Problema: sem Control Immunity, sem healer, Garett Melee morria primeiro. Novo time com triple Control Immunity + Lucien captain +30% Max HP resolveu. Resultado: rank 108 → 19 (+89 posicoes). Avaliado 5 Permafrost (trocar Nastjenka por Ice/Necrosis DPS) — nao vale: Nastjenka DI#1 skills 8/8 + Fearless Challenge > +20% Elemental Damage bonus.",
     variants: [
       {
-        name: "Anti-debuff premium",
-        change: "Voresh -> Acilia",
+        name: "Com Torrin (Permafrost + heal)",
+        change: "Felosia -> Torrin",
         status: "untested",
-        score: 23.5,
-        notes: "Acilia traz cleanse total + Debuff Immunity. Perde Buff Prohibition, mas melhora vs comps de CC pesado."
+        notes: "3 Permafrost (Vinyara+Lucien+Torrin = 2 Ice + 1 Necrosis). Ganha +20% ATK/HP/ACC. Ganha healer dedicado. Perde shield/DR/Control Immunity da Felosia."
       },
       {
-        name: "Anti-control (Lucien)",
-        change: "Garett -> Lucien",
-        status: "untested",
-        score: 23,
-        notes: "Lucien abre com shield + Control Immunity no time. Menos burst, mais estabilidade no opener."
+        name: "Time anterior (superado)",
+        change: "Lucien+Felosia -> Garett+Voresh",
+        status: "tested",
+        notes: "Time antigo. Rank 80. Morria facil. Superado pelo triple Control Immunity."
       },
       {
-        name: "Ultra sustain (Felosia)",
-        change: "Garett -> Felosia",
+        name: "Voresh anti-buff (vs comps de buff)",
+        change: "Felosia -> Voresh",
         status: "untested",
-        score: 22.5,
-        notes: "Felosia adiciona Damage Reduction + shield em area. Variante para segurar burst inicial."
-      },
-      {
-        name: "Dauntless puro (mid/late game)",
-        change: "Vinyara+Eurion+Voresh -> Sutha+Schaltar+Garius",
-        status: "theoretical",
-        score: 21,
-        notes: "5 Resplendence + 4 Dauntless. Quando bonus de afinidade escalar, volta a ser melhor."
+        notes: "Pra enfrentar comps que dependem de buffs. Voresh Buff Prohibition AoE 10s bloqueia tudo. Perde Control Immunity da Felosia."
       }
     ]
   },
@@ -1019,7 +1077,7 @@ window.DATA_TEAMS = [
       { id: 20630, role: "DPS/Detonator", notes: "Vicana (AC A+). Marca alvo pra explosao, acelera Poison ticks. Insp.1" },
       { id: 20290, role: "DPS AoE", notes: "Jathalea (DI #44, AC B+). Ult 700% AoE + 3 Thorny Poison. Passiva: dispel = 6% Max HP dano. Whisper of the Consumer" }
     ],
-    bonds: "5 Ulceration (+20% ATK, +2% HP) | 4 Toxin/Poison (80% Poison Pool!) | 1 Support",
+    bonds: "5 Ulceration (+20% ATK, +20% HP) | 4 Toxin/Poison (80% Poison Pool!) | 1 Support",
     captain: { id: 20200, skill: "+48 Enlightenment em todas as batalhas" },
     mechanics: {
       boss: "Multi-uso (G.Venom Poison variant, A.Battlefield, bosses com debuff vulnerability)",
@@ -1119,6 +1177,12 @@ window.DATA_TEAMS = [
         notes: "Perde burst Frost, ganha sustain extremo (shield AoE + Damage Reduction)."
       },
       {
+        name: "Frey anti-dive (testado Lv172)",
+        change: "Lossenia+Auster+Hochadir+Vinyara+Felosia -> Lossenia+Auster+Eurion+Vinyara+Felosia",
+        status: "tested",
+        notes: "Progressao reportada no Frey: Lv170 com setup do Continental (Lossenia+Auster+Hochadir+Vinyara+Felosia) e Lv172 apos trocar Hochadir por Eurion. Gargalo de finalizacao foi resolvido ao jogar Manual e focar ultis na Mithrasea."
+      },
+      {
         name: "AllClash ideal (com Hvitar)",
         change: "Hochadir -> Hvitar",
         status: "reference",
@@ -1143,7 +1207,7 @@ window.DATA_TEAMS = [
       { id: 20810, role: "DPS burst", notes: "Felicity. Recast ate 3x dice >=4. Ult 8 beams dice >=5. Ring of Scarlet Sorcerer (+10% skill dmg). Insp.1" },
       { id: 21800, role: "DPS burst + Amplifier", notes: "Tonalnan. +5% Crit DMG por dice >=5 aliado. 5 hits = +20% ATK Up burst. Combo Felicity" }
     ],
-    bonds: "5 Ulceration (+20% ATK, +2% HP) | 5 Wild (dados max!) | School bond Wild",
+    bonds: "5 Ulceration (+20% ATK, +20% HP) | 5 Wild (dados max!) | School bond Wild",
     captain: { id: 20410, skill: "+24% ATK em todas as batalhas" },
     mechanics: {
       boss: "Multi-uso (bosses que resistem Poison, conteudo Fire, Temporal Vortex)",
@@ -1297,32 +1361,32 @@ window.DATA_TEAMS = [
 
 // ============================================================
 // HERO FREQUENCY TABLE — how often each hero appears in teams
-// Updated: 2026-03-05 (Lucien/Felosia review + Donella id fix)
+// Updated: 2026-03-06 (Vortex Dauntless Aggro 31.3M)
 // ============================================================
 window.DATA_HERO_FREQUENCY = [
   { id: 20060, teams: 14, activities: "Bosses/Frey, G.Venom, G.Curse, H.Ruins, Talent Resplendence, A.Battlefield, Arena, Fae, Pillar, Tempest Domain, Flame Domain, Time Ice, Time Summon, Time Poison(var)" },
   { id: 20690, teams: 10, activities: "Bosses/Frey, G.Venom, G.Curse, G.Rot, Talent Resplendence, A.Battlefield, Tempest Domain, Flame Domain, Time Ice, Time Summon" },
   { id: 20770, teams: 8, activities: "Bosses/Frey, G.Venom, G.Curse, Talent Resplendence, A.Battlefield, Arena, Fae, Pillar" },
-  { id: 20740, teams: 8, activities: "G.Venom, G.Curse, G.Rot, Arena, Frost Domain, Fae, Pillar, Time Dauntless" },
-  { id: 20420, teams: 5, activities: "G.Rot, Frost Domain, Flame Domain, Time Radiance, Time Summon(var)" },
+  { id: 20740, teams: 9, activities: "T.Vortex, G.Venom, G.Curse, G.Rot, Arena, Frost Domain, Fae, Pillar, Time Dauntless" },
+  { id: 20420, teams: 6, activities: "T.Vortex, G.Rot, Frost Domain, Flame Domain, Time Radiance, Time Summon(var)" },
   { id: 22290, teams: 4, activities: "A.Battlefield, Arena, Fae, Pillar" },
   { id: 20920, teams: 4, activities: "Bosses/Frey, G.Venom, H.Ruins, Goblin" },
-  { id: 23020, teams: 4, activities: "G.Curse, G.Rot, Frost Domain, Time Dauntless" },
+  { id: 23020, teams: 5, activities: "T.Vortex, G.Curse, G.Rot, Frost Domain, Time Dauntless" },
   { id: 23080, teams: 4, activities: "Goblin, Tempest Domain, Flame Domain, Time Summon" },
-  { id: 20410, teams: 2, activities: "T.Vortex, Time Fire" },
-  { id: 21970, teams: 2, activities: "T.Vortex, Time Fire" },
-  { id: 20400, teams: 2, activities: "T.Vortex, Time Fire" },
-  { id: 20810, teams: 2, activities: "T.Vortex, Time Fire" },
+  { id: 20410, teams: 1, activities: "Time Fire" },
+  { id: 21970, teams: 1, activities: "Time Fire" },
+  { id: 20400, teams: 1, activities: "Time Fire" },
+  { id: 20810, teams: 1, activities: "Time Fire" },
   { id: 22230, teams: 3, activities: "Goblin, Fae(var), Time Ice" },
   { id: 21030, teams: 3, activities: "Bosses/Frey, A.Battlefield, Time Ice" },
   { id: 24780, teams: 3, activities: "Tempest Domain, Flame Domain, Time Summon" },
   { id: 20210, teams: 4, activities: "H.Ruins, Talent Wildfire, Talent Permafrost, Time Radiance" },
   { id: 23210, teams: 4, activities: "H.Ruins, Talent Wildfire, Talent Resplendence, Time Radiance" },
   { id: 20250, teams: 3, activities: "H.Ruins, Talent Wildfire, Talent Resplendence" },
-  { id: 20660, teams: 3, activities: "Arena, Frost Domain, Time Dauntless" },
-  { id: 21560, teams: 2, activities: "Frost Domain, Time Dauntless" },
+  { id: 20660, teams: 4, activities: "T.Vortex, Arena, Frost Domain, Time Dauntless" },
+  { id: 21560, teams: 3, activities: "T.Vortex, Frost Domain, Time Dauntless" },
   { id: 20650, teams: 2, activities: "Talent Wildfire, Goblin" },
-  { id: 23250, teams: 1, activities: "T.Vortex(var)" },
+  { id: 23250, teams: 0, activities: "" },
   { id: 21800, teams: 1, activities: "Time Fire" },
   { id: 22310, teams: 1, activities: "Time Summon" },
   { id: 21010, teams: 1, activities: "Time Poison" },

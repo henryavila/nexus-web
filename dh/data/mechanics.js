@@ -1,5 +1,5 @@
 // mechanics.js — All game mechanics data consolidated from .md docs
-// Last source update: 2026-02-20
+// Last source update: 2026-03-06
 
 window.DATA_MECHANICS = {
 
@@ -99,10 +99,14 @@ window.DATA_MECHANICS = {
       "Resplendence": { elements: ["Lightning", "Radiance"] }
     },
     bonuses: {
-      // Cada afinidade tem flat + percent PROPRIOS (confirmado in-game 26/Fev/2026)
-      permafrost_3:    { atk_percent: 20, hp_percent: 20, acc: 50, res: 50, def: 200, hp: 2000, atk: 200, note: "Permafrost 3+: +20% ATK, +20% HP, ACC 50, RES 50, DEF 200, HP 2000, ATK 200 (MAIS FORTE)" },
-      ulceration_3:    { atk_percent: 20, hp_percent: 2, acc: 50, res: 20, hp: 2000, atk: 200, note: "Wildfire (Ulceration) 3+: +20% ATK, +2% HP, ACC 50, RES 20, HP 2000, ATK 200" },
-      resplendence_3:  { atk_percent: 20, acc: 50, hp: 2000, atk: 200, note: "Resplendence 3+: +20% ATK, ACC 50, HP 2000, ATK 200" }
+      // Dados in-game (screenshots em logs/, 06/Mar/2026)
+      permafrost_3:    { atk_percent: 20, hp_percent: 20, acc: 50, res: 50, def: 200, hp: 2000, atk: 200, note: "Permafrost 3+: +20% ATK, +20% HP, ACC 50, RES 50, DEF 200, HP 2000, ATK 200" },
+      ulceration_3:    { atk_percent: 20, hp_percent: 20, acc: 50, res: 20, def: 200, hp: 2000, atk: 200, note: "Wildfire (Ulceration) 3+: +20% ATK, +20% HP, ACC 50, RES 20, DEF 200, HP 2000, ATK 200" },
+      resplendence_3:  { atk_percent: 20, hp_percent: 20, acc: 50, def: 200, hp: 2000, atk: 200, note: "Resplendence 3+: +20% ATK, +20% HP, ACC 50, DEF 200, HP 2000, ATK 200" },
+
+      permafrost_5:    { elemental_damage_bonus_percent: 20, damage_resistance_percent: 2, note: "Permafrost 5+: +20% Elemental Damage Bonus, +2% Damage Resistance" },
+      ulceration_5:    { elemental_damage_bonus_percent: 20, damage_resistance_percent: 2, note: "Wildfire/Ulceration 5+: +20% Elemental Damage Bonus, +2% Damage Resistance" },
+      resplendence_5:  { elemental_damage_bonus_percent: 20, damage_resistance_percent: 2, note: "Resplendence 5+: +20% Elemental Damage Bonus, +2% Damage Resistance" }
     },
 
     // --- AFFINITY EVOLUTION (sistema de upgrade por caminho) ---
@@ -159,16 +163,17 @@ window.DATA_MECHANICS = {
     },
 
     notes: [
-      "DUAS camadas: (1) bonus por afinidade (flat+percent combinados, DIFERENTES por afinidade), (2) affinity evolution.",
-      "Camada 1 (confirmado in-game 26/Fev/2026) — cada afinidade tem bonus PROPRIO:",
-      "  - Permafrost (Ice+Necrosis) 3+: +20% ATK, +20% HP, ACC 50, RES 50, DEF 200, HP 2000, ATK 200 (MAIS FORTE — unica com DEF e RES alto)",
-      "  - Wildfire/Ulceration (Poison+Fire) 3+: +20% ATK, +2% HP, ACC 50, RES 20, HP 2000, ATK 200",
-      "  - Resplendence (Lightning+Radiance) 3+: +20% ATK, ACC 50, HP 2000, ATK 200 (mais simples)",
+      "TRES camadas: (1) bonus base com 3 herois, (2) bonus extra com 5 herois, (3) affinity evolution.",
+      "Camada 1 (3 herois, confirmado in-game 06/Mar/2026):",
+      "  - Permafrost (Ice+Necrosis): +20% ATK, +20% HP, ACC 50, RES 50, DEF 200, HP 2000, ATK 200",
+      "  - Wildfire/Ulceration (Poison+Fire): +20% ATK, +20% HP, ACC 50, RES 20, DEF 200, HP 2000, ATK 200",
+      "  - Resplendence (Lightning+Radiance): +20% ATK, +20% HP, ACC 50, DEF 200, HP 2000, ATK 200",
+      "Camada 2 (5 herois da mesma afinidade): +20% Elemental Damage Bonus e +2% Damage Resistance",
       "Camada 3: Affinity Evolution — 6 caminhos (3 ATK + 3 HP), escolher 4. Lv 10 max = +20% cada.",
-      "3 herois = suficiente pra ativar. 5 herois = mesmo bonus (sem incentivo extra).",
+      "3 herois ativam afinidade; 5 herois adicionam bonus extra de dano/mitigacao.",
       "Valores escalam com progressao da conta — atualizar quando mudar."
     ],
-    last_updated: "2026-02-19"
+    last_updated: "2026-03-06"
   },
 
   // === SCHOOL BONDS (confirmado in-game Fev/2026) ===
@@ -286,15 +291,56 @@ window.DATA_MECHANICS = {
   // === GEAR SYSTEM ===
   gear: {
     slots: [
-      { name: "Arma", unlock: "Inicio" },
-      { name: "Armadura (Breastplate)", unlock: "Inicio" },
-      { name: "Elmo", unlock: "Inicio" },
-      { name: "Manopla", unlock: "Inicio" },
+      { name: "Arma (Weapon)", unlock: "Inicio", main_stat: "ATK 335 (Mythic lv1)", set_pool: "weapon_helmet" },
+      { name: "Elmo (Helmet)", unlock: "Inicio", main_stat: "Varia", set_pool: "weapon_helmet" },
+      { name: "Armadura (Armor/Chest)", unlock: "Inicio", main_stat: "Varia", set_pool: "armor_gloves" },
+      { name: "Manopla (Gloves)", unlock: "Inicio", main_stat: "Varia", set_pool: "armor_gloves" },
       { name: "Artifact", unlock: "3* (Lv.50)" },
       { name: "Positive Rune", unlock: "4* (Lv.70)" },
       { name: "Negative Rune", unlock: "5* (Lv.90)" }
     ],
     rarities: "Common → Rare → Epic → Mythic",
+
+    // SUBSTATS — confirmado in-game 2026-03-06 (Mythic Weapon)
+    // NAO EXISTEM em gear: ATK Speed, Skill Haste (somente em Runas)
+    // Base = roll aleatorio no range. Cada upgrade (+8/+12/+16/+20) adiciona ao sub escolhido.
+    // Upgrade amount tem min~max proprio (quase fixo mas min e max variam ligeiramente).
+    substats: {
+      atk_pct:      { base_min: 2.0, base_max: 5.8,  upgrade_min: 5.0, upgrade_max: 5.2,  unit: "%" },
+      hp_pct:       { base_min: 2.0, base_max: 5.8,  upgrade_min: 5.0, upgrade_max: 5.2,  unit: "%" },
+      def_pct:      { base_min: 2.0, base_max: 5.8,  upgrade_min: 5.0, upgrade_max: 5.2,  unit: "%" },
+      hp_flat:      { base_min: 256, base_max: 744,   upgrade_min: 640, upgrade_max: 666,   unit: "flat" },
+      crit_rate:    { base_min: 1.2, base_max: 3.8,   upgrade_min: 3.0, upgrade_max: 3.2,   unit: "%" },
+      crit_damage:  { base_min: 2.8, base_max: 7.8,   upgrade_min: 7.0, upgrade_max: 7.2,   unit: "%" },
+      accuracy:     { base_min: 4,   base_max: 11,    upgrade_min: 9,   upgrade_max: 10,    unit: "flat" },
+      resistance:   { base_min: 4,   base_max: 11,    upgrade_min: 9,   upgrade_max: 10,    unit: "flat" },
+      enlightenment:{ base_min: 4,   base_max: 12,    upgrade_min: 10,  upgrade_max: 10,    unit: "flat" },
+      // ATK Speed: NAO EXISTE em gear (somente Runas)
+      // Skill Haste: NAO EXISTE em gear (somente Runas)
+    },
+
+    // MYTHIC 1-PIECE SETS — confirmado in-game 2026-03-06 (S1 Forge)
+    // Mythic gear usa sets de 1 peça. Cada slot pool tem sets diferentes.
+    mythic_sets_weapon_helmet: [
+      { name: "Fearless Challenge", bonus: "+16% damage vs inimigos com Max HP >50% maior que o heroi", type: "DPS" },
+      { name: "Chaos Symbiosis", bonus: "+6% ATK por aliado da mesma School presente", type: "DPS" },
+      { name: "Magic Crystal Refinement", bonus: "+ATK adicional = 300% da Accuracy atual", type: "DPS nicho" },
+      { name: "Monelisse's Teardrop", bonus: "Ao morrer: Immortality 3s + 15% DR 10s (CD 120s)", type: "Defensivo" },
+      { name: "Impregnable", bonus: "Buffs ganhos tem 50% chance de serem enhanced + indispellable", type: "Utility" },
+      { name: "Sky Code Treaty", bonus: "Ao dar Shield → dispel 1 debuff do alvo (CD 20s)", type: "Utility" }
+    ],
+    mythic_sets_armor_gloves: [
+      { name: "Imposing Presence", bonus: "100% HP → +25% damage dealt", type: "DPS" },
+      { name: "Strike the Unprepared", bonus: "+30% damage vs inimigos com Defense Penalty", type: "DPS condicional" },
+      { name: "Death Record", bonus: "Ao causar Derivative Damage → marca alvo +20% Deriv. recebido 12s", type: "DPS nicho" },
+      { name: "Mark of Austerity", bonus: "A cada 10% HP perdido → +15% ATK Speed", type: "Berserker" },
+      { name: "Clean Sweep", bonus: "Quando ult termina de recarregar → dispel ALL debuffs do heroi", type: "Utility" },
+      { name: "Ancestral Guidance", bonus: "50% Lifesteal em basic attacks (+50% extra abaixo 25% HP)", type: "Self-sustain" },
+      { name: "Schadenfreude", bonus: "Ao aplicar debuff → self-heal 2% Max HP", type: "Tank utility" },
+      { name: "Iron Bastion", bonus: "Ao receber Crit → 50% chance -30% Crit Rate do atacante 5s", type: "Defensivo" }
+    ],
+
+    s4_sets_note: "Sets S4 (Echoes of War, Whispers of the Order, Oasis Aspiration) NAO existem no S1. Sao multi-piece sets de seasons futuras.",
     s4_sets: [
       { name: "Echoes of War", bonus_2: "+ATK, +Atk Speed", bonus_3: "+Atk Speed, +basic atk dmg on crit", ideal: "Dauntless / basic attackers" },
       { name: "Whispers of the Order", bonus_2: "+ATK, +Skill Haste", bonus_3: "+Ultimate skill damage", ideal: "Casters / skill users" },
@@ -302,17 +348,27 @@ window.DATA_MECHANICS = {
     ],
     stat_priority: [
       { role: "DPS/Carry", stats: "ATK, Crit Rate, Crit Damage", gear: "Arma + sets ofensivos" },
-      { role: "Tank", stats: "HP, DEF", gear: "Armadura + sets defensivos" },
-      { role: "Support", stats: "Accuracy, HP, Skill Haste", gear: "Mix" }
+      { role: "Tank", stats: "HP, DEF, Resistance", gear: "Armadura + sets defensivos" },
+      { role: "Support/Healer", stats: "HP, Enlightenment, Resistance", gear: "Mix defensivo" },
+      { role: "Debuffer/Control", stats: "Accuracy, HP, DEF", gear: "Mix accuracy" }
     ],
     rules: [
       "Troca de gear e GRATUITA",
       "Nao faca upgrade pesado em gear comum — espere Mythic",
-      "4 pecas de gear podem ser guardadas entre seasons",
-      "Gear so pode ser carregada 1 vez (forward once)",
+      "4 pecas de gear podem ser guardadas entre seasons (Boundless Chest, 1x only)",
+      "ATK Speed e Skill Haste NAO existem como substats de gear — somente em Runas",
       "Batch sell gear desnecessario para gold"
     ],
-    forge: "Novo no Reborn: escolha slot, set E atributos. Tempering revisado — todos os stats rolam valores maximos"
+    forge_event: {
+      name: "Piece of Treasure",
+      description: "Cria 1 Mythic gear. Escolhe: slot, set (1-piece), main stat, 4 substats, 4 upgrades.",
+      notes: [
+        "Substats: escolhe QUAIS 4 stats, valores sao RANDOM dentro do min-max",
+        "Upgrades (+8/+12/+16/+20): escolhe QUAL sub recebe cada upgrade",
+        "Sets sao 1-piece only no Mythic",
+        "Weapon/Helmet compartilham pool de sets. Armor/Gloves compartilham outro pool."
+      ]
+    }
   },
 
   // === GAME MODES — MECANICAS DETALHADAS ===
@@ -367,9 +423,9 @@ window.DATA_MECHANICS = {
         "Herois com <2 buffs levam Stun 5s da Ult = time parado = morte",
         "Boss com muitos buffs = recharge acelerado = mais rotacoes = mais drain"
       ],
-      como_vencer: "Vinyara e CORE (provado Lv14). Ult dispela buffs do boss (Rage of Blood). Shield bloqueia Max HP drain da passiva. Passiva auto-resiste Stun (controle a cada 6s). Permafrost +20% ACC garante timing do dispel. Mantenha 2+ buffs em todos herois pra evitar Stun da Ult.",
-      counters: ["Dispel buffs do boss (Vinyara — core counter provado Lv14. Dispel Rage of Blood + Shield previne Max HP drain + Passiva auto-resiste Stun)", "Manter 2+ buffs em todos (Schaltar Lightning Strike, Catherine Debuff Immunity)", "ATK Penalty antes dos hits grandes"],
-      timing_dica: "Vinyara Ult APOS os 2 buffs do boss (Rage of Blood), ANTES do ataque final. Boss ataca sem buff = dano controlado."
+      como_vencer: "Tamar Buff Prohibition PREVINE Rage of Blood (testado 08/Mar — boss nunca bufou, ACC 300+ necessario). Felosia shields bloqueiam Max HP drain + 30% DR + Control Immunity (impede Stun 5s). Torrin+Eurion = sustain core. Vinyara dispel reativo funciona ate Lv14 mas Tamar prevencao proativa e superior. Voresh falhava por ACC baixa, NAO por resistencia inata do boss.",
+      counters: ["Buff Prohibition (Tamar ACC 300+ — MELHOR counter, prevencao > cura. Voresh falha por ACC baixa, NAO resistencia do boss)", "Shields bloqueiam Blood Gush Max HP drain (Felosia INEGOCIAVEL — sem ela time morre)", "Felosia Control Immunity previne Stun 5s (substitui necessidade de 2+ buffs)", "Dispel buffs do boss (Vinyara — funcional mas inferior a Tamar Buff Prohibition)"],
+      timing_dica: "Com Tamar: auto-battle funciona (boss nunca buffa). Sem Tamar: Vinyara Ult APOS Rage of Blood, ANTES do ataque — considerar Manual."
     },
 
     grave_of_rot: {
@@ -565,7 +621,7 @@ window.DATA_MECHANICS = {
       o_que_mata: [
         "Lady of Greeneries Poison sem Immunity = wipe garantido em andares altos",
         "Herois sub-level em andares 140+ (bosses tem 250 Resistance)",
-        "Nao usar Elemental Affinity (5 herois mesmo elemento) = sem bonus stats em andares altos"
+        "Nao ativar Elemental Affinity (minimo 3 herois da afinidade) = perda grande de stats nos andares altos"
       ],
       como_vencer: "Debuff Immunity e a mecanica MAIS importante da torre. Catherine AoE Debuff Immunity cobre janelas de perigo. 5 herois mesmo elemento pra bonus de afinidade. Use food buffs. Troque DPS por support em andares de sobrevivencia.",
       counters: ["Debuff Immunity AoE (Catherine — essencial)", "5 herois mesmo elemento (bonus afinidade)", "Frurbath (tank + cleanse + AoE heal universal)", "Food buffs antes de andares dificeis"]
@@ -607,8 +663,8 @@ window.DATA_MECHANICS = {
       name: "Frey Corridor",
       type: "Boss Corridor (progressao de dificuldade)",
       mecanica: "Serie de bosses com dificuldade crescente. Mesmas mecanicas da Fae Meander porem focado em progressao de boss. Cada boss desbloqueado = rewards melhores.",
-      como_vencer: "Composicoes especificas por boss. Modulo Torrin+Eurion = sobrevivencia universal. Ladehlia+Sintrellia = DPS de boss otimizado.",
-      counters: ["Modulo sobrevivencia Torrin+Eurion", "DPS de boss: Ladehlia+Sintrellia (Shadow Demon clone)", "Ajustar time por boss especifico"]
+      como_vencer: "Composicoes especificas por boss. Modulo Torrin+Eurion = sobrevivencia universal. Em floors com Mithrasea/Donella, o diferencial e Manual: priorizar ultis na Mithrasea para impedir ciclo infinito de ressurreicao. Em floors de tank+sustain (ex: 2x Bionphray + Deverick), usar anti-buff dedicado (Tamar) com Accuracy alto. Em floors Fire/Wild (2x Felicity + Caspar), reduzir tempo de luta com controle de ult e foco no backline. Em floors com dive no backline (ex: Lothair), pivotar para Felosia e manter food Ice para segurar ate o fim.",
+      counters: ["Modulo sobrevivencia Torrin+Eurion", "DPS de boss: Ladehlia+Sintrellia (Shadow Demon clone)", "Manual em lutas de suporte-duro (focar Mithrasea)", "Anti-buff (Tamar) contra comp de sustain/buff", "Comp Fire/Wild: priorizar Caspar/Felicity e encurtar a luta", "Anti-dive: Felosia (shield+DR+Control Immunity)", "No S1, sem lock persistente de alvo: reposicionar foco a cada janela de ult", "Ajustar time por boss especifico"]
     },
 
     // ============================================================
@@ -698,6 +754,16 @@ window.DATA_MECHANICS = {
       frequency: "A cada 10 niveis",
       bonuses: ["Reducao de velocidade de ultimate inimigo", "Aumento de dano dos aliados"]
     },
+    // CAPTAIN AURA — confirmado 06/Mar/2026: NAO stacka!
+    // Apenas a aura do capitao e ativa. Herois com aura que NAO sao capitao NAO contribuem.
+    // Escolha de aura: +24% ATK > +24% Crit DMG quando <3/5 herois tem crit alto.
+    captain_aura: {
+      stacks: false,
+      note: "So 1 aura ativa — a do capitao escolhido. Demais herois com aura NAO contribuem.",
+      tip: "+24% ATK e a escolha mais segura (amplifica tudo). +24% Crit DMG so compensa se maioria do time tem crit ~100%.",
+      last_updated: "2026-03-06"
+    },
+
     milestones: [
       { level: 20, unlock: "Recompensas de pre-registro" },
       { level: 30, unlock: "Captain Skill / Enhanced Skill (2*)" },

@@ -1,9 +1,9 @@
 // plan.js — Imperial Shadow Recast Event Plan
-// Updated: 2026-03-05
+// Updated: 2026-03-06
 
 window.DATA_PLAN = {
   player: "Henry (SuperYennefer, Server 139-Darkfire)",
-  updated: "05/Mar/2026",
+  updated: "06/Mar/2026",
   priority: "Imperial Shadow Recast — Meta: 450 Amethysts (Utior)",
 
   phases: [
@@ -57,6 +57,12 @@ window.DATA_PLAN = {
       items: [
         { text: "Equipar gear no Brody — priorizar Resistance e HP (ele MORRE = run da Vinyara falha)", done: false },
         { text: "Testar Felosia (21390) no Temporal Vortex e nos Graves para reduzir mortes precoces", done: true },
+        { text: "Frey Corridor: validar execucao Manual para focar Mithrasea em comp de ressurreicao", done: true },
+        { text: "Frey Corridor: registrar progresso por nivel e setup anti-buff que passou da fase Lv219", done: true },
+        { text: "Frey Corridor: registrar iteracoes Lv220->Lv229 (burst vs sustain) e novo wall Fire/Wild", done: true },
+        { text: "Frey Lv229: testar counter dedicado (Tamar anti-buff) contra 2x Felicity + Caspar + Horrus + Garrika", done: true },
+        { text: "Frey: consolidar variante Immortals (Felosia) apos counter do Lv229 e registrar progresso ate Lv239", done: true },
+        { text: "Frey Lv240: testar versao hibrida de dano/sustain (Eurion+Torrin+Lossenia+Auster+Rowena)", done: false },
         { text: "Testar Lucien (20990) como alternativa defensiva no time Ice/Frost contra controle pesado", done: false },
         { text: "Grave of Rot Lv18: validar threshold de build (summons crit alto + debuffer ~400 Accuracy)", done: true },
         { text: "Equipar Witches Remains no Zhar'loth (Def Down pro Thelandor)", done: false },
@@ -89,8 +95,8 @@ window.DATA_PLAN = {
           name: "Semana 1 — 2 Tickets",
           description: "Testar TODOS os bosses (retry gratis). Commitar nos 2 mais faceis: Thelandor + Vasska.",
           items: [
-            { text: "THELANDOR (facil) — Time Necro/Summon: Ladehlia+Sintrellia+Ghul'ende+Zhar'loth+Torrin", done: false },
-            { text: "VASSKA (facil-medio) — Time Ice/Frost: Lossenia+Auster+Hochadir+Vinyara+Eurion", done: false }
+            { text: "THELANDOR (facil) — FEITO (ticket 1 salvo)", done: true },
+            { text: "VASSKA (facil-medio) — FEITO (ticket 2 salvo): Lossenia+Auster+Hochadir+Vinyara+Felosia | score final 35M (posicionamento no canto)", done: true }
           ]
         },
         {

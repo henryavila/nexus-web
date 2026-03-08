@@ -1,6 +1,6 @@
 {
-  "version": "2.0",
-  "last_full_scan": "2026-03-05T18:51:11",
+  "version": "2.1",
+  "last_full_scan": "2026-03-08T11:01:59",
   "projects": [
     {
       "name": "nexus",
@@ -13,21 +13,21 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-03-04",
+      "last_activity": "2026-03-08",
       "git": {
         "branch": "main",
-        "last_commit_date": "2026-02-27",
-        "last_commit_message": "docs: add path auto-healing design plan",
+        "last_commit_date": "2026-03-08",
+        "last_commit_message": "chore: add BMAD Method framework (v6.0.4)",
         "dirty": true
       },
       "filesystem": null,
       "health": {
         "path_exists": true,
-        "claude_memory_portable": true,
+        "claude_memory_portable": false,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-05T18:49:47"
+      "last_scanned": "2026-03-08T11:01:48"
     },
     {
       "name": "Dragon Heir",
@@ -40,11 +40,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-03-05",
+      "last_activity": "2026-03-08",
       "git": null,
       "filesystem": {
-        "last_modified_file": "app/data/plan.js",
-        "last_modified_date": "2026-03-05"
+        "last_modified_file": "docs/game-mechanics/mentoria-aprendizados.md",
+        "last_modified_date": "2026-03-08"
       },
       "health": {
         "path_exists": true,
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-05T18:49:48"
+      "last_scanned": "2026-03-08T11:01:48"
     },
     {
       "name": "CRCMG",
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-05T18:49:54"
+      "last_scanned": "2026-03-08T11:01:55"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-05T18:49:56"
+      "last_scanned": "2026-03-08T11:01:56"
     },
     {
       "name": "IA Builder",
@@ -117,17 +117,22 @@
       "repo": null,
       "status": "active",
       "note": null,
-      "class": "unknown",
-      "last_activity": null,
-      "git": null,
+      "class": "git",
+      "last_activity": "2026-02-26",
+      "git": {
+        "branch": "master",
+        "last_commit_date": "2025-12-23",
+        "last_commit_message": "feat: create Workflow resource with fields and dimension presets management",
+        "dirty": true
+      },
       "filesystem": null,
       "health": {
-        "path_exists": false,
+        "path_exists": true,
         "claude_memory_portable": null,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-05T18:49:56"
+      "last_scanned": "2026-03-08T11:01:58"
     },
     {
       "name": "Mnemo",
@@ -139,17 +144,22 @@
       "repo": "henryavila/mnemo",
       "status": "active",
       "note": null,
-      "class": "unknown",
-      "last_activity": null,
-      "git": null,
+      "class": "git",
+      "last_activity": "2026-02-27",
+      "git": {
+        "branch": "main",
+        "last_commit_date": "2026-02-27",
+        "last_commit_message": "chore: initial project setup with BMAD framework and execution plan",
+        "dirty": false
+      },
       "filesystem": null,
       "health": {
-        "path_exists": false,
-        "claude_memory_portable": null,
+        "path_exists": true,
+        "claude_memory_portable": true,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-05T18:49:56"
+      "last_scanned": "2026-03-08T11:01:58"
     },
     {
       "name": "WSL Config",
@@ -170,11 +180,11 @@
       },
       "health": {
         "path_exists": true,
-        "claude_memory_portable": null,
+        "claude_memory_portable": false,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-05T18:49:56"
+      "last_scanned": "2026-03-08T11:01:58"
     },
     {
       "name": "Livros",
@@ -197,15 +207,15 @@
       "filesystem": null,
       "health": {
         "path_exists": true,
-        "claude_memory_portable": null,
+        "claude_memory_portable": false,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-05T18:49:57"
+      "last_scanned": "2026-03-08T11:01:59"
     },
     {
       "name": "Lucio Monteiro Kids",
-      "path": "/mnt/e/OneDrive/Empreendimentos/ATIVOS/Lucio Monteiro Kids",
+      "path": "/mnt/e/OneDrive/Empreendimentos/Lucio Monteiro Kids",
       "description": "Geração de video de msucia infantil apra canal do youtube monetizado",
       "icon": "🎵",
       "category": "Empreendimentos",
@@ -213,47 +223,17 @@
       "repo": "henryavila/lucio-monteiro-kids",
       "status": "active",
       "note": null,
-      "class": "git",
-      "last_activity": "2026-02-26",
-      "git": {
-        "branch": "master",
-        "last_commit_date": "2026-02-06",
-        "last_commit_message": "Estratégia de canal e guia de prompts Flux Klein",
-        "dirty": true
-      },
+      "class": "unknown",
+      "last_activity": null,
+      "git": null,
       "filesystem": null,
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
-        "web_compliant": null
-      },
-      "web": null,
-      "last_scanned": "2026-03-05T18:49:58"
-    },
-    {
-      "name": "RAID Legends",
-      "path": "/mnt/e/OneDrive/Games/RAID Legends",
-      "description": "Knoeledge base",
-      "icon": "⚔️",
-      "category": "games",
-      "url": null,
-      "repo": null,
-      "status": "active",
-      "note": null,
-      "class": "filesystem",
-      "last_activity": "2026-02-26",
-      "git": null,
-      "filesystem": {
-        "last_modified_file": "nexus.yaml",
-        "last_modified_date": "2026-02-26"
-      },
-      "health": {
-        "path_exists": true,
+        "path_exists": false,
         "claude_memory_portable": null,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-05T18:49:58"
+      "last_scanned": "2026-03-08T11:01:59"
     },
     {
       "name": "Incidentes-Getin",
@@ -278,57 +258,39 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-05T18:49:58"
+      "last_scanned": "2026-03-08T11:01:59"
+    }
+  ],
+  "ideas": [
+    {
+      "id": "23a403f6",
+      "title": "Financeiro",
+      "description": "Projeto para auxílio no controle de despesas pessoais. TAlvez semi automatizar a importacao de xls para o Organizee, ou algo assim",
+      "category": "pessoal",
+      "priority": "high",
+      "created": "2026-03-08"
     },
     {
-      "name": "Development",
-      "path": "/mnt/e/OneDrive/DEV",
-      "description": "Tudo que me torna um desenvolvedor melhor e mais produtivo",
-      "icon": "💻",
-      "category": "Development",
-      "url": null,
-      "repo": null,
-      "status": "active",
-      "note": null,
-      "class": "filesystem",
-      "last_activity": "2026-03-03",
-      "git": null,
-      "filesystem": {
-        "last_modified_file": "Claude/guia-elicitacao-requisitos-bmad.md",
-        "last_modified_date": "2026-03-03"
-      },
-      "health": {
-        "path_exists": true,
-        "claude_memory_portable": null,
-        "web_compliant": null
-      },
-      "web": null,
-      "last_scanned": "2026-03-05T18:51:10"
+      "id": "708304e4",
+      "title": "CRCMG - CRM Fiscalizados",
+      "description": "EStrutura de CRM para centralizar o contato com os fiscalizados (PF. PJ. Prof. Org). A idiea é ter um ponto central de comunciacao, cabar completamente com a comunciacao via e-amil (integrar com protocolo digital). Ganhamso rastrabialdie, acabamos com o probma de e-mail estourando o limte de armazenamento, etc. Se o fiscalizado envair um e-amil, é rejetiado e enviado um link para interagir",
+      "category": "trabalho",
+      "priority": "medium",
+      "created": "2026-03-08",
+      "tags": [
+        "dev"
+      ]
     },
     {
-      "name": "Empreendimentos",
-      "path": "/mnt/e/OneDrive/Empreendimentos",
-      "description": "Projetos com objetivo de gerar valor, renda ou impacto",
-      "icon": "💵",
-      "category": "Empreendimentos",
-      "url": null,
-      "repo": null,
-      "status": "active",
-      "note": null,
-      "class": "filesystem",
-      "last_activity": "2026-02-27",
-      "git": null,
-      "filesystem": {
-        "last_modified_file": "nexus.yaml",
-        "last_modified_date": "2026-02-27"
-      },
-      "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
-        "web_compliant": null
-      },
-      "web": null,
-      "last_scanned": "2026-03-05T18:51:11"
+      "id": "0ffbe6df",
+      "title": "CRCMG - Mini CRM Fornecedores",
+      "description": "Ter um repositorio centrar com os contatos de todos os fornecedores e um mini histórico de interações. O prpblema a ser resolvido é: Nunca se sabe os contatos dos fornecedores (emrpsa de segurança, por exemplo, quem é responsvel prelo antivirus (em cas ode necssaide de contaot direto), e por outros serviços). Para cada contrato, exitem diferntes contatos (para fins diferntes). Além disos, ao longo da vigencia do contrato, os contatos mudam (pessoas saem de férias e otura cobrem, pessoas saem da emrpesa), entao é necessário ter um contorle fáci le atualizado",
+      "category": "trabalho",
+      "priority": "medium",
+      "created": "2026-03-08",
+      "tags": [
+        "dev"
+      ]
     }
   ]
 }

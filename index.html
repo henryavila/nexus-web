@@ -15,15 +15,19 @@
 
     <header>
         <div class="logo"><span>N</span>EXUS</div>
+        <div class="tab-bar">
+            <button class="tab-btn active" data-tab="ideas">Ideias</button>
+            <button class="tab-btn" data-tab="projects">Projetos</button>
+        </div>
         <div class="search-desktop">
             <span class="search-icon">&#x1F50D;</span>
-            <input type="text" id="search-desk" placeholder="Filtrar projetos...">
+            <input type="text" id="search-desk" placeholder="Filtrar...">
         </div>
         <button class="search-toggle" id="search-btn">&#x1F50D;</button>
     </header>
 
     <div class="search-overlay" id="search-overlay">
-        <input type="text" id="search-mobile" placeholder="Filtrar projetos..." autofocus>
+        <input type="text" id="search-mobile" placeholder="Filtrar..." autofocus>
         <button class="search-close" id="search-close">ESC</button>
     </div>
 
@@ -35,7 +39,15 @@
         <div class="alerts-details" id="alerts-details"></div>
     </div>
 
-    <main class="feed" id="feed">
+    <main class="feed" id="ideas-feed">
+        <div class="feed-header ideas-feed-header" id="ideas-feed-header">
+            <span>Prioridade</span>
+            <span>Ideia</span>
+            <span>Categoria</span>
+        </div>
+    </main>
+
+    <main class="feed" id="feed" style="display:none">
         <div class="feed-header" id="feed-header">
             <span>Projeto</span>
             <span>Descrição</span>
