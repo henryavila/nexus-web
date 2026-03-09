@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "last_full_scan": "2026-03-08T21:19:52",
+  "last_full_scan": "2026-03-08T21:43:08",
   "projects": [
     {
       "name": "nexus",
@@ -17,17 +17,17 @@
       "git": {
         "branch": "main",
         "last_commit_date": "2026-03-08",
-        "last_commit_message": "feat(tui): show 'Enter to view details' hint in idea selection meta",
+        "last_commit_message": "feat: move Claude memory into project (.memory/) for portability",
         "dirty": true
       },
       "filesystem": null,
       "health": {
         "path_exists": true,
-        "claude_memory_portable": false,
+        "claude_memory_portable": true,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:19:39"
+      "last_scanned": "2026-03-08T21:42:57"
     },
     {
       "name": "Dragon Heir",
@@ -55,7 +55,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-08T21:19:40"
+      "last_scanned": "2026-03-08T21:42:58"
     },
     {
       "name": "CRCMG",
@@ -80,7 +80,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:19:45"
+      "last_scanned": "2026-03-08T21:43:04"
     },
     {
       "name": "IASD",
@@ -105,7 +105,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:19:46"
+      "last_scanned": "2026-03-08T21:43:04"
     },
     {
       "name": "IA Builder",
@@ -132,7 +132,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:19:50"
+      "last_scanned": "2026-03-08T21:43:06"
     },
     {
       "name": "Mnemo",
@@ -159,7 +159,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:19:51"
+      "last_scanned": "2026-03-08T21:43:06"
     },
     {
       "name": "WSL Config",
@@ -184,7 +184,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:19:51"
+      "last_scanned": "2026-03-08T21:43:06"
     },
     {
       "name": "Livros",
@@ -211,7 +211,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:19:52"
+      "last_scanned": "2026-03-08T21:43:08"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -233,7 +233,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:19:52"
+      "last_scanned": "2026-03-08T21:43:08"
     },
     {
       "name": "Incidentes-Getin",
@@ -258,7 +258,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:19:52"
+      "last_scanned": "2026-03-08T21:43:08"
     }
   ],
   "ideas": [
