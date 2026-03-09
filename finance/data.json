@@ -1,0 +1,14 @@
+{
+  "gerado_em": "2026-03-09T13:08:10",
+  "meses": {},
+  "budgets": {
+    "default": {},
+    "overrides": {}
+  },
+  "status": {
+    "ultimo_processamento": null,
+    "meses_com_dados": [],
+    "total_transacoes": 0,
+    "total_nao_identificadas": 0
+  }
+}

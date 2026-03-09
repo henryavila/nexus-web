@@ -1,9 +1,9 @@
 // plan.js — Imperial Shadow Recast Event Plan
-// Updated: 2026-03-06
+// Updated: 2026-03-09
 
 window.DATA_PLAN = {
   player: "Henry (SuperYennefer, Server 139-Darkfire)",
-  updated: "06/Mar/2026",
+  updated: "09/Mar/2026",
   priority: "Imperial Shadow Recast — Meta: 450 Amethysts (Utior)",
 
   phases: [
@@ -107,6 +107,16 @@ window.DATA_PLAN = {
             { text: "VASSKA — Time Ice/Frost", done: false },
             { text: "VINYARA — Time Fire/Wild: Flora+Brody+Errich+Caspar+Felicity", done: false },
             { text: "TAMAR — Time Poison: Durango+Lothair+Vicana+Jathalea+Ergander", done: false }
+          ]
+        },
+        {
+          name: "Semana 2 — Posicionamento recomendado (4 bosses)",
+          description: "Formacoes para reduzir mortes no backline e aumentar consistencia de score.",
+          items: [
+            { text: "THELANDOR — Frente: Ghul'ende + Zhar'loth. Fundo (mesmo lado): Ladehlia + Sintrellia. Torrin no fundo centro. Bloco recuado para proteger a Ladehlia.", done: false },
+            { text: "VASSKA — 4 herois no canto do fundo: Felosia + Vinyara na frente do bloco, Auster + Lossenia atras. Hochadir 1 passo a frente do bloco no mesmo lado.", done: false },
+            { text: "VINYARA (boss) — Brody sozinho na frente (mais avancado). Flora centro-fundo. Errich no meio-fundo. Caspar e Felicity nos cantos do fundo, bem espacado.", done: false },
+            { text: "TAMAR (boss) — Frente: Ergander centro, Durango esquerda, Lothair direita (levemente recuado). Fundo: Vicana e Jathalea em cantos opostos.", done: false }
           ]
         },
         {

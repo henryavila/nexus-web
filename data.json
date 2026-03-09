@@ -1,9 +1,10 @@
 {
   "version": "2.1",
-  "last_full_scan": "2026-03-08T21:43:08",
+  "last_full_scan": "2026-03-09T13:08:10",
   "projects": [
     {
       "name": "nexus",
+      "slug": "nexus",
       "path": "/home/henry/nexus",
       "description": "CLI para centralizar o status de projetos gerenciados por agentes IA",
       "icon": "🛰️",
@@ -13,11 +14,11 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-03-08",
+      "last_activity": "2026-03-09",
       "git": {
         "branch": "main",
-        "last_commit_date": "2026-03-08",
-        "last_commit_message": "feat: move Claude memory into project (.memory/) for portability",
+        "last_commit_date": "2026-03-09",
+        "last_commit_message": "[nexus-auto] scan sync",
         "dirty": true
       },
       "filesystem": null,
@@ -27,10 +28,11 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:42:57"
+      "last_scanned": "2026-03-09T13:06:32"
     },
     {
       "name": "Dragon Heir",
+      "slug": "dh",
       "path": "/mnt/e/OneDrive/Games/Dragon Heir",
       "description": "Companion app para Dragon Heir Silent Gods",
       "icon": "🐉",
@@ -40,11 +42,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-03-08",
+      "last_activity": "2026-03-09",
       "git": null,
       "filesystem": {
-        "last_modified_file": "app/index.html",
-        "last_modified_date": "2026-03-08"
+        "last_modified_file": "app/data/plan.js",
+        "last_modified_date": "2026-03-09"
       },
       "health": {
         "path_exists": true,
@@ -55,10 +57,11 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-08T21:42:58"
+      "last_scanned": "2026-03-09T13:06:33"
     },
     {
       "name": "CRCMG",
+      "slug": "crcmg",
       "path": "/mnt/e/OneDrive/CRCMG",
       "description": "Gestão de atividades e conhecimeno no CRCMG",
       "icon": "🏛️",
@@ -68,11 +71,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-02-27",
+      "last_activity": "2026-03-09",
       "git": null,
       "filesystem": {
-        "last_modified_file": "98-Base-Conhecimento/contratacoes/licoes-aprendidas.md",
-        "last_modified_date": "2026-02-27"
+        "last_modified_file": ".agent/workflows/bmad-bmb-create-agent.md",
+        "last_modified_date": "2026-03-09"
       },
       "health": {
         "path_exists": true,
@@ -80,10 +83,11 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:43:04"
+      "last_scanned": "2026-03-09T13:06:43"
     },
     {
       "name": "IASD",
+      "slug": "iasd",
       "path": "/mnt/e/OneDrive/IASD",
       "description": "Auxiliar de atividades da IASD",
       "icon": "⛪",
@@ -105,10 +109,11 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:43:04"
+      "last_scanned": "2026-03-09T13:06:44"
     },
     {
       "name": "IA Builder",
+      "slug": "ib",
       "path": "/home/henry/ia",
       "description": "Programa para integar com ComfyUI",
       "icon": "🎨",
@@ -132,10 +137,11 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:43:06"
+      "last_scanned": "2026-03-09T13:06:45"
     },
     {
       "name": "Mnemo",
+      "slug": "mnemo",
       "path": "/home/henry/mnemo",
       "description": "SaS de fixação de aprendizado por meio de revisão espaçada, com integraçoão com IA e Kindle",
       "icon": "🧠",
@@ -159,10 +165,11 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:43:06"
+      "last_scanned": "2026-03-09T13:06:46"
     },
     {
       "name": "WSL Config",
+      "slug": "wc",
       "path": "/mnt/e/OneDrive/DEV/Claude/wsl",
       "description": "Configura o WSL par desenvolvimetno web",
       "icon": "⚙️",
@@ -184,10 +191,11 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:43:06"
+      "last_scanned": "2026-03-09T13:06:46"
     },
     {
       "name": "Livros",
+      "slug": "livros",
       "path": "/mnt/e/OneDrive/Desenvolvimento Pessoal e Profissional/Livros",
       "description": "Projeto que deu origem ao mnemo.",
       "icon": "📚",
@@ -211,11 +219,12 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:43:08"
+      "last_scanned": "2026-03-09T13:06:47"
     },
     {
       "name": "Lucio Monteiro Kids",
-      "path": "/mnt/e/OneDrive/Empreendimentos/Lucio Monteiro Kids",
+      "slug": "lmk",
+      "path": "/mnt/e/OneDrive/Empreendimentos/ATIVOS/Lucio Monteiro Kids",
       "description": "Geração de video de msucia infantil apra canal do youtube monetizado",
       "icon": "🎵",
       "category": "Empreendimentos",
@@ -223,20 +232,26 @@
       "repo": "henryavila/lucio-monteiro-kids",
       "status": "active",
       "note": null,
-      "class": "unknown",
-      "last_activity": null,
-      "git": null,
+      "class": "git",
+      "last_activity": "2026-02-26",
+      "git": {
+        "branch": "master",
+        "last_commit_date": "2026-02-06",
+        "last_commit_message": "Estratégia de canal e guia de prompts Flux Klein",
+        "dirty": true
+      },
       "filesystem": null,
       "health": {
-        "path_exists": false,
-        "claude_memory_portable": null,
+        "path_exists": true,
+        "claude_memory_portable": true,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:43:08"
+      "last_scanned": "2026-03-09T13:06:49"
     },
     {
       "name": "Incidentes-Getin",
+      "slug": "ig",
       "path": "/mnt/e/OneDrive/CRCMG/Incidentes-Getin",
       "description": "Pitlo do gestor de incidentes da Getin (ser\u001bá migrado para projeto CRCMG)",
       "icon": "🐞",
@@ -258,18 +273,93 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-08T21:43:08"
+      "last_scanned": "2026-03-09T13:06:49"
+    },
+    {
+      "name": "My Finance",
+      "slug": "finance",
+      "path": "/mnt/e/OneDrive/MUNDO FINANCEIRO/My Finance",
+      "description": "Gestao financeira familiar - OFX Nubank -> Organizze + Dashboard",
+      "icon": "🪙",
+      "category": "pessoal",
+      "url": "nexus.henryavila.com/finance",
+      "repo": null,
+      "status": "active",
+      "note": null,
+      "class": "git",
+      "last_activity": "2026-03-09",
+      "git": {
+        "branch": "main",
+        "last_commit_date": "2026-03-09",
+        "last_commit_message": "feat: Nexus integration, cleanup old monolith",
+        "dirty": true
+      },
+      "filesystem": null,
+      "health": {
+        "path_exists": true,
+        "claude_memory_portable": null,
+        "web_compliant": true
+      },
+      "web": {
+        "route": "/finance",
+        "has_output": true
+      },
+      "last_scanned": "2026-03-09T13:06:53"
+    },
+    {
+      "name": "Development",
+      "slug": "",
+      "path": "/mnt/e/OneDrive/DEV",
+      "description": "Tudo que me torna um desenvolvedor melhor e mais produtivo",
+      "icon": "💻",
+      "category": "Development",
+      "url": null,
+      "repo": null,
+      "status": "active",
+      "note": null,
+      "class": "filesystem",
+      "last_activity": "2026-03-06",
+      "git": null,
+      "filesystem": {
+        "last_modified_file": "Claude/BMAD-WORKFLOW-GUIDE.md",
+        "last_modified_date": "2026-03-06"
+      },
+      "health": {
+        "path_exists": true,
+        "claude_memory_portable": null,
+        "web_compliant": null
+      },
+      "web": null,
+      "last_scanned": "2026-03-09T13:08:07"
+    },
+    {
+      "name": "Empreendimentos",
+      "slug": "",
+      "path": "/mnt/e/OneDrive/Empreendimentos",
+      "description": "Projetos com objetivo de gerar valor, renda ou impacto",
+      "icon": "💵",
+      "category": "Empreendimentos",
+      "url": null,
+      "repo": null,
+      "status": "active",
+      "note": null,
+      "class": "filesystem",
+      "last_activity": "2026-02-27",
+      "git": null,
+      "filesystem": {
+        "last_modified_file": "nexus.yaml",
+        "last_modified_date": "2026-02-27"
+      },
+      "health": {
+        "path_exists": true,
+        "claude_memory_portable": true,
+        "web_compliant": null
+      },
+      "web": null,
+      "last_scanned": "2026-03-09T13:08:10"
     }
   ],
   "ideas": [
-    {
-      "id": "23a403f6",
-      "title": "Financeiro",
-      "description": "Projeto para auxílio no controle de despesas pessoais. TAlvez semi automatizar a importacao de xls para o Organizee, ou algo assim",
-      "category": "pessoal",
-      "priority": "high",
-      "created": "2026-03-08"
-    },
     {
       "id": "708304e4",
       "title": "CRCMG - CRM Fiscalizados",
@@ -291,6 +381,17 @@
       "tags": [
         "dev"
       ]
+    }
+  ],
+  "codex": [
+    {
+      "slug": "bmad-process-reference",
+      "title": "BMAD Process Reference",
+      "category": "referência",
+      "created": "2026-03-09",
+      "updated": "2026-03-09",
+      "content": "",
+      "order": 1
     }
   ]
 }

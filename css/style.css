@@ -654,6 +654,13 @@ a.project-name:hover {
     border-bottom-style: solid;
 }
 
+.slug-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    opacity: 0.5;
+    margin-left: 0.25rem;
+}
+
 .project-dirty {
     color: var(--temp-warm);
     font-size: 0.7rem;
@@ -841,6 +848,183 @@ a.project-name:hover {
     .feed-header {
         grid-template-columns: 3px 1.5rem 200px 1fr auto 3.5rem;
     }
+}
+
+/* ─── Codex Modal ─── */
+
+.codex-card {
+    cursor: pointer;
+    border-left-color: var(--priority-medium) !important;
+}
+
+.codex-modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 2vw;
+}
+
+.codex-modal-backdrop.active {
+    display: flex;
+}
+
+.codex-modal {
+    position: relative;
+    width: 95%;
+    max-width: 900px;
+    max-height: 92vh;
+    overflow-y: auto;
+    background: var(--bg-raised);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    color: var(--text);
+}
+
+.codex-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
+}
+
+.codex-modal-close:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+}
+
+.codex-modal-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    padding-right: 2rem;
+}
+
+.codex-modal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.codex-modal-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.codex-modal-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+.codex-modal-body h1,
+.codex-modal-body h2,
+.codex-modal-body h3,
+.codex-modal-body h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: var(--accent);
+}
+
+.codex-modal-body h1 { font-size: 1.3rem; }
+.codex-modal-body h2 { font-size: 1.1rem; }
+.codex-modal-body h3 { font-size: 1rem; }
+
+.codex-modal-body p {
+    margin-bottom: 1em;
+}
+
+.codex-modal-body ul,
+.codex-modal-body ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+}
+
+.codex-modal-body li {
+    margin-bottom: 0.3em;
+}
+
+.codex-modal-body code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    background: var(--surface);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    border: 1px solid var(--glass-border);
+}
+
+.codex-modal-body pre {
+    background: var(--surface);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1em;
+}
+
+.codex-modal-body pre code {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.codex-modal-body blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin: 1em 0;
+    color: var(--text-muted);
+}
+
+.codex-modal-body a {
+    color: var(--accent);
+    text-decoration: underline dashed;
+    text-underline-offset: 2px;
+}
+
+.codex-modal-body a:hover {
+    text-decoration: underline solid;
+}
+
+.codex-modal-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+.codex-modal-body th,
+.codex-modal-body td {
+    border: 1px solid var(--glass-border);
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.codex-modal-body th {
+    background: var(--surface);
+    font-weight: 600;
 }
 
 /* ─── Reduced Motion ─── */

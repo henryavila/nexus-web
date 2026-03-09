@@ -5,6 +5,7 @@
 let activeTab = 'ideas';
 let cachedProjects = [];
 let cachedIdeas = [];
+let cachedCodex = [];
 let cachedLastScan = null;
 
 // ─── Data ───
@@ -198,6 +199,7 @@ function renderFeed(projects, lastScan, filter) {
             <span class="project-icon">${p.icon || '\ud83d\udcc1'}</span>
             <div class="project-name-wrap">
                 ${nameHtml}
+                ${p.slug ? `<span class="slug-badge">${escapeHtml(p.slug)}</span>` : ''}
                 ${p.git?.dirty ? '<span class="project-dirty">\u25d0</span>' : ''}
             </div>
             <div class="project-desc">${escapeHtml(p.description || '')}</div>
@@ -214,6 +216,95 @@ function renderFeed(projects, lastScan, filter) {
     countEl.textContent = q ? `${visibleCount}/${sorted.length}` : `${sorted.length}`;
 }
 
+// ─── Codex Rendering ───
+
+function renderCodex(codex, filter) {
+    const grid = document.getElementById('codex-grid');
+    const countEl = document.getElementById('codex-count');
+    const q = (filter || '').toLowerCase();
+
+    let html = '';
+    let visibleCount = 0;
+
+    codex.forEach((entry, index) => {
+        const matches = !q ||
+            (entry.title || '').toLowerCase().includes(q) ||
+            (entry.category || '').toLowerCase().includes(q) ||
+            (entry.tags || []).some(t => t.toLowerCase().includes(q));
+
+        const filteredClass = q && !matches ? ' filtered-out' : '';
+        if (!q || matches) visibleCount++;
+
+        const tags = (entry.tags || []).map(t =>
+            `<span class="tag-pill">${escapeHtml(t)}</span>`
+        ).join('');
+
+        const orderBadge = entry.order != null
+            ? `<span class="idea-category-pill">#${entry.order}</span>`
+            : '';
+
+        html += `
+        <div class="idea-card codex-card has-priority-medium${filteredClass}"
+             data-slug="${escapeHtml(entry.slug)}"
+             style="animation-delay: ${index * 0.06}s">
+            <div class="idea-card-header">
+                ${orderBadge}
+                ${entry.category ? `<span class="idea-category-pill">${escapeHtml(entry.category)}</span>` : ''}
+            </div>
+            <div class="idea-card-title">\ud83d\udcd6 ${escapeHtml(entry.title)}</div>
+            ${tags ? `<div class="idea-card-tags">${tags}</div>` : ''}
+            <div class="idea-card-footer">
+                ${entry.updated ? `<span class="idea-card-date">${relativeDate(entry.updated)}</span>` : ''}
+            </div>
+        </div>`;
+    });
+
+    if (codex.length === 0) {
+        html = '<div class="empty-state">Nenhuma entrada no Codex</div>';
+    }
+
+    grid.innerHTML = html;
+
+    grid.querySelectorAll('.codex-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const slug = card.dataset.slug;
+            const entry = codex.find(e => e.slug === slug);
+            if (entry) openCodexModal(entry);
+        });
+    });
+
+    countEl.textContent = q ? `${visibleCount}/${codex.length}` : `${codex.length}`;
+}
+
+function openCodexModal(entry) {
+    const backdrop = document.getElementById('codex-modal-backdrop');
+    const header = document.getElementById('codex-modal-header');
+    const body = document.getElementById('codex-modal-body');
+
+    const tags = (entry.tags || []).map(t =>
+        `<span class="tag-pill">${escapeHtml(t)}</span>`
+    ).join('');
+
+    header.innerHTML = `
+        <h2>\ud83d\udcd6 ${escapeHtml(entry.title)}</h2>
+        <div class="codex-modal-meta">
+            ${entry.category ? `<span class="idea-category-pill">${escapeHtml(entry.category)}</span>` : ''}
+            ${tags}
+            ${entry.updated ? `<span class="codex-modal-date">Atualizado: ${escapeHtml(entry.updated)}</span>` : ''}
+        </div>
+    `;
+
+    body.innerHTML = typeof marked !== 'undefined'
+        ? marked.parse(entry.content || '')
+        : `<pre>${escapeHtml(entry.content || '')}</pre>`;
+
+    backdrop.classList.add('active');
+}
+
+function closeCodexModal() {
+    document.getElementById('codex-modal-backdrop').classList.remove('active');
+}
+
 // ─── Tab & Filter ───
 
 function switchTab(tab) {
@@ -222,16 +313,16 @@ function switchTab(tab) {
         btn.classList.toggle('active', btn.dataset.tab === tab);
     });
 
-    const ideasSection = document.getElementById('ideas-section');
-    const projectsSection = document.getElementById('projects-section');
-
-    ideasSection.style.display = tab === 'ideas' ? '' : 'none';
-    projectsSection.style.display = tab === 'projects' ? '' : 'none';
+    document.getElementById('ideas-section').style.display = tab === 'ideas' ? '' : 'none';
+    document.getElementById('projects-section').style.display = tab === 'projects' ? '' : 'none';
+    document.getElementById('codex-section').style.display = tab === 'codex' ? '' : 'none';
 
     const filter = document.getElementById('search-desk').value ||
                    document.getElementById('search-mobile').value;
     if (tab === 'ideas') {
         renderIdeas(cachedIdeas, filter);
+    } else if (tab === 'codex') {
+        renderCodex(cachedCodex, filter);
     } else {
         renderFeed(cachedProjects, cachedLastScan, filter);
     }
@@ -240,6 +331,8 @@ function switchTab(tab) {
 function applyFilter(value) {
     if (activeTab === 'ideas') {
         renderIdeas(cachedIdeas, value);
+    } else if (activeTab === 'codex') {
+        renderCodex(cachedCodex, value);
     } else {
         renderFeed(cachedProjects, cachedLastScan, value);
     }
@@ -251,11 +344,13 @@ async function init() {
     const data = await loadData();
     cachedProjects = data.projects || [];
     cachedIdeas = data.ideas || [];
+    cachedCodex = data.codex || [];
     cachedLastScan = data.last_full_scan;
 
     renderAlerts(cachedProjects);
     renderIdeas(cachedIdeas);
     renderFeed(cachedProjects, cachedLastScan);
+    renderCodex(cachedCodex);
 
     // Tabs
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -289,8 +384,21 @@ async function init() {
         document.getElementById('alerts-bar').classList.toggle('expanded');
     });
 
+    // Codex modal close
+    document.getElementById('codex-modal-close').addEventListener('click', closeCodexModal);
+    document.getElementById('codex-modal-backdrop').addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeCodexModal();
+    });
+
     // Keyboard shortcuts
     document.addEventListener('keydown', e => {
+        // Close codex modal on Escape
+        const modalActive = document.getElementById('codex-modal-backdrop').classList.contains('active');
+        if (e.key === 'Escape' && modalActive) {
+            closeCodexModal();
+            return;
+        }
+
         // Don't intercept when typing in an input
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
             if (e.key === 'Escape') {
@@ -309,9 +417,11 @@ async function init() {
         }
 
         // Number keys switch tabs (1-based, matches data-index)
-        const btn = document.querySelector(`.tab-btn[data-index="${e.key}"]`);
-        if (btn) {
-            switchTab(btn.dataset.tab);
+        if (!modalActive) {
+            const btn = document.querySelector(`.tab-btn[data-index="${e.key}"]`);
+            if (btn) {
+                switchTab(btn.dataset.tab);
+            }
         }
     });
 }
