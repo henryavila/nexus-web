@@ -136,6 +136,13 @@ function renderIdeas(ideas, filter) {
     }
 
     grid.innerHTML = html;
+
+    grid.querySelectorAll('.idea-card').forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('expanded');
+        });
+    });
+
     countEl.textContent = q ? `${visibleCount}/${ideas.length}` : `${ideas.length}`;
 }
 

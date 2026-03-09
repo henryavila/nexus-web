@@ -390,7 +390,7 @@ header {
     border-radius: var(--radius-md);
     padding: 1rem 1.25rem;
     border-left: 3px solid transparent;
-    cursor: default;
+    cursor: pointer;
     transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.25s ease, border-color 0.2s ease;
     animation: card-enter 0.35s ease-out both;
 }
@@ -405,6 +405,11 @@ header {
 .idea-card.filtered-out {
     opacity: 0.06;
     pointer-events: none;
+}
+
+.idea-card.expanded .idea-card-desc {
+    -webkit-line-clamp: unset;
+    display: block;
 }
 
 /* Priority-specific card styles */
