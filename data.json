@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "last_full_scan": "2026-03-09T13:08:10",
+  "last_full_scan": "2026-03-09T14:13:53",
   "projects": [
     {
       "name": "nexus",
@@ -28,7 +28,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T13:06:32"
+      "last_scanned": "2026-03-09T14:12:17"
     },
     {
       "name": "Dragon Heir",
@@ -45,7 +45,7 @@
       "last_activity": "2026-03-09",
       "git": null,
       "filesystem": {
-        "last_modified_file": "app/data/plan.js",
+        "last_modified_file": "docs/game-mechanics/mentoria-aprendizados.md",
         "last_modified_date": "2026-03-09"
       },
       "health": {
@@ -57,7 +57,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-09T13:06:33"
+      "last_scanned": "2026-03-09T14:12:21"
     },
     {
       "name": "CRCMG",
@@ -74,7 +74,7 @@
       "last_activity": "2026-03-09",
       "git": null,
       "filesystem": {
-        "last_modified_file": ".agent/workflows/bmad-bmb-create-agent.md",
+        "last_modified_file": ".opencode/agents/bmad-agent-bmad-master.md",
         "last_modified_date": "2026-03-09"
       },
       "health": {
@@ -83,7 +83,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T13:06:43"
+      "last_scanned": "2026-03-09T14:12:27"
     },
     {
       "name": "IASD",
@@ -109,7 +109,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T13:06:44"
+      "last_scanned": "2026-03-09T14:12:28"
     },
     {
       "name": "IA Builder",
@@ -137,7 +137,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T13:06:45"
+      "last_scanned": "2026-03-09T14:12:30"
     },
     {
       "name": "Mnemo",
@@ -165,7 +165,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T13:06:46"
+      "last_scanned": "2026-03-09T14:12:30"
     },
     {
       "name": "WSL Config",
@@ -191,7 +191,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T13:06:46"
+      "last_scanned": "2026-03-09T14:12:30"
     },
     {
       "name": "Livros",
@@ -219,7 +219,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T13:06:47"
+      "last_scanned": "2026-03-09T14:12:32"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -247,7 +247,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T13:06:49"
+      "last_scanned": "2026-03-09T14:12:33"
     },
     {
       "name": "Incidentes-Getin",
@@ -273,7 +273,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T13:06:49"
+      "last_scanned": "2026-03-09T14:12:33"
     },
     {
       "name": "My Finance",
@@ -304,7 +304,7 @@
         "route": "/finance",
         "has_output": true
       },
-      "last_scanned": "2026-03-09T13:06:53"
+      "last_scanned": "2026-03-09T14:12:37"
     },
     {
       "name": "Development",
@@ -330,7 +330,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T13:08:07"
+      "last_scanned": "2026-03-09T14:13:51"
     },
     {
       "name": "Empreendimentos",
@@ -356,7 +356,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T13:08:10"
+      "last_scanned": "2026-03-09T14:13:53"
     }
   ],
   "ideas": [

@@ -3,6 +3,34 @@
 
 window.DATA_DECISIONS = [
   {
+    date: "2026-03-09",
+    title: "Imperial Shadow Recast Sem2: plano 4 bosses + posicionamento consolidado",
+    tags: ["imperial-shadow-recast", "continental-challenge", "semana-2", "planning", "positioning", "thelandor", "vasska", "vinyara", "tamar"],
+    summary: "Plano do Continental foi limpo e consolidado para Semana 2 (4 tickets), com 1 mapa operacional por boss e posicionamento objetivo para reduzir erro de lock e ganhar consistencia.",
+    impact: "Execucao ficou direta para rotina curta: 4 bosses definidos, 20 herois unicos mapeados e posicionamento pronto para retry/salvar score sem improviso.",
+    details: `CONTEXTO
+- Henry entrou na Semana 2 (4 tickets) e pediu reorganizacao total do plano.
+- O mapa anterior estava com informacao repetida e distribuida em fases diferentes.
+
+DECISAO
+- Consolidar 1 mapa operacional com 4 bosses e 20 herois unicos:
+  1) Thelandor: Ladehlia + Sintrellia + Ghul'ende + Zhar'loth + Torrin
+  2) Vasska: Lossenia + Auster + Hochadir + Vinyara + Felosia
+  3) Vinyara (boss): Flora + Brody + Errich + Caspar + Felicity
+  4) Tamar (boss): Durango + Lothair + Vicana + Jathalea + Ergander
+
+POSICIONAMENTO CHAVE
+- Thelandor: bloco recuado protegendo Ladehlia (carry).
+- Vasska: 4 no canto do fundo e Hochadir 1 passo a frente (setup benchmark 35M).
+- Vinyara: Brody isolado na frente; 4 DPS no fundo bem espacado.
+- Tamar: Ergander ancora no centro; Vicana/Jathalea em cantos opostos no fundo.
+
+LEARNING
+- Posicionamento impacta score tanto quanto troca de heroi em fights com pressao no backline.
+- Plano operacional limpo por semana reduz erro de lock e acelera execucao (30-40 min/dia).`
+  },
+
+  {
     date: "2026-03-06",
     title: "Temporal Vortex: Dauntless Aggro 31.3M (Nastjenka+Garett+DA+Sutha+Acilia)",
     tags: ["temporal-vortex", "team", "dauntless", "acilia", "optimization", "31M"],
