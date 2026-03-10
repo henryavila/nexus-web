@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "last_full_scan": "2026-03-10T16:37:08",
+  "last_full_scan": "2026-03-10T16:43:37",
   "projects": [
     {
       "name": "nexus",
@@ -28,7 +28,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T16:35:35"
+      "last_scanned": "2026-03-10T16:42:08"
     },
     {
       "name": "Dragon Heir",
@@ -45,7 +45,7 @@
       "last_activity": "2026-03-10",
       "git": null,
       "filesystem": {
-        "last_modified_file": "app/data/gear.js",
+        "last_modified_file": ".playwright-mcp/console-2026-03-10T19-37-22-910Z.log",
         "last_modified_date": "2026-03-10"
       },
       "health": {
@@ -57,7 +57,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-10T16:35:36"
+      "last_scanned": "2026-03-10T16:42:08"
     },
     {
       "name": "CRCMG",
@@ -83,7 +83,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T16:35:44"
+      "last_scanned": "2026-03-10T16:42:16"
     },
     {
       "name": "IASD",
@@ -109,7 +109,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T16:35:45"
+      "last_scanned": "2026-03-10T16:42:17"
     },
     {
       "name": "IA Builder",
@@ -137,7 +137,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T16:35:46"
+      "last_scanned": "2026-03-10T16:42:17"
     },
     {
       "name": "Mnemo",
@@ -165,7 +165,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T16:35:47"
+      "last_scanned": "2026-03-10T16:42:17"
     },
     {
       "name": "WSL Config",
@@ -191,7 +191,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T16:35:47"
+      "last_scanned": "2026-03-10T16:42:18"
     },
     {
       "name": "Livros",
@@ -219,7 +219,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T16:35:48"
+      "last_scanned": "2026-03-10T16:42:19"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -247,7 +247,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T16:35:49"
+      "last_scanned": "2026-03-10T16:42:20"
     },
     {
       "name": "Incidentes-Getin",
@@ -273,7 +273,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T16:35:49"
+      "last_scanned": "2026-03-10T16:42:21"
     },
     {
       "name": "My Finance",
@@ -287,7 +287,7 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-03-09",
+      "last_activity": "2026-03-10",
       "git": {
         "branch": "main",
         "last_commit_date": "2026-03-09",
@@ -304,7 +304,7 @@
         "route": "/finance",
         "has_output": true
       },
-      "last_scanned": "2026-03-10T16:35:54"
+      "last_scanned": "2026-03-10T16:42:25"
     },
     {
       "name": "Development",
@@ -330,7 +330,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T16:37:06"
+      "last_scanned": "2026-03-10T16:43:34"
     },
     {
       "name": "Empreendimentos",
@@ -356,7 +356,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T16:37:07"
+      "last_scanned": "2026-03-10T16:43:36"
     },
     {
       "name": "Watcher of Realms",
@@ -385,7 +385,7 @@
         "route": "/wor",
         "has_output": false
       },
-      "last_scanned": "2026-03-10T16:37:08"
+      "last_scanned": "2026-03-10T16:43:37"
     }
   ],
   "ideas": [
