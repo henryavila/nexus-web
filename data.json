@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "last_full_scan": "2026-03-10T17:59:14",
+  "last_full_scan": "2026-03-10T18:02:55",
   "projects": [
     {
       "name": "nexus",
@@ -28,7 +28,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T17:57:42"
+      "last_scanned": "2026-03-10T18:01:21"
     },
     {
       "name": "Dragon Heir",
@@ -57,7 +57,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-10T17:57:42"
+      "last_scanned": "2026-03-10T18:01:22"
     },
     {
       "name": "CRCMG",
@@ -83,7 +83,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T17:57:51"
+      "last_scanned": "2026-03-10T18:01:33"
     },
     {
       "name": "IASD",
@@ -109,7 +109,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T17:57:52"
+      "last_scanned": "2026-03-10T18:01:34"
     },
     {
       "name": "IA Builder",
@@ -137,7 +137,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T17:57:55"
+      "last_scanned": "2026-03-10T18:01:35"
     },
     {
       "name": "Mnemo",
@@ -165,7 +165,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T17:57:55"
+      "last_scanned": "2026-03-10T18:01:35"
     },
     {
       "name": "WSL Config",
@@ -191,7 +191,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T17:57:55"
+      "last_scanned": "2026-03-10T18:01:35"
     },
     {
       "name": "Livros",
@@ -219,7 +219,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T17:57:57"
+      "last_scanned": "2026-03-10T18:01:37"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -247,7 +247,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T17:57:57"
+      "last_scanned": "2026-03-10T18:01:37"
     },
     {
       "name": "Incidentes-Getin",
@@ -273,7 +273,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T17:57:57"
+      "last_scanned": "2026-03-10T18:01:37"
     },
     {
       "name": "My Finance",
@@ -304,7 +304,7 @@
         "route": "/finance",
         "has_output": true
       },
-      "last_scanned": "2026-03-10T17:58:02"
+      "last_scanned": "2026-03-10T18:01:42"
     },
     {
       "name": "Development",
@@ -330,7 +330,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T17:59:12"
+      "last_scanned": "2026-03-10T18:02:52"
     },
     {
       "name": "Empreendimentos",
@@ -356,7 +356,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T17:59:13"
+      "last_scanned": "2026-03-10T18:02:54"
     },
     {
       "name": "Watcher of Realms",
@@ -385,7 +385,7 @@
         "route": "/wor",
         "has_output": false
       },
-      "last_scanned": "2026-03-10T17:59:14"
+      "last_scanned": "2026-03-10T18:02:55"
     }
   ],
   "ideas": [
