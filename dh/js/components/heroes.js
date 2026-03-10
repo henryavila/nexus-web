@@ -1,6 +1,7 @@
 // heroes.js — Heroes browser component
 const Heroes = {
   showAll: false,
+  gearFilter: null, // null = all, 'with' = has loadout, 'without' = no loadout
   currentFilters: { elements: [], roles: [], search: '' },
 
   render(container, param) {
@@ -50,12 +51,39 @@ const Heroes = {
       }
     });
 
-    // Insert the Todos button into the filter bar before the search input
+    // Gear filter button — cycles: off → Com Gear → Sem Gear → off
+    const gearBtn = R.el('button', {
+      className: 'px-3 py-1 rounded-full text-xs border border-gold-dim text-gold-dim hover:bg-gold-dim hover:text-white transition-colors',
+      textContent: 'Gear',
+      onClick: () => {
+        if (!this.gearFilter) {
+          this.gearFilter = 'with';
+          gearBtn.textContent = 'Com Gear';
+          gearBtn.classList.add('bg-done', 'text-white', 'border-done');
+          gearBtn.classList.remove('text-gold-dim', 'border-gold-dim');
+        } else if (this.gearFilter === 'with') {
+          this.gearFilter = 'without';
+          gearBtn.textContent = 'Sem Gear';
+          gearBtn.classList.remove('bg-done', 'border-done');
+          gearBtn.classList.add('bg-red-500/80', 'text-white', 'border-red-500');
+        } else {
+          this.gearFilter = null;
+          gearBtn.textContent = 'Gear';
+          gearBtn.classList.remove('bg-done', 'bg-red-500/80', 'text-white', 'border-done', 'border-red-500');
+          gearBtn.classList.add('text-gold-dim', 'border-gold-dim');
+        }
+        this._renderGrid(grid);
+      }
+    });
+
+    // Insert buttons into the filter bar before the search input
     const searchInput = filterBar.querySelector('[data-search]');
     if (searchInput) {
-      filterBar.insertBefore(todosBtn, searchInput);
+      filterBar.insertBefore(gearBtn, searchInput);
+      filterBar.insertBefore(todosBtn, gearBtn);
     } else {
       filterBar.appendChild(todosBtn);
+      filterBar.appendChild(gearBtn);
     }
 
     container.appendChild(filterBar);
@@ -66,6 +94,7 @@ const Heroes = {
 
     // Reset state for fresh render
     this.showAll = false;
+    this.gearFilter = null;
     this.currentFilters = { elements: [], roles: [], search: '' };
     this._renderGrid(grid);
 
@@ -105,7 +134,15 @@ const Heroes = {
     }
 
     // Apply filters
-    const filtered = Filters.applyHeroFilters(heroes, this.currentFilters);
+    let filtered = Filters.applyHeroFilters(heroes, this.currentFilters);
+
+    // Gear loadout filter
+    if (this.gearFilter && typeof Gear !== 'undefined' && Gear.getPlanForHero) {
+      filtered = filtered.filter(h => {
+        const hasPlan = !!Gear.getPlanForHero(h.name);
+        return this.gearFilter === 'with' ? hasPlan : !hasPlan;
+      });
+    }
 
     // Sort: owned first (in "Todos" mode), then by tier (SS > S > A > B > C > null), then alphabetical
     const tierOrder = { SS: 0, S: 1, A: 2, B: 3, C: 4, D: 5 };
