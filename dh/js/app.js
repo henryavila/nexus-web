@@ -1,4 +1,5 @@
 // app.js — Router and initialization
+const __BUILD_VERSION__ = '1773177202';
 
 const DataLoader = {
   registry: {
@@ -44,7 +45,7 @@ const DataLoader = {
 
     const promise = new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = item.src;
+      script.src = item.src + (__BUILD_VERSION__ ? '?v=' + __BUILD_VERSION__ : '');
       script.onload = () => {
         this._pending.delete(key);
         resolve();
