@@ -1,6 +1,6 @@
 // gear.js — Gear loadouts component
 const Gear = {
-  _view: 'plans', // 'plans' | 'loadouts' | 'inventory' | 'sets'
+  _view: 'loadouts',
 
   // Equipment image IDs from dragonheir.info (S1 Legendary)
   _imgIds: {
@@ -47,14 +47,13 @@ const Gear = {
 
   render(container) {
     const data = (typeof DATA_GEAR !== 'undefined' && DATA_GEAR) || {};
-    const loadouts = data.loadouts || [];
+    const plans = data.gear_plans || [];
     const inventory = data.inventory || [];
     const sets = data.sets || [];
 
     const lv20 = inventory.filter(p => p.level === 20).length;
     const lv0 = inventory.filter(p => p.level === 0).length;
-    const primary = loadouts.filter(l => !l.secondary);
-    const secondary = loadouts.filter(l => l.secondary);
+    const noConflict = plans.filter(p => !p.sharing || !p.sharing.length).length;
 
     // --- Header ---
     container.appendChild(R.el('div', { className: 'flex items-center justify-between mb-3' }, [
@@ -64,7 +63,7 @@ const Gear = {
 
     // --- Stats row ---
     const statsRow = R.el('div', { className: 'grid grid-cols-2 md:grid-cols-4 gap-2 mb-4' }, [
-      R.statCard('Loadouts', loadouts.length, `${primary.length} primarios + ${secondary.length} secundarios`),
+      R.statCard('Loadouts', plans.length, `${noConflict} sem conflito`),
       R.statCard('Sets', sets.length),
       R.statCard('Pecas lv20', lv20, `${lv0} pendentes`),
       R.statCard('Gold', ((data.upgrade_costs?.gold_available || 0) / 1e6).toFixed(1) + 'M')
@@ -73,7 +72,6 @@ const Gear = {
 
     // --- View tabs ---
     const tabs = [
-      { id: 'plans', label: 'Plans' },
       { id: 'loadouts', label: 'Loadouts' },
       { id: 'inventory', label: 'Inventario' },
       { id: 'sets', label: 'Sets' }
@@ -107,18 +105,17 @@ const Gear = {
   _renderView(el, data) {
     el.innerHTML = '';
     switch (this._view) {
-      case 'plans': this._renderPlans(el, data); break;
       case 'loadouts': this._renderLoadouts(el, data); break;
       case 'inventory': this._renderInventory(el, data); break;
       case 'sets': this._renderSets(el, data); break;
     }
   },
 
-  // ===== PLANS VIEW =====
-  _renderPlans(el, data) {
+  // ===== LOADOUTS VIEW (23 individual hero loadouts) =====
+  _renderLoadouts(el, data) {
     const plans = data.gear_plans || [];
     if (!plans.length) {
-      el.appendChild(R.el('div', { className: 'text-center text-gray-500 py-8', textContent: 'Nenhum gear plan definido.' }));
+      el.appendChild(R.el('div', { className: 'text-center text-gray-500 py-8', textContent: 'Nenhum loadout definido.' }));
       return;
     }
 
@@ -130,219 +127,118 @@ const Gear = {
       'hp-enlight': 'ice', 'hp-def-enlight': 'ice',
       'def': 'ice'
     };
+    const profileStats = {
+      'dps-crit': ['ATK%', 'CritR', 'CritD'], 'dps-atk': ['ATK%'],
+      'atk-acc': ['ATK%', 'ACC'], 'atk-enlight': ['ATK%', 'Enlight'],
+      'acc': ['ACC'], 'enlight': ['Enlight'],
+      'hp-acc': ['HP%', 'ACC'], 'hp-atk-acc': ['HP%', 'ATK%', 'ACC'],
+      'hp-enlight': ['HP%', 'Enlight'], 'hp-def-enlight': ['HP%', 'DEF%', 'Enlight'],
+      'def': ['DEF%']
+    };
 
-    const grid = R.el('div', { className: 'space-y-4' });
-
-    for (const plan of plans) {
-      const color = profileColors[plan.id] || 'gold';
-
-      // Essential stats badges
-      const statBadges = R.el('div', { className: 'flex flex-wrap gap-1.5 mb-3' },
-        (plan.essential_stats || []).map(stat =>
-          R.el('span', {
-            className: `text-xs px-2 py-0.5 rounded-full font-medium bg-${color}/20 text-${color} border border-${color}/30`,
-            textContent: stat
-          })
-        )
-      );
-
-      // Heroes grid
-      const heroesGrid = R.el('div', { className: 'grid grid-cols-1 sm:grid-cols-2 gap-2' });
-      for (const h of plan.heroes) {
-        const heroId = R.heroIdByName(h.name);
-        const heroCard = R.el('div', {
-          className: 'flex items-center gap-3 bg-surface rounded-lg p-2.5 hover:bg-surface-hover transition-colors cursor-pointer',
-          onClick: () => { if (heroId) Heroes._openDetail(heroId); }
-        }, [
-          heroId ? R.heroImg(heroId, 40, { height: 48 }) : null,
-          R.el('div', { className: 'flex-1 min-w-0' }, [
-            R.el('div', { className: 'flex items-center gap-2 mb-0.5' }, [
-              R.el('span', { className: 'text-sm font-medium text-gold', textContent: h.name }),
-              R.el('span', { className: 'text-[10px] text-gray-500', textContent: `freq ${h.freq}` })
-            ]),
-            R.el('div', { className: 'text-[10px] text-gray-400 truncate', textContent: h.sets }),
-            h.totals ? R.el('div', { className: 'text-[10px] text-gray-300 font-medium mt-0.5', textContent: h.totals }) : null,
-            h.mythic ? R.el('div', { className: 'flex items-center gap-1 mt-0.5' }, [
-              R.el('span', { className: 'text-[10px] text-mythic', textContent: '⭐ ' + h.mythic })
-            ]) : null
-          ].filter(Boolean))
-        ].filter(Boolean));
-        heroesGrid.appendChild(heroCard);
-      }
-
-      // Plan card
-      const card = R.el('div', {
-        className: `bg-surface-card rounded-lg border border-surface-hover border-l-2 border-l-${color} p-4`,
-        id: `plan-${plan.id}`
-      }, [
-        R.el('div', { className: 'flex items-center justify-between mb-2' }, [
-          R.el('h3', { className: 'text-sm font-bold text-white', textContent: plan.name }),
-          R.el('span', { className: 'text-xs text-gray-500', textContent: `${plan.heroes.length} herói${plan.heroes.length > 1 ? 's' : ''}` })
-        ]),
-        statBadges,
-        heroesGrid
-      ]);
-
-      grid.appendChild(card);
+    // Group by profile (maintain order)
+    const profileOrder = ['dps-crit', 'dps-atk', 'atk-acc', 'atk-enlight', 'acc', 'enlight', 'hp-acc', 'hp-atk-acc', 'hp-enlight', 'hp-def-enlight', 'def'];
+    const groups = {};
+    for (const p of plans) {
+      if (!groups[p.profile]) groups[p.profile] = [];
+      groups[p.profile].push(p);
     }
 
-    el.appendChild(grid);
+    const container = R.el('div', { className: 'space-y-5' });
+
+    for (const profileId of profileOrder) {
+      const groupPlans = groups[profileId];
+      if (!groupPlans) continue;
+      const color = profileColors[profileId] || 'gold';
+      const stats = profileStats[profileId] || [];
+
+      const section = R.el('div', {
+        className: `bg-surface-card rounded-lg border border-surface-hover border-l-2 border-l-${color} p-4`,
+        id: `loadout-group-${profileId}`
+      });
+
+      // Profile header
+      section.appendChild(R.el('div', { className: 'flex items-center gap-2 mb-3 flex-wrap' }, [
+        R.el('span', { className: `text-sm font-bold text-${color}`, textContent: profileId.toUpperCase().replace(/-/g, ' ') }),
+        ...stats.map(s => R.el('span', {
+          className: `text-[10px] px-1.5 py-0.5 rounded-full bg-${color}/15 text-${color} border border-${color}/20`,
+          textContent: s
+        })),
+        R.el('span', { className: 'text-xs text-gray-500', textContent: `${groupPlans.length} loadout${groupPlans.length > 1 ? 's' : ''}` })
+      ]));
+
+      // Hero loadout cards
+      const grid = R.el('div', { className: 'grid grid-cols-1 sm:grid-cols-2 gap-3' });
+      for (const plan of groupPlans) {
+        grid.appendChild(this._loadoutPlanCard(plan, color));
+      }
+      section.appendChild(grid);
+      container.appendChild(section);
+    }
+
+    el.appendChild(container);
   },
 
-  // Find gear plan for a hero by name
+  _loadoutPlanCard(plan, color) {
+    const heroId = R.heroIdByName(plan.hero);
+    const noConflict = !plan.sharing || !plan.sharing.length;
+
+    return R.el('div', {
+      className: 'bg-surface rounded-lg p-3 hover:bg-surface-hover transition-colors cursor-pointer',
+      id: `loadout-${plan.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+      onClick: () => { if (heroId) Heroes._openDetail(heroId); }
+    }, [
+      // Hero portrait + name + loadout badge + conflict
+      R.el('div', { className: 'flex items-center gap-2 mb-2' }, [
+        heroId ? R.heroImg(heroId, 36, { height: 44 }) : null,
+        R.el('div', { className: 'flex-1 min-w-0' }, [
+          R.el('div', { className: 'flex items-center gap-1.5 flex-wrap' }, [
+            R.el('span', { className: 'text-sm font-medium text-gold', textContent: plan.hero }),
+            R.el('span', {
+              className: `text-[10px] px-1.5 py-0.5 rounded bg-${color}/15 text-${color} border border-${color}/20 font-bold`,
+              textContent: plan.name
+            }),
+            R.el('span', {
+              className: `text-[10px] ${noConflict ? 'text-done' : 'text-yellow-400'}`,
+              textContent: noConflict ? '\u2705' : '\uD83D\uDD04',
+              title: noConflict ? 'Sem conflito de pecas' : 'Peca compartilhada'
+            })
+          ]),
+          R.el('span', { className: 'text-[10px] text-gray-500 block', textContent: `freq ${plan.freq}` })
+        ])
+      ].filter(Boolean)),
+      // Pieces (compact chips)
+      R.el('div', { className: 'flex flex-wrap gap-1 mb-1.5' },
+        (plan.pieces || []).map(p => {
+          const isMythic = p.includes('\u2B50');
+          const isLv0 = p.includes('\u26A0lv0');
+          return R.el('span', {
+            className: `text-[9px] px-1 py-0.5 rounded ${isMythic ? 'bg-mythic/15 text-mythic' : isLv0 ? 'bg-red-500/15 text-red-400' : 'bg-surface-hover text-gray-400'}`,
+            textContent: p
+          });
+        })
+      ),
+      // Set bonus
+      plan.set_bonus ? R.el('div', { className: 'text-[10px] text-gold/80 mb-0.5', textContent: '\uD83D\uDD17 ' + plan.set_bonus }) : null,
+      // Mythic
+      plan.mythic ? R.el('div', { className: 'text-[10px] text-mythic mb-0.5', textContent: '\u2B50 ' + plan.mythic }) : null,
+      // Totals
+      R.el('div', { className: 'text-[10px] font-medium text-white', textContent: plan.totals }),
+      // Sharing info
+      ...((!noConflict && plan.sharing) ? plan.sharing.map(s =>
+        R.el('div', { className: 'text-[9px] text-yellow-400/70 mt-0.5', textContent: '\uD83D\uDD04 ' + s })
+      ) : [])
+    ].filter(Boolean));
+  },
+
+  // Find gear plan/loadout for a hero by name
   getPlanForHero(heroName) {
     const data = (typeof DATA_GEAR !== 'undefined' && DATA_GEAR) || {};
     const plans = data.gear_plans || [];
-    for (const plan of plans) {
-      const match = plan.heroes.find(h => h.name.toLowerCase() === heroName.toLowerCase());
-      if (match) return { plan, hero: match };
-    }
-    return null;
+    return plans.find(p => p.hero.toLowerCase() === heroName.toLowerCase()) || null;
   },
 
-  // ===== LOADOUTS VIEW =====
-  _loadoutFilter: 'all',
-
-  _renderLoadouts(el, data) {
-    const loadouts = data.loadouts || [];
-
-    // Filter bar
-    const types = [
-      { key: 'all', label: 'Todos' },
-      { key: 'dps', label: 'DPS', color: 'fire' },
-      { key: 'tank', label: 'Tank', color: 'ice' },
-      { key: 'support', label: 'Support', color: 'radiance' }
-    ];
-    const filterBar = R.el('div', { className: 'flex items-center gap-2 mb-4 flex-wrap' });
-    for (const t of types) {
-      const isActive = this._loadoutFilter === t.key;
-      const btn = R.el('button', {
-        className: `px-3 py-1 rounded-full text-xs border transition-colors ${
-          isActive
-            ? (t.color ? `bg-${t.color} border-${t.color} text-white` : 'bg-gold border-gold text-white')
-            : (t.color ? `border-${t.color} text-${t.color}` : 'border-gold text-gold')
-        }`,
-        textContent: t.label,
-        onClick: () => {
-          this._loadoutFilter = t.key;
-          el.innerHTML = '';
-          this._renderLoadouts(el, data);
-        }
-      });
-      filterBar.appendChild(btn);
-    }
-    el.appendChild(filterBar);
-
-    const matchFilter = (l) => this._loadoutFilter === 'all' || (l.profile || '').startsWith(this._loadoutFilter);
-
-    const primary = loadouts.filter(l => !l.secondary && matchFilter(l));
-    const secondary = loadouts.filter(l => l.secondary && matchFilter(l));
-
-    // Primary loadouts
-    if (primary.length) {
-      el.appendChild(R.el('div', { className: 'text-sm font-semibold text-white mb-2' }, ['Loadouts Primarios']));
-      const primaryGrid = R.el('div', { className: 'space-y-3 mb-6' });
-      for (const l of primary) primaryGrid.appendChild(this._loadoutCard(l, data));
-      el.appendChild(primaryGrid);
-    }
-
-    // Secondary loadouts
-    if (secondary.length) {
-      el.appendChild(R.el('div', { className: 'flex items-center gap-2 mb-2' }, [
-        R.el('div', { className: 'text-sm font-semibold text-white' }, ['Loadouts Secundarios']),
-        R.el('span', { className: 'text-xs text-gray-500', textContent: '(Goblin Farm — 5 DPS)' })
-      ]));
-      const secGrid = R.el('div', { className: 'space-y-3 mb-6' });
-      for (const l of secondary) secGrid.appendChild(this._loadoutCard(l, data));
-      el.appendChild(secGrid);
-    }
-
-    if (!primary.length && !secondary.length) {
-      el.appendChild(R.el('div', { className: 'text-center text-gray-500 py-8', textContent: 'Nenhum loadout nesta categoria.' }));
-    }
-
-    // Spare pieces
-    const spare = data.spare_pieces || [];
-    if (spare.length) {
-      el.appendChild(R.el('div', { className: 'flex items-center gap-2 mb-2' }, [
-        R.el('div', { className: 'text-sm font-semibold text-white' }, ['Pecas Spare']),
-        R.el('span', { className: 'text-xs text-gray-500', textContent: `${spare.length} pecas lv20 sem loadout` })
-      ]));
-      const spareGrid = R.el('div', { className: 'grid grid-cols-1 md:grid-cols-2 gap-2' });
-      for (const s of spare) {
-        const piece = (data.inventory || []).find(p => p.id === s.id);
-        const setInfo = (data.sets || []).find(st => st.id === s.set);
-        spareGrid.appendChild(R.el('div', { className: 'bg-surface-card rounded-lg border border-surface-hover p-2 flex items-center gap-2' }, [
-          this._slotIcon(piece?.slot || '?'),
-          R.el('div', { className: 'flex-1 min-w-0' }, [
-            R.el('div', { className: 'text-xs font-medium text-gray-300 truncate', textContent: `${s.id} — ${setInfo?.name || s.set}` }),
-            R.el('div', { className: 'text-[10px] text-gray-500 truncate', textContent: s.note })
-          ])
-        ]));
-      }
-      el.appendChild(spareGrid);
-    }
-  },
-
-  _loadoutCard(l, data) {
-    const inventory = data.inventory || [];
-    const sets = data.sets || [];
-    const profileColors = {
-      'dps-crit': 'border-l-fire', 'dps-skill': 'border-l-lightning',
-      'tank-def': 'border-l-ice', 'tank-control': 'border-l-ice',
-      'support-hp': 'border-l-radiance', 'support-atk': 'border-l-poison',
-      'buffer-melee': 'border-l-fire'
-    };
-    const borderClass = profileColors[l.profile] || 'border-l-gold';
-
-    // Header
-    const header = R.el('div', { className: 'flex items-center justify-between mb-2' }, [
-      R.el('div', { className: 'flex items-center gap-2 flex-wrap' }, [
-        R.el('span', { className: 'text-sm font-bold text-white', textContent: l.name }),
-        l.secondary ? R.el('span', { className: 'text-[10px] px-1.5 py-0.5 rounded bg-surface-hover text-gray-400', textContent: 'SECUNDARIO' }) : null
-      ].filter(Boolean)),
-      l.score ? R.el('span', { className: 'text-xs text-gray-500', textContent: `Score: ${l.score}` }) : null
-    ]);
-
-    // Heroes
-    const heroesRow = R.el('div', { className: 'flex flex-wrap gap-1 mb-2' },
-      (l.heroes || []).map(h => {
-        const heroId = R.heroIdByName(h);
-        return R.el('a', {
-          className: 'flex items-center gap-1 bg-surface rounded px-1.5 py-0.5 hover:bg-surface-hover transition-colors cursor-pointer',
-          href: `#heroes/${encodeURIComponent(h)}`,
-        }, [
-          heroId ? R.heroImg(heroId, 20, { className: 'rounded' }) : null,
-          R.el('span', { className: 'text-xs text-gray-300', textContent: h })
-        ].filter(Boolean));
-      })
-    );
-
-    // Pieces grid
-    const slots = ['weapon', 'armor', 'helmet', 'gloves'];
-    const piecesGrid = R.el('div', { className: 'grid grid-cols-2 md:grid-cols-4 gap-2 mb-2' });
-    for (const slot of slots) {
-      const pieceId = l.pieces?.[slot];
-      const piece = pieceId ? inventory.find(p => p.id === pieceId) : null;
-      if (piece) piecesGrid.appendChild(this._pieceCard(piece, sets));
-    }
-
-    // Set bonuses
-    const bonusesEl = R.el('div', { className: 'space-y-0.5' },
-      (l.set_bonuses || []).map(b => R.el('div', { className: 'text-[10px] text-gold flex gap-1 items-start' }, [
-        R.el('span', { className: 'shrink-0', textContent: '\u2728' }),
-        R.el('span', { textContent: b })
-      ]))
-    );
-
-    // Notes
-    const notesEl = l.notes ? R.el('div', { className: 'text-[10px] text-gray-500 mt-1', textContent: l.notes }) : null;
-
-    return R.el('div', {
-      className: `bg-surface-card rounded-lg border border-surface-hover border-l-2 ${borderClass} p-3`
-    }, [header, heroesRow, piecesGrid, bonusesEl, notesEl].filter(Boolean));
-  },
-
+  // ===== PIECE CARD (used by inventory) =====
   _pieceCard(piece, sets) {
     const setInfo = sets.find(s => s.id === piece.set);
     const lvColor = piece.level === 20 ? 'text-done' : 'text-gray-500';
@@ -461,19 +357,18 @@ const Gear = {
     ]);
   },
 
-  // Find all loadouts assigned to a hero by name
-  getLoadoutsForHero(heroName) {
-    const data = (typeof DATA_GEAR !== 'undefined' && DATA_GEAR) || {};
-    return (data.loadouts || []).filter(l =>
-      (l.heroes || []).some(h => h.toLowerCase() === heroName.toLowerCase())
-    );
-  },
-
   _findLoadout(pieceId, data) {
+    // Check gear_plans first
+    for (const plan of (data.gear_plans || [])) {
+      if ((plan.pieces || []).some(p => p.startsWith(pieceId + ' ') || p === pieceId)) {
+        return plan.name;
+      }
+    }
+    // Fallback to old loadouts
     for (const l of (data.loadouts || [])) {
       const pieces = l.pieces || {};
       if (Object.values(pieces).includes(pieceId)) {
-        return l.name?.split(' — ')[0] || l.profile;
+        return l.name?.split(' \u2014 ')[0] || l.profile;
       }
     }
     return null;
@@ -518,7 +413,7 @@ const Gear = {
           pieces.map(p => R.el('span', {
             className: `text-[10px] px-1.5 py-0.5 rounded ${p.level === 20 ? 'bg-done/20 text-done' : 'bg-surface-hover text-gray-500'}`,
             textContent: `${p.id} ${p.slot}`,
-            title: `${p.name} — ${p.primary.stat} +${p.primary.value}`
+            title: `${p.name} \u2014 ${p.primary.stat} +${p.primary.value}`
           }))
         )
       ]));

@@ -640,110 +640,113 @@ window.DATA_GEAR = {
   upgrade_priority: [],
 
   // ==========================================================
-  // GEAR PLANS — 23 heróis, 11 perfis (10/Mar/2026)
+  // GEAR PLANS — 23 loadouts individuais (10/Mar/2026)
   // Baseado em docs/gear-plans.md
   // Gear swap é GRÁTIS — heróis compartilham peças entre times
   // ==========================================================
   gear_plans: [
-    {
-      id: "dps-crit",
-      name: "DPS Crit — ATK% · CritR · CritD",
-      essential_stats: ["ATK%", "Crit Rate", "Crit Damage"],
-      heroes: [
-        { name: "Nastjenka", freq: 9, sets: "Fearless Challenge ⭐", mythic: "Fearless Challenge", totals: "CritR 67.2% · CritD 67%" },
-        { name: "Divine Ascetic", freq: 5, sets: "Cyril 2pc", mythic: null, totals: "CritR 65.7% · CritD 55.4%" },
-        { name: "Sutha", freq: 3, sets: "Magic Crystal ⭐", mythic: "Magic Crystal Refinement", totals: "ATK% 46.6% · CritD 53.5%" },
-        { name: "Ladehlia", freq: 4, sets: "Cyril 3pc", mythic: null, totals: "ATK% 63.8%" },
-        { name: "Huberg", freq: 1, sets: "Sky Code Treaty ⭐", mythic: "Sky Code Treaty", totals: "CritD 87.8%" }
-      ]
-    },
-    {
-      id: "dps-atk",
-      name: "DPS ATK — ATK%",
-      essential_stats: ["ATK%"],
-      heroes: [
-        { name: "Garett", freq: 4, sets: "Gambler 3pc", mythic: null, totals: "ATK+20% · ATK Spd+20%" },
-        { name: "Sintrellia", freq: 3, sets: "Rhapsodist 3pc", mythic: null, totals: "ATK% 91.9%" }
-      ]
-    },
-    {
-      id: "atk-acc",
-      name: "ATK + ACC — ATK% · ACC",
-      essential_stats: ["ATK%", "Accuracy"],
-      heroes: [
-        { name: "Lossenia", freq: 4, sets: "Holy Hunter 2pc · Chaos Symb ⭐ · Magic Crystal ⭐", mythic: "Chaos Symbiosis + Magic Crystal", totals: "ACC 120 · Chaos +18% ATK" },
-        { name: "Voresh", freq: 4, sets: "Chaos Symb 2pc · Schadenfreude ⭐", mythic: "Chaos Symbiosis + Schadenfreude", totals: "ACC 82" },
-        { name: "Auster", freq: 3, sets: "Iron Bastion ⭐", mythic: "Iron Bastion", totals: "ACC 118 · ATK% 53.5%" },
-        { name: "Hochadir", freq: 3, sets: "Magic Crystal ⭐", mythic: "Magic Crystal Refinement", totals: "ACC 172 → +516 ATK flat" }
-      ]
-    },
-    {
-      id: "atk-enlight",
-      name: "ATK + Enlight — ATK% · Enlight (Derivative)",
-      essential_stats: ["ATK%", "Enlightenment"],
-      heroes: [
-        { name: "Flora", freq: 1, sets: "Death Record 2pc · Impregnable ⭐", mythic: "Death Record + Impregnable", totals: "Enlight 138 · +20% Deriv" },
-        { name: "Lothair", freq: 1, sets: "Revenge 2pc · Death Record ⭐", mythic: "Death Record", totals: "Enlight 159" }
-      ]
-    },
-    {
-      id: "acc",
-      name: "ACC Puro — ACC",
-      essential_stats: ["Accuracy"],
-      heroes: [
-        { name: "Tamar", freq: 2, sets: "Iron Bastion ⭐ · Chaos Symb ⭐", mythic: "Iron Bastion + Chaos Symbiosis", totals: "ACC 59 (+ artefatos/afinidade)" },
-        { name: "Eches", freq: 2, sets: "—", mythic: null, totals: "ACC 142" }
-      ]
-    },
-    {
-      id: "enlight",
-      name: "Enlight Puro — Enlight",
-      essential_stats: ["Enlightenment"],
-      heroes: [
-        { name: "Torrin", freq: 10, sets: "Power of Tides 2pc · Ancestral Guidance ⭐", mythic: "Ancestral Guidance", totals: "Enlight 264" },
-        { name: "Catherine", freq: 4, sets: "Power of Tides 2pc", mythic: null, totals: "Enlight 174" }
-      ]
-    },
-    {
-      id: "hp-acc",
-      name: "HP + ACC — HP% · ACC",
-      essential_stats: ["HP%", "Accuracy"],
-      heroes: [
-        { name: "Eurion", freq: 14, sets: "Blue Oak 2pc + Tundra 2pc", mythic: null, totals: "DEF% 36.7% · ACC 67" },
-        { name: "Lucien", freq: 2, sets: "Chaos Symb ⭐", mythic: "Chaos Symbiosis", totals: "HP stacking · ACC 58" }
-      ]
-    },
-    {
-      id: "hp-atk-acc",
-      name: "HP + ATK + ACC — HP% · ATK% · ACC",
-      essential_stats: ["HP%", "ATK%", "Accuracy"],
-      heroes: [
-        { name: "Vinyara", freq: 8, sets: "Tundra 2pc · Schadenfreude ⭐", mythic: "Schadenfreude", totals: "ACC 125 · 2% HP heal/debuff" }
-      ]
-    },
-    {
-      id: "hp-enlight",
-      name: "HP + Enlight — HP% · Enlight",
-      essential_stats: ["HP%", "Enlightenment"],
-      heroes: [
-        { name: "Felosia", freq: 3, sets: "—", mythic: null, totals: "HP% massivo (shields)" }
-      ]
-    },
-    {
-      id: "hp-def-enlight",
-      name: "HP + DEF + Enlight — HP% · DEF% · Enlight",
-      essential_stats: ["HP%", "DEF%", "Enlightenment"],
-      heroes: [
-        { name: "Acilia", freq: 6, sets: "Ancestral 2pc · Impregnable ⭐", mythic: "Impregnable", totals: "HP% 72.7% · Buffs indispellable" }
-      ]
-    },
-    {
-      id: "def",
-      name: "DEF Puro — DEF%",
-      essential_stats: ["DEF%"],
-      heroes: [
-        { name: "Garius", freq: 4, sets: "Executioner 3pc", mythic: null, totals: "DEF% 72.9% + 204 flat" }
-      ]
-    }
+    // === DPS CRIT (5) ===
+    { name: "DPS Crit 1", profile: "dps-crit", hero: "Nastjenka", freq: 9,
+      pieces: ["IMG_2858 ⭐ Fearless", "IMG_2865 Impregnable", "a07 Executioner", "g04 Cyril"],
+      set_bonus: null, mythic: "Fearless: +16% dmg vs >50% HP",
+      totals: "CritR 67.2% · CritD 67%", sharing: [] },
+    { name: "DPS Crit 2", profile: "dps-crit", hero: "Divine Ascetic", freq: 5,
+      pieces: ["w09 Ancestral", "h07 Revenge", "a05 Cyril", "IMG_3070 Cyril"],
+      set_bonus: "Cyril 2pc", mythic: null,
+      totals: "CritR 65.7% · CritD 55.4%", sharing: [] },
+    { name: "DPS Crit 3", profile: "dps-crit", hero: "Sutha", freq: 3,
+      pieces: ["IMG_2843 ⭐ Magic Crystal", "h05 Executioner", "a06 Cyril", "IMG_2977 Tundra"],
+      set_bonus: null, mythic: "Magic Crystal: +ATK = 300% ACC",
+      totals: "ATK% 46.6% · CritD 53.5%", sharing: [] },
+    { name: "DPS Crit 4", profile: "dps-crit", hero: "Ladehlia", freq: 4,
+      pieces: ["w10 Brotherhood", "h04 Cyril", "a04 Cyril", "IMG_2935 Cyril"],
+      set_bonus: "Cyril 3pc", mythic: null,
+      totals: "ATK% 63.8%", sharing: [] },
+    { name: "DPS Crit 5", profile: "dps-crit", hero: "Huberg", freq: 1,
+      pieces: ["IMG_2863 ⭐ Sky Code", "IMG_2860 ⭐ Chaos Symb", "a01 Platinum", "IMG_3074 Executioner"],
+      set_bonus: null, mythic: "Sky Code: Shield → dispel 1 debuff",
+      totals: "CritD 87.8%", sharing: ["IMG_2860 → Lothair"] },
+    // === DPS ATK (2) ===
+    { name: "DPS ATK 1", profile: "dps-atk", hero: "Garett", freq: 4,
+      pieces: ["w03 Gambler", "h03 Gambler", "a03 Gambler", "g02 Gambler"],
+      set_bonus: "Gambler 3pc", mythic: null,
+      totals: "ATK+20% · ATK Spd+20%", sharing: [] },
+    { name: "DPS ATK 2", profile: "dps-atk", hero: "Sintrellia", freq: 3,
+      pieces: ["w02 Rhapsodist", "h02 Rhapsodist", "a12 Blue Oak", "g01 Rhapsodist"],
+      set_bonus: "Rhapsodist 3pc", mythic: null,
+      totals: "ATK% 91.9%", sharing: ["w02 → Catherine"] },
+    // === ATK+ACC (4) ===
+    { name: "ATK+ACC 1", profile: "atk-acc", hero: "Lossenia", freq: 4,
+      pieces: ["IMG_2862 ⭐ Chaos Symb", "IMG_2842 ⭐ Magic Crystal", "a19 Holy Hunter", "g10 Holy Hunter"],
+      set_bonus: "Holy Hunter 2pc", mythic: "Chaos Symb + Magic Crystal",
+      totals: "ACC 120 · +18% ATK", sharing: [] },
+    { name: "ATK+ACC 2", profile: "atk-acc", hero: "Voresh", freq: 4,
+      pieces: ["IMG_2861 ⭐ Chaos Symb", "IMG_2859 ⭐ Chaos Symb", "IMG_2958 ⭐ Schadenfreude", "IMG_2966 Cyril"],
+      set_bonus: "Chaos Symb 2pc", mythic: "Chaos Symb + Schadenfreude",
+      totals: "ACC 82", sharing: ["IMG_2861 → Tamar, Lucien"] },
+    { name: "ATK+ACC 3", profile: "atk-acc", hero: "Auster", freq: 3,
+      pieces: ["w04 Executioner", "h13 Tides", "IMG_3229 ⭐ Iron Bastion", "IMG_2942 Tundra"],
+      set_bonus: null, mythic: "Iron Bastion: Crit recv → -30% CritR",
+      totals: "ACC 118 · ATK% 53.5%", sharing: ["w04 → Garius", "h13 → Catherine"] },
+    { name: "ATK+ACC 4", profile: "atk-acc", hero: "Hochadir", freq: 3,
+      pieces: ["w13 Tides", "IMG_2841 ⭐ Magic Crystal", "a20 Puppeteer", "g09 Brotherhood"],
+      set_bonus: null, mythic: "Magic Crystal: +516 ATK flat",
+      totals: "ACC 172", sharing: ["w13+a20 → Eches", "IMG_2841 → Flora"] },
+    // === ATK+ENLIGHT (2) ===
+    { name: "ATK+Enl 1", profile: "atk-enlight", hero: "Flora", freq: 1,
+      pieces: ["IMG_2867 ⭐ Impregnable", "IMG_2841 ⭐ Magic Crystal", "IMG_3224 ⭐ Death Record", "IMG_3291 ⭐ Death Record"],
+      set_bonus: "Death Record 2pc", mythic: "Death Record + Impregnable",
+      totals: "Enlight 138 · +20% Deriv", sharing: ["IMG_2841 → Hochadir"] },
+    { name: "ATK+Enl 2", profile: "atk-enlight", hero: "Lothair", freq: 1,
+      pieces: ["w05 Revenge", "IMG_2860 ⭐ Chaos Symb", "a08 Revenge", "IMG_2955 ⭐ Death Record"],
+      set_bonus: "Revenge 2pc", mythic: "Death Record: +20% Derivative",
+      totals: "Enlight 159", sharing: ["IMG_2860 → Huberg"] },
+    // === ACC (2) ===
+    { name: "ACC 1", profile: "acc", hero: "Tamar", freq: 2,
+      pieces: ["IMG_2861 ⭐ Chaos Symb", "h15 Brotherhood ⚠lv0", "a16 Ancestral", "IMG_2956 ⭐ Iron Bastion"],
+      set_bonus: null, mythic: "Iron Bastion + Chaos Symb",
+      totals: "ACC 59 (+artefatos/afinidade)", sharing: ["IMG_2861 → Voresh, Lucien"] },
+    { name: "ACC 2", profile: "acc", hero: "Eches", freq: 2,
+      pieces: ["w13 Tides", "h10 Brotherhood ⚠lv0", "a20 Puppeteer", "g03 Gambler"],
+      set_bonus: null, mythic: null,
+      totals: "ACC 142", sharing: ["w13+a20 → Hochadir"] },
+    // === ENLIGHT (2) ===
+    { name: "Enlight 1", profile: "enlight", hero: "Torrin", freq: 10,
+      pieces: ["w01 Rhapsodist", "h12 Tides", "IMG_3052 Tides", "IMG_2891 ⭐ Ancestral Guidance"],
+      set_bonus: "Tides 2pc", mythic: "Ancestral Guidance: 50% Lifesteal",
+      totals: "Enlight 264", sharing: [] },
+    { name: "Enlight 2", profile: "enlight", hero: "Catherine", freq: 4,
+      pieces: ["w02 Rhapsodist", "h13 Tides", "IMG_3035 Platinum", "g13 Tides"],
+      set_bonus: "Tides 2pc", mythic: null,
+      totals: "Enlight 174", sharing: ["w02 → Sintrellia", "h13 → Auster"] },
+    // === HP+ACC (2) ===
+    { name: "HP+ACC 1", profile: "hp-acc", hero: "Eurion", freq: 14,
+      pieces: ["w08 Blue Oak", "h08 Tundra", "a11 Blue Oak", "g08 Tundra"],
+      set_bonus: "Blue Oak 2pc + Tundra 2pc", mythic: null,
+      totals: "DEF% 36.7% · ACC 67", sharing: [] },
+    { name: "HP+ACC 2", profile: "hp-acc", hero: "Lucien", freq: 2,
+      pieces: ["IMG_2861 ⭐ Chaos Symb", "h11 Brotherhood ⚠lv0", "a17 Ancestral", "IMG_2945 Blue Oak"],
+      set_bonus: null, mythic: "Chaos Symb: +6% ATK/School",
+      totals: "HP stacking · ACC 58", sharing: ["IMG_2861 → Voresh, Tamar"] },
+    // === HP+ATK+ACC (1) ===
+    { name: "HP+ATK+ACC", profile: "hp-atk-acc", hero: "Vinyara", freq: 8,
+      pieces: ["w07 Tundra", "h01 Platinum", "IMG_2923 ⭐ Schadenfreude", "g07 Tundra"],
+      set_bonus: "Tundra 2pc", mythic: "Schadenfreude: 2% HP heal/debuff",
+      totals: "ACC 125", sharing: [] },
+    // === HP+ENLIGHT (1) ===
+    { name: "HP+Enl", profile: "hp-enlight", hero: "Felosia", freq: 3,
+      pieces: ["w12 Puppeteer", "h09 Brotherhood", "a15 Ancestral", "g05 Cyril"],
+      set_bonus: null, mythic: null,
+      totals: "HP massivo (shields)", sharing: [] },
+    // === HP+DEF+ENLIGHT (1) ===
+    { name: "HP+DEF+Enl", profile: "hp-def-enlight", hero: "Acilia", freq: 6,
+      pieces: ["w11 Holy Hunter", "IMG_2866 ⭐ Impregnable", "a14 Ancestral", "IMG_2905 Ancestral"],
+      set_bonus: "Ancestral 2pc", mythic: "Impregnable: Buffs indispellable",
+      totals: "HP% 72.7%", sharing: [] },
+    // === DEF (1) ===
+    { name: "DEF", profile: "def", hero: "Garius", freq: 4,
+      pieces: ["w04 Executioner", "h06 Executioner", "a10 Tundra", "g06 Executioner"],
+      set_bonus: "Executioner 3pc", mythic: null,
+      totals: "DEF% 72.9% + 204 flat", sharing: ["w04 → Auster"] }
   ]
 };
