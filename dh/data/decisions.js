@@ -4,6 +4,25 @@
 window.DATA_DECISIONS = [
   {
     date: "2026-03-09",
+    title: "Pillar Expedition (Alliance Event): 24.600k pontos — 4x recorde anterior",
+    tags: ["pillar-expedition", "alliance-event", "immortals-ice", "record", "boss"],
+    summary: "Time Immortals Ice fez 24.600k pontos no evento de aliança Pillar Expedition. Resultado é 4x o valor mais alto anterior. Henry lutou contra 3 bosses.",
+    impact: "Recorde pessoal massivo no evento de aliança. Confirma que o time Immortals Ice (Auster+Lossenia+Torrin+Eurion+Felosia) é extremamente forte em conteúdo de boss prolongado.",
+    details: `RESULTADO
+- Evento: Pillar Expedition (evento de aliança)
+- Time: Immortals Ice
+- Pontuação: 24.600k (24.6M)
+- Recorde anterior: ~6.150k (~6.15M)
+- Multiplicador: 4x o recorde anterior
+- Bosses enfrentados: 3
+
+PRÓXIMOS PASSOS
+- No próximo Pillar Expedition, montar times específicos por boss para maximizar score
+- Documentar composição por boss para otimizar ainda mais`
+  },
+
+  {
+    date: "2026-03-09",
     title: "Imperial Shadow Recast Sem2: plano 4 bosses + posicionamento consolidado",
     tags: ["imperial-shadow-recast", "continental-challenge", "semana-2", "planning", "positioning", "thelandor", "vasska", "vinyara", "tamar"],
     summary: "Plano do Continental foi limpo e consolidado para Semana 2 (4 tickets), com 1 mapa operacional por boss e posicionamento objetivo para reduzir erro de lock e ganhar consistencia.",

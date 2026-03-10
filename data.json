@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "last_full_scan": "2026-03-09T14:13:53",
+  "last_full_scan": "2026-03-10T16:37:08",
   "projects": [
     {
       "name": "nexus",
@@ -14,11 +14,11 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-03-09",
+      "last_activity": "2026-03-10",
       "git": {
         "branch": "main",
-        "last_commit_date": "2026-03-09",
-        "last_commit_message": "[nexus-auto] scan sync",
+        "last_commit_date": "2026-03-10",
+        "last_commit_message": "[nexus-auto] add sync",
         "dirty": true
       },
       "filesystem": null,
@@ -28,7 +28,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T14:12:17"
+      "last_scanned": "2026-03-10T16:35:35"
     },
     {
       "name": "Dragon Heir",
@@ -42,11 +42,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-03-09",
+      "last_activity": "2026-03-10",
       "git": null,
       "filesystem": {
-        "last_modified_file": "docs/game-mechanics/mentoria-aprendizados.md",
-        "last_modified_date": "2026-03-09"
+        "last_modified_file": "app/data/gear.js",
+        "last_modified_date": "2026-03-10"
       },
       "health": {
         "path_exists": true,
@@ -57,7 +57,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-09T14:12:21"
+      "last_scanned": "2026-03-10T16:35:36"
     },
     {
       "name": "CRCMG",
@@ -83,7 +83,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T14:12:27"
+      "last_scanned": "2026-03-10T16:35:44"
     },
     {
       "name": "IASD",
@@ -109,7 +109,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T14:12:28"
+      "last_scanned": "2026-03-10T16:35:45"
     },
     {
       "name": "IA Builder",
@@ -137,7 +137,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T14:12:30"
+      "last_scanned": "2026-03-10T16:35:46"
     },
     {
       "name": "Mnemo",
@@ -165,7 +165,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T14:12:30"
+      "last_scanned": "2026-03-10T16:35:47"
     },
     {
       "name": "WSL Config",
@@ -187,11 +187,11 @@
       },
       "health": {
         "path_exists": true,
-        "claude_memory_portable": false,
+        "claude_memory_portable": null,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T14:12:30"
+      "last_scanned": "2026-03-10T16:35:47"
     },
     {
       "name": "Livros",
@@ -215,11 +215,11 @@
       "filesystem": null,
       "health": {
         "path_exists": true,
-        "claude_memory_portable": false,
+        "claude_memory_portable": null,
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T14:12:32"
+      "last_scanned": "2026-03-10T16:35:48"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -247,7 +247,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T14:12:33"
+      "last_scanned": "2026-03-10T16:35:49"
     },
     {
       "name": "Incidentes-Getin",
@@ -273,7 +273,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T14:12:33"
+      "last_scanned": "2026-03-10T16:35:49"
     },
     {
       "name": "My Finance",
@@ -304,11 +304,11 @@
         "route": "/finance",
         "has_output": true
       },
-      "last_scanned": "2026-03-09T14:12:37"
+      "last_scanned": "2026-03-10T16:35:54"
     },
     {
       "name": "Development",
-      "slug": "",
+      "slug": "development",
       "path": "/mnt/e/OneDrive/DEV",
       "description": "Tudo que me torna um desenvolvedor melhor e mais produtivo",
       "icon": "💻",
@@ -330,11 +330,11 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T14:13:51"
+      "last_scanned": "2026-03-10T16:37:06"
     },
     {
       "name": "Empreendimentos",
-      "slug": "",
+      "slug": "empreendimentos",
       "path": "/mnt/e/OneDrive/Empreendimentos",
       "description": "Projetos com objetivo de gerar valor, renda ou impacto",
       "icon": "💵",
@@ -356,7 +356,36 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-09T14:13:53"
+      "last_scanned": "2026-03-10T16:37:07"
+    },
+    {
+      "name": "Watcher of Realms",
+      "slug": "wor",
+      "path": "/mnt/e/OneDrive/Games/Watcher of Realms",
+      "description": "Watcher of Realms Companion App",
+      "icon": null,
+      "category": "games",
+      "url": null,
+      "repo": null,
+      "status": "active",
+      "note": null,
+      "class": "filesystem",
+      "last_activity": "2026-03-10",
+      "git": null,
+      "filesystem": {
+        "last_modified_file": "README.md",
+        "last_modified_date": "2026-03-10"
+      },
+      "health": {
+        "path_exists": true,
+        "claude_memory_portable": null,
+        "web_compliant": false
+      },
+      "web": {
+        "route": "/wor",
+        "has_output": false
+      },
+      "last_scanned": "2026-03-10T16:37:08"
     }
   ],
   "ideas": [
@@ -390,7 +419,7 @@
       "category": "referência",
       "created": "2026-03-09",
       "updated": "2026-03-09",
-      "content": "",
+      "content": "# Guia de Fluxos BMAD — Escolhendo o Fluxo Certo\n\n> Guia prático para escolher o fluxo BMAD ideal com base no tamanho do projeto, complexidade e quem detém o conhecimento do domínio.\n\n## Matriz de Decisão\n\n| Situação                                 | Escopo                      | Complexidade | Fluxo Recomendado                    |\n| ---------------------------------------- | --------------------------- | ------------ | ------------------------------------ |\n| PO/stakeholder com ideia de produto novo | Produto completo / SaaS     | Alta         | **Full BMAD**                        |\n| PO/stakeholder adicionando módulo grande | Multi-épico                 | Alta         | **Full BMAD**                        |\n| Dev com domínio total da necessidade     | Feature grande (multi-área) | Alta         | **Quick Spec + Shard + Dev**         |\n| Dev com domínio total da necessidade     | Feature média (área única)  | Média        | **Quick Spec + Dev**                 |\n| Dev com domínio total da necessidade     | Mudança pequena / bugfix    | Baixa        | **Quick Dev (direto)**               |\n| Dev que precisa explorar primeiro        | Complexidade desconhecida   | Varia        | **Quick Spec (descobrir) → decidir** |\n\n---\n\n## Fluxo 1: Full BMAD (Produto Novo / Módulo Grande)\n\n**Quando usar**: Você está criando algo novo e o PO/stakeholder é quem tem os requisitos. Domínio complexo, múltiplos stakeholders, precisa de planejamento formal.\n\n**Exemplos**: Novo SaaS, novo módulo de negócio, redesign de sistema, integração grande.\n\n**Características**:\n\n- Requisitos vêm do stakeholder, não do dev\n- Múltiplos épicos, muitas stories\n- Decisões de arquitetura necessárias\n- Preocupações transversais (auth, infra, UX)\n- Semanas/meses de trabalho\n\n**Passo a passo**:\n\n```\nFase 1 — Análise (opcional mas recomendado)\n  /bmad-brainstorming              → Ideação, explorar conceitos\n  /bmad-bmm-market-research        → Análise de mercado (se aplicável)\n  /bmad-bmm-create-product-brief   → Consolidar a ideia\n\nFase 2 — Planejamento (obrigatório)\n  /bmad-bmm-create-prd             → Documento de Requisitos do Produto\n  /bmad-bmm-validate-prd           → Validar PRD (usar LLM diferente se possível)\n  /bmad-bmm-create-ux-design       → Spec de UX (se tiver UI pesada)\n\nFase 3 — Solução (obrigatório)\n  /bmad-bmm-create-architecture    → Decisões técnicas\n  /bmad-bmm-create-epics-and-stories → Quebrar em épicos + stories\n  /bmad-bmm-check-implementation-readiness → Gate: está tudo alinhado?\n\nFase 4 — Implementação (ciclo por story)\n  /bmad-bmm-sprint-planning        → Gerar plano do sprint\n  Para cada story:\n    /bmad-bmm-create-story         → Preparar story com contexto completo\n    /bmad-bmm-dev-story            → Implementar (NOVO contexto)\n    /bmad-bmm-code-review          → Verificar (LLM diferente recomendado)\n    → Se problemas: volta para dev-story\n    → Se aprovado: próxima story\n  /bmad-bmm-retrospective          → Lições aprendidas pós-épico\n```\n\n**Regras importantes**:\n\n- Cada workflow roda em **janela de contexto nova**\n- Workflows de validação se beneficiam de **LLM diferente** (validação cruzada)\n- Nunca pular `check-implementation-readiness` — pega desalinhamentos cedo\n\n---\n\n## Fluxo 2: Quick Spec + Shard + Dev (Feature Grande, Dev no Comando)\n\n**Quando usar**: Você é o dev, sabe exatamente o que precisa, mas o escopo é grande o suficiente para que implementar de uma vez cause perda de itens. Múltiplas áreas do código afetadas, múltiplas preocupações (models, UI, import, relatórios, etc.).\n\n**Exemplos**: Módulo de gestão de vulnerabilidades, refatoração grande de relatório, CRUD + import + dashboard + relatório, integração complexa com múltiplos pontos.\n\n**Como saber que precisa deste fluxo**:\n\n- O spec vai passar de ~200 linhas\n- Implementação toca 3+ áreas (models, services, views, etc.)\n- Você estima 4+ horas de código\n- Existem áreas funcionais distintas que podem ser implementadas independentemente\n\n**Passo a passo**:\n\n```\nEspecificação\n  /bmad-bmm-quick-spec             → Spec completo com investigação profunda\n                                      (Steps 1-4: entender, investigar, gerar, revisar)\n\nDividir\n  /bmad-shard-doc                  → Dividir spec em sub-specs por área funcional\n                                      Shards típicos:\n                                      - Modelo de dados e migrações\n                                      - Serviço principal / lógica de negócio\n                                      - Import / integração\n                                      - UI / dashboard / CRUD\n                                      - Relatórios / exports\n                                      - Auxiliares (base de conhecimento, config, etc.)\n\nImplementação (por shard, cada um em NOVO contexto)\n  /bmad-bmm-quick-dev              → Implementar sub-spec\n  /bmad-bmm-code-review            → Verificar contra o sub-spec\n\nRevisão pós-implementação (opcional)\n  /bmad-review-adversarial-general → Revisão crítica do todo\n  /bmad-review-edge-case-hunter    → Encontrar edge cases não tratados\n```\n\n**Regras importantes**:\n\n- A fase de Quick Spec É completa (4 etapas com investigação profunda) — não apresse\n- Dividir por **área funcional**, não por tamanho arbitrário\n- Cada Quick Dev recebe seu próprio **contexto novo** com apenas seu sub-spec carregado\n- Code Review após CADA shard, não só no final\n- Ordenar shards por dependência: modelo de dados primeiro, depois services, depois UI\n\n**Por que funciona**:\n\n- Cada sub-spec cabe confortavelmente no contexto do agente dev\n- Code review pega itens perdidos por shard (escopo pequeno = mais fácil verificar)\n- Se algo foi esquecido, você descobre antes de construir em cima\n\n---\n\n## Fluxo 3: Quick Spec + Dev (Feature Média, Dev no Comando)\n\n**Quando usar**: Você sabe o que precisa, escopo é contido, afeta 1-2 áreas do código, pode ser implementado em uma sessão.\n\n**Exemplos**: Novo resource Filament com lógica custom, nova seção de relatório, refatoração de service existente, novo import para formato conhecido, CRUD com regras de negócio específicas.\n\n**Como saber que este fluxo é suficiente**:\n\n- Spec terá ~50-150 linhas\n- Implementação toca 1-2 áreas\n- Você estima 1-3 horas de código\n- Não precisa dividir — é uma peça coerente de trabalho\n\n**Passo a passo**:\n\n```\n  /bmad-bmm-quick-spec             → Spec (Steps 1-4)\n  /bmad-bmm-quick-dev              → Implementar (NOVO contexto)\n  /bmad-bmm-code-review            → Verificar (opcional mas recomendado)\n```\n\n**Regras importantes**:\n\n- Implementar em **contexto novo** (não reusar a conversa do spec)\n- Se durante a implementação perceber que o escopo foi subestimado → pare, volte ao spec, considere o Fluxo 2 com Shard\n- Code review é opcional aqui mas pega ~20% mais problemas\n\n---\n\n## Fluxo 4: Quick Dev Direto (Mudança Pequena, Dev no Comando)\n\n**Quando usar**: Mudança pequena, bem definida, sem ambiguidade. Você consegue descrever o que quer em poucas frases e o agente implementa.\n\n**Exemplos**: Adicionar coluna numa tabela, corrigir bug, ajustar query, mudar validação, adicionar filtro, renomear/mover algo, mudança de config.\n\n**Como saber que este fluxo é suficiente**:\n\n- Você descreve a mudança em <5 frases\n- Toca 1-3 arquivos\n- Estima <30 minutos de código\n- Não tem decisões de design\n\n**Passo a passo**:\n\n```\n  /bmad-bmm-quick-dev              → Descreva o que precisa, agente implementa\n```\n\n**Regras importantes**:\n\n- Não precisa de spec — só instruções claras\n- Se o agente começar a fazer muitas perguntas, talvez precise de Quick Spec\n- Para bugfixes, forneça passos de reprodução ou mensagens de erro\n\n---\n\n## Fluxo 5: Descoberta → Decidir (Complexidade Desconhecida)\n\n**Quando usar**: Você não sabe quão complexo algo é. Precisa explorar o código, entender o estado atual, e depois decidir qual fluxo usar.\n\n**Exemplos**: \"Quero melhorar a seção de segurança\" (quão grande é isso?), \"Precisamos tratar esses arquivos novos\" (o que tem neles?), \"Essa feature precisa mudar\" (quanto?).\n\n**Passo a passo**:\n\n```\n  /bmad-bmm-quick-spec             → Começar Step 1 (Entender)\n                                      Durante a investigação, a complexidade fica clara\n\n  No menu de checkpoint:\n    Se pequeno  → continua spec → Quick Dev (Fluxo 4)\n    Se médio    → continua spec → Quick Dev (Fluxo 3)\n    Se grande   → continua spec → Shard + Dev (Fluxo 2)\n    Se massivo  → considerar Full BMAD (Fluxo 1)\n```\n\n---\n\n## Revisões Pós-Implementação\n\nEstas são **independentes** do fluxo usado. Use quando qualidade importa:\n\n| Revisão                   | Comando                            | Quando Usar                                                  |\n| ------------------------- | ---------------------------------- | ------------------------------------------------------------ |\n| **Code Review**           | `/bmad-bmm-code-review`            | Após qualquer implementação. Adversarial, encontra problemas específicos. |\n| **Revisão Adversarial**   | `/bmad-review-adversarial-general` | Após completar feature grande. Encontra fraquezas.           |\n| **Caçador de Edge Cases** | `/bmad-review-edge-case-hunter`    | Após lógica complexa. Encontra caminhos não tratados.        |\n| **Geração de Testes QA**  | `/bmad-bmm-qa-generate-e2e-tests`  | Após feature completa. Gera testes automatizados.            |\n\n**Boa prática**: Use um **LLM diferente** para revisões quando possível. O agente que escreveu o código tem pontos cegos — um modelo diferente pega coisas diferentes.\n\n---\n\n## Antipadrões — O que NÃO Fazer\n\n| Antipadrão                                     | Por que Falha                                      | Faça Isso                                     |\n| ---------------------------------------------- | -------------------------------------------------- | --------------------------------------------- |\n| Quick Spec + Quick Dev para spec de 500 linhas | Agente dev perde contexto no meio                  | Faça shard do spec primeiro                   |\n| Implementar na mesma conversa do spec          | Contexto poluído com discussão do spec             | Sempre use contexto novo para dev             |\n| Pular Code Review                              | \"Parecia certo\" — mas 20% dos itens foram perdidos | Sempre revise, especialmente features grandes |\n| Full BMAD para feature pequena que você domina | Overhead de PRD/Architecture é desperdício         | Use Quick Spec ou Quick Dev                   |\n| Quick Dev para algo que você não entende bem   | Vai perder tempo com retrabalho                    | Comece com Quick Spec para descobrir escopo   |\n| Revisar seu trabalho com o mesmo LLM           | Mesmos pontos cegos                                | Use LLM diferente para revisões               |\n| Implementar todos os shards no mesmo contexto  | Igual a não fazer shard — sobrecarga de contexto   | Contexto novo por shard                       |\n\n---\n\n## Resumo Rápido\n\n```\nEstou criando algo novo com requisitos do stakeholder?\n  → Full BMAD (Fluxo 1)\n\nEu sei exatamente o que construir?\n  ├── É uma correção simples / mudança pequena?\n  │     → Quick Dev direto (Fluxo 4)\n  ├── É uma feature focada (1-2 áreas)?\n  │     → Quick Spec + Dev (Fluxo 3)\n  ├── É uma feature grande (3+ áreas)?\n  │     → Quick Spec + Shard + Dev (Fluxo 2)\n  └── Não tenho certeza do tamanho?\n        → Descoberta → Decidir (Fluxo 5)\n\nTerminei de implementar?\n  → Code Review (sempre)\n  → Revisão Adversarial (para features grandes)\n  → Caçador de Edge Cases (para lógica complexa)\n```",
       "order": 1
     }
   ]

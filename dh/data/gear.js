@@ -637,5 +637,113 @@ window.DATA_GEAR = {
   // ==========================================================
   // UPGRADE PRIORITY — To be calculated in Task 3
   // ==========================================================
-  upgrade_priority: []
+  upgrade_priority: [],
+
+  // ==========================================================
+  // GEAR PLANS — 23 heróis, 11 perfis (10/Mar/2026)
+  // Baseado em docs/gear-plans.md
+  // Gear swap é GRÁTIS — heróis compartilham peças entre times
+  // ==========================================================
+  gear_plans: [
+    {
+      id: "dps-crit",
+      name: "DPS Crit — ATK% · CritR · CritD",
+      essential_stats: ["ATK%", "Crit Rate", "Crit Damage"],
+      heroes: [
+        { name: "Nastjenka", freq: 9, sets: "Fearless Challenge ⭐", mythic: "Fearless Challenge", totals: "CritR 67.2% · CritD 67%" },
+        { name: "Divine Ascetic", freq: 5, sets: "Cyril 2pc", mythic: null, totals: "CritR 65.7% · CritD 55.4%" },
+        { name: "Sutha", freq: 3, sets: "Magic Crystal ⭐", mythic: "Magic Crystal Refinement", totals: "ATK% 46.6% · CritD 53.5%" },
+        { name: "Ladehlia", freq: 4, sets: "Cyril 3pc", mythic: null, totals: "ATK% 63.8%" },
+        { name: "Huberg", freq: 1, sets: "Sky Code Treaty ⭐", mythic: "Sky Code Treaty", totals: "CritD 87.8%" }
+      ]
+    },
+    {
+      id: "dps-atk",
+      name: "DPS ATK — ATK%",
+      essential_stats: ["ATK%"],
+      heroes: [
+        { name: "Garett", freq: 4, sets: "Gambler 3pc", mythic: null, totals: "ATK+20% · ATK Spd+20%" },
+        { name: "Sintrellia", freq: 3, sets: "Rhapsodist 3pc", mythic: null, totals: "ATK% 91.9%" }
+      ]
+    },
+    {
+      id: "atk-acc",
+      name: "ATK + ACC — ATK% · ACC",
+      essential_stats: ["ATK%", "Accuracy"],
+      heroes: [
+        { name: "Lossenia", freq: 4, sets: "Holy Hunter 2pc · Chaos Symb ⭐ · Magic Crystal ⭐", mythic: "Chaos Symbiosis + Magic Crystal", totals: "ACC 120 · Chaos +18% ATK" },
+        { name: "Voresh", freq: 4, sets: "Chaos Symb 2pc · Schadenfreude ⭐", mythic: "Chaos Symbiosis + Schadenfreude", totals: "ACC 82" },
+        { name: "Auster", freq: 3, sets: "Iron Bastion ⭐", mythic: "Iron Bastion", totals: "ACC 118 · ATK% 53.5%" },
+        { name: "Hochadir", freq: 3, sets: "Magic Crystal ⭐", mythic: "Magic Crystal Refinement", totals: "ACC 172 → +516 ATK flat" }
+      ]
+    },
+    {
+      id: "atk-enlight",
+      name: "ATK + Enlight — ATK% · Enlight (Derivative)",
+      essential_stats: ["ATK%", "Enlightenment"],
+      heroes: [
+        { name: "Flora", freq: 1, sets: "Death Record 2pc · Impregnable ⭐", mythic: "Death Record + Impregnable", totals: "Enlight 138 · +20% Deriv" },
+        { name: "Lothair", freq: 1, sets: "Revenge 2pc · Death Record ⭐", mythic: "Death Record", totals: "Enlight 159" }
+      ]
+    },
+    {
+      id: "acc",
+      name: "ACC Puro — ACC",
+      essential_stats: ["Accuracy"],
+      heroes: [
+        { name: "Tamar", freq: 2, sets: "Iron Bastion ⭐ · Chaos Symb ⭐", mythic: "Iron Bastion + Chaos Symbiosis", totals: "ACC 59 (+ artefatos/afinidade)" },
+        { name: "Eches", freq: 2, sets: "—", mythic: null, totals: "ACC 142" }
+      ]
+    },
+    {
+      id: "enlight",
+      name: "Enlight Puro — Enlight",
+      essential_stats: ["Enlightenment"],
+      heroes: [
+        { name: "Torrin", freq: 10, sets: "Power of Tides 2pc · Ancestral Guidance ⭐", mythic: "Ancestral Guidance", totals: "Enlight 264" },
+        { name: "Catherine", freq: 4, sets: "Power of Tides 2pc", mythic: null, totals: "Enlight 174" }
+      ]
+    },
+    {
+      id: "hp-acc",
+      name: "HP + ACC — HP% · ACC",
+      essential_stats: ["HP%", "Accuracy"],
+      heroes: [
+        { name: "Eurion", freq: 14, sets: "Blue Oak 2pc + Tundra 2pc", mythic: null, totals: "DEF% 36.7% · ACC 67" },
+        { name: "Lucien", freq: 2, sets: "Chaos Symb ⭐", mythic: "Chaos Symbiosis", totals: "HP stacking · ACC 58" }
+      ]
+    },
+    {
+      id: "hp-atk-acc",
+      name: "HP + ATK + ACC — HP% · ATK% · ACC",
+      essential_stats: ["HP%", "ATK%", "Accuracy"],
+      heroes: [
+        { name: "Vinyara", freq: 8, sets: "Tundra 2pc · Schadenfreude ⭐", mythic: "Schadenfreude", totals: "ACC 125 · 2% HP heal/debuff" }
+      ]
+    },
+    {
+      id: "hp-enlight",
+      name: "HP + Enlight — HP% · Enlight",
+      essential_stats: ["HP%", "Enlightenment"],
+      heroes: [
+        { name: "Felosia", freq: 3, sets: "—", mythic: null, totals: "HP% massivo (shields)" }
+      ]
+    },
+    {
+      id: "hp-def-enlight",
+      name: "HP + DEF + Enlight — HP% · DEF% · Enlight",
+      essential_stats: ["HP%", "DEF%", "Enlightenment"],
+      heroes: [
+        { name: "Acilia", freq: 6, sets: "Ancestral 2pc · Impregnable ⭐", mythic: "Impregnable", totals: "HP% 72.7% · Buffs indispellable" }
+      ]
+    },
+    {
+      id: "def",
+      name: "DEF Puro — DEF%",
+      essential_stats: ["DEF%"],
+      heroes: [
+        { name: "Garius", freq: 4, sets: "Executioner 3pc", mythic: null, totals: "DEF% 72.9% + 204 flat" }
+      ]
+    }
+  ]
 };

@@ -292,7 +292,7 @@ window.DATA_MECHANICS = {
   gear: {
     slots: [
       { name: "Arma (Weapon)", unlock: "Inicio", main_stat: "ATK 335 (Mythic lv1)", set_pool: "weapon_helmet" },
-      { name: "Elmo (Helmet)", unlock: "Inicio", main_stat: "Varia", set_pool: "weapon_helmet" },
+      { name: "Elmo (Helmet)", unlock: "Inicio", main_stat: "HP flat FIXO (7710 Mythic +20, 5070 Epic +20)", set_pool: "weapon_helmet" },
       { name: "Armadura (Armor/Chest)", unlock: "Inicio", main_stat: "Varia", set_pool: "armor_gloves" },
       { name: "Manopla (Gloves)", unlock: "Inicio", main_stat: "Varia", set_pool: "armor_gloves" },
       { name: "Artifact", unlock: "3* (Lv.50)" },
@@ -301,20 +301,50 @@ window.DATA_MECHANICS = {
     ],
     rarities: "Common → Rare → Epic → Mythic",
 
-    // SUBSTATS — confirmado in-game 2026-03-06 (Mythic Weapon)
+    // SUBSTATS — confirmado in-game 2026-03-09
     // NAO EXISTEM em gear: ATK Speed, Skill Haste (somente em Runas)
-    // Base = roll aleatorio no range. Cada upgrade (+8/+12/+16/+20) adiciona ao sub escolhido.
-    // Upgrade amount tem min~max proprio (quase fixo mas min e max variam ligeiramente).
+    //
+    // === SISTEMA DE UPGRADE ===
+    // Gear comeca lv 0. A cada 4 lvs tem milestone:
+    //   Lv 4:  libera substat 4 (custo: 5.250 gold)
+    //   Lv 8:  1o upgrade — melhora 1 affix aleatorio (custo acumulado: 24.850 gold)
+    //   Lv 12: 2o upgrade — melhora 1 affix aleatorio (custo acumulado: 87.150 gold)
+    //   Lv 16: 3o upgrade — melhora 1 affix aleatorio (custo acumulado: 227.150 gold)
+    //   Lv 20: 4o upgrade — melhora 1 affix aleatorio (custo acumulado: 528.150 gold)
+    // Total: 4 upgrades aleatorios ao chegar em +20. Cada upgrade vai para 1 sub ALEATORIO.
+    // Numero circulado ao lado do sub = quantos upgrades aquele sub recebeu.
+    //
+    // === QUALIDADE (BARRA) ===
+    // Cada substat tem barra com 5 divisoes embaixo.
+    // A barra mostra a qualidade do roll DENTRO do range min-max.
+    // Mais preenchida = roll mais alto. Afeta TANTO base quanto upgrade amounts.
+    //
+    // === MAIN STATS POR SLOT ===
+    // Weapon: SEMPRE flat ATK (fixo) — valor vem 100% dos subs
+    // Helmet: SEMPRE flat HP (fixo) — valor vem 100% dos subs
+    // Armor: VARIA — DEF flat, DEF%, HP%, ATK%, ACC, RES, Enlightenment, etc.
+    // Gloves: VARIA — ATK flat, ATK%, DEF%, HP%, Crit Rate%, Crit Damage%, etc.
+    // Main stat escala com level do gear (ex: ATK% 2.0% lv0 → 60.0% lv20, CritR 1.0% → 40.0%, CritD 3.0% → 80.0%)
+    //
+    // Main stats a +20: ATK%/HP%/DEF% = 60.0%, CritR = 40.0%, CritD = 80.0%, ACC = 96, RES = 120, Enlight = 120
+    //
+    // === RANGES DE SUBSTATS ===
+    // Ranges documentados sao APROXIMADOS (base de poucos samples).
+    // Ranges REAIS sao mais amplos, especialmente upgrades.
+    // Confirmado: CritR upgrade pode ser ~4.0% (nao 3.2%), ATK% upgrade ~6.3% (nao 5.2%)
+    // Gear Forged (Piece of Treasure) + Temper pode ter valores ACIMA dos ranges normais.
     substats: {
-      atk_pct:      { base_min: 2.0, base_max: 5.8,  upgrade_min: 5.0, upgrade_max: 5.2,  unit: "%" },
-      hp_pct:       { base_min: 2.0, base_max: 5.8,  upgrade_min: 5.0, upgrade_max: 5.2,  unit: "%" },
-      def_pct:      { base_min: 2.0, base_max: 5.8,  upgrade_min: 5.0, upgrade_max: 5.2,  unit: "%" },
+      atk_pct:      { base_min: 2.0, base_max: 5.8,  upgrade_min: 5.0, upgrade_max: 6.3,  unit: "%", note: "range upgrade revisado 09/Mar — observado 24.7% com 3 upgrades" },
+      hp_pct:       { base_min: 2.0, base_max: 5.8,  upgrade_min: 5.0, upgrade_max: 6.3,  unit: "%", note: "assume mesmo range que ATK%" },
+      def_pct:      { base_min: 2.0, base_max: 5.8,  upgrade_min: 5.0, upgrade_max: 6.3,  unit: "%", note: "assume mesmo range que ATK%" },
       hp_flat:      { base_min: 256, base_max: 744,   upgrade_min: 640, upgrade_max: 666,   unit: "flat" },
-      crit_rate:    { base_min: 1.2, base_max: 3.8,   upgrade_min: 3.0, upgrade_max: 3.2,   unit: "%" },
-      crit_damage:  { base_min: 2.8, base_max: 7.8,   upgrade_min: 7.0, upgrade_max: 7.2,   unit: "%" },
-      accuracy:     { base_min: 4,   base_max: 11,    upgrade_min: 9,   upgrade_max: 10,    unit: "flat" },
-      resistance:   { base_min: 4,   base_max: 11,    upgrade_min: 9,   upgrade_max: 10,    unit: "flat" },
-      enlightenment:{ base_min: 4,   base_max: 12,    upgrade_min: 10,  upgrade_max: 10,    unit: "flat" },
+      crit_rate:    { base_min: 1.0, base_max: 3.8,   upgrade_min: 3.0, upgrade_max: 4.0,   unit: "%", note: "range revisado — observado 19.8% com 4 upgrades (base 3.8 + 4*4.0)" },
+      crit_damage:  { base_min: 2.8, base_max: 7.8,   upgrade_min: 7.0, upgrade_max: 8.5,   unit: "%", note: "range revisado — forged pode ir muito acima (41.5% obs.)" },
+      accuracy:     { base_min: 4,   base_max: 11,    upgrade_min: 9,   upgrade_max: 11,    unit: "flat", note: "range revisado — observado 43 com 3 upgrades" },
+      resistance:   { base_min: 4,   base_max: 11,    upgrade_min: 9,   upgrade_max: 12,    unit: "flat", note: "range revisado — observado 57 em peca +20" },
+      enlightenment:{ base_min: 4,   base_max: 12,    upgrade_min: 10,  upgrade_max: 12,    unit: "flat", note: "range revisado — observado 35 com 2 upgrades" },
+      atk_flat:     { note: "existe como sub, valores flat — range nao documentado" },
+      def_flat:     { note: "existe como sub, valores flat — range nao documentado" },
       // ATK Speed: NAO EXISTE em gear (somente Runas)
       // Skill Haste: NAO EXISTE em gear (somente Runas)
     },
@@ -346,12 +376,125 @@ window.DATA_MECHANICS = {
       { name: "Whispers of the Order", bonus_2: "+ATK, +Skill Haste", bonus_3: "+Ultimate skill damage", ideal: "Casters / skill users" },
       { name: "Oasis Aspiration", bonus_2: "+HP, +Skill Haste", bonus_3: "-Damage taken when HP high", ideal: "Tanks" }
     ],
-    stat_priority: [
-      { role: "DPS/Carry", stats: "ATK, Crit Rate, Crit Damage", gear: "Arma + sets ofensivos" },
-      { role: "Tank", stats: "HP, DEF, Resistance", gear: "Armadura + sets defensivos" },
-      { role: "Support/Healer", stats: "HP, Enlightenment, Resistance", gear: "Mix defensivo" },
-      { role: "Debuffer/Control", stats: "Accuracy, HP, DEF", gear: "Mix accuracy" }
+    // STAT PRIORITY POR HEROI — confirmado in-game 09/Mar/2026
+    // O jogo mostra indicador de stats recomendados por heroi. Esses dados SAO confiaveis.
+    // Derivative Damage escala com ATK + Enlightenment e NAO pode critar.
+    // Direct Damage escala com ATK e PODE critar (beneficia de Crit Rate/Dmg).
+    // Heals/Shields escalam com Enlightenment + %MaxHP do alvo.
+    // DEF-scalers: dano e heals escalam com DEF (ex: Eurion shield, Garius heal).
+    stat_profiles: [
+      { id: "dps-crit", label: "DPS-Crit", stats: "ATK, Crit Rate, Crit Dmg", note: "Dano direto %ATK, pode critar" },
+      { id: "dps-atk", label: "DPS-ATK puro", stats: "ATK", note: "ATK e stat dominante; kit tem crit built-in ou escala puramente com ATK" },
+      { id: "atk-enlight", label: "ATK+Enlight", stats: "ATK, Enlightenment", note: "Derivative Damage ou hybrid (ATK+Enlight scaling). Crit NAO funciona na parte Derivative" },
+      { id: "atk-enlight-acc", label: "ATK+Enlight+ACC", stats: "ATK, Enlightenment, ACC", note: "Hybrid derivative + precisa landar debuffs" },
+      { id: "atk-acc", label: "DPS-ACC", stats: "ATK, ACC", note: "Dano direto + precisa landar debuffs/aplicar efeitos" },
+      { id: "acc", label: "Debuffer-ACC", stats: "ACC", note: "Funcao principal e landar debuffs. Dano e secundario" },
+      { id: "hp-acc", label: "Tank-HP/ACC", stats: "HP, ACC", note: "Tank que precisa landar efeitos" },
+      { id: "hp-atk-acc", label: "Tank/DPS/ACC", stats: "HP, ATK, ACC", note: "Hibrido: shield escala ATK+HP, precisa ACC pra debuffs" },
+      { id: "enlight", label: "Healer puro", stats: "Enlightenment", note: "Heals escalam com Enlight. HP secundario pra sobreviver" },
+      { id: "hp-enlight", label: "Healer/Shielder", stats: "HP, Enlightenment", note: "Shields/heals escalam com Enlight + %MaxHP" },
+      { id: "hp-def-enlight", label: "Tank/Healer", stats: "HP, DEF, Enlightenment", note: "Tank pesado que tambem heala/shielda" },
+      { id: "def-acc", label: "Tank-DEF/Debuffer", stats: "DEF, ACC", note: "Dano/heal escala com DEF + precisa landar efeitos" },
+      { id: "def", label: "Tank-DEF puro", stats: "DEF", note: "Dano e heals escalam com DEF" },
+      { id: "hp", label: "Tank-HP puro", stats: "HP", note: "Sobrevivencia pura" }
     ],
+    stat_priority_by_hero: {
+      // LIGHTNING
+      lightning: [
+        { name: "Nastjenka",  id: 20740, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "DA",         id: 23020, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Sutha",      id: 21560, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Nimbus",     id: 22350, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Garett",     id: 20660, profile: "dps-atk",    ingame: "ATK" },
+        { name: "Vani",       id: 20080, profile: "dps-atk",    ingame: "ATK" },
+        { name: "Schaltar",   id: 20040, profile: "atk-enlight",ingame: "ATK, Enlight", note: "TODO dano Derivative — Crit INUTIL" },
+        { name: "Tamar",      id: 20830, profile: "acc",        ingame: "ACC" },
+        { name: "Iola",       id: 20640, profile: "acc",        ingame: "ACC" },
+        { name: "Irina",      id: null,  profile: "acc",        ingame: "ACC" },
+        { name: "Nathaniel",  id: null,  profile: "hp-enlight", ingame: "HP, Enlight" },
+        { name: "Enna",       id: null,  profile: "hp",         ingame: "HP" }
+      ],
+      // ICE
+      ice: [
+        { name: "Auster",     id: 21030, profile: "atk-acc",    ingame: "ATK, ACC" },
+        { name: "Lossenia",   id: 20920, profile: "atk-acc",    ingame: "ATK, ACC" },
+        { name: "Hochadir",   id: 22230, profile: "atk-acc",    ingame: "ATK, ACC" },
+        { name: "Voresh",     id: 22290, profile: "atk-acc",    ingame: "ATK, ACC", note: "Voresh e ICE (confirmado)" },
+        { name: "Rowena",     id: 21290, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Usah",       id: null,  profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Vinyara",    id: 20770, profile: "hp-atk-acc", ingame: "HP, ATK, ACC" },
+        { name: "Eurion",     id: 20060, profile: "hp-acc",     ingame: "HP, ACC", note: "Skills escalam com DEF mas HP e prioridade pra sobreviver. Insp da DEF%+30%" },
+        { name: "Lucien",     id: 20990, profile: "hp-acc",     ingame: "HP, ACC" },
+        { name: "Felosia",    id: 21390, profile: "hp-enlight", ingame: "HP, Enlight" },
+        { name: "Alphanarsy", id: 24770, profile: "hp-def-enlight", ingame: "HP, DEF, Enlight" },
+        { name: "Dallban",    id: null,  profile: "hp-def-acc", ingame: "HP, DEF, ACC" },
+        { name: "Vidimir",    id: 20250, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg", note: "Vidimir e LIGHTNING mas user listou aqui — manter referencia" }
+      ],
+      // NECROSIS
+      necrosis: [
+        { name: "Ladehlia",   id: 23080, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Zadok",      id: null,  profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Sintrellia", id: 24780, profile: "dps-atk",    ingame: "ATK" },
+        { name: "Isitarian",  id: 21690, profile: "dps-atk",    ingame: "ATK" },
+        { name: "Vassaka",    id: null,  profile: "dps-atk",    ingame: "ATK" },
+        { name: "Ghulende",   id: 22310, profile: "atk-acc",    ingame: "ATK, ACC" },
+        { name: "Zharloth",   id: 22320, profile: "atk-acc",    ingame: "ATK, ACC" },
+        { name: "Torrin",     id: 20690, profile: "enlight",    ingame: "Enlight" },
+        { name: "Meggan",     id: 20790, profile: "hp",         ingame: "HP", note: "Meggan e NECROSIS (corrigido)" }
+      ],
+      // FIRE
+      fire: [
+        { name: "Caspar",     id: 21970, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Errich",     id: 20400, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Felicity",   id: 20810, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Tonalnan",   id: 21800, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Rhash",      id: 21170, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Alfie",      id: 21260, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Flora",      id: 20410, profile: "atk-enlight",ingame: "ATK, Enlight", note: "TODO dano Derivative — Crit INUTIL" },
+        { name: "Huldork",    id: 21150, profile: "atk-acc",    ingame: "ATK, ACC" },
+        { name: "Dane",       id: null,  profile: "atk-acc",    ingame: "ATK, ACC" },
+        { name: "Garrika",    id: 20190, profile: "acc",        ingame: "ACC" },
+        { name: "Brody",      id: 20360, profile: "def-acc",    ingame: "DEF, ACC" },
+        { name: "Adolphus",   id: 23250, profile: "enlight",    ingame: "Enlight" },
+        { name: "Journ",      id: 21450, profile: "hp-acc",     ingame: "HP, ACC" },
+        { name: "Isolde",     id: 23240, profile: "hp",         ingame: "HP" }
+      ],
+      // POISON
+      poison: [
+        { name: "Lothair",    id: 20200, profile: "atk-enlight",ingame: "ATK, Enlight" },
+        { name: "Vicana",     id: 20630, profile: "atk-enlight",ingame: "ATK, Enlight" },
+        { name: "Jathalea",   id: 20290, profile: "atk-enlight",ingame: "ATK, Enlight" },
+        { name: "Durango",    id: 20670, profile: "atk-enlight-acc", ingame: "ATK, Enlight, ACC" },
+        { name: "Twitch",     id: 22010, profile: "atk-enlight-acc", ingame: "ATK, Enlight, ACC" },
+        { name: "Sigrid",     id: 20650, profile: "atk-acc",    ingame: "ATK, ACC" },
+        { name: "Ergander",   id: 21010, profile: "hp-acc",     ingame: "HP, ACC" },
+        { name: "Oggok",      id: 21700, profile: "enlight-acc",ingame: "Enlight, ACC", note: "Perfil unico: healer + debuffer" },
+        { name: "Talwer",     id: 21320, profile: "acc",        ingame: "ACC" },
+        { name: "Eches",      id: 20750, profile: "acc",        ingame: "ACC" },
+        { name: "Frurbath",   id: 21670, profile: "def-acc",    ingame: "DEF, ACC" }
+      ],
+      // RADIANCE
+      radiance: [
+        { name: "Huberg",     id: 20320, profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Philto",     id: null,  profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Gitouna",    id: null,  profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Hegio",      id: null,  profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Martina",    id: null,  profile: "dps-crit",   ingame: "ATK, Crit Rate, Crit Dmg" },
+        { name: "Lorentheel", id: 20300, profile: "dps-atk",    ingame: "ATK" },
+        { name: "Kailes",     id: null,  profile: "dps-atk",    ingame: "ATK" },
+        { name: "Tathlyn",    id: null,  profile: "dps-atk",    ingame: "ATK" },
+        { name: "Alvis",      id: null,  profile: "dps-atk",    ingame: "ATK" },
+        { name: "Donella",    id: 21460, profile: "atk-acc",    ingame: "ATK, ACC" },
+        { name: "Acilia",     id: 20420, profile: "hp-def-enlight", ingame: "HP, DEF, Enlight" },
+        { name: "Catherine",  id: 23210, profile: "enlight",    ingame: "Enlight" },
+        { name: "Garius",     id: 20210, profile: "def",        ingame: "DEF" },
+        { name: "Sagomir",    id: 22060, profile: "hp-acc",     ingame: "HP, ACC" },
+        { name: "Kamri",      id: null,  profile: "hp",         ingame: "HP" },
+        { name: "Clovis",     id: null,  profile: "def-acc",    ingame: "DEF, ACC" },
+        { name: "Dulling",    id: null,  profile: "def-acc",    ingame: "DEF, ACC" },
+        { name: "Gumm",       id: null,  profile: "acc",        ingame: "ACC" }
+      ]
+    },
     rules: [
       "Troca de gear e GRATUITA",
       "Nao faca upgrade pesado em gear comum — espere Mythic",

@@ -1,6 +1,6 @@
 // gear.js — Gear loadouts component
 const Gear = {
-  _view: 'loadouts', // 'loadouts' | 'inventory' | 'sets'
+  _view: 'plans', // 'plans' | 'loadouts' | 'inventory' | 'sets'
 
   // Equipment image IDs from dragonheir.info (S1 Legendary)
   _imgIds: {
@@ -73,6 +73,7 @@ const Gear = {
 
     // --- View tabs ---
     const tabs = [
+      { id: 'plans', label: 'Plans' },
       { id: 'loadouts', label: 'Loadouts' },
       { id: 'inventory', label: 'Inventario' },
       { id: 'sets', label: 'Sets' }
@@ -106,10 +107,97 @@ const Gear = {
   _renderView(el, data) {
     el.innerHTML = '';
     switch (this._view) {
+      case 'plans': this._renderPlans(el, data); break;
       case 'loadouts': this._renderLoadouts(el, data); break;
       case 'inventory': this._renderInventory(el, data); break;
       case 'sets': this._renderSets(el, data); break;
     }
+  },
+
+  // ===== PLANS VIEW =====
+  _renderPlans(el, data) {
+    const plans = data.gear_plans || [];
+    if (!plans.length) {
+      el.appendChild(R.el('div', { className: 'text-center text-gray-500 py-8', textContent: 'Nenhum gear plan definido.' }));
+      return;
+    }
+
+    const profileColors = {
+      'dps-crit': 'fire', 'dps-atk': 'fire',
+      'atk-acc': 'lightning', 'atk-enlight': 'poison',
+      'acc': 'lightning', 'enlight': 'radiance',
+      'hp-acc': 'ice', 'hp-atk-acc': 'ice',
+      'hp-enlight': 'ice', 'hp-def-enlight': 'ice',
+      'def': 'ice'
+    };
+
+    const grid = R.el('div', { className: 'space-y-4' });
+
+    for (const plan of plans) {
+      const color = profileColors[plan.id] || 'gold';
+
+      // Essential stats badges
+      const statBadges = R.el('div', { className: 'flex flex-wrap gap-1.5 mb-3' },
+        (plan.essential_stats || []).map(stat =>
+          R.el('span', {
+            className: `text-xs px-2 py-0.5 rounded-full font-medium bg-${color}/20 text-${color} border border-${color}/30`,
+            textContent: stat
+          })
+        )
+      );
+
+      // Heroes grid
+      const heroesGrid = R.el('div', { className: 'grid grid-cols-1 sm:grid-cols-2 gap-2' });
+      for (const h of plan.heroes) {
+        const heroId = R.heroIdByName(h.name);
+        const heroCard = R.el('div', {
+          className: 'flex items-center gap-3 bg-surface rounded-lg p-2.5 hover:bg-surface-hover transition-colors cursor-pointer',
+          onClick: () => { if (heroId) Heroes._openDetail(heroId); }
+        }, [
+          heroId ? R.heroImg(heroId, 40, { height: 48 }) : null,
+          R.el('div', { className: 'flex-1 min-w-0' }, [
+            R.el('div', { className: 'flex items-center gap-2 mb-0.5' }, [
+              R.el('span', { className: 'text-sm font-medium text-gold', textContent: h.name }),
+              R.el('span', { className: 'text-[10px] text-gray-500', textContent: `freq ${h.freq}` })
+            ]),
+            R.el('div', { className: 'text-[10px] text-gray-400 truncate', textContent: h.sets }),
+            h.totals ? R.el('div', { className: 'text-[10px] text-gray-300 font-medium mt-0.5', textContent: h.totals }) : null,
+            h.mythic ? R.el('div', { className: 'flex items-center gap-1 mt-0.5' }, [
+              R.el('span', { className: 'text-[10px] text-mythic', textContent: '⭐ ' + h.mythic })
+            ]) : null
+          ].filter(Boolean))
+        ].filter(Boolean));
+        heroesGrid.appendChild(heroCard);
+      }
+
+      // Plan card
+      const card = R.el('div', {
+        className: `bg-surface-card rounded-lg border border-surface-hover border-l-2 border-l-${color} p-4`,
+        id: `plan-${plan.id}`
+      }, [
+        R.el('div', { className: 'flex items-center justify-between mb-2' }, [
+          R.el('h3', { className: 'text-sm font-bold text-white', textContent: plan.name }),
+          R.el('span', { className: 'text-xs text-gray-500', textContent: `${plan.heroes.length} herói${plan.heroes.length > 1 ? 's' : ''}` })
+        ]),
+        statBadges,
+        heroesGrid
+      ]);
+
+      grid.appendChild(card);
+    }
+
+    el.appendChild(grid);
+  },
+
+  // Find gear plan for a hero by name
+  getPlanForHero(heroName) {
+    const data = (typeof DATA_GEAR !== 'undefined' && DATA_GEAR) || {};
+    const plans = data.gear_plans || [];
+    for (const plan of plans) {
+      const match = plan.heroes.find(h => h.name.toLowerCase() === heroName.toLowerCase());
+      if (match) return { plan, hero: match };
+    }
+    return null;
   },
 
   // ===== LOADOUTS VIEW =====
