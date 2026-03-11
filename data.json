@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "last_full_scan": "2026-03-11T10:14:51",
+  "last_full_scan": "2026-03-11T15:59:04",
   "current_environment": "ULTRON",
   "projects": [
     {
@@ -19,8 +19,8 @@
       "git": {
         "branch": "main",
         "last_commit_date": "2026-03-11",
-        "last_commit_message": "update portable memory with v3 learnings (environments, apps, skills)",
-        "dirty": false
+        "last_commit_message": "feat: add Shell option to nexus open command",
+        "dirty": true
       },
       "filesystem": null,
       "health": {
@@ -35,7 +35,7 @@
         }
       },
       "web": null,
-      "last_scanned": "2026-03-11T10:09:44"
+      "last_scanned": "2026-03-11T15:57:33"
     },
     {
       "name": "Dragon Heir",
@@ -52,7 +52,7 @@
       "last_activity": "2026-03-11",
       "git": null,
       "filesystem": {
-        "last_modified_file": "screenshots/gear-mobile-quickref.png",
+        "last_modified_file": "screenshots/gear-montagem-check.png",
         "last_modified_date": "2026-03-11"
       },
       "health": {
@@ -70,7 +70,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-11T10:09:48"
+      "last_scanned": "2026-03-11T15:57:34"
     },
     {
       "name": "CRCMG",
@@ -102,7 +102,7 @@
         }
       },
       "web": null,
-      "last_scanned": "2026-03-11T10:10:30"
+      "last_scanned": "2026-03-11T15:57:42"
     },
     {
       "name": "IASD",
@@ -134,7 +134,7 @@
         }
       },
       "web": null,
-      "last_scanned": "2026-03-11T10:10:40"
+      "last_scanned": "2026-03-11T15:57:43"
     },
     {
       "name": "IA Builder",
@@ -168,7 +168,7 @@
         }
       },
       "web": null,
-      "last_scanned": "2026-03-11T10:10:45"
+      "last_scanned": "2026-03-11T15:57:45"
     },
     {
       "name": "Mnemo",
@@ -202,7 +202,7 @@
         }
       },
       "web": null,
-      "last_scanned": "2026-03-11T10:10:46"
+      "last_scanned": "2026-03-11T15:57:45"
     },
     {
       "name": "WSL Config",
@@ -234,7 +234,7 @@
         }
       },
       "web": null,
-      "last_scanned": "2026-03-11T10:10:47"
+      "last_scanned": "2026-03-11T15:57:45"
     },
     {
       "name": "Livros",
@@ -268,7 +268,7 @@
         }
       },
       "web": null,
-      "last_scanned": "2026-03-11T10:10:55"
+      "last_scanned": "2026-03-11T15:57:47"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -302,7 +302,7 @@
         }
       },
       "web": null,
-      "last_scanned": "2026-03-11T10:10:58"
+      "last_scanned": "2026-03-11T15:57:47"
     },
     {
       "name": "Incidentes-Getin",
@@ -334,7 +334,7 @@
         }
       },
       "web": null,
-      "last_scanned": "2026-03-11T10:10:59"
+      "last_scanned": "2026-03-11T15:57:47"
     },
     {
       "name": "My Finance",
@@ -371,7 +371,7 @@
         "route": "/finance",
         "has_output": true
       },
-      "last_scanned": "2026-03-11T10:11:35"
+      "last_scanned": "2026-03-11T15:57:54"
     },
     {
       "name": "Development",
@@ -403,7 +403,7 @@
         }
       },
       "web": null,
-      "last_scanned": "2026-03-11T10:14:27"
+      "last_scanned": "2026-03-11T15:59:01"
     },
     {
       "name": "Empreendimentos",
@@ -435,7 +435,7 @@
         }
       },
       "web": null,
-      "last_scanned": "2026-03-11T10:14:41"
+      "last_scanned": "2026-03-11T15:59:03"
     },
     {
       "name": "Watcher of Realms",
@@ -470,7 +470,7 @@
         "route": "/wor",
         "has_output": false
       },
-      "last_scanned": "2026-03-11T10:14:50"
+      "last_scanned": "2026-03-11T15:59:04"
     }
   ],
   "apps": [

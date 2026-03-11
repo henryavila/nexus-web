@@ -152,6 +152,7 @@ const Gear = {
         R.el('tr', { className: 'text-[10px] text-gray-500 uppercase tracking-wide' }, [
           R.el('th', { className: 'text-left px-3 py-1.5 font-medium', textContent: 'Herói' }),
           R.el('th', { className: 'text-left px-3 py-1.5 font-medium', textContent: 'Loadout' }),
+          R.el('th', { className: 'text-left px-3 py-1.5 font-medium', textContent: 'Artefato' }),
           R.el('th', { className: 'text-left px-3 py-1.5 font-medium', textContent: 'Sets' }),
           R.el('th', { className: 'text-left px-3 py-1.5 font-medium', textContent: 'Totais' }),
           R.el('th', { className: 'text-center px-2 py-1.5 font-medium w-8', textContent: '' })
@@ -174,6 +175,8 @@ const Gear = {
     const heroId = R.heroIdByName(plan.hero);
     const noConflict = !plan.sharing || !plan.sharing.length;
     const setNames = (plan.pieces || []).map(p => p.set.replace(/'s? .*/, '')).join(' · ');
+    const artifact = heroId ? D.artifactForHero(heroId) : null;
+    const artifactName = artifact ? artifact.name.replace(/'s? .*| of .*/, '') : '';
 
     // Desktop row
     const row = R.el('tr', {
@@ -198,6 +201,11 @@ const Gear = {
           }
         })
       ]),
+      // Artifact
+      R.el('td', { className: 'px-3 py-2 text-[10px] text-mythic/80 max-w-[140px] truncate',
+        textContent: artifact ? artifact.name : '—',
+        title: artifact ? artifact.name : ''
+      }),
       // Sets
       R.el('td', { className: 'px-3 py-2 text-[10px] text-gray-500 max-w-[200px] truncate', textContent: setNames }),
       // Totals
@@ -213,7 +221,7 @@ const Gear = {
       className: 'md:hidden border-t border-surface-hover/50',
       onClick: () => { if (heroId) Heroes._openDetail(heroId); }
     }, [
-      R.el('td', { className: 'px-3 py-2', colSpan: '5' }, [
+      R.el('td', { className: 'px-3 py-2', colSpan: '6' }, [
         R.el('div', { className: 'flex items-center gap-2 cursor-pointer' }, [
           heroId ? R.heroImg(heroId, 28, { height: 34, className: 'rounded' }) : null,
           R.el('div', { className: 'flex-1 min-w-0' }, [
@@ -225,8 +233,11 @@ const Gear = {
               }),
               R.el('span', { className: 'text-[9px]', textContent: noConflict ? '✅' : '🔄' })
             ]),
-            plan.totals ? R.el('div', { className: 'text-[10px] text-gray-500 mt-0.5', textContent: plan.totals }) : null
-          ].filter(Boolean))
+            R.el('div', { className: 'flex items-center gap-2 mt-0.5' }, [
+              artifact ? R.el('span', { className: 'text-[9px] text-mythic/80', textContent: '💎 ' + artifactName }) : null,
+              plan.totals ? R.el('span', { className: 'text-[10px] text-gray-500', textContent: plan.totals }) : null
+            ].filter(Boolean))
+          ])
         ].filter(Boolean))
       ])
     ]);
@@ -345,16 +356,18 @@ const Gear = {
       ])
     ].filter(Boolean)));
 
-    // 4 pieces in horizontal grid
+    // 4 pieces in horizontal grid (order: helmet, weapon, armor, gloves)
+    const slotOrder = ['helmet', 'weapon', 'armor', 'gloves'];
+    const sortedPieces = [...(plan.pieces || [])].sort((a, b) => slotOrder.indexOf(a.slot) - slotOrder.indexOf(b.slot));
     const piecesGrid = R.el('div', { className: 'grid grid-cols-2 md:grid-cols-4 gap-2 mb-3' });
-    for (const pc of (plan.pieces || [])) {
+    for (const pc of sortedPieces) {
       const lvBad = pc.lv === 0;
       const pieceEl = R.el('div', {
         className: `bg-surface rounded-lg p-2 border ${pc.mythic ? 'border-mythic/40' : lvBad ? 'border-red-500/30' : 'border-surface-hover'} text-center`
       });
 
       // Equipment image or fallback emoji
-      const img = pc.img ? this._gearImg(this._findSetPieceName(pc), 52) : null;
+      const img = this._gearImg(this._findSetPieceName(pc), 52);
       if (img) {
         img.className = 'mx-auto mb-1.5 rounded-lg';
         img.style.width = '52px';
@@ -423,26 +436,35 @@ const Gear = {
     return card;
   },
 
-  // Map structured piece to a name that _gearImg can look up
+  // Map gear_plans set name → _imgIds prefix (explicit mapping)
+  _setToImgPrefix: {
+    'Imperial Executioner': 'Executioner',
+    "Cyril's Whisper": 'Cyril',
+    'Tundra Tenacity': 'Tundra Guardian',
+    'Platinum Knight': 'Platinum Knight',
+    'Ancestral Protection': 'Ancestral Protection',
+    'Heart of the Gambler': 'Gambler',
+    "Rhapsodist's Calling": 'Rhapsodist',
+    'Radiance of the Blue Oak': 'Radiance of the Blue Oak',
+    'Holy Hunter': 'Holy Hunter',
+    "Puppeteer's Inspiration": 'Puppeteer',
+    'Brotherhood Spirit': 'Three-Ears Emblem',
+    'Revenge of the Fallen': 'Undead',
+    'Power of Tides': 'Intertidal'
+  },
+
   _findSetPieceName(pc) {
+    const prefix = this._setToImgPrefix[pc.set];
+    if (!prefix) return pc.set; // mythic or unknown — no CDN image
     for (const name of Object.keys(this._imgIds)) {
-      if (name.toLowerCase().includes(pc.set.split(' ')[0].toLowerCase())) {
-        const nameLower = name.toLowerCase();
-        if (pc.slot === 'weapon' && !nameLower.includes('helmet') && !nameLower.includes('gloves') && !nameLower.includes('armor') && !nameLower.includes('light armor') && !nameLower.includes('heavy armor') && !nameLower.includes('robe') && !nameLower.includes('chain') && !nameLower.includes('hood') && !nameLower.includes('headgear') && !nameLower.includes('crown') && !nameLower.includes('cloak')) {
-          return name;
-        }
-        if (pc.slot === 'helmet' && (nameLower.includes('helmet') || nameLower.includes('hood') || nameLower.includes('headgear') || nameLower.includes('crown'))) {
-          return name;
-        }
-        if (pc.slot === 'armor' && (nameLower.includes('armor') || nameLower.includes('robe') || nameLower.includes('chain') || nameLower.includes('cloak'))) {
-          return name;
-        }
-        if (pc.slot === 'gloves' && nameLower.includes('gloves')) {
-          return name;
-        }
-      }
+      if (!name.startsWith(prefix)) continue;
+      const n = name.toLowerCase();
+      if (pc.slot === 'gloves' && n.includes('gloves')) return name;
+      if (pc.slot === 'helmet' && (n.includes('helmet') || n.includes('hood') || n.includes('headgear') || n.includes('crown'))) return name;
+      if (pc.slot === 'armor' && (n.includes('armor') || n.includes('robe') || n.includes('chain') || n.includes('cloak'))) return name;
+      if (pc.slot === 'weapon' && !n.includes('helmet') && !n.includes('hood') && !n.includes('headgear') && !n.includes('crown') && !n.includes('armor') && !n.includes('robe') && !n.includes('chain') && !n.includes('cloak') && !n.includes('gloves')) return name;
     }
-    return pc.set; // fallback
+    return pc.set;
   },
 
   // Find gear plan/loadout for a hero by name

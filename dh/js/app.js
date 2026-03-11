@@ -1,5 +1,5 @@
 // app.js — Router and initialization
-const __BUILD_VERSION__ = '1773234895';
+const __BUILD_VERSION__ = '1773255544';
 
 const DataLoader = {
   registry: {
@@ -22,7 +22,7 @@ const DataLoader = {
     heroes: ['heroes', 'myRoster', 'tiers', 'artifacts', 'builds', 'gear'],
     teams: ['heroes', 'tiers', 'teams'],
     builds: ['heroes', 'tiers', 'builds'],
-    gear: ['heroes', 'gear'],
+    gear: ['heroes', 'gear', 'artifacts'],
     artifacts: ['heroes', 'artifacts'],
     tierlist: ['heroes', 'tiers', 'myRoster'],
     plan: [],
