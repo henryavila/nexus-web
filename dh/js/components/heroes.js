@@ -479,12 +479,7 @@ const Heroes = {
               href: '#gear',
               onClick: (e) => {
                 e.preventDefault();
-                Gear._view = 'loadouts';
-                App.navigate('gear');
-                setTimeout(() => {
-                  const target = document.getElementById('loadout-' + plan.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
-                  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300);
+                Gear._navigateToMontagem(plan.name);
               },
               textContent: plan.name
             }),

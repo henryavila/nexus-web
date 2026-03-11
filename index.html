@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=c8afec4d">
+    <link rel="stylesheet" href="css/style.css?v=7a917c03">
 </head>
 <body>
     <div class="glow-top"></div>
@@ -18,7 +18,10 @@
         <nav class="tab-bar">
             <button class="tab-btn active" data-tab="ideas" data-index="1"><kbd>1</kbd> Ideias</button>
             <button class="tab-btn" data-tab="projects" data-index="2"><kbd>2</kbd> Projetos</button>
-            <button class="tab-btn" data-tab="codex" data-index="3"><kbd>3</kbd> Codex</button>
+            <button class="tab-btn" data-tab="apps" data-index="3"><kbd>3</kbd> Apps</button>
+            <button class="tab-btn" data-tab="skills" data-index="4"><kbd>4</kbd> Skills</button>
+            <button class="tab-btn" data-tab="environments" data-index="5"><kbd>5</kbd> Environments</button>
+            <button class="tab-btn" data-tab="codex" data-index="6"><kbd>6</kbd> Codex</button>
         </nav>
         <div class="search-desktop">
             <svg class="search-svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.45 4.38l4.09 4.08a.75.75 0 11-1.06 1.06l-4.08-4.09A7 7 0 012 9z" clip-rule="evenodd"/></svg>
@@ -66,6 +69,38 @@
         <div class="projects-feed" id="projects-feed"></div>
     </main>
 
+    <main class="section" id="apps-section" style="display:none">
+        <div class="section-header">
+            <h2 class="section-title">Apps</h2>
+            <span class="section-count" id="apps-count"></span>
+        </div>
+        <div class="feed-header" id="apps-feed-header">
+            <span></span>
+            <span></span>
+            <span>App</span>
+            <span>Descrição</span>
+            <span>Mem</span>
+            <span>Ativ.</span>
+        </div>
+        <div class="projects-feed" id="apps-feed"></div>
+    </main>
+
+    <main class="section" id="skills-section" style="display:none">
+        <div class="section-header">
+            <h2 class="section-title">Skills</h2>
+            <span class="section-count" id="skills-count"></span>
+        </div>
+        <div class="ideas-grid" id="skills-grid"></div>
+    </main>
+
+    <main class="section" id="environments-section" style="display:none">
+        <div class="section-header">
+            <h2 class="section-title">Environments</h2>
+            <span class="section-count" id="environments-count"></span>
+        </div>
+        <div class="ideas-grid" id="environments-grid"></div>
+    </main>
+
     <main class="section" id="codex-section" style="display:none">
         <div class="section-header">
             <h2 class="section-title">Codex</h2>
@@ -83,6 +118,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script data-cfasync="false" src="js/app.js?v=553bd103"></script>
+    <script data-cfasync="false" src="js/app.js?v=f95956d8"></script>
 </body>
 </html>

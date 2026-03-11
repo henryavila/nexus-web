@@ -4,9 +4,13 @@
 
 let activeTab = 'ideas';
 let cachedProjects = [];
+let cachedApps = [];
+let cachedSkills = {};
+let cachedEnvironments = [];
 let cachedIdeas = [];
 let cachedCodex = [];
 let cachedLastScan = null;
+let cachedCurrentEnvironment = null;
 
 // ─── Data ───
 
@@ -63,6 +67,18 @@ function priorityLabel(priority) {
     return 'M\u00e9dia';
 }
 
+// ─── Health helpers ───
+
+function getHealthValue(health, key) {
+    if (!health) return null;
+    const val = health[key];
+    if (val !== null && typeof val === 'object') {
+        // Per-env dict format: look up current environment hostname
+        return cachedCurrentEnvironment ? (val[cachedCurrentEnvironment] ?? null) : null;
+    }
+    return val; // Flat format (backward compat)
+}
+
 // ─── Alerts ───
 
 function renderAlerts(projects) {
@@ -72,9 +88,9 @@ function renderAlerts(projects) {
     const alerts = [];
 
     projects.forEach(p => {
-        if (p.health?.claude_memory_portable === false)
+        if (getHealthValue(p.health, 'claude_memory_portable') === false)
             alerts.push(`<strong>${escapeHtml(p.name)}</strong>: mem\u00f3ria Claude local (n\u00e3o port\u00e1vel)`);
-        if (p.health?.path_exists === false)
+        if (getHealthValue(p.health, 'path_exists') === false)
             alerts.push(`<strong>${escapeHtml(p.name)}</strong>: caminho n\u00e3o existe`);
     });
 
@@ -186,9 +202,10 @@ function renderFeed(projects, lastScan, filter) {
             : `<span class="project-name">${escapeHtml(p.name)}</span>`;
 
         let memBadge = '';
-        if (p.health?.claude_memory_portable === true)
+        const memVal = getHealthValue(p.health, 'claude_memory_portable');
+        if (memVal === true)
             memBadge = '<span class="badge-memory portable">\ud83e\udde0</span>';
-        else if (p.health?.claude_memory_portable === false)
+        else if (memVal === false)
             memBadge = '<span class="badge-memory local-only">\u26a0<span class="badge-text"> mem\u00f3ria local</span></span>';
         else
             memBadge = '<span class="badge-memory"></span>';
@@ -305,7 +322,227 @@ function closeCodexModal() {
     document.getElementById('codex-modal-backdrop').classList.remove('active');
 }
 
+// ─── Apps Rendering ───
+
+function renderApps(apps, lastScan, filter) {
+    const feed = document.getElementById('apps-feed');
+    const countEl = document.getElementById('apps-count');
+    if (!feed) return;
+
+    const q = (filter || '').toLowerCase();
+    let visibleCount = 0;
+
+    if (!apps || !apps.length) {
+        feed.innerHTML = '<p class="empty-state">Nenhum app registrado</p>';
+        if (countEl) countEl.textContent = '0';
+        return;
+    }
+
+    const sorted = [...apps].sort((a, b) =>
+        new Date(b.last_activity || 0) - new Date(a.last_activity || 0)
+    );
+
+    let html = '';
+    sorted.forEach(app => {
+        const matches = !q ||
+            (app.name || '').toLowerCase().includes(q) ||
+            (app.description || '').toLowerCase().includes(q) ||
+            (app.category || '').toLowerCase().includes(q);
+
+        const filteredClass = q && !matches ? ' filtered-out' : '';
+        if (!q || matches) visibleCount++;
+
+        const tc = tempClass(app.last_activity);
+
+        let primaryHref = '';
+        if (app.url) {
+            primaryHref = escapeHtml(app.url);
+        } else if (app.repo) {
+            primaryHref = `https://github.com/${escapeHtml(app.repo)}`;
+        }
+
+        const nameHtml = primaryHref
+            ? `<a class="project-name" href="${primaryHref}" target="_blank" rel="noopener">${escapeHtml(app.name)}</a>`
+            : `<span class="project-name">${escapeHtml(app.name)}</span>`;
+
+        let memBadge = '';
+        const appMemVal = getHealthValue(app.health, 'claude_memory_portable');
+        if (appMemVal === true)
+            memBadge = '<span class="badge-memory portable">\ud83e\udde0</span>';
+        else if (appMemVal === false)
+            memBadge = '<span class="badge-memory local-only">\u26a0<span class="badge-text"> mem\u00f3ria local</span></span>';
+        else
+            memBadge = '<span class="badge-memory"></span>';
+
+        html += `
+        <div class="project-row${filteredClass}">
+            <div class="temp-bar ${tc}"></div>
+            <span class="project-icon">${app.icon || '\ud83d\udce6'}</span>
+            <div class="project-name-wrap">
+                ${nameHtml}
+                ${app.slug ? `<span class="slug-badge">${escapeHtml(app.slug)}</span>` : ''}
+            </div>
+            <div class="project-desc">${escapeHtml(app.description || '')}</div>
+            ${memBadge}
+            <span class="project-date">${relativeDate(app.last_activity)}</span>
+        </div>`;
+    });
+
+    const scanText = relativeScanTime(lastScan);
+    html += `<div class="feed-footer">${scanText ? `\u00faltimo scan: ${scanText} \u00b7 ` : ''}${sorted.length} apps</div>`;
+
+    feed.innerHTML = html;
+    if (countEl) countEl.textContent = q ? `${visibleCount}/${sorted.length}` : `${sorted.length}`;
+}
+
+// ─── Skills Rendering ───
+
+function renderSkills(skills, filter) {
+    const grid = document.getElementById('skills-grid');
+    const countEl = document.getElementById('skills-count');
+    if (!grid) return;
+
+    const q = (filter || '').toLowerCase();
+    const entries = skills ? Object.entries(skills) : [];
+
+    if (!entries.length) {
+        grid.innerHTML = '<p class="empty-state">Nenhum skill detectado</p>';
+        if (countEl) countEl.textContent = '0';
+        return;
+    }
+
+    let visibleCount = 0;
+    let html = '';
+
+    entries.forEach(([slug, info], index) => {
+        const matches = !q ||
+            slug.toLowerCase().includes(q) ||
+            (info.scope || '').toLowerCase().includes(q) ||
+            (info.latest || '').toLowerCase().includes(q);
+
+        const filteredClass = q && !matches ? ' filtered-out' : '';
+        if (!q || matches) visibleCount++;
+
+        const scopeClass = info.scope === 'global' ? 'scope-global' : 'scope-repo';
+        const scopeLabel = info.scope === 'global' ? 'global' : 'repo';
+
+        const versions = info.versions || {};
+        const latest = info.latest || '';
+        const envEntries = Object.entries(versions);
+
+        // Check if any environment has an outdated version
+        const hasGap = envEntries.some(([, ver]) => ver !== latest);
+
+        let versionRows = '';
+        envEntries.forEach(([env, ver]) => {
+            const isOutdated = latest && ver !== latest;
+            const badge = isOutdated
+                ? `<span class="version-outdated-badge">desatualizado</span>`
+                : '';
+            versionRows += `
+            <tr>
+                <td>${escapeHtml(env)}</td>
+                <td class="${isOutdated ? 'version-outdated' : ''}">${escapeHtml(ver)}${badge}</td>
+            </tr>`;
+        });
+
+        const gapWarning = hasGap
+            ? `<div class="skill-gap-warning">\u26a0 vers\u00f5es divergem entre ambientes</div>`
+            : '';
+
+        html += `
+        <div class="skill-card${filteredClass}" style="animation-delay: ${index * 0.06}s">
+            <div class="skill-card-header">
+                <span class="scope-badge ${scopeClass}">${scopeLabel}</span>
+            </div>
+            <div class="skill-card-title">${escapeHtml(slug)}</div>
+            ${latest ? `<div class="skill-version-latest">latest: ${escapeHtml(latest)}</div>` : ''}
+            ${versionRows ? `<table class="skill-version-table"><tbody>${versionRows}</tbody></table>` : ''}
+            ${gapWarning}
+        </div>`;
+    });
+
+    grid.innerHTML = html;
+    if (countEl) countEl.textContent = q ? `${visibleCount}/${entries.length}` : `${entries.length}`;
+}
+
+// ─── Environments Rendering ───
+
+function renderEnvironments(environments, currentEnv, filter) {
+    const grid = document.getElementById('environments-grid');
+    const countEl = document.getElementById('environments-count');
+    if (!grid) return;
+
+    const q = (filter || '').toLowerCase();
+
+    if (!environments || !environments.length) {
+        grid.innerHTML = '<p class="empty-state">Nenhum ambiente registrado</p>';
+        if (countEl) countEl.textContent = '0';
+        return;
+    }
+
+    // Sort: current environment first, then alphabetical
+    const sorted = [...environments].sort((a, b) => {
+        const aCurrent = a.hostname === currentEnv ? -1 : 1;
+        const bCurrent = b.hostname === currentEnv ? -1 : 1;
+        if (aCurrent !== bCurrent) return aCurrent - bCurrent;
+        return (a.hostname || '').localeCompare(b.hostname || '');
+    });
+
+    let visibleCount = 0;
+    let html = '';
+
+    sorted.forEach((env, index) => {
+        const matches = !q ||
+            (env.hostname || '').toLowerCase().includes(q) ||
+            (env.location || '').toLowerCase().includes(q) ||
+            (env.os || '').toLowerCase().includes(q);
+
+        const filteredClass = q && !matches ? ' filtered-out' : '';
+        if (!q || matches) visibleCount++;
+
+        const isCurrent = env.hostname === currentEnv;
+        const currentClass = isCurrent ? ' is-current' : '';
+        const currentBadge = isCurrent
+            ? '<span class="env-current-badge">este</span>'
+            : '';
+
+        const location = env.location ? escapeHtml(env.location) : '';
+        const os = env.os ? escapeHtml(env.os) : '';
+        const projectCount = env.project_count != null ? env.project_count : '?';
+        const absentProjects = env.absent_projects || [];
+
+        const absentHtml = absentProjects.length
+            ? `<div class="env-absent-list">${absentProjects.map(p => `<span>${escapeHtml(p)}</span>`).join('')} ausente${absentProjects.length > 1 ? 's' : ''}</div>`
+            : '';
+
+        html += `
+        <div class="env-card${currentClass}${filteredClass}" style="animation-delay: ${index * 0.06}s">
+            <div class="env-card-header">
+                <div class="env-card-title">
+                    ${escapeHtml(env.hostname || 'desconhecido')}
+                    ${currentBadge}
+                </div>
+            </div>
+            ${location ? `<div class="env-location">${location}${os ? ' \u00b7 ' + os : ''}</div>` : (os ? `<div class="env-location">${os}</div>` : '')}
+            <div class="env-stats">
+                <span class="env-stat"><strong>${projectCount}</strong> projetos</span>
+                ${env.last_seen ? `<span class="env-stat">visto <strong>${relativeDate(env.last_seen)}</strong></span>` : ''}
+            </div>
+            ${absentHtml}
+            <div class="env-card-footer">
+                <span class="idea-card-date">${env.last_seen ? escapeHtml(env.last_seen.split('T')[0]) : ''}</span>
+            </div>
+        </div>`;
+    });
+
+    grid.innerHTML = html;
+    if (countEl) countEl.textContent = q ? `${visibleCount}/${sorted.length}` : `${sorted.length}`;
+}
+
 // ─── Tab & Filter ───
+
+const ALL_TABS = ['ideas', 'projects', 'apps', 'skills', 'environments', 'codex'];
 
 function switchTab(tab) {
     activeTab = tab;
@@ -313,28 +550,41 @@ function switchTab(tab) {
         btn.classList.toggle('active', btn.dataset.tab === tab);
     });
 
-    document.getElementById('ideas-section').style.display = tab === 'ideas' ? '' : 'none';
-    document.getElementById('projects-section').style.display = tab === 'projects' ? '' : 'none';
-    document.getElementById('codex-section').style.display = tab === 'codex' ? '' : 'none';
+    ALL_TABS.forEach(t => {
+        const el = document.getElementById(`${t}-section`);
+        if (el) el.style.display = t === tab ? '' : 'none';
+    });
 
     const filter = document.getElementById('search-desk').value ||
                    document.getElementById('search-mobile').value;
     if (tab === 'ideas') {
         renderIdeas(cachedIdeas, filter);
+    } else if (tab === 'projects') {
+        renderFeed(cachedProjects, cachedLastScan, filter);
+    } else if (tab === 'apps') {
+        renderApps(cachedApps, cachedLastScan, filter);
+    } else if (tab === 'skills') {
+        renderSkills(cachedSkills, filter);
+    } else if (tab === 'environments') {
+        renderEnvironments(cachedEnvironments, cachedCurrentEnvironment, filter);
     } else if (tab === 'codex') {
         renderCodex(cachedCodex, filter);
-    } else {
-        renderFeed(cachedProjects, cachedLastScan, filter);
     }
 }
 
 function applyFilter(value) {
     if (activeTab === 'ideas') {
         renderIdeas(cachedIdeas, value);
+    } else if (activeTab === 'projects') {
+        renderFeed(cachedProjects, cachedLastScan, value);
+    } else if (activeTab === 'apps') {
+        renderApps(cachedApps, cachedLastScan, value);
+    } else if (activeTab === 'skills') {
+        renderSkills(cachedSkills, value);
+    } else if (activeTab === 'environments') {
+        renderEnvironments(cachedEnvironments, cachedCurrentEnvironment, value);
     } else if (activeTab === 'codex') {
         renderCodex(cachedCodex, value);
-    } else {
-        renderFeed(cachedProjects, cachedLastScan, value);
     }
 }
 
@@ -343,6 +593,10 @@ function applyFilter(value) {
 async function init() {
     const data = await loadData();
     cachedProjects = data.projects || [];
+    cachedApps = data.apps || [];
+    cachedSkills = data.skills || {};
+    cachedEnvironments = data.environments || [];
+    cachedCurrentEnvironment = data.current_environment || null;
     cachedIdeas = data.ideas || [];
     cachedCodex = data.codex || [];
     cachedLastScan = data.last_full_scan;
@@ -350,6 +604,9 @@ async function init() {
     renderAlerts(cachedProjects);
     renderIdeas(cachedIdeas);
     renderFeed(cachedProjects, cachedLastScan);
+    renderApps(cachedApps, cachedLastScan);
+    renderSkills(cachedSkills);
+    renderEnvironments(cachedEnvironments, cachedCurrentEnvironment);
     renderCodex(cachedCodex);
 
     // Tabs

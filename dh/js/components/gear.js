@@ -1,6 +1,6 @@
 // gear.js — Gear loadouts component
 const Gear = {
-  _view: 'loadouts',
+  _view: 'quick-ref',
 
   // Equipment image IDs from dragonheir.info (S1 Legendary)
   _imgIds: {
@@ -72,8 +72,9 @@ const Gear = {
 
     // --- View tabs ---
     const tabs = [
-      { id: 'loadouts', label: 'Loadouts' },
-      { id: 'inventory', label: 'Inventario' },
+      { id: 'quick-ref', label: 'Referência Rápida' },
+      { id: 'montagem', label: 'Guia de Montagem' },
+      { id: 'inventory', label: 'Inventário' },
       { id: 'sets', label: 'Sets' }
     ];
     const tabBar = R.el('div', { className: 'flex gap-1.5 mb-4' });
@@ -105,20 +106,139 @@ const Gear = {
   _renderView(el, data) {
     el.innerHTML = '';
     switch (this._view) {
-      case 'loadouts': this._renderLoadouts(el, data); break;
+      case 'quick-ref': this._renderQuickRef(el, data); break;
+      case 'montagem': this._renderMontagem(el, data); break;
       case 'inventory': this._renderInventory(el, data); break;
       case 'sets': this._renderSets(el, data); break;
     }
   },
 
-  // ===== LOADOUTS VIEW (23 individual hero loadouts) =====
-  _renderLoadouts(el, data) {
+  // ===== QUICK REFERENCE VIEW (compact table, daily use) =====
+  _renderQuickRef(el, data) {
     const plans = data.gear_plans || [];
     if (!plans.length) {
       el.appendChild(R.el('div', { className: 'text-center text-gray-500 py-8', textContent: 'Nenhum loadout definido.' }));
       return;
     }
 
+    const { profileColors, profileStats, profileOrder, groups } = this._groupByProfile(plans);
+    const container = R.el('div', { className: 'space-y-4' });
+
+    for (const profileId of profileOrder) {
+      const groupPlans = groups[profileId];
+      if (!groupPlans) continue;
+      const color = profileColors[profileId] || 'gold';
+      const stats = profileStats[profileId] || [];
+
+      const section = R.el('div', {
+        className: `bg-surface-card rounded-lg border border-surface-hover border-l-2 border-l-${color} overflow-hidden`
+      });
+
+      // Profile header
+      section.appendChild(R.el('div', { className: `flex items-center gap-2 px-3 py-2 bg-${color}/5 flex-wrap` }, [
+        R.el('span', { className: `text-xs font-bold text-${color}`, textContent: profileId.toUpperCase().replace(/-/g, ' ') }),
+        ...stats.map(s => R.el('span', {
+          className: `text-[9px] px-1.5 py-0.5 rounded-full bg-${color}/15 text-${color} border border-${color}/20`,
+          textContent: s
+        })),
+        R.el('span', { className: 'text-[10px] text-gray-500', textContent: `${groupPlans.length} loadout${groupPlans.length > 1 ? 's' : ''}` })
+      ]));
+
+      // Table
+      const table = R.el('table', { className: 'w-full text-xs' });
+
+      // Header row (desktop only)
+      table.appendChild(R.el('thead', { className: 'hidden md:table-header-group' }, [
+        R.el('tr', { className: 'text-[10px] text-gray-500 uppercase tracking-wide' }, [
+          R.el('th', { className: 'text-left px-3 py-1.5 font-medium', textContent: 'Herói' }),
+          R.el('th', { className: 'text-left px-3 py-1.5 font-medium', textContent: 'Loadout' }),
+          R.el('th', { className: 'text-left px-3 py-1.5 font-medium', textContent: 'Sets' }),
+          R.el('th', { className: 'text-left px-3 py-1.5 font-medium', textContent: 'Totais' }),
+          R.el('th', { className: 'text-center px-2 py-1.5 font-medium w-8', textContent: '' })
+        ])
+      ]));
+
+      const tbody = R.el('tbody');
+      for (const plan of groupPlans) {
+        tbody.appendChild(this._quickRefRow(plan, color));
+      }
+      table.appendChild(tbody);
+      section.appendChild(table);
+      container.appendChild(section);
+    }
+
+    el.appendChild(container);
+  },
+
+  _quickRefRow(plan, color) {
+    const heroId = R.heroIdByName(plan.hero);
+    const noConflict = !plan.sharing || !plan.sharing.length;
+    const setNames = (plan.pieces || []).map(p => p.set.replace(/'s? .*/, '')).join(' · ');
+
+    // Desktop row
+    const row = R.el('tr', {
+      className: 'border-t border-surface-hover/50 hover:bg-surface-hover/30 cursor-pointer hidden md:table-row',
+      onClick: () => { if (heroId) Heroes._openDetail(heroId); }
+    }, [
+      // Hero
+      R.el('td', { className: 'px-3 py-2' }, [
+        R.el('div', { className: 'flex items-center gap-2' }, [
+          heroId ? R.heroImg(heroId, 24, { height: 30, className: 'rounded' }) : null,
+          R.el('span', { className: 'font-medium text-gray-200', textContent: plan.hero })
+        ].filter(Boolean))
+      ]),
+      // Loadout badge (clickable → montagem)
+      R.el('td', { className: 'px-3 py-2' }, [
+        R.el('span', {
+          className: `text-[10px] px-2 py-0.5 rounded-full bg-${color}/15 text-${color} border border-${color}/20 font-bold cursor-pointer hover:bg-${color}/25`,
+          textContent: plan.name,
+          onClick: (e) => {
+            e.stopPropagation();
+            this._navigateToMontagem(plan.name);
+          }
+        })
+      ]),
+      // Sets
+      R.el('td', { className: 'px-3 py-2 text-[10px] text-gray-500 max-w-[200px] truncate', textContent: setNames }),
+      // Totals
+      R.el('td', { className: 'px-3 py-2 text-[11px] font-semibold text-white', textContent: plan.totals || '' }),
+      // Status
+      R.el('td', { className: 'px-2 py-2 text-center text-[10px]', textContent: noConflict ? '✅' : '🔄',
+        title: noConflict ? 'Sem conflito' : (plan.sharing || []).join(', ')
+      })
+    ]);
+
+    // Mobile card (shown instead of row on small screens)
+    const mobileCard = R.el('tr', {
+      className: 'md:hidden border-t border-surface-hover/50',
+      onClick: () => { if (heroId) Heroes._openDetail(heroId); }
+    }, [
+      R.el('td', { className: 'px-3 py-2', colSpan: '5' }, [
+        R.el('div', { className: 'flex items-center gap-2 cursor-pointer' }, [
+          heroId ? R.heroImg(heroId, 28, { height: 34, className: 'rounded' }) : null,
+          R.el('div', { className: 'flex-1 min-w-0' }, [
+            R.el('div', { className: 'flex items-center gap-1.5 flex-wrap' }, [
+              R.el('span', { className: 'font-medium text-gray-200 text-xs', textContent: plan.hero }),
+              R.el('span', {
+                className: `text-[9px] px-1.5 py-0.5 rounded-full bg-${color}/15 text-${color} border border-${color}/20 font-bold`,
+                textContent: plan.name
+              }),
+              R.el('span', { className: 'text-[9px]', textContent: noConflict ? '✅' : '🔄' })
+            ]),
+            plan.totals ? R.el('div', { className: 'text-[10px] text-gray-500 mt-0.5', textContent: plan.totals }) : null
+          ].filter(Boolean))
+        ].filter(Boolean))
+      ])
+    ]);
+
+    // Return both as a fragment
+    const frag = document.createDocumentFragment();
+    frag.appendChild(row);
+    frag.appendChild(mobileCard);
+    return frag;
+  },
+
+  _groupByProfile(plans) {
     const profileColors = {
       'dps-crit': 'fire', 'dps-atk': 'fire',
       'atk-acc': 'lightning', 'atk-enlight': 'poison',
@@ -135,16 +255,39 @@ const Gear = {
       'hp-enlight': ['HP%', 'Enlight'], 'hp-def-enlight': ['HP%', 'DEF%', 'Enlight'],
       'def': ['DEF%']
     };
-
-    // Group by profile (maintain order)
     const profileOrder = ['dps-crit', 'dps-atk', 'atk-acc', 'atk-enlight', 'acc', 'enlight', 'hp-acc', 'hp-atk-acc', 'hp-enlight', 'hp-def-enlight', 'def'];
     const groups = {};
     for (const p of plans) {
       if (!groups[p.profile]) groups[p.profile] = [];
       groups[p.profile].push(p);
     }
+    return { profileColors, profileStats, profileOrder, groups };
+  },
 
-    const container = R.el('div', { className: 'space-y-5' });
+  _navigateToMontagem(loadoutName) {
+    this._view = 'montagem';
+    App.navigate('gear');
+    setTimeout(() => {
+      // Re-render with montagem view
+      const content = document.getElementById('content');
+      if (content) { content.innerHTML = ''; this.render(content); }
+      setTimeout(() => {
+        const target = document.getElementById('montagem-' + loadoutName.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }, 50);
+  },
+
+  // ===== MONTAGEM VIEW (detailed cards with equipment photos) =====
+  _renderMontagem(el, data) {
+    const plans = data.gear_plans || [];
+    if (!plans.length) {
+      el.appendChild(R.el('div', { className: 'text-center text-gray-500 py-8', textContent: 'Nenhum loadout definido.' }));
+      return;
+    }
+
+    const { profileColors, profileStats, profileOrder, groups } = this._groupByProfile(plans);
+    const container = R.el('div', { className: 'space-y-6' });
 
     for (const profileId of profileOrder) {
       const groupPlans = groups[profileId];
@@ -152,13 +295,8 @@ const Gear = {
       const color = profileColors[profileId] || 'gold';
       const stats = profileStats[profileId] || [];
 
-      const section = R.el('div', {
-        className: `bg-surface-card rounded-lg border border-surface-hover border-l-2 border-l-${color} p-4`,
-        id: `loadout-group-${profileId}`
-      });
-
       // Profile header
-      section.appendChild(R.el('div', { className: 'flex items-center gap-2 mb-3 flex-wrap' }, [
+      container.appendChild(R.el('div', { className: 'flex items-center gap-2 flex-wrap' }, [
         R.el('span', { className: `text-sm font-bold text-${color}`, textContent: profileId.toUpperCase().replace(/-/g, ' ') }),
         ...stats.map(s => R.el('span', {
           className: `text-[10px] px-1.5 py-0.5 rounded-full bg-${color}/15 text-${color} border border-${color}/20`,
@@ -167,78 +305,144 @@ const Gear = {
         R.el('span', { className: 'text-xs text-gray-500', textContent: `${groupPlans.length} loadout${groupPlans.length > 1 ? 's' : ''}` })
       ]));
 
-      // Hero loadout cards
-      const grid = R.el('div', { className: 'grid grid-cols-1 sm:grid-cols-2 gap-3' });
+      // Cards
       for (const plan of groupPlans) {
-        grid.appendChild(this._loadoutPlanCard(plan, color));
+        container.appendChild(this._montagemCard(plan, color));
       }
-      section.appendChild(grid);
-      container.appendChild(section);
     }
 
     el.appendChild(container);
   },
 
-  _loadoutPlanCard(plan, color) {
+  _montagemCard(plan, color) {
     const heroId = R.heroIdByName(plan.hero);
     const noConflict = !plan.sharing || !plan.sharing.length;
+    const slotLabels = { weapon: 'Weapon', helmet: 'Helmet', armor: 'Armor', gloves: 'Gloves' };
 
-    return R.el('div', {
-      className: 'bg-surface rounded-lg p-3 hover:bg-surface-hover transition-colors cursor-pointer',
-      id: `loadout-${plan.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
-      onClick: () => { if (heroId) Heroes._openDetail(heroId); }
-    }, [
-      // Hero portrait + name + loadout badge + conflict
-      R.el('div', { className: 'flex items-center gap-2 mb-2' }, [
-        heroId ? R.heroImg(heroId, 36, { height: 44 }) : null,
-        R.el('div', { className: 'flex-1 min-w-0' }, [
-          R.el('div', { className: 'flex items-center gap-1.5 flex-wrap' }, [
-            R.el('span', { className: 'text-sm font-medium text-gold', textContent: plan.hero }),
-            R.el('span', {
-              className: `text-[10px] px-1.5 py-0.5 rounded bg-${color}/15 text-${color} border border-${color}/20 font-bold`,
-              textContent: plan.name
-            }),
-            R.el('span', {
-              className: `text-[10px] ${noConflict ? 'text-done' : 'text-yellow-400'}`,
-              textContent: noConflict ? '\u2705' : '\uD83D\uDD04',
-              title: noConflict ? 'Sem conflito de pecas' : 'Peca compartilhada'
-            })
-          ]),
-          R.el('span', { className: 'text-[10px] text-gray-500 block', textContent: `freq ${plan.freq}` })
-        ])
-      ].filter(Boolean)),
-      // Pieces table (4 rows: weapon, helmet, armor, gloves)
-      R.el('div', { className: 'space-y-1 mb-2' },
-        (plan.pieces || []).map(pc => {
-          const slotIcons = { weapon: '\u2694\uFE0F', helmet: '\uD83E\uDE96', armor: '\uD83D\uDEE1\uFE0F', gloves: '\uD83E\uDDE4' };
-          const lvBad = pc.lv === 0;
-          return R.el('div', { className: `flex items-start gap-1.5 text-[10px] ${lvBad ? 'opacity-50' : ''}` }, [
-            R.el('span', { className: 'shrink-0 w-4 text-center', textContent: slotIcons[pc.slot] || '' }),
-            R.el('div', { className: 'flex-1 min-w-0' }, [
-              R.el('div', { className: 'flex items-center gap-1 flex-wrap' }, [
-                pc.mythic ? R.el('span', { className: 'text-mythic font-bold', textContent: '\u2B50' }) : null,
-                R.el('span', { className: `font-medium ${pc.mythic ? 'text-mythic' : 'text-gray-300'}`, textContent: pc.set }),
-                R.el('span', { className: `${lvBad ? 'text-red-400' : 'text-gray-500'}`, textContent: lvBad ? 'lv0' : '' })
-              ].filter(Boolean)),
-              R.el('div', { className: 'flex items-center gap-1.5 flex-wrap' }, [
-                R.el('span', { className: 'text-white font-bold', textContent: pc.main }),
-                ...(pc.subs || []).map(s => R.el('span', { className: 'text-gray-500', textContent: s }))
-              ])
-            ])
-          ]);
-        })
-      ),
-      // Set bonus
-      plan.set_bonus ? R.el('div', { className: 'text-[10px] text-gold/80 mb-0.5', textContent: '\uD83D\uDD17 ' + plan.set_bonus }) : null,
-      // Mythic effect
-      plan.mythic_effect ? R.el('div', { className: 'text-[10px] text-mythic mb-0.5', textContent: '\u2B50 ' + plan.mythic_effect }) : null,
-      // Totals
-      R.el('div', { className: 'text-[10px] font-medium text-white', textContent: plan.totals }),
-      // Sharing info
-      ...((!noConflict && plan.sharing) ? plan.sharing.map(s =>
-        R.el('div', { className: 'text-[9px] text-yellow-400/70 mt-0.5', textContent: '\uD83D\uDD04 ' + s })
-      ) : [])
-    ].filter(Boolean));
+    const card = R.el('div', {
+      className: `bg-surface-card rounded-lg p-4 border border-surface-hover border-l-2 border-l-${color}`,
+      id: `montagem-${plan.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
+    });
+
+    // Header: hero portrait + name + loadout badge + status
+    card.appendChild(R.el('div', { className: 'flex items-center gap-3 mb-3' }, [
+      heroId ? R.heroImg(heroId, 40, { height: 48, className: 'rounded-lg cursor-pointer',
+        onClick: () => Heroes._openDetail(heroId) }) : null,
+      R.el('div', { className: 'flex-1' }, [
+        R.el('div', { className: 'flex items-center gap-2 flex-wrap' }, [
+          R.el('span', { className: 'text-sm font-bold text-gold', textContent: plan.hero }),
+          R.el('span', {
+            className: `text-[10px] px-2 py-0.5 rounded-full bg-${color}/15 text-${color} border border-${color}/20 font-bold`,
+            textContent: plan.name
+          }),
+          R.el('span', {
+            className: `text-xs ${noConflict ? 'text-done' : 'text-yellow-400'}`,
+            textContent: noConflict ? '✅' : '🔄',
+            title: noConflict ? 'Sem conflito' : (plan.sharing || []).join(', ')
+          })
+        ]),
+        R.el('span', { className: 'text-[10px] text-gray-500', textContent: `freq ${plan.freq}` })
+      ])
+    ].filter(Boolean)));
+
+    // 4 pieces in horizontal grid
+    const piecesGrid = R.el('div', { className: 'grid grid-cols-2 md:grid-cols-4 gap-2 mb-3' });
+    for (const pc of (plan.pieces || [])) {
+      const lvBad = pc.lv === 0;
+      const pieceEl = R.el('div', {
+        className: `bg-surface rounded-lg p-2 border ${pc.mythic ? 'border-mythic/40' : lvBad ? 'border-red-500/30' : 'border-surface-hover'} text-center`
+      });
+
+      // Equipment image or fallback emoji
+      const img = pc.img ? this._gearImg(this._findSetPieceName(pc), 52) : null;
+      if (img) {
+        img.className = 'mx-auto mb-1.5 rounded-lg';
+        img.style.width = '52px';
+        img.style.height = '52px';
+        pieceEl.appendChild(img);
+      } else {
+        const slotEmojis = { weapon: '⚔️', helmet: '🪖', armor: '🛡️', gloves: '🧤' };
+        pieceEl.appendChild(R.el('div', {
+          className: 'w-[52px] h-[52px] mx-auto mb-1.5 rounded-lg bg-surface-hover flex items-center justify-center text-2xl',
+          textContent: slotEmojis[pc.slot] || '❓'
+        }));
+      }
+
+      // Slot label
+      pieceEl.appendChild(R.el('div', {
+        className: 'text-[9px] text-gray-500 uppercase tracking-wider mb-0.5',
+        textContent: slotLabels[pc.slot] || pc.slot
+      }));
+
+      // Set name
+      pieceEl.appendChild(R.el('div', {
+        className: `text-[10px] font-semibold mb-1 ${pc.mythic ? 'text-mythic' : 'text-gray-200'}`,
+        textContent: (pc.mythic ? '⭐ ' : '') + pc.set
+      }));
+
+      // Main stat
+      pieceEl.appendChild(R.el('div', {
+        className: 'text-xs font-bold text-white mb-0.5',
+        textContent: pc.main
+      }));
+
+      // Subs
+      if (pc.subs && pc.subs.length) {
+        pieceEl.appendChild(R.el('div', { className: 'text-[9px] text-gray-500 leading-relaxed' },
+          pc.subs.map(s => R.el('div', { textContent: s }))
+        ));
+      }
+
+      // Level warning
+      if (lvBad) {
+        pieceEl.appendChild(R.el('div', { className: 'text-[9px] text-red-400 mt-0.5 font-bold', textContent: '⚠ lv0' }));
+      }
+
+      piecesGrid.appendChild(pieceEl);
+    }
+    card.appendChild(piecesGrid);
+
+    // Footer: mythic effect + set bonus + totals
+    if (plan.set_bonus) {
+      card.appendChild(R.el('div', { className: 'text-[10px] text-gold/80 mb-0.5', textContent: '🔗 ' + plan.set_bonus }));
+    }
+    if (plan.mythic_effect) {
+      card.appendChild(R.el('div', { className: 'text-[10px] text-mythic mb-0.5', textContent: '⭐ ' + plan.mythic_effect }));
+    }
+    if (plan.totals) {
+      card.appendChild(R.el('div', { className: 'text-xs font-bold text-white', textContent: plan.totals }));
+    }
+
+    // Sharing info
+    if (!noConflict && plan.sharing) {
+      for (const s of plan.sharing) {
+        card.appendChild(R.el('div', { className: 'text-[9px] text-yellow-400/70 mt-0.5', textContent: '🔄 ' + s }));
+      }
+    }
+
+    return card;
+  },
+
+  // Map structured piece to a name that _gearImg can look up
+  _findSetPieceName(pc) {
+    for (const name of Object.keys(this._imgIds)) {
+      if (name.toLowerCase().includes(pc.set.split(' ')[0].toLowerCase())) {
+        const nameLower = name.toLowerCase();
+        if (pc.slot === 'weapon' && !nameLower.includes('helmet') && !nameLower.includes('gloves') && !nameLower.includes('armor') && !nameLower.includes('light armor') && !nameLower.includes('heavy armor') && !nameLower.includes('robe') && !nameLower.includes('chain') && !nameLower.includes('hood') && !nameLower.includes('headgear') && !nameLower.includes('crown') && !nameLower.includes('cloak')) {
+          return name;
+        }
+        if (pc.slot === 'helmet' && (nameLower.includes('helmet') || nameLower.includes('hood') || nameLower.includes('headgear') || nameLower.includes('crown'))) {
+          return name;
+        }
+        if (pc.slot === 'armor' && (nameLower.includes('armor') || nameLower.includes('robe') || nameLower.includes('chain') || nameLower.includes('cloak'))) {
+          return name;
+        }
+        if (pc.slot === 'gloves' && nameLower.includes('gloves')) {
+          return name;
+        }
+      }
+    }
+    return pc.set; // fallback
   },
 
   // Find gear plan/loadout for a hero by name

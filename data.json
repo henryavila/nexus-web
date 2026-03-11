@@ -1,6 +1,7 @@
 {
-  "version": "2.1",
-  "last_full_scan": "2026-03-11T04:41:14",
+  "version": "3.0",
+  "last_full_scan": "2026-03-11T10:14:51",
+  "current_environment": "ULTRON",
   "projects": [
     {
       "name": "nexus",
@@ -18,17 +19,23 @@
       "git": {
         "branch": "main",
         "last_commit_date": "2026-03-11",
-        "last_commit_message": "docs: update implementation plan after third review pass",
-        "dirty": true
+        "last_commit_message": "update portable memory with v3 learnings (environments, apps, skills)",
+        "dirty": false
       },
       "filesystem": null,
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
-        "web_compliant": null
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": true
+        },
+        "web_compliant": {
+          "ULTRON": null
+        }
       },
       "web": null,
-      "last_scanned": "2026-03-11T04:39:41"
+      "last_scanned": "2026-03-11T10:09:44"
     },
     {
       "name": "Dragon Heir",
@@ -45,19 +52,25 @@
       "last_activity": "2026-03-11",
       "git": null,
       "filesystem": {
-        "last_modified_file": "app/js/app.js",
+        "last_modified_file": "screenshots/gear-mobile-quickref.png",
         "last_modified_date": "2026-03-11"
       },
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
-        "web_compliant": true
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": true
+        },
+        "web_compliant": {
+          "ULTRON": true
+        }
       },
       "web": {
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-11T04:39:42"
+      "last_scanned": "2026-03-11T10:09:48"
     },
     {
       "name": "CRCMG",
@@ -78,12 +91,18 @@
         "last_modified_date": "2026-03-09"
       },
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
-        "web_compliant": null
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": true
+        },
+        "web_compliant": {
+          "ULTRON": null
+        }
       },
       "web": null,
-      "last_scanned": "2026-03-11T04:39:54"
+      "last_scanned": "2026-03-11T10:10:30"
     },
     {
       "name": "IASD",
@@ -104,12 +123,18 @@
         "last_modified_date": "2026-03-03"
       },
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
-        "web_compliant": null
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": true
+        },
+        "web_compliant": {
+          "ULTRON": null
+        }
       },
       "web": null,
-      "last_scanned": "2026-03-11T04:39:55"
+      "last_scanned": "2026-03-11T10:10:40"
     },
     {
       "name": "IA Builder",
@@ -132,12 +157,18 @@
       },
       "filesystem": null,
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": null,
-        "web_compliant": null
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": null
+        },
+        "web_compliant": {
+          "ULTRON": null
+        }
       },
       "web": null,
-      "last_scanned": "2026-03-11T04:39:55"
+      "last_scanned": "2026-03-11T10:10:45"
     },
     {
       "name": "Mnemo",
@@ -160,12 +191,18 @@
       },
       "filesystem": null,
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
-        "web_compliant": null
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": true
+        },
+        "web_compliant": {
+          "ULTRON": null
+        }
       },
       "web": null,
-      "last_scanned": "2026-03-11T04:39:55"
+      "last_scanned": "2026-03-11T10:10:46"
     },
     {
       "name": "WSL Config",
@@ -186,12 +223,18 @@
         "last_modified_date": "2026-02-26"
       },
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": null,
-        "web_compliant": null
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": null
+        },
+        "web_compliant": {
+          "ULTRON": null
+        }
       },
       "web": null,
-      "last_scanned": "2026-03-11T04:39:55"
+      "last_scanned": "2026-03-11T10:10:47"
     },
     {
       "name": "Livros",
@@ -214,12 +257,18 @@
       },
       "filesystem": null,
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": null,
-        "web_compliant": null
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": null
+        },
+        "web_compliant": {
+          "ULTRON": null
+        }
       },
       "web": null,
-      "last_scanned": "2026-03-11T04:39:56"
+      "last_scanned": "2026-03-11T10:10:55"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -242,12 +291,18 @@
       },
       "filesystem": null,
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
-        "web_compliant": null
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": true
+        },
+        "web_compliant": {
+          "ULTRON": null
+        }
       },
       "web": null,
-      "last_scanned": "2026-03-11T04:39:57"
+      "last_scanned": "2026-03-11T10:10:58"
     },
     {
       "name": "Incidentes-Getin",
@@ -268,12 +323,18 @@
         "last_modified_date": "2026-02-26"
       },
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": null,
-        "web_compliant": null
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": null
+        },
+        "web_compliant": {
+          "ULTRON": null
+        }
       },
       "web": null,
-      "last_scanned": "2026-03-11T04:39:57"
+      "last_scanned": "2026-03-11T10:10:59"
     },
     {
       "name": "My Finance",
@@ -296,15 +357,21 @@
       },
       "filesystem": null,
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": null,
-        "web_compliant": true
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": null
+        },
+        "web_compliant": {
+          "ULTRON": true
+        }
       },
       "web": {
         "route": "/finance",
         "has_output": true
       },
-      "last_scanned": "2026-03-11T04:40:02"
+      "last_scanned": "2026-03-11T10:11:35"
     },
     {
       "name": "Development",
@@ -325,12 +392,18 @@
         "last_modified_date": "2026-03-06"
       },
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": null,
-        "web_compliant": null
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": null
+        },
+        "web_compliant": {
+          "ULTRON": null
+        }
       },
       "web": null,
-      "last_scanned": "2026-03-11T04:41:12"
+      "last_scanned": "2026-03-11T10:14:27"
     },
     {
       "name": "Empreendimentos",
@@ -351,12 +424,18 @@
         "last_modified_date": "2026-02-27"
       },
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": true,
-        "web_compliant": null
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": true
+        },
+        "web_compliant": {
+          "ULTRON": null
+        }
       },
       "web": null,
-      "last_scanned": "2026-03-11T04:41:13"
+      "last_scanned": "2026-03-11T10:14:41"
     },
     {
       "name": "Watcher of Realms",
@@ -377,17 +456,43 @@
         "last_modified_date": "2026-03-10"
       },
       "health": {
-        "path_exists": true,
-        "claude_memory_portable": null,
-        "web_compliant": false
+        "path_exists": {
+          "ULTRON": true
+        },
+        "claude_memory_portable": {
+          "ULTRON": null
+        },
+        "web_compliant": {
+          "ULTRON": false
+        }
       },
       "web": {
         "route": "/wor",
         "has_output": false
       },
-      "last_scanned": "2026-03-11T04:41:14"
+      "last_scanned": "2026-03-11T10:14:50"
     }
   ],
+  "apps": [
+    {
+      "name": "SDA",
+      "slug": "sda",
+      "description": "Gestor de Igrejas Adventista (antigo IASD Virtual)",
+      "icon": null,
+      "category": "Empreendimentos",
+      "github": "virtualsda/virtualsda",
+      "url": "ermelinda.localhost"
+    }
+  ],
+  "environments": [
+    {
+      "hostname": "ULTRON",
+      "name": "ULTRON",
+      "location": "Casa",
+      "last_seen": "2026-03-11"
+    }
+  ],
+  "skills": {},
   "ideas": [
     {
       "id": "708304e4",
@@ -410,6 +515,18 @@
       "tags": [
         "dev"
       ]
+    },
+    {
+      "id": "5cfaf5c4",
+      "title": "CRCMG - Sincronizacao grupos e-mail",
+      "description": "Sincroziar automaticamente os grupos de e-mail do CRCMG. Confirmacao manual?",
+      "category": "trabalho",
+      "priority": "low",
+      "created": "2026-03-11",
+      "tags": [
+        "crcmg",
+        "sync"
+      ]
     }
   ],
   "codex": [
@@ -421,6 +538,19 @@
       "updated": "2026-03-09",
       "content": "# Guia de Fluxos BMAD — Escolhendo o Fluxo Certo\n\n> Guia prático para escolher o fluxo BMAD ideal com base no tamanho do projeto, complexidade e quem detém o conhecimento do domínio.\n\n## Matriz de Decisão\n\n| Situação                                 | Escopo                      | Complexidade | Fluxo Recomendado                    |\n| ---------------------------------------- | --------------------------- | ------------ | ------------------------------------ |\n| PO/stakeholder com ideia de produto novo | Produto completo / SaaS     | Alta         | **Full BMAD**                        |\n| PO/stakeholder adicionando módulo grande | Multi-épico                 | Alta         | **Full BMAD**                        |\n| Dev com domínio total da necessidade     | Feature grande (multi-área) | Alta         | **Quick Spec + Shard + Dev**         |\n| Dev com domínio total da necessidade     | Feature média (área única)  | Média        | **Quick Spec + Dev**                 |\n| Dev com domínio total da necessidade     | Mudança pequena / bugfix    | Baixa        | **Quick Dev (direto)**               |\n| Dev que precisa explorar primeiro        | Complexidade desconhecida   | Varia        | **Quick Spec (descobrir) → decidir** |\n\n---\n\n## Fluxo 1: Full BMAD (Produto Novo / Módulo Grande)\n\n**Quando usar**: Você está criando algo novo e o PO/stakeholder é quem tem os requisitos. Domínio complexo, múltiplos stakeholders, precisa de planejamento formal.\n\n**Exemplos**: Novo SaaS, novo módulo de negócio, redesign de sistema, integração grande.\n\n**Características**:\n\n- Requisitos vêm do stakeholder, não do dev\n- Múltiplos épicos, muitas stories\n- Decisões de arquitetura necessárias\n- Preocupações transversais (auth, infra, UX)\n- Semanas/meses de trabalho\n\n**Passo a passo**:\n\n```\nFase 1 — Análise (opcional mas recomendado)\n  /bmad-brainstorming              → Ideação, explorar conceitos\n  /bmad-bmm-market-research        → Análise de mercado (se aplicável)\n  /bmad-bmm-create-product-brief   → Consolidar a ideia\n\nFase 2 — Planejamento (obrigatório)\n  /bmad-bmm-create-prd             → Documento de Requisitos do Produto\n  /bmad-bmm-validate-prd           → Validar PRD (usar LLM diferente se possível)\n  /bmad-bmm-create-ux-design       → Spec de UX (se tiver UI pesada)\n\nFase 3 — Solução (obrigatório)\n  /bmad-bmm-create-architecture    → Decisões técnicas\n  /bmad-bmm-create-epics-and-stories → Quebrar em épicos + stories\n  /bmad-bmm-check-implementation-readiness → Gate: está tudo alinhado?\n\nFase 4 — Implementação (ciclo por story)\n  /bmad-bmm-sprint-planning        → Gerar plano do sprint\n  Para cada story:\n    /bmad-bmm-create-story         → Preparar story com contexto completo\n    /bmad-bmm-dev-story            → Implementar (NOVO contexto)\n    /bmad-bmm-code-review          → Verificar (LLM diferente recomendado)\n    → Se problemas: volta para dev-story\n    → Se aprovado: próxima story\n  /bmad-bmm-retrospective          → Lições aprendidas pós-épico\n```\n\n**Regras importantes**:\n\n- Cada workflow roda em **janela de contexto nova**\n- Workflows de validação se beneficiam de **LLM diferente** (validação cruzada)\n- Nunca pular `check-implementation-readiness` — pega desalinhamentos cedo\n\n---\n\n## Fluxo 2: Quick Spec + Shard + Dev (Feature Grande, Dev no Comando)\n\n**Quando usar**: Você é o dev, sabe exatamente o que precisa, mas o escopo é grande o suficiente para que implementar de uma vez cause perda de itens. Múltiplas áreas do código afetadas, múltiplas preocupações (models, UI, import, relatórios, etc.).\n\n**Exemplos**: Módulo de gestão de vulnerabilidades, refatoração grande de relatório, CRUD + import + dashboard + relatório, integração complexa com múltiplos pontos.\n\n**Como saber que precisa deste fluxo**:\n\n- O spec vai passar de ~200 linhas\n- Implementação toca 3+ áreas (models, services, views, etc.)\n- Você estima 4+ horas de código\n- Existem áreas funcionais distintas que podem ser implementadas independentemente\n\n**Passo a passo**:\n\n```\nEspecificação\n  /bmad-bmm-quick-spec             → Spec completo com investigação profunda\n                                      (Steps 1-4: entender, investigar, gerar, revisar)\n\nDividir\n  /bmad-shard-doc                  → Dividir spec em sub-specs por área funcional\n                                      Shards típicos:\n                                      - Modelo de dados e migrações\n                                      - Serviço principal / lógica de negócio\n                                      - Import / integração\n                                      - UI / dashboard / CRUD\n                                      - Relatórios / exports\n                                      - Auxiliares (base de conhecimento, config, etc.)\n\nImplementação (por shard, cada um em NOVO contexto)\n  /bmad-bmm-quick-dev              → Implementar sub-spec\n  /bmad-bmm-code-review            → Verificar contra o sub-spec\n\nRevisão pós-implementação (opcional)\n  /bmad-review-adversarial-general → Revisão crítica do todo\n  /bmad-review-edge-case-hunter    → Encontrar edge cases não tratados\n```\n\n**Regras importantes**:\n\n- A fase de Quick Spec É completa (4 etapas com investigação profunda) — não apresse\n- Dividir por **área funcional**, não por tamanho arbitrário\n- Cada Quick Dev recebe seu próprio **contexto novo** com apenas seu sub-spec carregado\n- Code Review após CADA shard, não só no final\n- Ordenar shards por dependência: modelo de dados primeiro, depois services, depois UI\n\n**Por que funciona**:\n\n- Cada sub-spec cabe confortavelmente no contexto do agente dev\n- Code review pega itens perdidos por shard (escopo pequeno = mais fácil verificar)\n- Se algo foi esquecido, você descobre antes de construir em cima\n\n---\n\n## Fluxo 3: Quick Spec + Dev (Feature Média, Dev no Comando)\n\n**Quando usar**: Você sabe o que precisa, escopo é contido, afeta 1-2 áreas do código, pode ser implementado em uma sessão.\n\n**Exemplos**: Novo resource Filament com lógica custom, nova seção de relatório, refatoração de service existente, novo import para formato conhecido, CRUD com regras de negócio específicas.\n\n**Como saber que este fluxo é suficiente**:\n\n- Spec terá ~50-150 linhas\n- Implementação toca 1-2 áreas\n- Você estima 1-3 horas de código\n- Não precisa dividir — é uma peça coerente de trabalho\n\n**Passo a passo**:\n\n```\n  /bmad-bmm-quick-spec             → Spec (Steps 1-4)\n  /bmad-bmm-quick-dev              → Implementar (NOVO contexto)\n  /bmad-bmm-code-review            → Verificar (opcional mas recomendado)\n```\n\n**Regras importantes**:\n\n- Implementar em **contexto novo** (não reusar a conversa do spec)\n- Se durante a implementação perceber que o escopo foi subestimado → pare, volte ao spec, considere o Fluxo 2 com Shard\n- Code review é opcional aqui mas pega ~20% mais problemas\n\n---\n\n## Fluxo 4: Quick Dev Direto (Mudança Pequena, Dev no Comando)\n\n**Quando usar**: Mudança pequena, bem definida, sem ambiguidade. Você consegue descrever o que quer em poucas frases e o agente implementa.\n\n**Exemplos**: Adicionar coluna numa tabela, corrigir bug, ajustar query, mudar validação, adicionar filtro, renomear/mover algo, mudança de config.\n\n**Como saber que este fluxo é suficiente**:\n\n- Você descreve a mudança em <5 frases\n- Toca 1-3 arquivos\n- Estima <30 minutos de código\n- Não tem decisões de design\n\n**Passo a passo**:\n\n```\n  /bmad-bmm-quick-dev              → Descreva o que precisa, agente implementa\n```\n\n**Regras importantes**:\n\n- Não precisa de spec — só instruções claras\n- Se o agente começar a fazer muitas perguntas, talvez precise de Quick Spec\n- Para bugfixes, forneça passos de reprodução ou mensagens de erro\n\n---\n\n## Fluxo 5: Descoberta → Decidir (Complexidade Desconhecida)\n\n**Quando usar**: Você não sabe quão complexo algo é. Precisa explorar o código, entender o estado atual, e depois decidir qual fluxo usar.\n\n**Exemplos**: \"Quero melhorar a seção de segurança\" (quão grande é isso?), \"Precisamos tratar esses arquivos novos\" (o que tem neles?), \"Essa feature precisa mudar\" (quanto?).\n\n**Passo a passo**:\n\n```\n  /bmad-bmm-quick-spec             → Começar Step 1 (Entender)\n                                      Durante a investigação, a complexidade fica clara\n\n  No menu de checkpoint:\n    Se pequeno  → continua spec → Quick Dev (Fluxo 4)\n    Se médio    → continua spec → Quick Dev (Fluxo 3)\n    Se grande   → continua spec → Shard + Dev (Fluxo 2)\n    Se massivo  → considerar Full BMAD (Fluxo 1)\n```\n\n---\n\n## Revisões Pós-Implementação\n\nEstas são **independentes** do fluxo usado. Use quando qualidade importa:\n\n| Revisão                   | Comando                            | Quando Usar                                                  |\n| ------------------------- | ---------------------------------- | ------------------------------------------------------------ |\n| **Code Review**           | `/bmad-bmm-code-review`            | Após qualquer implementação. Adversarial, encontra problemas específicos. |\n| **Revisão Adversarial**   | `/bmad-review-adversarial-general` | Após completar feature grande. Encontra fraquezas.           |\n| **Caçador de Edge Cases** | `/bmad-review-edge-case-hunter`    | Após lógica complexa. Encontra caminhos não tratados.        |\n| **Geração de Testes QA**  | `/bmad-bmm-qa-generate-e2e-tests`  | Após feature completa. Gera testes automatizados.            |\n\n**Boa prática**: Use um **LLM diferente** para revisões quando possível. O agente que escreveu o código tem pontos cegos — um modelo diferente pega coisas diferentes.\n\n---\n\n## Antipadrões — O que NÃO Fazer\n\n| Antipadrão                                     | Por que Falha                                      | Faça Isso                                     |\n| ---------------------------------------------- | -------------------------------------------------- | --------------------------------------------- |\n| Quick Spec + Quick Dev para spec de 500 linhas | Agente dev perde contexto no meio                  | Faça shard do spec primeiro                   |\n| Implementar na mesma conversa do spec          | Contexto poluído com discussão do spec             | Sempre use contexto novo para dev             |\n| Pular Code Review                              | \"Parecia certo\" — mas 20% dos itens foram perdidos | Sempre revise, especialmente features grandes |\n| Full BMAD para feature pequena que você domina | Overhead de PRD/Architecture é desperdício         | Use Quick Spec ou Quick Dev                   |\n| Quick Dev para algo que você não entende bem   | Vai perder tempo com retrabalho                    | Comece com Quick Spec para descobrir escopo   |\n| Revisar seu trabalho com o mesmo LLM           | Mesmos pontos cegos                                | Use LLM diferente para revisões               |\n| Implementar todos os shards no mesmo contexto  | Igual a não fazer shard — sobrecarga de contexto   | Contexto novo por shard                       |\n\n---\n\n## Resumo Rápido\n\n```\nEstou criando algo novo com requisitos do stakeholder?\n  → Full BMAD (Fluxo 1)\n\nEu sei exatamente o que construir?\n  ├── É uma correção simples / mudança pequena?\n  │     → Quick Dev direto (Fluxo 4)\n  ├── É uma feature focada (1-2 áreas)?\n  │     → Quick Spec + Dev (Fluxo 3)\n  ├── É uma feature grande (3+ áreas)?\n  │     → Quick Spec + Shard + Dev (Fluxo 2)\n  └── Não tenho certeza do tamanho?\n        → Descoberta → Decidir (Fluxo 5)\n\nTerminei de implementar?\n  → Code Review (sempre)\n  → Revisão Adversarial (para features grandes)\n  → Caçador de Edge Cases (para lógica complexa)\n```",
       "order": 1
+    },
+    {
+      "slug": "typora-aseditor-in-wsl",
+      "title": "Typora asEDITOR in WSL",
+      "category": "configuração",
+      "created": "2026-03-11",
+      "updated": "2026-03-11",
+      "content": "# Typora as $EDITOR in WSL\n\n## Prerequisites\n\nWSL interop must be enabled so Linux can execute Windows `.exe` files. Verify your `/etc/wsl.conf` contains:\n\n```ini\n[interop]\nenabled=true\nappendWindowsPath=true\n```\n\nIf missing, add it:\n\n```bash\nsudo bash -c 'cat >> /etc/wsl.conf << EOF\n\n[interop]\nenabled=true\nappendWindowsPath=true\nEOF'\n```\n\nThen restart WSL from PowerShell: `wsl --shutdown` and reopen your terminal.\n\n## Quick Setup\n\n### 1. Create the script\n\nRun the command below to generate the wrapper script:\n\n```bash\nmkdir -p ~/.local/bin && cat > ~/.local/bin/typora << 'EOF'\n#!/bin/bash\n# WSL wrapper to open files in Typora (Windows)\n# Portable: set TYPORA_PATH to override auto-detection.\n\nTYPORA=\"${TYPORA_PATH:-}\"\n\n# If TYPORA_PATH is a Windows path, convert it\nif [ -n \"$TYPORA\" ]; then\n    case \"$TYPORA\" in\n        [A-Za-z]:\\\\*|[A-Za-z]:/*) TYPORA=$(wslpath -u \"$TYPORA\" 2>/dev/null || echo \"$TYPORA\") ;;\n    esac\nfi\n\nif [ -z \"$TYPORA\" ] || [ ! -f \"$TYPORA\" ]; then\n    # Auto-detect: scan common install locations across all /mnt/c/Users profiles\n    TYPORA=\"\"\n    for c in \\\n        /mnt/c/Users/*/AppData/Local/Programs/Typora/Typora.exe \\\n        \"/mnt/c/Program Files/Typora/Typora.exe\" \\\n        \"/mnt/c/Program Files (x86)/Typora/Typora.exe\"; do\n        if [ -f \"$c\" ]; then\n            TYPORA=\"$c\"\n            break\n        fi\n    done\nfi\n\nif [ -z \"$TYPORA\" ]; then\n    echo \"Error: Typora not found. Set TYPORA_PATH to the Windows .exe path.\" >&2\n    echo \"  e.g. export TYPORA_PATH='C:\\\\Users\\\\you\\\\AppData\\\\Local\\\\Programs\\\\Typora\\\\Typora.exe'\" >&2\n    exit 1\nfi\n\nif [ -n \"$1\" ]; then\n    WIN_PATH=$(wslpath -w \"$(realpath \"$1\")\")\n    \"$TYPORA\" \"$WIN_PATH\" &\nelse\n    \"$TYPORA\" &\nfi\nEOF\nchmod +x ~/.local/bin/typora\n```\n\n> `~/.local/bin` is included in `$PATH` by default on Ubuntu. If it's missing, add to `~/.bashrc`:\n> `export PATH=\"$HOME/.local/bin:$PATH\"`\n\n### 2. Set $EDITOR\n\nAdd to `~/.bashrc` (or `~/.zshrc`):\n\n```bash\nexport EDITOR=\"typora\"\n```\n\nThen reload:\n\n```bash\nsource ~/.bashrc\n```\n\n## How it works\n\nThe script auto-detects Typora by checking common Windows install paths:\n\n- `/mnt/c/Users/*/AppData/Local/Programs/Typora/Typora.exe` (user install, any profile)\n- `C:\\Program Files\\Typora\\Typora.exe` (system install)\n- `C:\\Program Files (x86)\\Typora\\Typora.exe` (32-bit system install)\n\nIt converts WSL file paths to Windows paths via `wslpath` before passing them to the `.exe`.\n\n## Custom install path\n\nIf Typora is installed in a non-standard location, set `TYPORA_PATH` **before** `EDITOR`:\n\n```bash\nexport TYPORA_PATH='D:\\Apps\\Typora\\Typora.exe'\nexport EDITOR=\"typora\"\n```\n\n## Usage\n\n```bash\n# Open a file directly\ntypora README.md\n\n# Any tool that uses $EDITOR will open Typora automatically\ngit commit          # opens commit message in Typora\ncrontab -e          # opens crontab in Typora\n```\n\n## Troubleshooting\n\n- **\"Exec format error\"**: WSL interop is disabled. Add the `[interop]` section to `/etc/wsl.conf` (see [Prerequisites](#prerequisites)) and restart WSL with `wsl --shutdown`.\n- **\"Typora not found\"**: Set `TYPORA_PATH` to the full Windows path of `Typora.exe`.\n- **Permission denied**: Run `chmod +x ~/.local/bin/typora`.\n- **`~/.local/bin` not in PATH**: Add `export PATH=\"$HOME/.local/bin:$PATH\"` to your shell rc file.\n- **Path conversion fails**: Make sure `wslpath` is available (it ships with WSL by default).",
+      "tags": [
+        "wsl",
+        "markdown"
+      ],
+      "order": 10
     }
   ]
 }
