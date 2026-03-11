@@ -640,113 +640,342 @@ window.DATA_GEAR = {
   upgrade_priority: [],
 
   // ==========================================================
-  // GEAR PLANS — 23 loadouts individuais (10/Mar/2026)
-  // Baseado em docs/gear-plans.md
-  // Gear swap é GRÁTIS — heróis compartilham peças entre times
+  // GEAR PLANS — 23 loadouts (11/Mar/2026)
+  // Cada piece: { slot, set, mythic, lv, img, main, subs[] }
+  // img = ID no inventário (gear-inventory.js). null = não fotografado
   // ==========================================================
   gear_plans: [
     // === DPS CRIT (5) ===
     { name: "DPS Crit 1", profile: "dps-crit", hero: "Nastjenka", freq: 9,
-      pieces: ["IMG_2858 ⭐ Fearless", "IMG_2865 Impregnable", "a07 Executioner", "g04 Cyril"],
-      set_bonus: null, mythic: "Fearless: +16% dmg vs >50% HP",
+      pieces: [
+        { slot: "weapon", set: "Fearless Challenge", mythic: true, lv: 20, img: "2858",
+          main: "ATK 335", subs: ["CritD 41.5%", "ATK% 6.8", "CritR 4.0", "ACC 4"] },
+        { slot: "helmet", set: "Impregnable", mythic: true, lv: 20, img: "2865",
+          main: "HP 7710", subs: ["CritR 19.8%", "CritD 8.8"] },
+        { slot: "armor", set: "Imperial Executioner", mythic: false, lv: 20, img: null,
+          main: "HP% 60", subs: ["ATK% 16.8", "CritR 7.4"] },
+        { slot: "gloves", set: "Cyril's Whisper", mythic: false, lv: 20, img: "3069",
+          main: "CritR 40", subs: ["CritD 16.7", "ATK% 6.2"] }
+      ],
+      set_bonus: null, mythic_effect: "Fearless: +16% dmg vs >50% HP",
       totals: "CritR 67.2% · CritD 67%", sharing: [] },
+
     { name: "DPS Crit 2", profile: "dps-crit", hero: "Divine Ascetic", freq: 5,
-      pieces: ["w09 Ancestral", "h07 Revenge", "a05 Cyril", "IMG_3070 Cyril"],
-      set_bonus: "Cyril 2pc", mythic: null,
+      pieces: [
+        { slot: "weapon", set: "Ancestral Protection", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["CritR 12.0", "CritD 16.4", "Enlight 25"] },
+        { slot: "helmet", set: "Revenge of the Fallen", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["CritR 13.7", "CritD 8.2", "Enlight 23"] },
+        { slot: "armor", set: "Cyril's Whisper", mythic: false, lv: 20, img: null,
+          main: "RES 120", subs: ["CritD 30.8", "ATK 64", "ATK% 5.1"] },
+        { slot: "gloves", set: "Cyril's Whisper", mythic: false, lv: 20, img: "3070",
+          main: "CritR 40", subs: ["ATK% 12.5", "Enlight 25", "ATK 105"] }
+      ],
+      set_bonus: "Cyril 2pc", mythic_effect: null,
       totals: "CritR 65.7% · CritD 55.4%", sharing: [] },
+
     { name: "DPS Crit 3", profile: "dps-crit", hero: "Sutha", freq: 3,
-      pieces: ["IMG_2843 ⭐ Magic Crystal", "h05 Executioner", "a06 Cyril", "IMG_2977 Tundra"],
-      set_bonus: null, mythic: "Magic Crystal: +ATK = 300% ACC",
+      pieces: [
+        { slot: "weapon", set: "Magic Crystal Ref.", mythic: true, lv: 20, img: "2843",
+          main: "ATK 335", subs: ["ATK% 17.7", "CritD 15.0", "Enlight 14"] },
+        { slot: "helmet", set: "Imperial Executioner", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["ATK% 11.8", "ACC 14", "DEF 104"] },
+        { slot: "armor", set: "Cyril's Whisper", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["CritD 22.6", "CritR 6.1", "HP% 12.0"] },
+        { slot: "gloves", set: "Tundra Tenacity", mythic: false, lv: 20, img: "2977",
+          main: "DEF% 60", subs: ["CritD 15.9", "ATK% 17.1", "HP% 12.2"] }
+      ],
+      set_bonus: null, mythic_effect: "Magic Crystal: +ATK = 300% ACC",
       totals: "ATK% 46.6% · CritD 53.5%", sharing: [] },
+
     { name: "DPS Crit 4", profile: "dps-crit", hero: "Ladehlia", freq: 4,
-      pieces: ["w10 Brotherhood", "h04 Cyril", "a04 Cyril", "IMG_2935 Cyril"],
-      set_bonus: "Cyril 3pc", mythic: null,
+      pieces: [
+        { slot: "weapon", set: "Brotherhood Spirit", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["CritR 13.1", "CritD 7.8", "ACC 21", "Enlight 25"] },
+        { slot: "helmet", set: "Cyril's Whisper", mythic: false, lv: 20, img: "3167",
+          main: "HP 7710", subs: ["ATK% 20.0", "Enlight 21", "HP% 11"] },
+        { slot: "armor", set: "Cyril's Whisper", mythic: false, lv: 20, img: null,
+          main: "DEF% 60", subs: ["ATK% 18", "ACC 23", "CritD 7.8", "Enlight 26"] },
+        { slot: "gloves", set: "Cyril's Whisper", mythic: false, lv: 20, img: "2935",
+          main: "HP% 60", subs: ["CritD 25", "DEF% 16.8", "ATK% 5.8"] }
+      ],
+      set_bonus: "Cyril 3pc", mythic_effect: null,
       totals: "ATK% 63.8%", sharing: [] },
+
     { name: "DPS Crit 5", profile: "dps-crit", hero: "Huberg", freq: 1,
-      pieces: ["IMG_2863 ⭐ Sky Code", "IMG_2860 ⭐ Chaos Symb", "a01 Platinum", "IMG_3074 Executioner"],
-      set_bonus: null, mythic: "Sky Code: Shield → dispel 1 debuff",
+      pieces: [
+        { slot: "weapon", set: "Sky Code Treaty", mythic: true, lv: 20, img: "2863",
+          main: "ATK 335", subs: ["ACC 32", "ATK% 5.9", "RES 37"] },
+        { slot: "helmet", set: "Chaos Symbiosis", mythic: true, lv: 20, img: "2860",
+          main: "HP 7710", subs: ["RES 37", "CritD 7.8", "DEF 104"] },
+        { slot: "armor", set: "Platinum Knight", mythic: false, lv: 20, img: null,
+          main: "DEF 335", subs: ["HP% 12.9", "ATK% 12.2"] },
+        { slot: "gloves", set: "Imperial Executioner", mythic: false, lv: 20, img: "3074",
+          main: "CritD 80", subs: ["DEF 96", "HP% 11.6", "CritR 4.7"] }
+      ],
+      set_bonus: null, mythic_effect: "Sky Code: Shield → dispel 1 debuff",
       totals: "CritD 87.8%", sharing: ["IMG_2860 → Lothair"] },
+
     // === DPS ATK (2) ===
     { name: "DPS ATK 1", profile: "dps-atk", hero: "Garett", freq: 4,
-      pieces: ["w03 Gambler", "h03 Gambler", "a03 Gambler", "g02 Gambler"],
-      set_bonus: "Gambler 3pc", mythic: null,
+      pieces: [
+        { slot: "weapon", set: "Heart of the Gambler", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["CritR 7.7", "ATK% 5.1"] },
+        { slot: "helmet", set: "Heart of the Gambler", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["ATK% 12", "ACC 24", "DEF% 6.1"] },
+        { slot: "armor", set: "Heart of the Gambler", mythic: false, lv: 20, img: null,
+          main: "DEF% 60", subs: ["ATK 102", "ATK% 5.0"] },
+        { slot: "gloves", set: "Heart of the Gambler", mythic: false, lv: 20, img: null,
+          main: "DEF 335", subs: ["CritR 7.4", "ATK 62"] }
+      ],
+      set_bonus: "Gambler 3pc", mythic_effect: null,
       totals: "ATK+20% · ATK Spd+20%", sharing: [] },
+
     { name: "DPS ATK 2", profile: "dps-atk", hero: "Sintrellia", freq: 3,
-      pieces: ["w02 Rhapsodist", "h02 Rhapsodist", "a12 Blue Oak", "g01 Rhapsodist"],
-      set_bonus: "Rhapsodist 3pc", mythic: null,
+      pieces: [
+        { slot: "weapon", set: "Rhapsodist's Calling", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["Enlight 24", "HP% 13.4", "CritR 4.7"] },
+        { slot: "helmet", set: "Rhapsodist's Calling", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["ATK% 6.7", "DEF% 18.2", "ATK 64"] },
+        { slot: "armor", set: "Radiance of the Blue Oak", mythic: false, lv: 20, img: null,
+          main: "ATK% 60", subs: ["Enlight 27", "HP 1504"] },
+        { slot: "gloves", set: "Rhapsodist's Calling", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["Enlight 40", "ATK% 5.2", "DEF% 16.9"] }
+      ],
+      set_bonus: "Rhapsodist 3pc", mythic_effect: null,
       totals: "ATK% 91.9%", sharing: ["w02 → Catherine"] },
+
     // === ATK+ACC (4) ===
     { name: "ATK+ACC 1", profile: "atk-acc", hero: "Lossenia", freq: 4,
-      pieces: ["IMG_2862 ⭐ Chaos Symb", "IMG_2842 ⭐ Magic Crystal", "a19 Holy Hunter", "g10 Holy Hunter"],
-      set_bonus: "Holy Hunter 2pc", mythic: "Chaos Symb + Magic Crystal",
+      pieces: [
+        { slot: "weapon", set: "Chaos Symbiosis", mythic: true, lv: 20, img: "2862",
+          main: "ATK 335", subs: ["ATK% 11.6", "CritR 11.4", "ACC 14"] },
+        { slot: "helmet", set: "Magic Crystal Ref.", mythic: true, lv: 20, img: "2842",
+          main: "HP 7710", subs: ["ATK% 12", "CritD 16", "ACC 21"] },
+        { slot: "armor", set: "Holy Hunter", mythic: false, lv: 20, img: null,
+          main: "ATK% 60", subs: ["ACC 24", "HP 2441", "DEF% 12.2"] },
+        { slot: "gloves", set: "Holy Hunter", mythic: false, lv: 20, img: null,
+          main: "ATK% 60", subs: ["CritR 12.5", "ACC 21"] }
+      ],
+      set_bonus: "Holy Hunter 2pc", mythic_effect: "Chaos Symb + Magic Crystal",
       totals: "ACC 120 · +18% ATK", sharing: [] },
+
     { name: "ATK+ACC 2", profile: "atk-acc", hero: "Voresh", freq: 4,
-      pieces: ["IMG_2861 ⭐ Chaos Symb", "IMG_2859 ⭐ Chaos Symb", "IMG_2958 ⭐ Schadenfreude", "IMG_2966 Cyril"],
-      set_bonus: "Chaos Symb 2pc", mythic: "Chaos Symb + Schadenfreude",
+      pieces: [
+        { slot: "weapon", set: "Chaos Symbiosis", mythic: true, lv: 20, img: "2861",
+          main: "ATK 335", subs: ["CritR 8.3", "ACC 23", "HP% 19.5"] },
+        { slot: "helmet", set: "Chaos Symbiosis", mythic: true, lv: 20, img: "2859",
+          main: "HP 7710", subs: ["ACC 26", "DEF% 17.9", "CritR 7.7"] },
+        { slot: "armor", set: "Schadenfreude", mythic: true, lv: 20, img: "2958",
+          main: "DEF% 60", subs: ["ATK 94", "HP% 5.9", "RES 43"] },
+        { slot: "gloves", set: "Cyril's Whisper", mythic: false, lv: 20, img: "2966",
+          main: "DEF% 60", subs: ["CritR 12.2", "ACC 33", "CritD 7.1"] }
+      ],
+      set_bonus: "Chaos Symb 2pc", mythic_effect: "Chaos Symb + Schadenfreude",
       totals: "ACC 82", sharing: ["IMG_2861 → Tamar, Lucien"] },
+
     { name: "ATK+ACC 3", profile: "atk-acc", hero: "Auster", freq: 3,
-      pieces: ["w04 Executioner", "h13 Tides", "IMG_3229 ⭐ Iron Bastion", "IMG_2942 Tundra"],
-      set_bonus: null, mythic: "Iron Bastion: Crit recv → -30% CritR",
+      pieces: [
+        { slot: "weapon", set: "Imperial Executioner", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["HP% 12.6", "Enlight 27", "DEF% 12.9", "ACC 22"] },
+        { slot: "helmet", set: "Power of Tides", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["ATK% 11.0", "CritD 16.2", "DEF 111"] },
+        { slot: "armor", set: "Iron Bastion", mythic: true, lv: 20, img: "3229",
+          main: "ACC 96", subs: ["ATK% 17.8", "CritR 12.6"] },
+        { slot: "gloves", set: "Tundra Tenacity", mythic: false, lv: 20, img: "2942",
+          main: "HP% 60", subs: ["ATK% 24.7", "Enlight 26", "CritD 9.0"] }
+      ],
+      set_bonus: null, mythic_effect: "Iron Bastion: Crit recv → -30% CritR",
       totals: "ACC 118 · ATK% 53.5%", sharing: ["w04 → Garius", "h13 → Catherine"] },
+
     { name: "ATK+ACC 4", profile: "atk-acc", hero: "Hochadir", freq: 3,
-      pieces: ["w13 Tides", "IMG_2841 ⭐ Magic Crystal", "a20 Puppeteer", "g09 Brotherhood"],
-      set_bonus: null, mythic: "Magic Crystal: +516 ATK flat",
+      pieces: [
+        { slot: "weapon", set: "Power of Tides", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["ACC 46", "CritD 8.2", "Enlight 15"] },
+        { slot: "helmet", set: "Magic Crystal Ref.", mythic: true, lv: 20, img: "2841",
+          main: "HP 7710", subs: ["ATK% 12.1", "Enlight 35", "HP% 11.9"] },
+        { slot: "armor", set: "Puppeteer's Inspiration", mythic: false, lv: 20, img: null,
+          main: "ACC 96", subs: ["ATK% 12.2", "CritR 17.0", "Enlight 11"] },
+        { slot: "gloves", set: "Brotherhood Spirit", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["CritD 24.3", "ACC 30", "CritR 4.1"] }
+      ],
+      set_bonus: null, mythic_effect: "Magic Crystal: +516 ATK flat",
       totals: "ACC 172", sharing: ["w13+a20 → Eches", "IMG_2841 → Flora"] },
+
     // === ATK+ENLIGHT (2) ===
     { name: "ATK+Enl 1", profile: "atk-enlight", hero: "Flora", freq: 1,
-      pieces: ["IMG_2867 ⭐ Impregnable", "IMG_2841 ⭐ Magic Crystal", "IMG_3224 ⭐ Death Record", "IMG_3291 ⭐ Death Record"],
-      set_bonus: "Death Record 2pc", mythic: "Death Record + Impregnable",
+      pieces: [
+        { slot: "weapon", set: "Impregnable", mythic: true, lv: 20, img: "2867",
+          main: "ATK 335", subs: ["ATK% 13.8", "Enlight 39"] },
+        { slot: "helmet", set: "Magic Crystal Ref.", mythic: true, lv: 20, img: "2841",
+          main: "HP 7710", subs: ["ATK% 12.1", "Enlight 35", "HP% 11.9"] },
+        { slot: "armor", set: "Death Record", mythic: true, lv: 20, img: "3224",
+          main: "HP% 60", subs: ["Enlight 26", "CritD 24.6", "ATK% 5.0"] },
+        { slot: "gloves", set: "Death Record", mythic: true, lv: 16, img: "3291",
+          main: "HP%", subs: ["Enlight 38", "CritR 7.4"] }
+      ],
+      set_bonus: "Death Record 2pc", mythic_effect: "Death Record + Impregnable",
       totals: "Enlight 138 · +20% Deriv", sharing: ["IMG_2841 → Hochadir"] },
+
     { name: "ATK+Enl 2", profile: "atk-enlight", hero: "Lothair", freq: 1,
-      pieces: ["w05 Revenge", "IMG_2860 ⭐ Chaos Symb", "a08 Revenge", "IMG_2955 ⭐ Death Record"],
-      set_bonus: "Revenge 2pc", mythic: "Death Record: +20% Derivative",
+      pieces: [
+        { slot: "weapon", set: "Revenge of the Fallen", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["HP% 16.7", "ATK% 5.2", "Enlight 13"] },
+        { slot: "helmet", set: "Chaos Symbiosis", mythic: true, lv: 20, img: "2860",
+          main: "HP 7710", subs: ["RES 37", "CritD 7.8", "DEF 104"] },
+        { slot: "armor", set: "Revenge of the Fallen", mythic: false, lv: 20, img: null,
+          main: "Enlight 120", subs: ["HP% 13.8", "CritD 23.9", "DEF% 6.9"] },
+        { slot: "gloves", set: "Death Record", mythic: true, lv: 20, img: "2955",
+          main: "DEF% 60", subs: ["ACC 48", "Enlight 26"] }
+      ],
+      set_bonus: "Revenge 2pc", mythic_effect: "Death Record: +20% Derivative",
       totals: "Enlight 159", sharing: ["IMG_2860 → Huberg"] },
+
     // === ACC (2) ===
     { name: "ACC 1", profile: "acc", hero: "Tamar", freq: 2,
-      pieces: ["IMG_2861 ⭐ Chaos Symb", "h15 Brotherhood ⚠lv0", "a16 Ancestral", "IMG_2956 ⭐ Iron Bastion"],
-      set_bonus: null, mythic: "Iron Bastion + Chaos Symb",
+      pieces: [
+        { slot: "weapon", set: "Chaos Symbiosis", mythic: true, lv: 20, img: "2861",
+          main: "ATK 335", subs: ["CritR 8.3", "ACC 23", "HP% 19.5"] },
+        { slot: "helmet", set: "Brotherhood Spirit", mythic: false, lv: 0, img: null,
+          main: "HP 270", subs: ["Enlight 10", "DEF 35", "ACC 10"] },
+        { slot: "armor", set: "Ancestral Protection", mythic: false, lv: 20, img: null,
+          main: "DEF% 60", subs: ["CritR 12.5", "ATK% 6.9"] },
+        { slot: "gloves", set: "Iron Bastion", mythic: true, lv: 20, img: "2956",
+          main: "DEF% 60", subs: ["DEF 100", "ATK% 6.1", "CritR 7.0", "ACC 26"] }
+      ],
+      set_bonus: null, mythic_effect: "Iron Bastion + Chaos Symb",
       totals: "ACC 59 (+artefatos/afinidade)", sharing: ["IMG_2861 → Voresh, Lucien"] },
+
     { name: "ACC 2", profile: "acc", hero: "Eches", freq: 2,
-      pieces: ["w13 Tides", "h10 Brotherhood ⚠lv0", "a20 Puppeteer", "g03 Gambler"],
-      set_bonus: null, mythic: null,
+      pieces: [
+        { slot: "weapon", set: "Power of Tides", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["ACC 46", "CritD 8.2", "Enlight 15"] },
+        { slot: "helmet", set: "Brotherhood Spirit", mythic: false, lv: 0, img: null,
+          main: "HP 270", subs: ["ATK 38", "CritD 7.9", "CritR 3.5"] },
+        { slot: "armor", set: "Puppeteer's Inspiration", mythic: false, lv: 20, img: null,
+          main: "ACC 96", subs: ["ATK% 12.2", "CritR 17.0"] },
+        { slot: "gloves", set: "Heart of the Gambler", mythic: false, lv: 20, img: null,
+          main: "DEF 142", subs: ["CritD 8.9", "CritR 6.8"] }
+      ],
+      set_bonus: null, mythic_effect: null,
       totals: "ACC 142", sharing: ["w13+a20 → Hochadir"] },
+
     // === ENLIGHT (2) ===
     { name: "Enlight 1", profile: "enlight", hero: "Torrin", freq: 10,
-      pieces: ["w01 Rhapsodist", "h12 Tides", "IMG_3052 Tides", "IMG_2891 ⭐ Ancestral Guidance"],
-      set_bonus: "Tides 2pc", mythic: "Ancestral Guidance: 50% Lifesteal",
+      pieces: [
+        { slot: "weapon", set: "Rhapsodist's Calling", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["Enlight 30", "HP 1524", "HP% 12.9"] },
+        { slot: "helmet", set: "Power of Tides", mythic: false, lv: 20, img: "3207",
+          main: "HP 7710", subs: ["ATK% 17.8", "Enlight 42"] },
+        { slot: "armor", set: "Power of Tides", mythic: false, lv: 20, img: "3052",
+          main: "Enlight 120", subs: ["ATK% 12.4", "DEF% 11.3"] },
+        { slot: "gloves", set: "Ancestral Guidance", mythic: true, lv: 20, img: "2891",
+          main: "DEF% 60", subs: ["Enlight 42", "ATK% 10.8", "HP% 12.1"] }
+      ],
+      set_bonus: "Tides 2pc", mythic_effect: "Ancestral Guidance: 50% Lifesteal",
       totals: "Enlight 264", sharing: [] },
+
     { name: "Enlight 2", profile: "enlight", hero: "Catherine", freq: 4,
-      pieces: ["w02 Rhapsodist", "h13 Tides", "IMG_3035 Platinum", "g13 Tides"],
-      set_bonus: "Tides 2pc", mythic: null,
+      pieces: [
+        { slot: "weapon", set: "Rhapsodist's Calling", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["Enlight 24", "HP% 13.4"] },
+        { slot: "helmet", set: "Power of Tides", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["ATK% 11.0", "CritD 16.2"] },
+        { slot: "armor", set: "Platinum Knight", mythic: false, lv: 20, img: "3035",
+          main: "Enlight 120", subs: ["CritD 22.1", "DEF% 13.3"] },
+        { slot: "gloves", set: "Power of Tides", mythic: false, lv: 20, img: null,
+          main: "ATK% 60", subs: ["CritR 3.4", "HP% 12.2"] }
+      ],
+      set_bonus: "Tides 2pc", mythic_effect: null,
       totals: "Enlight 174", sharing: ["w02 → Sintrellia", "h13 → Auster"] },
+
     // === HP+ACC (2) ===
     { name: "HP+ACC 1", profile: "hp-acc", hero: "Eurion", freq: 14,
-      pieces: ["w08 Blue Oak", "h08 Tundra", "a11 Blue Oak", "g08 Tundra"],
-      set_bonus: "Blue Oak 2pc + Tundra 2pc", mythic: null,
+      pieces: [
+        { slot: "weapon", set: "Radiance of the Blue Oak", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["DEF% 19.0", "HP 1543"] },
+        { slot: "helmet", set: "Tundra Tenacity", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["DEF% 17.7", "ACC 27", "CritR 7.0"] },
+        { slot: "armor", set: "Radiance of the Blue Oak", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["CritR 10.6", "DEF 106"] },
+        { slot: "gloves", set: "Tundra Tenacity", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["DEF 130", "CritD 15.9"] }
+      ],
+      set_bonus: "Blue Oak 2pc + Tundra 2pc", mythic_effect: null,
       totals: "DEF% 36.7% · ACC 67", sharing: [] },
+
     { name: "HP+ACC 2", profile: "hp-acc", hero: "Lucien", freq: 2,
-      pieces: ["IMG_2861 ⭐ Chaos Symb", "h11 Brotherhood ⚠lv0", "a17 Ancestral", "IMG_2945 Blue Oak"],
-      set_bonus: null, mythic: "Chaos Symb: +6% ATK/School",
+      pieces: [
+        { slot: "weapon", set: "Chaos Symbiosis", mythic: true, lv: 20, img: "2861",
+          main: "ATK 335", subs: ["CritR 8.3", "ACC 23", "HP% 19.5"] },
+        { slot: "helmet", set: "Brotherhood Spirit", mythic: false, lv: 0, img: null,
+          main: "HP 270", subs: ["RES 14", "ACC 10", "HP% 5.3"] },
+        { slot: "armor", set: "Ancestral Protection", mythic: false, lv: 20, img: null,
+          main: "DEF 335", subs: ["CritD 32.2", "HP 821"] },
+        { slot: "gloves", set: "Radiance of the Blue Oak", mythic: false, lv: 20, img: "2945",
+          main: "HP% 60", subs: ["CritD 15.0", "ATK% 6.9", "ACC 25"] }
+      ],
+      set_bonus: null, mythic_effect: "Chaos Symb: +6% ATK/School",
       totals: "HP stacking · ACC 58", sharing: ["IMG_2861 → Voresh, Tamar"] },
+
     // === HP+ATK+ACC (1) ===
     { name: "HP+ATK+ACC", profile: "hp-atk-acc", hero: "Vinyara", freq: 8,
-      pieces: ["w07 Tundra", "h01 Platinum", "IMG_2923 ⭐ Schadenfreude", "g07 Tundra"],
-      set_bonus: "Tundra 2pc", mythic: "Schadenfreude: 2% HP heal/debuff",
+      pieces: [
+        { slot: "weapon", set: "Tundra Tenacity", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["ACC 21", "Enlight 29", "RES 32"] },
+        { slot: "helmet", set: "Platinum Knight", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["ATK% 12.4", "HP% 12.5", "ACC 21"] },
+        { slot: "armor", set: "Schadenfreude", mythic: true, lv: 20, img: "2923",
+          main: "HP% 60", subs: ["ACC 43", "ATK% 12.9"] },
+        { slot: "gloves", set: "Tundra Tenacity", mythic: false, lv: 20, img: "2941",
+          main: "HP% 60", subs: ["Enlight 27", "RES 45"] }
+      ],
+      set_bonus: "Tundra 2pc", mythic_effect: "Schadenfreude: 2% HP heal/debuff",
       totals: "ACC 125", sharing: [] },
+
     // === HP+ENLIGHT (1) ===
     { name: "HP+Enl", profile: "hp-enlight", hero: "Felosia", freq: 3,
-      pieces: ["w12 Puppeteer", "h09 Brotherhood", "a15 Ancestral", "g05 Cyril"],
-      set_bonus: null, mythic: null,
+      pieces: [
+        { slot: "weapon", set: "Puppeteer's Inspiration", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["DEF 168", "CritR 4.8", "DEF% 6.7", "Enlight 15"] },
+        { slot: "helmet", set: "Brotherhood Spirit", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["HP% 11.5", "DEF 99", "RES 29"] },
+        { slot: "armor", set: "Ancestral Protection", mythic: false, lv: 20, img: null,
+          main: "HP% 60", subs: ["ACC 26", "HP 2232"] },
+        { slot: "gloves", set: "Cyril's Whisper", mythic: false, lv: 20, img: null,
+          main: "HP% 60", subs: ["CritD 25.0", "DEF% 16.8", "ATK% 5.8"] }
+      ],
+      set_bonus: null, mythic_effect: null,
       totals: "HP massivo (shields)", sharing: [] },
+
     // === HP+DEF+ENLIGHT (1) ===
     { name: "HP+DEF+Enl", profile: "hp-def-enlight", hero: "Acilia", freq: 6,
-      pieces: ["w11 Holy Hunter", "IMG_2866 ⭐ Impregnable", "a14 Ancestral", "IMG_2905 Ancestral"],
-      set_bonus: "Ancestral 2pc", mythic: "Impregnable: Buffs indispellable",
+      pieces: [
+        { slot: "weapon", set: "Holy Hunter", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["HP% 17.7", "Enlight 27", "CritD 8.1"] },
+        { slot: "helmet", set: "Impregnable", mythic: true, lv: 20, img: "2866",
+          main: "HP 7710", subs: ["DEF% 17", "Enlight 13", "HP% 12"] },
+        { slot: "armor", set: "Ancestral Protection", mythic: false, lv: 20, img: null,
+          main: "DEF% 60", subs: ["HP% 19.9", "CritR 11.7", "Enlight 12"] },
+        { slot: "gloves", set: "Ancestral Protection", mythic: false, lv: 20, img: "2905",
+          main: "ATK% 60", subs: ["HP% 23.1", "ACC 27", "DEF% 6.3"] }
+      ],
+      set_bonus: "Ancestral 2pc", mythic_effect: "Impregnable: Buffs indispellable",
       totals: "HP% 72.7%", sharing: [] },
+
     // === DEF (1) ===
     { name: "DEF", profile: "def", hero: "Garius", freq: 4,
-      pieces: ["w04 Executioner", "h06 Executioner", "a10 Tundra", "g06 Executioner"],
-      set_bonus: "Executioner 3pc", mythic: null,
+      pieces: [
+        { slot: "weapon", set: "Imperial Executioner", mythic: false, lv: 20, img: null,
+          main: "ATK 335", subs: ["HP% 12.6", "Enlight 27", "DEF% 12.9", "ACC 22"] },
+        { slot: "helmet", set: "Imperial Executioner", mythic: false, lv: 20, img: null,
+          main: "HP 7710", subs: ["DEF 108", "HP% 11.7"] },
+        { slot: "armor", set: "Tundra Tenacity", mythic: false, lv: 20, img: null,
+          main: "DEF% 60", subs: ["CritR 15.6", "ATK% 5.8", "ACC 12"] },
+        { slot: "gloves", set: "Imperial Executioner", mythic: false, lv: 20, img: null,
+          main: "DEF 96", subs: ["HP% 11.6", "CritR 4.7"] }
+      ],
+      set_bonus: "Executioner 3pc", mythic_effect: null,
       totals: "DEF% 72.9% + 204 flat", sharing: ["w04 → Auster"] }
   ]
 };

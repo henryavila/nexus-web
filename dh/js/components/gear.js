@@ -207,21 +207,31 @@ const Gear = {
           R.el('span', { className: 'text-[10px] text-gray-500 block', textContent: `freq ${plan.freq}` })
         ])
       ].filter(Boolean)),
-      // Pieces (compact chips)
-      R.el('div', { className: 'flex flex-wrap gap-1 mb-1.5' },
-        (plan.pieces || []).map(p => {
-          const isMythic = p.includes('\u2B50');
-          const isLv0 = p.includes('\u26A0lv0');
-          return R.el('span', {
-            className: `text-[9px] px-1 py-0.5 rounded ${isMythic ? 'bg-mythic/15 text-mythic' : isLv0 ? 'bg-red-500/15 text-red-400' : 'bg-surface-hover text-gray-400'}`,
-            textContent: p
-          });
+      // Pieces table (4 rows: weapon, helmet, armor, gloves)
+      R.el('div', { className: 'space-y-1 mb-2' },
+        (plan.pieces || []).map(pc => {
+          const slotIcons = { weapon: '\u2694\uFE0F', helmet: '\uD83E\uDE96', armor: '\uD83D\uDEE1\uFE0F', gloves: '\uD83E\uDDE4' };
+          const lvBad = pc.lv === 0;
+          return R.el('div', { className: `flex items-start gap-1.5 text-[10px] ${lvBad ? 'opacity-50' : ''}` }, [
+            R.el('span', { className: 'shrink-0 w-4 text-center', textContent: slotIcons[pc.slot] || '' }),
+            R.el('div', { className: 'flex-1 min-w-0' }, [
+              R.el('div', { className: 'flex items-center gap-1 flex-wrap' }, [
+                pc.mythic ? R.el('span', { className: 'text-mythic font-bold', textContent: '\u2B50' }) : null,
+                R.el('span', { className: `font-medium ${pc.mythic ? 'text-mythic' : 'text-gray-300'}`, textContent: pc.set }),
+                R.el('span', { className: `${lvBad ? 'text-red-400' : 'text-gray-500'}`, textContent: lvBad ? 'lv0' : '' })
+              ].filter(Boolean)),
+              R.el('div', { className: 'flex items-center gap-1.5 flex-wrap' }, [
+                R.el('span', { className: 'text-white font-bold', textContent: pc.main }),
+                ...(pc.subs || []).map(s => R.el('span', { className: 'text-gray-500', textContent: s }))
+              ])
+            ])
+          ]);
         })
       ),
       // Set bonus
       plan.set_bonus ? R.el('div', { className: 'text-[10px] text-gold/80 mb-0.5', textContent: '\uD83D\uDD17 ' + plan.set_bonus }) : null,
-      // Mythic
-      plan.mythic ? R.el('div', { className: 'text-[10px] text-mythic mb-0.5', textContent: '\u2B50 ' + plan.mythic }) : null,
+      // Mythic effect
+      plan.mythic_effect ? R.el('div', { className: 'text-[10px] text-mythic mb-0.5', textContent: '\u2B50 ' + plan.mythic_effect }) : null,
       // Totals
       R.el('div', { className: 'text-[10px] font-medium text-white', textContent: plan.totals }),
       // Sharing info
@@ -358,17 +368,10 @@ const Gear = {
   },
 
   _findLoadout(pieceId, data) {
-    // Check gear_plans first
+    // Check gear_plans (pieces are now objects with img field)
     for (const plan of (data.gear_plans || [])) {
-      if ((plan.pieces || []).some(p => p.startsWith(pieceId + ' ') || p === pieceId)) {
+      if ((plan.pieces || []).some(p => p.img && p.img === pieceId)) {
         return plan.name;
-      }
-    }
-    // Fallback to old loadouts
-    for (const l of (data.loadouts || [])) {
-      const pieces = l.pieces || {};
-      if (Object.values(pieces).includes(pieceId)) {
-        return l.name?.split(' \u2014 ')[0] || l.profile;
       }
     }
     return null;

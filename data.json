@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "last_full_scan": "2026-03-10T20:27:59",
+  "last_full_scan": "2026-03-11T04:32:01",
   "projects": [
     {
       "name": "nexus",
@@ -14,11 +14,11 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-03-10",
+      "last_activity": "2026-03-11",
       "git": {
         "branch": "main",
-        "last_commit_date": "2026-03-10",
-        "last_commit_message": "[nexus-auto] add sync",
+        "last_commit_date": "2026-03-11",
+        "last_commit_message": "docs: update implementation plan after third review pass",
         "dirty": true
       },
       "filesystem": null,
@@ -28,7 +28,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T20:26:10"
+      "last_scanned": "2026-03-11T04:30:23"
     },
     {
       "name": "Dragon Heir",
@@ -42,11 +42,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-03-10",
+      "last_activity": "2026-03-11",
       "git": null,
       "filesystem": {
-        "last_modified_file": "app/index.html",
-        "last_modified_date": "2026-03-10"
+        "last_modified_file": "screenshots/heroes-gear-badges.png",
+        "last_modified_date": "2026-03-11"
       },
       "health": {
         "path_exists": true,
@@ -57,7 +57,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-10T20:26:10"
+      "last_scanned": "2026-03-11T04:30:24"
     },
     {
       "name": "CRCMG",
@@ -83,7 +83,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T20:26:22"
+      "last_scanned": "2026-03-11T04:30:33"
     },
     {
       "name": "IASD",
@@ -109,7 +109,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T20:26:24"
+      "last_scanned": "2026-03-11T04:30:34"
     },
     {
       "name": "IA Builder",
@@ -137,7 +137,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T20:26:25"
+      "last_scanned": "2026-03-11T04:30:34"
     },
     {
       "name": "Mnemo",
@@ -165,7 +165,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T20:26:25"
+      "last_scanned": "2026-03-11T04:30:34"
     },
     {
       "name": "WSL Config",
@@ -191,7 +191,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T20:26:26"
+      "last_scanned": "2026-03-11T04:30:35"
     },
     {
       "name": "Livros",
@@ -219,7 +219,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T20:26:27"
+      "last_scanned": "2026-03-11T04:30:36"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -247,7 +247,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T20:26:28"
+      "last_scanned": "2026-03-11T04:30:37"
     },
     {
       "name": "Incidentes-Getin",
@@ -273,7 +273,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T20:26:28"
+      "last_scanned": "2026-03-11T04:30:37"
     },
     {
       "name": "My Finance",
@@ -304,7 +304,7 @@
         "route": "/finance",
         "has_output": true
       },
-      "last_scanned": "2026-03-10T20:26:33"
+      "last_scanned": "2026-03-11T04:30:42"
     },
     {
       "name": "Development",
@@ -330,7 +330,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T20:27:49"
+      "last_scanned": "2026-03-11T04:31:55"
     },
     {
       "name": "Empreendimentos",
@@ -356,7 +356,7 @@
         "web_compliant": null
       },
       "web": null,
-      "last_scanned": "2026-03-10T20:27:50"
+      "last_scanned": "2026-03-11T04:31:56"
     },
     {
       "name": "Watcher of Realms",
@@ -385,7 +385,7 @@
         "route": "/wor",
         "has_output": false
       },
-      "last_scanned": "2026-03-10T20:27:59"
+      "last_scanned": "2026-03-11T04:32:01"
     }
   ],
   "ideas": [

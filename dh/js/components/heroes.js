@@ -509,8 +509,8 @@ const Heroes = {
           }
 
           // Mythic
-          if (plan.mythic) {
-            planCard.appendChild(R.el('div', { className: 'text-xs text-mythic mb-1', textContent: '\u2B50 ' + plan.mythic }));
+          if (plan.mythic_effect) {
+            planCard.appendChild(R.el('div', { className: 'text-xs text-mythic mb-1', textContent: '\u2B50 ' + plan.mythic_effect }));
           }
 
           // Totals
@@ -520,13 +520,14 @@ const Heroes = {
 
           // Pieces (compact)
           if (plan.pieces && plan.pieces.length) {
+            const slotIcons = { weapon: '\u2694', helmet: '\uD83E\uDDE2', armor: '\uD83D\uDEE1', gloves: '\uD83E\uDDE4' };
             planCard.appendChild(R.el('div', { className: 'flex flex-wrap gap-1 mt-2' },
               plan.pieces.map(p => {
-                const isMythic = p.includes('\u2B50');
-                const isLv0 = p.includes('\u26A0lv0');
+                const icon = slotIcons[p.slot] || '';
+                const label = `${icon} ${p.set}`;
                 return R.el('span', {
-                  className: `text-[9px] px-1 py-0.5 rounded ${isMythic ? 'bg-mythic/15 text-mythic' : isLv0 ? 'bg-red-500/15 text-red-400' : 'bg-surface-hover text-gray-400'}`,
-                  textContent: p
+                  className: `text-[9px] px-1 py-0.5 rounded ${p.mythic ? 'bg-mythic/15 text-mythic' : p.lv === 0 ? 'bg-red-500/15 text-red-400' : 'bg-surface-hover text-gray-400'}`,
+                  textContent: label
                 });
               })
             ));
