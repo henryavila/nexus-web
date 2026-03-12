@@ -370,6 +370,20 @@ window.DATA_MECHANICS = {
       { name: "Iron Bastion", bonus: "Ao receber Crit → 50% chance -30% Crit Rate do atacante 5s", type: "Defensivo" }
     ],
 
+    // LOADOUT SYSTEM — confirmado in-game 12/Mar/2026
+    // Quick Equip salva as 4 pecas de gear (weapon, helmet, armor, gloves).
+    // PROBLEMA: Loadout NAO salva runas (positiva/negativa). Ao carregar loadout, REMOVE as runas do heroi.
+    // Workaround: re-equipar runas manualmente apos carregar loadout.
+    // Implicacao: gear swap "gratis" tem custo oculto de re-equipar runas toda vez.
+    // TODO: verificar se versoes futuras corrigem isso.
+    loadout_system: {
+      saves_gear: true,
+      saves_runes: false,
+      saves_artifact: false, // TODO confirmar
+      bug_removes_runes: true,
+      note: "Ao carregar loadout, runas sao REMOVIDAS do heroi. Re-equipar manualmente."
+    },
+
     s4_sets_note: "Sets S4 (Echoes of War, Whispers of the Order, Oasis Aspiration) NAO existem no S1. Sao multi-piece sets de seasons futuras.",
     s4_sets: [
       { name: "Echoes of War", bonus_2: "+ATK, +Atk Speed", bonus_3: "+Atk Speed, +basic atk dmg on crit", ideal: "Dauntless / basic attackers" },

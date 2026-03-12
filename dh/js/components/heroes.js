@@ -267,13 +267,11 @@ const Heroes = {
           'def': 'ice'
         };
         const planColor = profileColors[plan.profile] || 'gold';
-        const noConflict = !plan.sharing || !plan.sharing.length;
         content.appendChild(R.el('div', { className: 'flex items-center gap-1 mb-1' }, [
           R.el('span', {
             className: `text-[10px] px-1.5 py-0.5 rounded bg-${planColor}/15 text-${planColor} border border-${planColor}/20`,
             textContent: plan.name
-          }),
-          R.el('span', { className: 'text-[10px]', textContent: noConflict ? '\u2705' : '\uD83D\uDD04' })
+          })
         ]));
       }
     }
@@ -462,7 +460,6 @@ const Heroes = {
             'def': ['DEF%']
           };
           const planColor = profileColors[plan.profile] || 'gold';
-          const noConflict = !plan.sharing || !plan.sharing.length;
 
           const planSection = R.el('div', { className: 'mb-5' });
           planSection.appendChild(R.el('h3', {
@@ -472,18 +469,14 @@ const Heroes = {
 
           const planCard = R.el('div', { className: `bg-surface rounded-lg p-3 border border-${planColor}/30` });
 
-          // Loadout name (clickable, scrolls to loadout on gear page) + conflict
+          // Loadout name (clickable → gear page)
           planCard.appendChild(R.el('div', { className: 'flex items-center gap-2 mb-2' }, [
             R.el('a', {
               className: `text-sm font-bold text-${planColor} hover:underline cursor-pointer`,
               href: '#gear',
-              onClick: (e) => {
-                e.preventDefault();
-                Gear._navigateToMontagem(plan.name);
-              },
+              onClick: (e) => { e.preventDefault(); App.navigate('gear'); },
               textContent: plan.name
-            }),
-            R.el('span', { className: 'text-xs', textContent: noConflict ? '\u2705' : '\uD83D\uDD04' })
+            })
           ]));
 
           // Essential stats badges
@@ -498,41 +491,21 @@ const Heroes = {
           );
           planCard.appendChild(statBadges);
 
-          // Set bonus
-          if (plan.set_bonus) {
-            planCard.appendChild(R.el('div', { className: 'text-xs text-gold/80 mb-1', textContent: '\uD83D\uDD17 ' + plan.set_bonus }));
-          }
-
-          // Mythic
-          if (plan.mythic_effect) {
-            planCard.appendChild(R.el('div', { className: 'text-xs text-mythic mb-1', textContent: '\u2B50 ' + plan.mythic_effect }));
-          }
-
-          // Totals
-          if (plan.totals) {
-            planCard.appendChild(R.el('div', { className: 'text-xs font-medium text-white mt-1', textContent: plan.totals }));
-          }
-
-          // Pieces (compact)
-          if (plan.pieces && plan.pieces.length) {
-            const slotIcons = { weapon: '\u2694', helmet: '\uD83E\uDDE2', armor: '\uD83D\uDEE1', gloves: '\uD83E\uDDE4' };
-            planCard.appendChild(R.el('div', { className: 'flex flex-wrap gap-1 mt-2' },
-              plan.pieces.map(p => {
-                const icon = slotIcons[p.slot] || '';
-                const label = `${icon} ${p.set}`;
-                return R.el('span', {
-                  className: `text-[9px] px-1 py-0.5 rounded ${p.mythic ? 'bg-mythic/15 text-mythic' : p.lv === 0 ? 'bg-red-500/15 text-red-400' : 'bg-surface-hover text-gray-400'}`,
-                  textContent: label
-                });
-              })
+          // Hero stats (if available)
+          if (plan.hero_stats) {
+            const hs = plan.hero_stats;
+            const statItems = [];
+            if (hs.atk) statItems.push({ l: 'ATK', v: hs.atk, c: 'text-fire' });
+            if (hs.critR) statItems.push({ l: 'CritR', v: hs.critR + '%', c: 'text-tier-ss' });
+            if (hs.critD) statItems.push({ l: 'CritD', v: hs.critD + '%', c: 'text-tier-ss' });
+            if (hs.acc) statItems.push({ l: 'ACC', v: hs.acc, c: 'text-lightning' });
+            if (hs.enl) statItems.push({ l: 'Enl', v: hs.enl, c: 'text-radiance' });
+            if (hs.hp) statItems.push({ l: 'HP', v: (hs.hp / 1000).toFixed(1) + 'k', c: 'text-done' });
+            if (hs.def) statItems.push({ l: 'DEF', v: hs.def, c: 'text-ice' });
+            if (hs.dps_index) statItems.push({ l: 'DPS', v: hs.dps_index.toLocaleString(), c: 'text-gold font-bold' });
+            planCard.appendChild(R.el('div', { className: 'flex flex-wrap gap-x-3 gap-y-1' },
+              statItems.map(s => R.el('span', { className: `text-[10px] ${s.c}`, textContent: `${s.l} ${s.v}` }))
             ));
-          }
-
-          // Sharing info
-          if (!noConflict && plan.sharing) {
-            for (const s of plan.sharing) {
-              planCard.appendChild(R.el('div', { className: 'text-[9px] text-yellow-400/70 mt-1', textContent: '\uD83D\uDD04 ' + s }));
-            }
           }
 
           planSection.appendChild(planCard);

@@ -3,6 +3,37 @@
 
 window.DATA_DECISIONS = [
   {
+    date: "2026-03-11",
+    title: "DPS Crit Loadouts: benchmark in-game + Clean Sweep para DA",
+    tags: ["gear", "loadout", "divine-ascetic", "nastjenka", "ladehlia", "sutha", "benchmark"],
+    summary: "Captura de stats in-game dos 4 heróis DPS Crit com loadouts equipados. DA troca luva Cyril CritR40 por mythic Clean Sweep ATK%40 (+29.8% DPS). Runas mantidas (CritD positiva, atual negativa).",
+    impact: "DA sobe de #4 para #2 no ranking DPS. Ranking final: Nastjenka 13519 > DA 8621 > Ladehlia 8422 > Sutha 7536.",
+    details: `BENCHMARK (DPS = ATK × (1 + CritR × CritD))
+#1 Nastjenka (Crit 1): ATK 3748, CritR 99.4%, CritD 262.2% → DPS 13,519 | Power 44,426
+#2 DA (Crit 2 + Clean Sweep): ATK 3405, CritR 90.6%, CritD 169.1% → DPS 8,621
+#3 Ladehlia (Crit 4): ATK 3582, CritR 67.0%, CritD 201.7% → DPS 8,422 | Power 43,433
+#4 Sutha (Crit 3): ATK 3629, CritR 71.4%, CritD 150.8% → DPS 7,536 | Power 37,853
+#5 Huberg (Crit 5): ATK 4108, CritR 26.7%, CritD 179.8% → DPS 6,079
+
+DECISÃO: DA — Clean Sweep mythic
+- Troca: Cyril's Whisper gloves (CritR 40 main) → Clean Sweep mythic (ATK% 40 main, CritR 10.5, CritD 16.7)
+- Resultado: ATK +747, CritR +1.5%, CritD +0.8% → +29.8% DPS
+- Perde Cyril 2pc set bonus, mas ganho bruto compensa
+
+RUNAS AVALIADAS (DA com Clean Sweep):
+- Positiva ATK+523 / CritD-40%: -1.1% DPS → REJEITADA (manter CritD)
+- Negativa ATK+134 / CritR-7.2% / CritD-15.1%: -6.1% DPS → REJEITADA (manter atual)
+
+HUBERG — Runas escolhidas:
+- Positiva: ATK +302 + CritR 3.7% (vs CritR 7.4% pura → +10.5% DPS)
+- Negativa: ATK 335 + CritR 4.9% + CritD 42% (excelente, tudo útil)
+- Stats finais: ATK 1590+2518=4108, CritR 26.7%, CritD 179.8%
+- INSIGHT: Huberg tem maior ATK bruto (4108) e CritD forte (179.8%). Gargalo = CritR 26.7%.
+  Com gear CritR 70% → DPS 9,278 (#2). Com 90% → DPS 10,755 (rival Nastjenka).
+  PRIORIDADE: gear com CritR main/subs para Huberg`
+  },
+
+  {
     date: "2026-03-09",
     title: "Pillar Expedition (Alliance Event): 24.600k pontos — 4x recorde anterior",
     tags: ["pillar-expedition", "alliance-event", "immortals-ice", "record", "boss"],

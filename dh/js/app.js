@@ -1,5 +1,5 @@
 // app.js — Router and initialization
-const __BUILD_VERSION__ = '1773255544';
+const __BUILD_VERSION__ = '1773349831';
 
 const DataLoader = {
   registry: {
