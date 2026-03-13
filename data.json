@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "last_full_scan": "2026-03-12T18:10:30",
+  "last_full_scan": "2026-03-13T08:39:50",
   "current_environment": "ULTRON",
   "projects": [
     {
@@ -15,11 +15,11 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-03-12",
+      "last_activity": "2026-03-13",
       "git": {
         "branch": "main",
-        "last_commit_date": "2026-03-11",
-        "last_commit_message": "feat: add Shell option to nexus open command",
+        "last_commit_date": "2026-03-13",
+        "last_commit_message": "[nexus-auto] codex sync",
         "dirty": true
       },
       "filesystem": null,
@@ -42,7 +42,7 @@
         "opencode"
       ],
       "web": null,
-      "last_scanned": "2026-03-12T18:08:41"
+      "last_scanned": "2026-03-13T08:35:52"
     },
     {
       "name": "Dragon Heir",
@@ -56,11 +56,11 @@
       "status": "active",
       "note": null,
       "class": "filesystem",
-      "last_activity": "2026-03-12",
+      "last_activity": "2026-03-13",
       "git": null,
       "filesystem": {
-        "last_modified_file": "app/data/gear.js",
-        "last_modified_date": "2026-03-12"
+        "last_modified_file": ".playwright-mcp/console-2026-03-13T08-10-55-374Z.log",
+        "last_modified_date": "2026-03-13"
       },
       "health": {
         "path_exists": {
@@ -81,7 +81,7 @@
         "route": "/dh",
         "has_output": true
       },
-      "last_scanned": "2026-03-12T18:08:42"
+      "last_scanned": "2026-03-13T08:35:57"
     },
     {
       "name": "CRCMG",
@@ -120,7 +120,7 @@
         "opencode"
       ],
       "web": null,
-      "last_scanned": "2026-03-12T18:08:55"
+      "last_scanned": "2026-03-13T08:36:22"
     },
     {
       "name": "IASD",
@@ -156,7 +156,7 @@
         "nexus"
       ],
       "web": null,
-      "last_scanned": "2026-03-12T18:08:57"
+      "last_scanned": "2026-03-13T08:36:25"
     },
     {
       "name": "IA Builder",
@@ -193,7 +193,7 @@
         "nexus"
       ],
       "web": null,
-      "last_scanned": "2026-03-12T18:08:58"
+      "last_scanned": "2026-03-13T08:36:28"
     },
     {
       "name": "Mnemo",
@@ -231,7 +231,7 @@
         "claude-code"
       ],
       "web": null,
-      "last_scanned": "2026-03-12T18:08:58"
+      "last_scanned": "2026-03-13T08:36:29"
     },
     {
       "name": "WSL Config",
@@ -267,7 +267,7 @@
         "nexus"
       ],
       "web": null,
-      "last_scanned": "2026-03-12T18:08:59"
+      "last_scanned": "2026-03-13T08:36:29"
     },
     {
       "name": "Livros",
@@ -305,7 +305,7 @@
         "nexus"
       ],
       "web": null,
-      "last_scanned": "2026-03-12T18:09:00"
+      "last_scanned": "2026-03-13T08:36:32"
     },
     {
       "name": "Lucio Monteiro Kids",
@@ -344,7 +344,7 @@
         "nexus"
       ],
       "web": null,
-      "last_scanned": "2026-03-12T18:09:01"
+      "last_scanned": "2026-03-13T08:36:34"
     },
     {
       "name": "Incidentes-Getin",
@@ -381,7 +381,7 @@
         "nexus"
       ],
       "web": null,
-      "last_scanned": "2026-03-12T18:09:01"
+      "last_scanned": "2026-03-13T08:36:35"
     },
     {
       "name": "My Finance",
@@ -395,7 +395,7 @@
       "status": "active",
       "note": null,
       "class": "git",
-      "last_activity": "2026-03-11",
+      "last_activity": "2026-03-12",
       "git": {
         "branch": "main",
         "last_commit_date": "2026-03-09",
@@ -425,7 +425,7 @@
         "route": "/finance",
         "has_output": true
       },
-      "last_scanned": "2026-03-12T18:09:08"
+      "last_scanned": "2026-03-13T08:36:56"
     },
     {
       "name": "Development",
@@ -461,7 +461,7 @@
         "nexus"
       ],
       "web": null,
-      "last_scanned": "2026-03-12T18:10:28"
+      "last_scanned": "2026-03-13T08:39:35"
     },
     {
       "name": "Empreendimentos",
@@ -497,7 +497,7 @@
         "nexus"
       ],
       "web": null,
-      "last_scanned": "2026-03-12T18:10:29"
+      "last_scanned": "2026-03-13T08:39:44"
     },
     {
       "name": "Watcher of Realms",
@@ -536,7 +536,7 @@
         "route": "/wor",
         "has_output": false
       },
-      "last_scanned": "2026-03-12T18:10:30"
+      "last_scanned": "2026-03-13T08:39:49"
     }
   ],
   "apps": [
@@ -555,7 +555,7 @@
       "hostname": "ULTRON",
       "name": "ULTRON",
       "location": "Casa",
-      "last_seen": "2026-03-12"
+      "last_seen": "2026-03-13"
     }
   ],
   "skills": {
@@ -704,6 +704,19 @@
     }
   ],
   "codex": [
+    {
+      "slug": "bmad-implementation-lifecycle-guia-de-referencia",
+      "title": "BMAD Implementation Lifecycle — Guia de Referencia",
+      "category": "guia",
+      "created": "2026-03-13",
+      "updated": "2026-03-13",
+      "content": "# BMAD Implementation Lifecycle — Guia de Referencia\n\n> Documento de referencia consolidando conceitos, regras e fluxos do BMAD para planejamento e implementacao de produto.\n\n## Conceitos Fundamentais\n\n### Hierarquia de Planejamento\n\n```\nPRD (Product Requirements Document)\n  └→ Tiers estrategicos (MVP / Growth / Vision)\n       └→ Epics (unidades de entrega)\n            └→ Stories (unidades de implementacao)\n```\n\nCada nivel tem um proposito diferente:\n\n| Nivel     | O que e                                 | Pergunta que responde                 |\n| --------- | --------------------------------------- | ------------------------------------- |\n| **PRD**   | Mapa completo do produto                | \"O que queremos construir e por que?\" |\n| **Tier**  | Agrupamento estrategico por prioridade  | \"O que precisa existir primeiro?\"     |\n| **Epic**  | Fatia entregavel com valor independente | \"O que entregar neste ciclo?\"         |\n| **Story** | Tarefa implementavel por um dev         | \"O que fazer agora?\"                  |\n\n### PRD: o Mapa, nao o Contrato\n\nO PRD documenta a **visao completa** do produto. Pode (e deve) conter:\n\n- Features do MVP\n- Features de Growth\n- Features de Vision (futuro distante)\n- Decisoes arquiteturais\n- Riscos e mitigacoes\n\n**Regra**: jogue todas as ideias no PRD. Ideias nao documentadas se perdem. O PRD nao obriga a implementar tudo — ele garante que nada e esquecido.\n\nO que controla a implementacao sao os **Epics**, nao o PRD.\n\n---\n\n## Tiers Estrategicos\n\n### MVP (Minimum Viable Product)\n\nO minimo que prova a tese e entrega valor real. Se parar aqui, o produto ja justifica sua existencia.\n\n**Regras do MVP:**\n\n- Deve ser implementavel em semanas (nao meses) pelo time disponivel\n- Cada feature do MVP deve ser essencial — se remover, o produto perde a proposta de valor\n- Valida a hipotese central do produto\n- Gera feedback real de usuarios reais\n\n**Perguntas de corte:**\n\n- \"Se eu nao tiver isso, o produto funciona?\" → Se sim, nao e MVP\n- \"Isso e necessario para provar minha tese?\" → Se nao, e Growth\n- \"Um usuario consegue extrair valor sem isso?\" → Se nao, e MVP\n\n### Growth\n\nFeatures que expandem o MVP, aumentam retencao, engagement e cobertura de casos de uso.\n\n**Caracteristicas:**\n\n- Presupoe que o MVP esta validado e funcionando\n- Adiciona profundidade, nao amplitude\n- Pode ser reavaliado entre ciclos (prioridades mudam)\n- Tipicamente tem varios epics independentes\n\n### Vision\n\nOnde o produto pode chegar. Inspira a direcao mas nao compromete recursos.\n\n**Caracteristicas:**\n\n- Pode nunca ser implementado (e tudo bem)\n- Muda conforme o mercado e o feedback\n- Documenta possibilidades, nao compromissos\n- Util para alinhar stakeholders sobre a direcao\n\n---\n\n## Epics: Regras e Identificacao\n\n### O que define um Epic\n\nUm epic e uma fatia de trabalho que satisfaz **todos** estes criterios:\n\n1. **Entrega valor sozinho** — funciona sem o proximo epic. Um usuario real pode usar o resultado.\n2. **E testavel end-to-end** — da pra validar com uso real, nao so com testes automatizados.\n3. **Cabe na cabeca** — voce consegue segurar o escopo mentalmente sem se perder.\n4. **Tem duracao razoavel** — para solo dev: 1-3 semanas. Para times: 1-2 sprints.\n5. **Organizado por valor de usuario** — nao por camada tecnica.\n\n### Regra de ouro dos Epics\n\n```\n✅ CORRETO: \"Catalogo de musicas com audio e lyrics sincronizados\"\n   → Usuario pode ouvir musicas com letra sincronizada\n   → Valor claro, testavel, independente\n\n❌ ERRADO: \"Setup do banco de dados\"\n   → Nenhum usuario extrai valor de tabelas vazias\n   → Camada tecnica, nao valor de usuario\n```\n\n### Quando quebrar em Epics menores\n\nQuebre quando:\n\n- O escopo e grande demais para segurar mentalmente\n- Existe um **corte natural** onde da pra validar antes de continuar\n- Partes diferentes podem ser implementadas e entregues independentemente\n- Feedback precoce de uma parte pode mudar a abordagem de outra\n\n**Nao quebre** quando:\n\n- As partes nao funcionam sozinhas (Epic A sem Epic B e inutil)\n- Quebrar criaria overhead de planejamento maior que o ganho\n- O escopo ja e pequeno (1-2 semanas)\n\n### Teste do Epic Bem Recortado\n\nPara cada epic candidato, pergunte:\n\n| Pergunta                              | Resposta esperada                            |\n| ------------------------------------- | -------------------------------------------- |\n| Um usuario consegue usar isso hoje?   | Sim                                          |\n| Funciona sem o proximo epic?          | Sim                                          |\n| Consigo demonstrar pra alguem?        | Sim                                          |\n| Sei quando esta \"pronto\"?             | Sim                                          |\n| Depende de algo que ainda nao existe? | Nao (ou so de epics anteriores ja entregues) |\n\nSe alguma resposta for \"nao\", reconsidere o recorte.\n\n### Dependencias entre Epics\n\n```\nPERMITIDO:\nEpic 2 depende de Epic 1 (sequencia linear)\nEpic 3 e Epic 4 dependem de Epic 2 (paralelismo)\n\nNAO PERMITIDO:\nEpic 2 depende de Epic 3 (dependencia circular)\nEpic 2 depende de Epic 5 (dependencia de futuro distante)\n```\n\nEpics devem formar um **DAG** (grafo aciclico dirigido). Se dois epics podem rodar em paralelo, isso e oportunidade de ganho de tempo.\n\n### Exemplo Pratico: Quebrando Phases em Epics\n\n```\nMVP (Phases 0-3):\n  Epic 1: Artist/Album Refactoring (Phase 0)\n    → Valor: dados limpos, sem debito tecnico\n    → Testavel: Filament mostra artista e album separados\n\n  Epic 2: Collection Infrastructure (Phase 1)\n    → Valor: colecao aparece no Filament, admin configura\n    → Testavel: admin ativa colecao, ve 0 musicas (ainda sem import)\n\n  Epic 3: Import Pipeline (Phase 2)\n    → Valor: 1.888 musicas no site com audio\n    → Testavel: visitante navega musicas da colecao\n\n  Epic 4: Audio Player + Synced Lyrics (Phase 3)\n    → Valor: player funcional com letra sincronizada\n    → Testavel: usuario ouve musica e ve letra em tempo real\n```\n\nCada um entrega valor, e testavel, e funciona sem o proximo.\n\n---\n\n## Stories: Regras e Convencoes\n\n### O que define uma Story\n\n- **Tamanho**: completavel por um dev em uma sessao de trabalho\n- **Formato**: \"As a {usuario}, I want {capacidade}, So that {beneficio}\"\n- **Acceptance Criteria**: formato Given/When/Then, especificos e testaveis\n- **ID**: `{epic_num}-{story_num}-{kebab-case-title}` (ex: `1-1-user-authentication`)\n\n### Regras de Stories\n\n1. Stories dentro de um epic devem ser sequenciais — Story N.2 so depende de Story N.1\n2. Tabelas de banco criadas **quando necessarias** pela story, nao antecipadamente\n3. Cada story deve ter criterios de aceitacao claros e testavel\n4. Story nao deve depender de stories futuras (nem no mesmo epic)\n\n### Mapa de Cobertura\n\nToda Functional Requirement (FR) do PRD deve ter pelo menos uma story que a implemente:\n\n```\nFR1: \"Colecao de musicas compartilhada\" → Epic 2, Story 2.1\nFR2: \"Import de musicas do LouvorJA\"    → Epic 3, Story 3.1\nFR3: \"Player com lyrics sincronizados\"  → Epic 4, Story 4.2\n```\n\nSe alguma FR nao tem story → gap no planejamento.\n\n---\n\n## Fluxo Completo do BMAD\n\n### Visao Geral\n\n```\nPLANEJAMENTO (uma vez)\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n PRD                     → Mapa do produto\n Architecture            → Decisoes tecnicas\n UX Design (opcional)    → Padroes de interface\n Create Epics & Stories  → Recorte em unidades de entrega\n Sprint Planning         → Inicializa tracking (sprint-status.yaml)\n\nEXECUCAO (ciclo por story)\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n Sprint Status    → Verifica estado atual + proxima acao\n Create Story     → Prepara story com contexto completo\n Dev Story        → Implementa a story\n Code Review      → Valida implementacao\n   ├→ Issues?     → Volta pra Dev Story\n   └→ Aprovado?   → Story done, proxima story\n\nMUDANCA DE CURSO (quando necessario)\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n Correct Course   → Analisa impacto + propoe ajustes\n   ├→ Atualiza PRD (se necessario)\n   ├→ Reescreve epics afetados\n   └→ Atualiza sprint-status.yaml\n\nREFLEXAO (por epic)\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n Retrospective    → Licoes aprendidas + preparacao proximo epic\n```\n\n### Diagrama de Fluxo Detalhado\n\n```\n┌──────────────────────────────────────────────────────────────┐\n│                    PLANEJAMENTO                               │\n│                                                              │\n│  PRD + Architecture + UX                                     │\n│         │                                                    │\n│         ▼                                                    │\n│  ┌─────────────────────────┐                                 │\n│  │ Create Epics & Stories  │  Workflow: create-epics-and-    │\n│  │ (4 steps)               │  stories                        │\n│  │  1. Validate prereqs    │  Output: epics.md               │\n│  │  2. Design epic list    │                                 │\n│  │  3. Create stories      │                                 │\n│  │  4. Final validation    │                                 │\n│  └───────────┬─────────────┘                                 │\n│              │                                               │\n│              ▼                                               │\n│  ┌─────────────────────────┐                                 │\n│  │ Sprint Planning         │  Workflow: sprint-planning      │\n│  │  Parse epics            │  Output: sprint-status.yaml     │\n│  │  Build status structure │                                 │\n│  │  Detect existing work   │                                 │\n│  └───────────┬─────────────┘                                 │\n└──────────────┼───────────────────────────────────────────────┘\n               │\n               ▼\n┌──────────────────────────────────────────────────────────────┐\n│                     EXECUCAO                                  │\n│                                                              │\n│  ┌─────────────────────────┐                                 │\n│  │ Sprint Status           │  Verifica estado atual          │\n│  │  Contagem por status    │  Detecta riscos                 │\n│  │  Recomenda proxima acao │  Sugere workflow                │\n│  └───────────┬─────────────┘                                 │\n│              │                                               │\n│              ▼                                               │\n│  ┌─────────────────────────┐                                 │\n│  │ Create Story            │  Prepara story com contexto     │\n│  │  Le epics.md            │  Output: story-{key}.md         │\n│  │  Enriquece com PRD/Arch │  Status: backlog → ready-for-dev│\n│  └───────────┬─────────────┘                                 │\n│              │                                               │\n│              ▼                                               │\n│  ┌─────────────────────────┐                                 │\n│  │ Dev Story               │  Implementa a story            │\n│  │  Le story file          │  Escreve codigo + testes        │\n│  │  Segue acceptance crit. │  Status: → in-progress          │\n│  └───────────┬─────────────┘                                 │\n│              │                                               │\n│              ▼                                               │\n│  ┌─────────────────────────┐                                 │\n│  │ Code Review             │  Valida contra criterios        │\n│  │  Checa acceptance crit. │  Verifica qualidade             │\n│  │  Verifica testes        │                                 │\n│  └───────────┬─────────────┘                                 │\n│              │                                               │\n│         ┌────┴────┐                                          │\n│         │ Issues? │                                          │\n│         └────┬────┘                                          │\n│         Sim  │  Nao                                          │\n│          │   │                                               │\n│          │   ▼                                               │\n│          │  Story done (status: → done)                      │\n│          │   │                                               │\n│          │   ├→ Mais stories? → volta pra Create Story       │\n│          │   └→ Epic completo? → Retrospective               │\n│          │                                                   │\n│          └→ Volta pra Dev Story (fix issues)                 │\n│                                                              │\n│  ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐                                │\n│    Correct Course            A qualquer momento              │\n│  │  Quando algo muda        │  Output: change-proposal.md   │\n│    significativamente         Atualiza epics/sprint-status   │\n│  └ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘                                │\n└──────────────────────────────────────────────────────────────┘\n               │\n               ▼\n┌──────────────────────────────────────────────────────────────┐\n│                     REFLEXAO                                  │\n│                                                              │\n│  ┌─────────────────────────┐                                 │\n│  │ Retrospective           │  Pos-epic                       │\n│  │  O que funcionou        │  Licoes aprendidas              │\n│  │  O que melhorar         │  Prepara proximo epic           │\n│  │  Descobertas tecnicas   │  Output: retro-{epic}-{date}.md │\n│  └─────────────────────────┘                                 │\n│                                                              │\n│  Decide: proximo epic? ajustar plano? mudar prioridades?     │\n└──────────────────────────────────────────────────────────────┘\n```\n\n---\n\n## Workflows BMAD — Referencia Rapida\n\n### Fase de Planejamento\n\n| Workflow                   | Skill                               | Quando usar             | Input                           | Output                 |\n| -------------------------- | ----------------------------------- | ----------------------- | ------------------------------- | ---------------------- |\n| **Create PRD**             | `bmad-bmm-create-prd`               | Inicio do projeto       | Brainstorming, briefs, research | `prd.md`               |\n| **Edit PRD**               | `bmad-bmm-edit-prd`                 | Ajustar PRD existente   | PRD atual + mudancas            | PRD atualizado         |\n| **Validate PRD**           | `bmad-bmm-validate-prd`             | Verificar qualidade     | PRD                             | Relatorio de validacao |\n| **Create Architecture**    | `bmad-bmm-create-architecture`      | Decisoes tecnicas       | PRD                             | `architecture.md`      |\n| **Create UX Design**       | `bmad-bmm-create-ux-design`         | Padroes de interface    | PRD + Architecture              | `ux-design.md`         |\n| **Create Epics & Stories** | `bmad-bmm-create-epics-and-stories` | Recortar em entregaveis | PRD + Architecture + UX         | `epics.md`             |\n\n### Fase de Implementacao\n\n| Workflow            | Skill                      | Quando usar                    | Input                   | Output                 |\n| ------------------- | -------------------------- | ------------------------------ | ----------------------- | ---------------------- |\n| **Sprint Planning** | `bmad-bmm-sprint-planning` | Inicio da implementacao        | `epics.md`              | `sprint-status.yaml`   |\n| **Sprint Status**   | `bmad-bmm-sprint-status`   | Verificar estado atual         | `sprint-status.yaml`    | Sumario + recomendacao |\n| **Create Story**    | `bmad-bmm-create-story`    | Preparar proxima story         | Sprint status + Epics   | `story-{key}.md`       |\n| **Dev Story**       | `bmad-bmm-dev-story`       | Implementar story              | Story file              | Codigo + testes        |\n| **Code Review**     | `bmad-bmm-code-review`     | Validar implementacao          | Story + codigo          | Aprovacao ou issues    |\n| **Correct Course**  | `bmad-bmm-correct-course`  | Mudanca significativa no plano | PRD + Epics + evidencia | Change proposal        |\n| **Retrospective**   | `bmad-bmm-retrospective`   | Pos-epic                       | Epic completo + status  | Retro + licoes         |\n\n### Estado das Stories (State Machine)\n\n```\nStory:  backlog → ready-for-dev → in-progress → review → done\nEpic:   backlog → in-progress → done\nRetro:  optional → done\n```\n\n---\n\n## Correct Course: Quando e Como\n\n### Quando usar\n\nUse `correct-course` quando descobrir algo que **muda o plano significativamente**:\n\n- Um requisito e impossivel ou muito mais complexo que o previsto\n- Feedback de uso real invalida uma premissa\n- Uma decisao arquitetural precisa mudar\n- Prioridades mudaram (mercado, concorrencia, feedback)\n\n### Quando NAO usar\n\n- Bug encontrado durante desenvolvimento → resolve na story\n- Detalhe de implementacao diferente do previsto → ajusta e segue\n- Melhoria menor → anota e faz no proximo epic\n\n### Fluxo do Correct Course\n\n```\n1. Descreve o problema / mudanca\n2. Analisa impacto em:\n   - Epics e stories existentes\n   - PRD (escopo mudou?)\n   - Arquitetura (decisoes tecnicas mudaram?)\n   - UX (fluxos mudaram?)\n3. Avalia 3 opcoes:\n   - Ajuste direto (modifica stories/epics)\n   - Rollback (reverte stories recentes)\n   - Revisao de MVP (reduz escopo)\n4. Propoe mudancas (old → new com justificativa)\n5. Aprovacao do usuario\n6. Atualiza artefatos afetados\n```\n\n### Classificacao de Mudanca\n\n| Escopo       | Descricao                                         | Acao                     |\n| ------------ | ------------------------------------------------- | ------------------------ |\n| **Minor**    | Ajustes em stories, sem mudar epics               | Dev implementa direto    |\n| **Moderate** | Reorganizacao de backlog, stories novas/removidas | Replanejamento de sprint |\n| **Major**    | Mudanca fundamental no MVP ou arquitetura         | Revisao de PRD + epics   |\n\n---\n\n## Ciclo Entre Epics: Reavaliacao\n\nApos cada epic completo + retrospectiva, o ciclo de reavaliacao:\n\n```\nEpic N completo\n    │\n    ▼\nRetrospectiva\n    │\n    ▼\nReavaliacao: os epics restantes ainda fazem sentido?\n    │\n    ├→ Sim, sem mudancas → Sprint Planning → Epic N+1\n    │\n    ├→ Sim, com ajustes → Correct Course → ajusta → Epic N+1\n    │\n    ├→ Prioridade mudou → Reordena epics → Epic diferente\n    │\n    └→ Nao faz mais sentido → Para (e tudo bem)\n```\n\n**Principio**: o plano serve voce, nao o contrario. Se o mercado mudou, se o feedback diz outra coisa, se uma oportunidade apareceu — ajuste o plano.\n\n---\n\n## Anti-Patterns (O Que Nao Fazer)\n\n### No PRD\n\n- ❌ Nao documentar ideias por medo de \"escopo grande\" — o PRD e o mapa, nao o compromisso\n- ❌ Tentar implementar tudo de uma vez — o faseamento existe por isso\n- ❌ Detalhar demais features de Vision — elas vao mudar\n\n### Nos Epics\n\n- ❌ Epics por camada tecnica (\"Epic: Setup do banco\") — sempre por valor de usuario\n- ❌ Epics que nao funcionam sozinhos — se precisa do proximo pra ter valor, junte\n- ❌ Epics grandes demais (1+ mes) — quebre em fatias menores com validacao intermediaria\n- ❌ Planejar todos os epics em detalhe — detalhe so o proximo, os outros sao rascunho\n\n### Nas Stories\n\n- ❌ Stories que dependem de stories futuras\n- ❌ Criar tabelas de banco \"preventivamente\" — so quando a story precisa\n- ❌ Stories sem criterios de aceitacao claros — \"funciona\" nao e criterio\n\n### No Ciclo\n\n- ❌ Reimplementar o que ja funciona so porque o plano mudou\n- ❌ Replanejar TODOS os epics quando so um mudou\n- ❌ Pular a retrospectiva — e onde se aprende\n- ❌ Continuar implementando um plano que nao faz mais sentido — correct-course existe pra isso\n\n---\n\n## Artefatos e Localizacao\n\n| Artefato         | Path                                                         | Formato  |\n| ---------------- | ------------------------------------------------------------ | -------- |\n| PRD              | `_bmad-output/planning-artifacts/prd.md`                     | Markdown |\n| Architecture     | `_bmad-output/planning-artifacts/architecture.md`            | Markdown |\n| UX Design        | `_bmad-output/planning-artifacts/ux-design.md`               | Markdown |\n| Epics & Stories  | `_bmad-output/planning-artifacts/epics.md`                   | Markdown |\n| Sprint Status    | `_bmad-output/implementation-artifacts/sprint-status.yaml`   | YAML     |\n| Story Files      | `_bmad-output/implementation-artifacts/{story-key}.md`       | Markdown |\n| Change Proposals | `_bmad-output/planning-artifacts/sprint-change-proposal-{date}.md` | Markdown |\n| Retrospectives   | `_bmad-output/implementation-artifacts/epic-{num}-retro-{date}.md` | Markdown |",
+      "tags": [
+        "bmad",
+        "workflow"
+      ],
+      "order": 0
+    },
     {
       "slug": "bmad-process-reference",
       "title": "BMAD Process Reference",
