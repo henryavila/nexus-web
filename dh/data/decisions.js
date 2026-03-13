@@ -3,6 +3,83 @@
 
 window.DATA_DECISIONS = [
   {
+    date: "2026-03-13",
+    title: "Continental Challenge Semana 3: 4 bosses salvos — 144.2M total (Twitch 44M, Vasska 40.7M, Tamar 33.3M, Thelandor 26.1M)",
+    tags: ["continental-challenge", "imperial-shadow-recast", "vasska", "thelandor", "twitch", "tamar", "hvitar", "rowena", "frost", "poison", "optimization"],
+    summary: "Salvou 4 bosses no Continental Challenge. Twitch (Dauntless) 44M, Vasska (Frost Blitz) 40.7M, Tamar (Poison Chain) 33.3M, Thelandor (Summon) 26.1M. Total: 144.2M. Vasska 4 iteracoes, Tamar 3 iteracoes. Rank 12 (top 11-20) → 110 Shadow Amethysts. Total amethysts ~475 → Utior GARANTIDO.",
+    impact: "144.2M total em 4 bosses. Rank 12 no Continental. 475 Shadow Amethysts = Utior garantido (450 necessarios). Twitch (heroi) = DPS carry BRUTAL no Poison (62k/s). Rowena (EPIC!) provou mecanica > raridade. Hvitar justificou 300 pulls.",
+    details: `CONTINENTAL CHALLENGE SEMANA 3 (4 tickets)
+
+BOSS 1 — TWITCH: 44,012,678 (Tier S++)
+- Time: Nastjenka(cap) + DA + Sutha + Garett + Tamar
+- Dauntless puro. ~15 retries para conseguir. Todos morrem eventualmente.
+
+BOSS 2 — THELANDOR: 26,126,556 (Tier S+)
+- Time: Ladehlia(cap) + Sintrellia + Isitarian + Ghul'ende + Torrin
+- Isitarian > Zhar'loth (+22% dano). Dragon Remnant synergy com summons.
+
+BOSS 3 — VASSKA: 40,727,619 (Tier S++)
+- Time FINAL: Lossenia(cap) + Auster(DPO) + Hvitar(RoW) + Rowena(Eyeball) + Felosia(Aurelium)
+- 4 iteracoes de otimizacao:
+  (1) Hochadir+Eurion = 21.5M (baseline)
+  (2) Felosia+Eurion = 26.5M auto (+23%, survival perfeito)
+  (3) Rowena(DPO)+Felosia = 39.2M manual (sem Eurion, +83%)
+  (4) DPO→Auster + Eyeball→Rowena = 40.7M manual (+89% vs baseline)
+
+APRENDIZADOS CONTINENTAL:
+1. Isitarian > Zhar'loth em bosses de summon — DPS multiplicativo > Def Down utility
+2. Ring of Winter na Hvitar (DoT constante) > Auster (burst periodico) = mais procs ice storm
+3. DPO no heroi com ATK MAIS ALTO (Auster 8/8 > Rowena Epic) = buff mais forte pro time
+4. Eyeball no heroi com Ult MAIS FORTE (Rowena 800% Frost > Auster 520%) = mais impacto
+5. Eurion e gargalo de DPS em boss fights — substituir por DPS + shield (Felosia) = +14M
+6. 4 Frost DPS + 1 shield > 2 DPS + 2 survival quando boss nao tem one-shot
+7. Time morrendo com DPS alto (40.7M) >>> time vivo com DPS baixo (26.5M)
+8. Rowena (EPIC) com 800% Frost + ignora DEF vale slot — mecanica > raridade
+9. Artifact swap entre 2 herois (DPO↔Eyeball) = +1.5M — otimizacao importa
+10. Felosia Ult timing (30% DR + Control Immunity 10s) = janela de burst segura no manual
+
+BOSS 4 — TAMAR: 33,350,971 (Tier S+)
+- Time: Lothair + Durango + Twitch + Ergander + Oggok (Enlight aura captain)
+- Full Poison. 3 iteracoes: 24.3M → 28.7M → 33.3M (runas+gear otimizados)
+- Twitch = DPS carry BRUTAL (62k/s vs Lothair 27k/s vs Durango 13k/s)
+- Lothair+Durango morreram 4s antes do fim
+
+TOTAL SEMANA 3: 144.2M em 4 bosses (Twitch 44M + Vasska 40.7M + Tamar 33.3M + Thelandor 26.1M)`
+  },
+
+  {
+    date: "2026-03-13",
+    title: "Banner Premium Summons Necro/Ice — 300 pulls, Hvitar obtida (pity 300)",
+    tags: ["banner", "summoning", "hvitar", "ice", "frost", "s1-exclusive", "inspirations"],
+    summary: "300 pulls no Banner Premium Summons Necro/Ice. Hvitar selecionada no pity 300. 11 Legendarios no total (1 novo + 10 duplicatas = 10 inspirations). Wyrmarrow zerou.",
+    impact: "Hvitar (DI #6, AC SS, Ice/Frost) é o upgrade MAIS esperado para o time Ice. Substitui Hochadir na Frost chain. Execute <15% HP + Icewind auto + DoT = DPS massivo. Time Ice agora no nivel do AllClash ideal.",
+    details: `BANNER: Premium Summons Necro/Ice
+Selectáveis (pity 300): Hvitar, Felosia, Ghul'ende, Lelwanis
+Escolhida: HVITAR
+
+LEGENDARIOS OBTIDOS (11 total):
+- Hvitar (NOVO) — Ice/Frost S1 Exclusive, DI #6, AC SS
+- Ghul'ende (duplicata → Insp.1)
+- Felosia (duplicata → Insp.1)
+- Lucien (duplicata → Insp.1)
+- Journ (duplicata → Insp.3)
+- Errich (duplicata → Insp.3)
+- Rhash (duplicata → Insp.1)
+- Durango x2 (duplicatas → Insp.3)
+- Alphanarsy (duplicata → Insp.2)
+- Divine Ascetic (duplicata → Insp.1)
+
+RECURSOS: Wyrmarrow 0 (zerou)
+
+IMPACTO NOS TIMES:
+- Time Ice/Frost: Hochadir → Hvitar (variante AllClash agora disponivel)
+- Frost chain upgrade: Lossenia aplica → Auster tracking → Hvitar DoT+Execute (substitui detonacao do Hochadir por DPS sustentado + execute)
+- 10 novas inspirations distribuidas em herois-chave (Durango 3, Errich 3, Journ 3)
+
+PRÓXIMO PASSO: Testar Hvitar no time Ice IMEDIATAMENTE`
+  },
+
+  {
     date: "2026-03-11",
     title: "DPS Crit Loadouts: benchmark in-game + Clean Sweep para DA",
     tags: ["gear", "loadout", "divine-ascetic", "nastjenka", "ladehlia", "sutha", "benchmark"],

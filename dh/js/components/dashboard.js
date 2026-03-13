@@ -51,9 +51,13 @@ const Dashboard = {
     const mech = (typeof DATA_MECHANICS !== 'undefined' && DATA_MECHANICS) || {};
     const seasonProgress = this._renderSeasonProgress(mech);
 
+    // --- Continental Challenge ---
+    const continentalCard = this._renderContinentalChallenge(p.continental_challenge);
+
     container.appendChild(header);
     if (seasonProgress) container.appendChild(seasonProgress);
     container.appendChild(summaryGrid);
+    if (continentalCard) container.appendChild(continentalCard);
     if (calendarCard) container.appendChild(calendarCard);
     if (activeTeams) container.appendChild(activeTeams);
     container.appendChild(nextSteps);
@@ -551,6 +555,78 @@ const Dashboard = {
     container.appendChild(detailsWrapper);
 
     return container;
+  },
+
+  // --- Continental Challenge card ---
+  _renderContinentalChallenge(cc) {
+    if (!cc || !cc.bosses) return null;
+
+    const scored = cc.bosses.filter(b => b.score != null);
+    const pending = cc.bosses.filter(b => b.score == null);
+    const totalFormatted = (cc.total_score / 1e6).toFixed(1) + 'M';
+
+    // Boss rows
+    const bossRows = scored.map(b => {
+      const scoreM = (b.score / 1e6).toFixed(1) + 'M';
+      return R.el('div', { className: 'flex items-center justify-between py-1.5 border-b border-surface-hover last:border-0' }, [
+        R.el('span', { className: 'text-sm text-gray-300', textContent: b.name }),
+        R.el('span', {
+          className: 'text-sm font-bold text-gold tabular-nums cursor-pointer hover:underline',
+          textContent: scoreM,
+          onClick: () => {
+            App.navigate('teams');
+            setTimeout(() => {
+              const input = document.querySelector('#content input[type="text"]');
+              if (input) { input.value = 'continental'; input.dispatchEvent(new Event('input')); }
+            }, 100);
+          }
+        })
+      ]);
+    });
+
+    // Pending bosses
+    if (pending.length) {
+      bossRows.push(R.el('div', { className: 'flex items-center justify-between py-1.5 text-gray-600' }, [
+        R.el('span', { className: 'text-sm', textContent: pending.map(b => b.name).join(', ') }),
+        R.el('span', { className: 'text-xs', textContent: pending[0].note || 'Pendente' })
+      ]));
+    }
+
+    // Amethyst progress
+    const sa = cc.shadow_amethysts || {};
+    const rewardCost = cc.reward ? cc.reward.cost : 450;
+    const amethystPct = Math.min(100, Math.round((sa.total / rewardCost) * 100));
+
+    const amethystBar = R.el('div', { className: 'mt-3' }, [
+      R.el('div', { className: 'flex items-center justify-between mb-1' }, [
+        R.el('span', { className: 'text-xs text-gray-400', textContent: 'Shadow Amethysts' }),
+        R.el('span', { className: `text-xs font-medium ${sa.total >= rewardCost ? 'text-done' : 'text-gold'}`,
+          textContent: `${sa.total}/${rewardCost}` })
+      ]),
+      R.el('div', { className: 'w-full bg-surface-hover rounded-full h-2' }, [
+        R.el('div', {
+          className: `h-2 rounded-full transition-all ${sa.total >= rewardCost ? 'bg-done' : 'bg-gold'}`,
+          style: { width: `${amethystPct}%` }
+        })
+      ]),
+      cc.reward ? R.el('div', { className: 'flex items-center justify-between mt-1' }, [
+        R.el('span', { className: 'text-xs text-gray-500', textContent: `Recompensa: ${cc.reward.hero}` }),
+        R.badge(cc.reward.status.toUpperCase(), sa.total >= rewardCost ? 'done' : 'progress')
+      ]) : null
+    ]);
+
+    return R.card('mb-4', [
+      R.el('div', { className: 'flex items-center justify-between mb-3' }, [
+        R.el('h2', { className: 'text-lg font-semibold text-white', textContent: 'Continental Challenge' }),
+        R.el('div', { className: 'flex items-center gap-2' }, [
+          R.badge(`Rank #${cc.rank}`, 'tier-a'),
+          R.badge(totalFormatted, 'fire')
+        ])
+      ]),
+      R.el('div', { className: 'text-xs text-gray-500 mb-2', textContent: `${cc.season} \u2014 Semana ${cc.week} \u2014 ${scored.length}/${cc.bosses.length} bosses` }),
+      R.el('div', {}, bossRows),
+      amethystBar
+    ]);
   },
 
   // --- Status color helper ---

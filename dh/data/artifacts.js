@@ -300,10 +300,10 @@ window.DATA_ARTIFACTS = {
       stats: "ATK + ATK%",
       skill_name: "Harpy's Song",
       skill_description: "Passive skill +10% Damage Bonus.",
-      equippedOn: null,
-      teams: 0,
-      reason: "Interim antigo da Divine Ascetic. Foi substituido por Kui Crown (Mythic Exclusive).",
-      better_alternative: null,
+      equippedOn: 20120,
+      teams: 1,
+      reason: "Hvitar (Continental Vasska). Passive Frigid Deadland e Derivative (22%ATK DoT constante + 600%ATK Execute). +10% Damage nesse passive = amplificacao constante. ATK+ATK% stats bons para todo o kit.",
+      better_alternative: "Ring of Winter (Mythic) se Auster nao precisar. Ou Eyeball of the Giant (Ult +10% — livre pois Auster usa Ring of Winter)",
       upgrade_priority: null
     },
     {

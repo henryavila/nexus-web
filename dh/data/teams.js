@@ -1144,7 +1144,7 @@ window.DATA_TEAMS = [
       como_vencer: "FROST CHAIN: Lossenia aplica Frost massivo (undispellable com Mark of Ice Calamity) → Auster tracking arrows em TODOS com Frost → Hochadir detona Frost AoE. 3 Frost school = Frozen 5s + auto-Frozen! Torrin+Eurion = imortalidade. Permafrost = melhor afinidade do jogo (+20% ATK/HP + ACC 50 + RES 50 + DEF 200).",
       food: "Arctic Soothing Soup (Cold +5%, ATK +10%) — 4/5 Ice + 1 Necrosis (Torrin)"
     },
-    notes: "4 Ice + 1 Necrosis (Torrin) = 5 Permafrost = afinidade MAIS FORTE do jogo. Frost chain completa. Testado em Bosses/Frey/A.Battlefield. AllClash usa Hvitar (S tier) no lugar — Henry nao possui.",
+    notes: "4 Ice + 1 Necrosis (Torrin) = 5 Permafrost = afinidade MAIS FORTE do jogo. Frost chain completa. Testado em Bosses/Frey/A.Battlefield. Hvitar OBTIDA 13/Mar — upgrade MASSIVO sobre Hochadir. Testar variante AllClash (Hochadir→Hvitar) ASAP.",
     variants: [
       {
         name: "Anti-buff (Vinyara no lugar de Hochadir)",
@@ -1185,8 +1185,8 @@ window.DATA_TEAMS = [
       {
         name: "AllClash ideal (com Hvitar)",
         change: "Hochadir -> Hvitar",
-        status: "reference",
-        notes: "Hvitar (AC S, DI Queen of Ice): core Frost DPS. Nao possui — prioridade S2/S3."
+        status: "ready",
+        notes: "Hvitar (AC SS, DI #6 Queen of Ice): core Frost DPS. OBTIDA 13/Mar! Execute <15% HP + Icewind auto + DoT em Frost targets. TESTAR IMEDIATAMENTE."
       }
     ]
   },
@@ -1309,6 +1309,141 @@ window.DATA_TEAMS = [
         notes: "AllClash: Premtsa (A+) = core of any successful summoner team. Specters + explode undead AoE."
       }
     ]
+  },
+
+  // ─── CONTINENTAL CHALLENGE — THELANDOR (Necro/Summon, testado 13/Mar) ───
+  {
+    id: "continental-thelandor",
+    name: "Summon Army (Thelandor 26.1M)",
+    activity: "Continental Boss — Thelandor",
+    affinity: "Permafrost",
+    status: "active",
+    dps_result: "26,126,556",
+    score: "Tier S+ (>22M)",
+    members: [
+      { id: 23080, role: "Captain/DPS carry", notes: "Ladehlia. Shadow Demon = summon com maior ATK → bonus do boss. +24% ATK aura. Skills 8/8" },
+      { id: 24780, role: "Amplifier", notes: "Sintrellia. Clona Shadow Demon = 2 demons. Buffa ATK undead +10%" },
+      { id: 21690, role: "DPS summon", notes: "Isitarian. Dragon Remnant: +1 ataque por undead summoned (ate 3x). TOP 1 DPS do time! Substituiu Zhar'loth (+22% dano)" },
+      { id: 22310, role: "DPS/Healer", notes: "Ghul'ende. 720% AoE + Cleanse + Heal. Posicao: FRENTE canto esquerdo" },
+      { id: 20690, role: "Healer", notes: "Torrin. Heal + Dispel + Invisibilidade 10s. Skills 8/8" }
+    ],
+    bonds: "5 Necrosis (Permafrost) | 2+ Summon",
+    captain: { id: 23080, skill: "+24% ATK em todas as batalhas" },
+    mechanics: {
+      boss: "Thelandor — summon com maior ATK causa dano bonus. Curas e shields mais fortes.",
+      perigo: "Boss facil. Sem grandes ameacas se sobrevivencia esta ok.",
+      como_vencer: "LOOP: Ladehlia Shadow Demon → Sintrellia clona → 2 demons → Isitarian ganha ataques extras por cada undead = DPS multiplicativo. Ghul'ende frente (tankar + AoE). Posicao: Ghul'ende frente canto, summons frente outro canto, resto FUNDO.",
+      food: "N/A (Continental Boss nao usa food)"
+    },
+    notes: "Testado 13/Mar/2026. Score inicial com Zhar'loth (debuffer): 21.4M. Trocou Zhar'loth por Isitarian: 25.3M → 26.1M final. Isitarian Dragon Remnant synergy com summons >>> Def Down utility do Zhar'loth neste boss. Aprendizado: boss que recompensa summon ATK → maximizar SUMMONS e DPS, nao debuffs.",
+    variants: [
+      {
+        name: "Zhar'loth debuffer (inferior)",
+        change: "Isitarian -> Zhar'loth",
+        status: "tested",
+        dps_result: "21.4M",
+        notes: "Zhar'loth AoE Def Down via Witches Remains. 22% MENOS dano que Isitarian. Def Down nao compensa a perda de DPS summon."
+      }
+    ]
+  },
+
+  // ─── CONTINENTAL CHALLENGE — TWITCH (Dauntless, testado 13/Mar) ───
+  {
+    id: "continental-twitch",
+    name: "Dauntless Burst (Twitch 44M)",
+    activity: "Continental Boss — Twitch",
+    affinity: "Resplendence",
+    status: "active",
+    dps_result: "44,012,678",
+    score: "Tier S++ (>22M)",
+    members: [
+      { id: 20740, role: "Captain/DPS Carry", notes: "Nastjenka. +24% ATK aura. Feather crit burst. Thunder Deity's Spear (Mythic). Skills 8/8" },
+      { id: 23020, role: "DPS Carry", notes: "Divine Ascetic. Kui Crown (Mythic Exclusive). Obsession stacking = +15% dano" },
+      { id: 21560, role: "DPS", notes: "Sutha. Silverstar Horseshoe. ATK Speed → mais Dauntless procs" },
+      { id: 20580, role: "DPS/Amplifier", notes: "Garett. +24% Crit DMG aura (nao usada — Nastjenka captain). Thundercloud proc. Crown of the Unclean" },
+      { id: 20950, role: "Debuffer/Control", notes: "Tamar. Buff Prohibition + Attack Penalty II. Impede boss de buffar" }
+    ],
+    bonds: "5 Resplendence (+20% ATK, +20% Elemental DMG) | 3-4 Dauntless (50% Thundercloud)",
+    captain: { id: 20740, skill: "+24% ATK em todas as batalhas" },
+    mechanics: {
+      boss: "Twitch — PUNE aplicadores de debuff. Sem debuffs = burst puro.",
+      perigo: "Time INTEIRO morre eventualmente. ~15 retries pra conseguir score alto. Boss pune debuffs — Tamar e excecao (Buff Prohibition e util).",
+      como_vencer: "DAUNTLESS BURST PURO: Thundercloud procs massivos. Nastjenka feather crit carry. Sem debuffs exceto Tamar (Buff Prohibition previne boss buffs). Posicao: todos FUNDO. Retry ate RNG dar burst alto.",
+      food: "N/A (Continental Boss nao usa food)"
+    },
+    notes: "Testado 13/Mar/2026. ~15 retries. Todos morrem eventualmente (boss pune muito). 44M e o MAIOR score de todos os bosses. Dauntless e o time mais investido do Henry (Nastjenka 8/8, DA Kui Crown, Auster 8/8 etc).",
+    variants: []
+  },
+
+  // ─── CONTINENTAL CHALLENGE — VASSKA (Ice/Frost+Felosia, testado 13/Mar) ───
+  {
+    id: "continental-vasska",
+    name: "Frost Blitz (Vasska 40.7M)",
+    activity: "Continental Boss — Vasska",
+    affinity: "Permafrost",
+    status: "active",
+    dps_result: "40,727,619",
+    score: "Tier S++ (>22M)",
+    members: [
+      { id: 20920, role: "Captain/Frost Enabler", notes: "Lossenia. +24% ATK aura. Frost AoE constante (100% em TODAS skills). Mark of Ice Calamity (Mythic): 50% Frost undispellable + Cold Damage stacking +5%" },
+      { id: 21030, role: "DPS Carry / Team Buffer", notes: "Auster. Dawn Pipe Organ (Mythic): +5% do ATK dele (~5600) = ~280 ATK permanente pra TODOS ranged allies. Tracking arrows auto-target TODOS com Frost. 50% ignora 100% DEF. Skills 8/8" },
+      { id: 20120, role: "DPS Carry #1", notes: "Hvitar (DI #6, AC SS). Ring of Winter (Mythic): Frost hit → 30% ice storm AoE 300%ATK. DoT constante = procs MASSIVOS. Icewind AUTO. 22%ATK Derivative DoT + Execute <15% (600%ATK). Ult 640%+360% + 15% per Frost enemy" },
+      { id: 21290, role: "DPS Carry #3", notes: "Rowena (Epic, Frost). Eyeball of the Giant: Ult +10% Damage. Ult 800% em Frost targets (!). Passive: ignora 20-40% DEF em Frost. Battle 365% no menor HP" },
+      { id: 21390, role: "Shield Core", notes: "Felosia. Aurelium Vest (Mythic): shield → ally -10% damage. Ult: shield AoE + 30% DR + Control Immunity 10s. Passive: 15% dano recebido → shield. SEM HEAL = time morre eventualmente, mas shields sustentam tempo suficiente pra 40M+" }
+    ],
+    bonds: "5 Permafrost (+20% ATK, +20% HP, ACC 50, RES 50, DEF 200) | 4 Frost (Lossenia+Auster+Hvitar+Rowena) | 1 Support (Felosia)",
+    captain: { id: 20920, skill: "+24% ATK em todas as batalhas" },
+    mechanics: {
+      boss: "Vasska — spawna inimigos constantemente + Decrease ATK. Burst puro > Heal Reduction.",
+      perigo: "Sem healer — Felosia shields sustentam mas time MORRE eventualmente. Tradeoff aceito: DPS alto compensa.",
+      como_vencer: "FROST BLITZ (4 DPS + shield): (1) Hvitar Icewind auto → DoT constante em TODOS com Frost. (2) Lossenia Frost massivo undispellable. (3) Ring of Winter na Hvitar: DoT = procs ice storm nonstop. (4) DPO no Auster: ATK alto (8/8) buffa ~280 ATK permanente em Hvitar+Rowena+Lossenia. (5) Rowena Ult 800% em Frost + ignora 20-40% DEF. Eyeball +10% no Ult. (6) Felosia Ult = janela 30% DR + Control Immunity pra burst seguro. (7) 4 Frost school = Frozen chain maxima. MANUAL: timing Felosia Ult → burst todos os DPS Ults na janela de DR.",
+      food: "N/A (Continental Boss nao usa food)"
+    },
+    notes: "Testado 13/Mar/2026 (manual). Evolucao: Hochadir+Eurion=21.5M → Felosia+Eurion=26.5M(auto) → Rowena+Eurion=39.2M → DPO↔Eyeball swap=40.7M FINAL. Time morre (sem heal) mas DPS absurdo compensa. Aprendizados: (1) DPO no Auster (ATK alto 8/8) > DPO na Rowena (Epic). (2) Eyeball na Rowena (Ult 800%) > Eyeball no Auster. (3) 4 Frost DPS + 1 shield > 2 DPS + 2 survival. (4) Eurion era gargalo de DPS — Rowena = +14M. REF TOP GLOBAL: #1=216M (Hvitar+Lossenia+Voresh+Torrin+Fitz), #2 troca Voresh→Vidimir, #3 Hvitar+Voresh+Felosia+Lossenia+Thia. Tops usam 1 DPS + 4 support (Hvitar maxado com 100% uptime). Fitz (RARE!) = debuff sponge (absorve Decrease ATK do Vasska). Voresh = heal passivo + Buff Prohibition. Com Hvitar Insp4+Skills8/8, estrategia muda pra 1 DPS + full support.",
+    variants: [
+      {
+        name: "Safe — Felosia+Eurion (survival perfeito, auto)",
+        change: "Rowena → Eurion (Drugo Blast Jar). Auster volta pra Eyeball",
+        status: "tested",
+        dps_result: "26,537,359",
+        notes: "HP nao mexe (auto). 35% MENOS dano mas 100% survival. Usar se manual nao for opcao."
+      },
+      {
+        name: "Hochadir detonator (inferior)",
+        change: "Rowena+Felosia → Hochadir+Eurion",
+        status: "tested",
+        dps_result: "21,513,786",
+        notes: "Frost detonation nao compensa. 47% MENOS dano que Frost Blitz."
+      }
+    ]
+  },
+
+  // ─── CONTINENTAL CHALLENGE — TAMAR (Poison, testado 13/Mar) ───
+  {
+    id: "continental-tamar",
+    name: "Poison Chain (Tamar 33.3M)",
+    activity: "Continental Boss — Tamar",
+    affinity: "Ulceration",
+    status: "active",
+    dps_result: "33,350,971",
+    score: "Tier S+ (>22M)",
+    members: [
+      { id: 20200, role: "DPS Carry", notes: "Lothair. Poison feedback loop. Derivative DPS constante. Artefato: Statue of the Serpent Deity (Mythic)" },
+      { id: 20670, role: "DPS Carry", notes: "Durango. Multi-hit Poison application. Ri'kir Boomerang (Mythic). Skills 8/8" },
+      { id: 22010, role: "DPS Carry #1", notes: "Twitch. TOP DPS do time: 62k/s (vs Lothair 27k/s, Durango 13k/s). Poison feedback BRUTAL. Queen's Fan (Mythic). Posicao: ATRAS do Oggok" },
+      { id: 21010, role: "Tank/Immortal", notes: "Ergander. Taunt 5s + Immortality 10s. Ancora do time. Drugo's Blast Jar" },
+      { id: 21700, role: "Healer/Amplifier", notes: "Oggok. Bounce heal 6x. Solar King's Horn (Mythic): heal → +2% DMG stacking. Twitch posicionado ATRAS do Oggok (protege)" }
+    ],
+    bonds: "5 Ulceration (+20% ATK, +20% HP) | 3 Toxin/Poison",
+    captain: { id: null, skill: "Enlight aura (a confirmar)" },
+    mechanics: {
+      boss: "Tamar — debuff stacking escala dano. Boss recompensa times que empilham debuffs constantemente.",
+      perigo: "Twitch morreu faltando 20s. Artefatos NAO maximizados — score tem margem de crescimento.",
+      como_vencer: "POISON CHAIN: Lothair+Durango+Twitch = Poison feedback multiplicativo. Cada Poison proc gera mais procs. Ergander Taunt+Immortality ancora survival. Oggok heal + Solar King's Horn amplifica DPS do time. Boss Tamar recompensa debuff stacking = Poison e ideal.",
+      food: "N/A (Continental Boss nao usa food)"
+    },
+    notes: "Testado 13/Mar/2026 (manual). FINAL: 33.3M. Iteracao: (1) 24.3M (2) 28.7M (runas+King's Horn) (3) 33.3M (runas+gear otimizados). Twitch = DPS CARRY (62k/s, 2.3x Lothair, 4.8x Durango). Lothair+Durango morreram 4s antes do fim. Enlight aura captain. Nao usou Jathalea+Vicana por falta de gear atk+enlight.",
+    variants: []
   },
 
   // ─── TIME RADIANCE / RALLY (elemento — NOVO 26/Fev) ───

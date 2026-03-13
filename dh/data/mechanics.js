@@ -48,7 +48,7 @@ window.DATA_MECHANICS = {
       {
         name: "Banner Exclusivo (300 pulls)",
         cost: 30000,
-        note: "Unica forma de GARANTIR heroi especifico. Inacessivel F2P curto prazo"
+        note: "Unica forma de GARANTIR heroi especifico. Alto custo de Wyrmarrow"
       }
     ],
     guaranteed_sources: [
@@ -75,7 +75,7 @@ window.DATA_MECHANICS = {
       "Baus de selecao = fontes mais valiosas",
       "Acumular dice e pullar em ciclos de 70",
       "Priorizar banners onde heroi desejado e Premium",
-      "NAO perseguir 300-pull exclusive como F2P",
+      "300-pull exclusive e viavel mas caro — planejar com antecedencia",
       "Starlight Stone Dice — gastar livremente (da Epics, sem Legendary)",
       "~400 pulls gratuitos/mes / 70 pity = ~5-6 Legendarios/mes (aleatorios)"
     ],
@@ -947,8 +947,8 @@ window.DATA_MECHANICS = {
       heroes: [
         { name: "Tharivol", element: "Lightning", ac_tier: "A", hh: "3.7", has: false },
         { name: "Errich", element: "Fire", ac_tier: "A", hh: "3.6", has: true },
-        { name: "Rhash", element: "Fire", ac_tier: "SS", hh: "3.6", has: false },
-        { name: "Caspar", element: "Fire", ac_tier: "S", hh: "4.1", has: false },
+        { name: "Rhash", element: "Fire", ac_tier: "SS", hh: "3.6", has: true },
+        { name: "Caspar", element: "Fire", ac_tier: "S", hh: "4.1", has: true },
         { name: "Lossenia", element: "Ice", ac_tier: "S", hh: "4.0", has: true, source: "bau" },
         { name: "Hochadir", element: "Ice", ac_tier: "S", hh: "3.8", has: true },
         { name: "Garett", element: "Lightning", ac_tier: null, hh: "4.2", has: true, source: "bau aleatorio" },
@@ -961,7 +961,7 @@ window.DATA_MECHANICS = {
         { name: "Ladehlia", element: "Necrosis", ac_tier: "SS", hh: null, has: true },
         { name: "Sintrellia", element: "Necrosis", ac_tier: "S", hh: null, has: true, source: "outra fonte" },
         { name: "Lorentheel", element: "Radiance", ac_tier: "S", hh: "4.4", has: true, source: "banner x4" },
-        { name: "Huberg", element: "Radiance", ac_tier: "S", hh: "4.0", has: false },
+        { name: "Huberg", element: "Radiance", ac_tier: "S", hh: "4.0", has: true },
         { name: "Alfie", element: "Fire", ac_tier: "S", hh: "2.9", has: true, rarity: "Epic" }
       ]
     },
@@ -974,7 +974,7 @@ window.DATA_MECHANICS = {
         { name: "Auster", element: "Ice", ac_tier: "SS", hh: "4.5", has: true, source: "bau" },
         { name: "Premtsa", element: "Necrosis", ac_tier: "SS", hh: "3.9", has: false },
         { name: "Ivellios", element: "Lightning", ac_tier: "B", hh: "4.4", has: true },
-        { name: "Twitch", element: "Poison", ac_tier: "S", hh: "3.7", has: false },
+        { name: "Twitch", element: "Poison", ac_tier: "S", hh: "3.7", has: true },
         { name: "Philto", element: "Radiance", ac_tier: "S", hh: "4.3", has: true, source: "banner" }
       ]
     },
@@ -1155,8 +1155,8 @@ window.DATA_MECHANICS = {
       season: "S1", name: "Reborn Launch",
       schools_added: [],
       exclusive_legendaries: ["Flora", "Hvitar", "Lothair", "Nastjenka", "Thelendor", "Lelwanis"],
-      henry_targets: ["Nastjenka (DONE)", "Lothair (Day 14 confirmado)"],
-      henry_verdict: "Investir. Nastjenka = core, Lothair = Poison SS"
+      henry_targets: ["Nastjenka (DONE)", "Lothair (DONE)", "Flora (DONE)", "Hvitar (DONE 13/Mar)"],
+      henry_verdict: "Investido. Nastjenka, Lothair, Flora, Hvitar — todos obtidos via banners S1"
     },
     {
       season: "S2", name: "Misty Sea Voyage",
